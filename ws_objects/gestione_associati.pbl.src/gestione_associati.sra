@@ -118,7 +118,6 @@ integer gi_maxlenstruttura, gi_classediutenza
 
 string ragione_sociale, indirizzo, cap_citta, gs_nome_applicazione, gs_mailpath
 end variables
-
 global type gestione_associati from application
 string appname = "gestione_associati"
 string dwmessagetitle = "Gestione associati"
