@@ -1,0 +1,295 @@
+﻿$PBExportHeader$m_gestione_eventi-old.srm
+forward
+global type m_gestione_eventi-old from menu
+end type
+type m_nuovoevento from menu within m_gestione_eventi-old
+end type
+type m_modificaleventocorrente from menu within m_gestione_eventi-old
+end type
+type m_todolist from menu within m_gestione_eventi-old
+end type
+type m_- from menu within m_gestione_eventi-old
+end type
+type m_vaiaoggi from menu within m_gestione_eventi-old
+end type
+type m_-0 from menu within m_gestione_eventi-old
+end type
+type m_stampacalendarioeventi from menu within m_gestione_eventi-old
+end type
+global type m_gestione_eventi-old from menu
+m_nuovoevento m_nuovoevento
+m_modificaleventocorrente m_modificaleventocorrente
+m_todolist m_todolist
+m_- m_-
+m_vaiaoggi m_vaiaoggi
+m_-0 m_-0
+m_stampacalendarioeventi m_stampacalendarioeventi
+end type
+end forward
+
+global type m_gestione_eventi-old from menu
+m_nuovoevento m_nuovoevento
+m_modificaleventocorrente m_modificaleventocorrente
+m_todolist m_todolist
+m_- m_-
+m_vaiaoggi m_vaiaoggi
+m_-0 m_-0
+m_stampacalendarioeventi m_stampacalendarioeventi
+end type
+global m_gestione_eventi-old m_gestione_eventi-old
+
+on m_gestione_eventi-old.create
+m_gestione_eventi-old=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_nuovoevento=create m_nuovoevento
+this.m_modificaleventocorrente=create m_modificaleventocorrente
+this.m_todolist=create m_todolist
+this.m_-=create m_-
+this.m_vaiaoggi=create m_vaiaoggi
+this.m_-0=create m_-0
+this.m_stampacalendarioeventi=create m_stampacalendarioeventi
+this.Item[UpperBound(this.Item)+1]=this.m_nuovoevento
+this.Item[UpperBound(this.Item)+1]=this.m_modificaleventocorrente
+this.Item[UpperBound(this.Item)+1]=this.m_todolist
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_vaiaoggi
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_stampacalendarioeventi
+end on
+
+on m_gestione_eventi-old.destroy
+call super::destroy
+destroy(this.m_nuovoevento)
+destroy(this.m_modificaleventocorrente)
+destroy(this.m_todolist)
+destroy(this.m_-)
+destroy(this.m_vaiaoggi)
+destroy(this.m_-0)
+destroy(this.m_stampacalendarioeventi)
+end on
+
+type m_nuovoevento from menu within m_gestione_eventi-old
+end type
+
+on m_nuovoevento.create
+call super::create
+this.visible = false
+this.text = "Nuovo evento"
+this.toolbaritemvisible = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_nuovoevento.destroy
+call super::destroy
+end on
+
+type m_modificaleventocorrente from menu within m_gestione_eventi-old
+end type
+
+on m_modificaleventocorrente.create
+call super::create
+this.visible = false
+this.text = "Modifica l~'evento corrente"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_modificaleventocorrente.destroy
+call super::destroy
+end on
+
+event clicked;if w_eventi.uodw_eventi.event ue_modifica()  > 0 then
+	s_session_s.context= "Pianificazione eventi"
+	f_log(s_session_s, "Modifica l'evento corrente", true)
+end if
+end event
+
+type m_todolist from menu within m_gestione_eventi-old
+end type
+
+on m_todolist.create
+call super::create
+this.text = "To Do List"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_todolist.destroy
+call super::destroy
+end on
+
+event clicked;if w_eventi.uodw_eventi.event ue_todolist() > 0 then
+	s_session_s.context= "Pianificazione eventi"
+	f_log(s_session_s, "To do list", true)
+end if
+end event
+
+type m_- from menu within m_gestione_eventi-old
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_vaiaoggi from menu within m_gestione_eventi-old
+end type
+
+on m_vaiaoggi.create
+call super::create
+this.text = "Vai all~'evento"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vaiaoggi.destroy
+call super::destroy
+end on
+
+event clicked;if w_eventi.uodw_eventi.event ue_vaiallevento() > 0 then
+	s_session_s.context= "Pianificazione eventi"
+	f_log(s_session_s, "Vai all'evento selezionato", true)
+end if
+end event
+
+type m_-0 from menu within m_gestione_eventi-old
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_stampacalendarioeventi from menu within m_gestione_eventi-old
+end type
+
+on m_stampacalendarioeventi.create
+call super::create
+this.text = "Stampa calendario eventi"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_stampacalendarioeventi.destroy
+call super::destroy
+end on
+

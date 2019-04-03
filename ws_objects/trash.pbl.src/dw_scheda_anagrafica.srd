@@ -1,0 +1,157 @@
+﻿$PBExportHeader$dw_scheda_anagrafica.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=108 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=4744 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_codice dbname="membri_gerarchica.codice" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_nome dbname="membri_gerarchica.nome" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_citta_nas dbname="membri_gerarchica.citta_nas" )
+ column=(type=char(2) updatewhereclause=yes name=membri_gerarchica_prov_nas dbname="membri_gerarchica.prov_nas" )
+ column=(type=datetime updatewhereclause=yes name=membri_gerarchica_data_nas dbname="membri_gerarchica.data_nas" )
+ column=(type=char(3) updatewhereclause=yes name=membri_gerarchica_cod_nazione dbname="membri_gerarchica.cod_nazione" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_cod_div dbname="membri_gerarchica.cod_div" )
+ column=(type=char(120) updatewhereclause=yes name=membri_gerarchica_ind_dom dbname="membri_gerarchica.ind_dom" )
+ column=(type=char(5) updatewhereclause=yes name=membri_gerarchica_cap_dom dbname="membri_gerarchica.cap_dom" )
+ column=(type=char(6) updatewhereclause=yes name=membri_gerarchica_cod_com dbname="membri_gerarchica.cod_com" )
+ column=(type=char(3) updatewhereclause=yes name=membri_gerarchica_cod_dis dbname="membri_gerarchica.cod_dis" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_pres_da dbname="membri_gerarchica.pres_da" )
+ column=(type=datetime updatewhereclause=yes name=membri_gerarchica_data_cer dbname="membri_gerarchica.data_cer" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_luogo_cer dbname="membri_gerarchica.luogo_cer" )
+ column=(type=char(3) updatewhereclause=yes name=cod_att_ist_1 dbname="cod_att_ist_1" )
+ column=(type=char(3) updatewhereclause=yes name=cod_att_ist_2 dbname="cod_att_ist_2" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_flag_tok dbname="membri_gerarchica.flag_tok" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_flag_oma dbname="membri_gerarchica.flag_oma" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_flag_goh dbname="membri_gerarchica.flag_goh" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_flag_er dbname="membri_gerarchica.flag_er" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_vc_parent dbname="membri_gerarchica.vc_parent" )
+ column=(type=char(42) updatewhereclause=yes name=tab_comuni_comune dbname="tab_comuni.comune" )
+ column=(type=char(2) updatewhereclause=yes name=tab_comuni_provincia dbname="tab_comuni.provincia" )
+ column=(type=char(60) updatewhereclause=yes name=att_ist_descrizione dbname="att_ist.descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=att_ist_descrizione_1 dbname="att_ist.descrizione" )
+ column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_codice_1 dbname="membri_gerarchica.codice" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_cognome_1 dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_nome_1 dbname="membri_gerarchica.nome" )
+ column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_codice_fam dbname="membri_gerarchica.codice_fam" )
+ column=(type=char(116) updatewhereclause=yes name=famiglia dbname="famiglia" )
+ column=(type=char(30) updatewhereclause=yes name=professioni_descrizione dbname="professioni.descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=nazioni_descrizione dbname="nazioni.descrizione" )
+ column=(type=char(20) updatewhereclause=yes name=esami_livelli_descrizione dbname="esami_livelli.descrizione" )
+ column=(type=char(30) updatewhereclause=yes name=staff_e_resp_descrizione dbname="staff_e_resp.descrizione" )
+ column=(type=char(30) updatewhereclause=yes name=membri_stato_descrizione dbname="membri_stato.descrizione" )
+ retrieve="  SELECT membri_gerarchica_a.codice, 
+         membri_gerarchica_a.cognome,   
+         membri_gerarchica_a.nome,   
+         membri_gerarchica_a.citta_nas,   
+         membri_gerarchica_a.prov_nas,   
+         membri_gerarchica_a.data_nas,   
+         membri_gerarchica_a.cod_nazione,   
+         membri_gerarchica_a.cod_div,   
+         membri_gerarchica_a.ind_dom,   
+         membri_gerarchica_a.cap_dom,   
+         membri_gerarchica_a.cod_com,   
+         membri_gerarchica_a.cod_dis,   
+         membri_gerarchica_a.pres_da,   
+         membri_gerarchica_a.data_cer,   
+         membri_gerarchica_a.luogo_cer,   
+         membri_gerarchica_a.cod_att_ist_1,   
+         membri_gerarchica_a.cod_att_ist_2,   
+         membri_gerarchica_a.flag_tok,   
+         membri_gerarchica_a.flag_oma,   
+         membri_gerarchica_a.flag_goh,   
+         membri_gerarchica_a.flag_er,   
+         membri_gerarchica_a.vc_parent,   
+         tab_comuni.comune,   
+         tab_comuni.provincia,   
+         att_ist_a.descrizione,   
+         att_ist_b.descrizione,   
+         membri_gerarchica_b.codice,   
+         membri_gerarchica_b.cognome,   
+         membri_gerarchica_b.nome,   
+         membri_gerarchica_b.codice_fam,   
+         ~"(~"+convert(varchar(20), membri_gerarchica_b.codice)+~") - ~"+rtrim(membri_gerarchica_b.cognome)+~" ~"+rtrim(membri_gerarchica_b.nome)  famiglia  ,   
+         professioni.descrizione,   
+         nazioni.descrizione,   
+         esami_livelli.descrizione,   
+         staff_e_resp.descrizione,   
+         membri_stato.descrizione  
+    FROM membri_gerarchica membri_gerarchica_a,   
+         tab_comuni,   
+         att_ist att_ist_a,   
+         att_ist att_ist_b,   
+         membri_gerarchica membri_gerarchica_b,   
+         professioni,   
+         nazioni,   
+         esami_livelli,   
+         staff_e_resp,   
+         membri_stato  
+   WHERE ( membri_gerarchica_a.codice_fam *= membri_gerarchica_b.codice_fam) and  
+         ( membri_gerarchica_a.cod_prof *= professioni.cod_prof) and  
+         ( membri_gerarchica_a.cod_studio *= esami_livelli.cod_studio) and  
+         ( membri_gerarchica_a.codice_staff *= staff_e_resp.codice_staff) and  
+         ( membri_gerarchica_a.cod_com = tab_comuni.cod_com ) and  
+         ( membri_gerarchica_a.cod_att_ist_1 = att_ist_a.cod_att_ist ) and  
+         ( membri_gerarchica_a.cod_att_ist_2 = att_ist_b.cod_att_ist ) and  
+         ( membri_gerarchica_a.cod_nazione = nazioni.cod_nazione ) and  
+         ( membri_gerarchica_a.cod_dis = membri_stato.cod_dis ) and  
+         ( ( membri_gerarchica_a.codice = :codice ) )    
+" arguments=(("codice", string)) )
+text(band=header alignment="2" text="Scheda dati dell'Istituto Buddista Italiano Soka Gakkai" border="0" color="0" x="453" y="8" height="80" width="1865"  name=t_27  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Dati personali" border="0" color="0" x="594" y="88" height="64" width="402"  name=t_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="120" x2="562" y2="120"  name=l_2 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Aderente all'Ente Religioso:" border="0" color="0" x="270" y="952" height="64" width="727"  name=t_7  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Stato:" border="0" color="0" x="832" y="872" height="64" width="165"  name=t_8  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Dati diversi" border="0" color="0" x="672" y="2104" height="64" width="325"  name=t_9  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Divisione:" border="0" color="0" x="686" y="2228" height="64" width="311"  name=t_10  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Staff:" border="0" color="0" x="859" y="2304" height="64" width="137"  name=t_11  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Attuale organizzazione:" border="0" color="0" x="338" y="1032" height="64" width="658"  name=t_12  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Area:" border="0" color="0" x="855" y="1112" height="64" width="142"  name=t_13  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Territorio:" border="0" color="0" x="745" y="1192" height="64" width="251"  name=t_14  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Centro:" border="0" color="0" x="805" y="1272" height="64" width="192"  name=t_15  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Capitolo:" border="0" color="0" x="763" y="1352" height="64" width="233"  name=t_16  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Settore:" border="0" color="0" x="786" y="1432" height="64" width="210"  name=t_17  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Gruppo:" border="0" color="0" x="786" y="1512" height="64" width="210"  name=t_18  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Attuale responsabilità:" border="0" color="0" x="407" y="1588" height="64" width="590"  name=t_19  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Prima data di entrata:" border="0" color="0" x="425" y="1744" height="64" width="571"  name=t_20  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Attualmente titolare di Gohonzon:" border="0" color="0" x="110" y="1904" height="64" width="887"  name=t_21  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Livello di studio:" border="0" color="0" x="576" y="1988" height="64" width="421"  name=t_22  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Nucleo familiare" border="0" color="0" x="576" y="2380" height="64" width="421"  name=t_26 visible="1~tif (rowcount()= 1, 0, 1)"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Codice:" border="0" color="0" x="512" y="168" height="64" width="485"  name=t_29  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Cognome e nome:" border="0" color="0" x="512" y="248" height="64" width="485"  name=t_5  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Professione:" border="0" color="0" x="667" y="648" height="64" width="329"  name=t_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Data nascita:" border="0" color="0" x="645" y="404" height="64" width="352"  name=t_6  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="772" x2="329" y2="772"  name=l_1 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="Dati relativi all'Istituto" border="0" color="0" x="366" y="740" height="64" width="631"  name=t_2  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="2136" x2="640" y2="2136"  name=l_4 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="1024" y1="120" x2="3122" y2="120"  name=l_5 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text=" - Luogo:" border="0" color="0" x="1344" y="1744" height="64" width="233"  name=t_3  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Okatagi:" border="0" color="0" x="1019" y="1904" height="64" width="224"  name=t_23  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Omamori:" border="0" color="0" x="1559" y="1904" height="64" width="265"  name=t_24  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Tokubetsu:" border="0" color="0" x="2139" y="1904" height="64" width="293"  name=t_25  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="1024" y1="772" x2="3122" y2="772"  name=l_6 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="1015" y1="2136" x2="3113" y2="2136"  name=l_3 pen.style="0" pen.width="14" pen.color="0"  background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="1015" y="148" height="76" width="960" format="[general]"  name=membri_gerarchica_codice edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=34 alignment="0" tabsequence=0 border="0" color="0" x="1029" y="1984" height="76" width="640"  name=esami_livelli_descrizione  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=36 alignment="0" tabsequence=0 border="0" color="0" x="1019" y="864" height="76" width="960"  name=membri_stato_descrizione  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="1015" y="256" height="76" width="1920"  name=membri_gerarchica_cognome  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="2953" y="248" height="76" width="960"  name=membri_gerarchica_nome  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="1061" y="408" height="76" width="608"  name=membri_gerarchica_data_nas  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=32 alignment="0" tabsequence=0 border="0" color="0" x="1070" y="632" height="76" width="960"  name=professioni_descrizione  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=0 border="0" color="0" x="1079" y="960" height="76" width="142"  name=membri_gerarchica_flag_er  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1042" y="512" height="76" width="1920"  name=membri_gerarchica_citta_nas  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=0 border="0" color="0" x="1015" y="1592" height="76" width="197"  name=cod_att_ist_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=0 border="0" color="0" x="1298" y="1584" height="76" width="242"  name=cod_att_ist_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="0" color="0" x="1042" y="1752" height="76" width="288"  name=membri_gerarchica_data_cer  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=0 border="0" color="0" x="1627" y="1752" height="76" width="1920"  name=membri_gerarchica_luogo_cer  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=0 border="0" color="0" x="1298" y="1896" height="76" width="87"  name=membri_gerarchica_flag_goh  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=0 border="0" color="0" x="1865" y="1912" height="76" width="78"  name=membri_gerarchica_flag_oma  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=0 border="0" color="0" x="2523" y="1912" height="76" width="69"  name=membri_gerarchica_flag_tok  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="1051" y="2200" height="76" width="105"  name=membri_gerarchica_cod_div  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=35 alignment="0" tabsequence=0 border="0" color="0" x="1097" y="2296" height="76" width="960"  name=staff_e_resp_descrizione  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=31 alignment="0" tabsequence=0 border="0" color="0" x="1097" y="2392" height="76" width="3712"  name=famiglia  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=0 border="0" color="0" x="1024" y="1040" height="76" width="1061"  name=membri_gerarchica_vc_parent  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="f_descrizione_struttura( membri_gerarchica_vc_parent )"border="0" color="0" x="1029" y="1168" height="400" width="1632" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

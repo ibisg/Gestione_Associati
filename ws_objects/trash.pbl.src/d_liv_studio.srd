@@ -1,0 +1,12 @@
+﻿$PBExportHeader$d_liv_studio.srd
+release 5;
+datawindow(units=0 timer_interval=0 color=14737632 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no )
+header(height=1 color="553648127" )
+summary(height=1 color="536870912" )
+footer(height=1 color="536870912" )
+detail(height=65 color="553648127" )
+table(column=(type=char(20) updatewhereclause=yes name=descrizione dbname="liv_studio.descrizione" )
+ column=(type=char(2) updatewhereclause=yes key=yes name=cod_studio dbname="liv_studio.cod_studio" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"liv_studio~" ) COLUMN(NAME=~"liv_studio.descrizione~") COLUMN(NAME=~"liv_studio.cod_studio~")WHERE(    EXP1 =~"liv_studio.cod_studio~"   OP =~"<>~"    EXP2 =~"~~~"00~~~"~" ) ) " update="liv_studio" updatewhere=0 updatekeyinplace=no  sort="cod_studio A " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="57" width="590" format="[general]"  name=descrizione edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="1111" y="4" height="57" width="69" format="[general]"  name=cod_studio visible="1~t0" edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )

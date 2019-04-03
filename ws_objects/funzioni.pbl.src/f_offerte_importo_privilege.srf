@@ -1,0 +1,15 @@
+﻿$PBExportHeader$f_offerte_importo_privilege.srf
+global type f_offerte_importo_privilege from function_object
+end type
+
+forward prototypes
+global function boolean f_offerte_importo_privilege ()
+end prototypes
+
+global function boolean f_offerte_importo_privilege ();if s_session_s.s_utente_s.s_offerte_importo= '1' then
+	return TRUE
+else 
+	return FALSE
+end if
+end function
+

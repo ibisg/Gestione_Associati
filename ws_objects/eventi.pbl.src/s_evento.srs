@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_evento.srs
+global type s_evento from structure
+	decimal { 0 }		id
+	datetime		data_evento
+	string		cod_luogo
+	string		descrizione
+	string		turno
+	integer		tipo_evento
+	long		totale_partecipanti
+	string		cod_dip
+	string		cod_sala
+	decimal		id_esami_sessioni
+end type
+

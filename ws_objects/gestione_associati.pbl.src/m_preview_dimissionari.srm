@@ -1,0 +1,789 @@
+﻿$PBExportHeader$m_preview_dimissionari.srm
+forward
+global type m_preview_dimissionari from m_preview
+end type
+type m_1 from menu within m_preview_dimissionari
+end type
+type m_reinserisciinanagrafica from menu within m_preview_dimissionari
+end type
+type m_2 from menu within m_preview_dimissionari
+end type
+type m_visualizzaschedaanagrafica from menu within m_preview_dimissionari
+end type
+type m_visualizzastoricogohonzon from menu within m_preview_dimissionari
+end type
+type m_visualizzastoricovariazioni from menu within m_preview_dimissionari
+end type
+type m_visualizzastoricoofferte from menu within m_preview_dimissionari
+end type
+global type m_preview_dimissionari from m_preview
+m_1 m_1
+m_reinserisciinanagrafica m_reinserisciinanagrafica
+m_2 m_2
+m_visualizzaschedaanagrafica m_visualizzaschedaanagrafica
+m_visualizzastoricogohonzon m_visualizzastoricogohonzon
+m_visualizzastoricovariazioni m_visualizzastoricovariazioni
+m_visualizzastoricoofferte m_visualizzastoricoofferte
+end type
+end forward
+
+global type m_preview_dimissionari from m_preview
+m_1 m_1
+m_reinserisciinanagrafica m_reinserisciinanagrafica
+m_2 m_2
+m_visualizzaschedaanagrafica m_visualizzaschedaanagrafica
+m_visualizzastoricogohonzon m_visualizzastoricogohonzon
+m_visualizzastoricovariazioni m_visualizzastoricovariazioni
+m_visualizzastoricoofferte m_visualizzastoricoofferte
+end type
+global m_preview_dimissionari m_preview_dimissionari
+
+on m_preview_dimissionari.create
+m_preview_dimissionari=this
+call super::create
+this.text = "m_preview_dimissionari"
+this.m_1=create m_1
+this.m_reinserisciinanagrafica=create m_reinserisciinanagrafica
+this.m_2=create m_2
+this.m_visualizzaschedaanagrafica=create m_visualizzaschedaanagrafica
+this.m_visualizzastoricogohonzon=create m_visualizzastoricogohonzon
+this.m_visualizzastoricovariazioni=create m_visualizzastoricovariazioni
+this.m_visualizzastoricoofferte=create m_visualizzastoricoofferte
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_reinserisciinanagrafica
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzaschedaanagrafica
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzastoricogohonzon
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzastoricovariazioni
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzastoricoofferte
+end on
+
+on m_preview_dimissionari.destroy
+call super::destroy
+destroy(this.m_1)
+destroy(this.m_reinserisciinanagrafica)
+destroy(this.m_2)
+destroy(this.m_visualizzaschedaanagrafica)
+destroy(this.m_visualizzastoricogohonzon)
+destroy(this.m_visualizzastoricovariazioni)
+destroy(this.m_visualizzastoricoofferte)
+end on
+
+type m_aggiungi from m_preview`m_aggiungi within m_preview_dimissionari
+end type
+
+on m_aggiungi.create
+call super::create
+end on
+
+on m_aggiungi.destroy
+call super::destroy
+end on
+
+type m_inserisci from m_preview`m_inserisci within m_preview_dimissionari
+end type
+
+on m_inserisci.create
+call super::create
+end on
+
+on m_inserisci.destroy
+call super::destroy
+end on
+
+type m_rimuovi from m_preview`m_rimuovi within m_preview_dimissionari
+end type
+
+on m_rimuovi.create
+call super::create
+end on
+
+on m_rimuovi.destroy
+call super::destroy
+end on
+
+type m_salva from m_preview`m_salva within m_preview_dimissionari
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_stampa from m_preview`m_stampa within m_preview_dimissionari
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_ordina from m_preview`m_ordina within m_preview_dimissionari
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from m_preview`m_layoutdistampa within m_preview_dimissionari
+end type
+
+on m_layoutdistampa.create
+call super::create
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from m_preview`m_impostapagina within m_preview_dimissionari
+end type
+
+on m_impostapagina.create
+call super::create
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+
+type m_esporta from m_preview`m_esporta within m_preview_dimissionari
+end type
+
+on m_esporta.create
+call super::create
+end on
+
+on m_esporta.destroy
+call super::destroy
+end on
+
+type m_zoom from m_preview`m_zoom within m_preview_dimissionari
+end type
+
+on m_zoom.create
+call super::create
+end on
+
+on m_zoom.destroy
+call super::destroy
+end on
+
+type m_500% from m_preview`m_500% within m_zoom
+end type
+
+on m_500%.create
+call super::create
+end on
+
+on m_500%.destroy
+call super::destroy
+end on
+
+type m_200% from m_preview`m_200% within m_zoom
+end type
+
+on m_200%.create
+call super::create
+end on
+
+on m_200%.destroy
+call super::destroy
+end on
+
+type m_100% from m_preview`m_100% within m_zoom
+end type
+
+on m_100%.create
+call super::create
+end on
+
+on m_100%.destroy
+call super::destroy
+end on
+
+type m_75% from m_preview`m_75% within m_zoom
+end type
+
+on m_75%.create
+call super::create
+end on
+
+on m_75%.destroy
+call super::destroy
+end on
+
+type m_50% from m_preview`m_50% within m_zoom
+end type
+
+on m_50%.create
+call super::create
+end on
+
+on m_50%.destroy
+call super::destroy
+end on
+
+type m_25% from m_preview`m_25% within m_zoom
+end type
+
+on m_25%.create
+call super::create
+end on
+
+on m_25%.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_preview_dimissionari
+end type
+
+on m_1.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_reinserisciinanagrafica from menu within m_preview_dimissionari
+end type
+
+event clicked;integer li_count, li_ret
+string ls_codice, ls_id, ls_message, ls_status
+s_session ls_session_s
+s_struttura s_struttura_s
+
+s_struttura_s.vc_nodo= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "vc_parent")
+
+select count(*)
+into :li_count
+from struttura
+where
+vc_nodo= :s_struttura_s.vc_nodo;
+
+if trap_sql(sqlca, "VCNODO01") < 0 then return
+
+if li_count= 0 or isNull(li_count) then
+	
+	// non esiste il gruppo...
+	
+	messageBox( w_gestione_dimissionari.title, s_struttura_s.vc_nodo+" è inesistente, deve essere ridefinita la struttura di appartenenza.", information!)
+
+	w_gestione_dimissionari.is_assegnastruttura_s.as_struttura_s.livello= gi_maxlivello // is_assegnastruttura_s.ai_maxlivello
+	w_gestione_dimissionari.is_assegnastruttura_s.ab_abilitaincolla= false
+	w_gestione_dimissionari.is_assegnastruttura_s.ai_maxlivello= gi_maxlivello // is_assegnastruttura_s.ai_maxlivello
+	w_gestione_dimissionari.is_assegnastruttura_s.ai_ultimolivelloparent= gi_maxlivello // is_assegnastruttura_s.ai_ultimolivelloparent
+	w_gestione_dimissionari.is_assegnastruttura_s.as_ambito= gs_ambito // is_assegnastruttura_s.as_ambito
+
+	w_gestione_dimissionari.is_assegnastruttura_s.ab_abilitaincolla= false
+	
+	s_struttura_s= w_gestione_dimissionari.uodw_current.uof_struttura(w_gestione_dimissionari.is_assegnastruttura_s)
+	
+	if s_struttura_s.livello= -1 then return
+	
+	// w_gestione_dimissionari.uodw_current.setItem(w_gestione_dimissionari.uodw_current.getRow(), "vc_parent", s_struttura_s.vc_nodo) 
+	
+	//if w_gestione_dimissionari.uodw_current.uof_aggiorna() < 0 then goto errore
+	
+end if
+
+	ls_id= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "nome")+" " +w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cognome")
+
+	if messageBox( w_gestione_dimissionari.title, "I dati di "+ls_id+" verranno reinseriti nell'archivio degli associati.~nVuoi proseguire?", question!, yesNo!, 2)= 2 then return
+	
+	ls_codice= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+	ls_status= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cod_dis")
+	
+
+	insert into membri_gerarchica
+	(
+	    membri_gerarchica.codice,   
+         membri_gerarchica.codice_fam,   
+         membri_gerarchica.cognome,   
+         membri_gerarchica.nome,   
+         membri_gerarchica.citta_nas,   
+         membri_gerarchica.prov_nas,   
+         membri_gerarchica.data_nas,   
+         membri_gerarchica.cod_nazione,   
+         membri_gerarchica.cod_cittadinanza,   
+         membri_gerarchica.cod_div,   
+         membri_gerarchica.ind_dom,   
+         membri_gerarchica.cap_dom,   
+         membri_gerarchica.cod_com,   
+         membri_gerarchica.cod_prof,   
+         membri_gerarchica.pres_da,   
+         membri_gerarchica.data_cer,   
+         membri_gerarchica.luogo_cer,   
+         membri_gerarchica.cod_att_ist_1,   
+         membri_gerarchica.cod_att_ist_2,   
+         membri_gerarchica.codice_staff,   
+         membri_gerarchica.cod_studio,   
+         membri_gerarchica.cod_dis,   
+         membri_gerarchica.u_insert,   
+         membri_gerarchica.d_insert,   
+         membri_gerarchica.u_ult_mod,   
+         membri_gerarchica.d_ult_mod,   
+         membri_gerarchica.vc_parent,   
+         membri_gerarchica.vc_gruppoentrata,   
+         membri_gerarchica.codice_fiscale,
+			membri_gerarchica.flag_ldr,
+			membri_gerarchica.flag_npa,
+			membri_gerarchica.flag_consulta,
+			membri_gerarchica.flag_cdf,
+			membri_gerarchica..flag_cn,
+			membri_gerarchica.flag_auditore_consulta,
+			membri_gerarchica.flag_ministro_culto,
+			membri_gerarchica.flag_respreg,
+			membri_gerarchica.flag_studente,
+			membri_gerarchica.studenti_cod_area,
+			membri_gerarchica.studenti_cod_regione,
+			membri_gerarchica.studenti_id_ateneo,
+			membri_gerarchica.flag_rappreg,
+			membri_gerarchica.flag_adesione_staff
+	)
+	 SELECT 
+	    membri_dim.codice,   
+         membri_dim.codice_fam,   
+         membri_dim.cognome,   
+         membri_dim.nome,   
+         membri_dim.citta_nas,   
+         membri_dim.prov_nas,   
+         membri_dim.data_nas,   
+         membri_dim.cod_nazione,   
+         membri_dim.cod_cittadinanza,   
+         membri_dim.cod_div,   
+         membri_dim.ind_dom,   
+         membri_dim.cap_dom,   
+         membri_dim.cod_com,   
+         membri_dim.cod_prof,   
+         membri_dim.pres_da,   
+         membri_dim.data_cer,   
+         membri_dim.luogo_cer,   
+         membri_dim.cod_att_ist_1,   
+         membri_dim.cod_att_ist_2,   
+         membri_dim.codice_staff,   
+         membri_dim.cod_studio,   
+         'MEM',   
+         membri_dim.u_insert,   
+         membri_dim.d_insert,   
+         membri_dim.u_ult_mod,   
+         membri_dim.d_ult_mod,   
+         :s_struttura_s.vc_nodo,   
+         membri_dim.vc_gruppoentrata,   			
+	    membri_dim.codice_fiscale,
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '0',
+		 '00',
+		 '00',
+		 0,
+		 '0',
+		 '0'
+		 
+	from membri_dim where codice= :ls_codice;		
+	
+	if trap_sql(sqlca, "REINSDIM01.1") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into esami_curr
+	SELECT
+			codice,   
+			cod_studio,   
+			data_esame,   
+			esito,   
+			voto,   
+			soglia,   
+			note,
+			id_esami_sessioni
+	FROM esami_curr_dim
+	where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.2") < 0 then 
+		li_ret= 1
+		goto errore 
+
+	end if
+	
+	insert into gohonzon_storico
+	select
+		codice,   
+		tipo_goh,   
+		data,   
+		luogo,   
+		cod_causale,   
+		note,
+		u_ult_mod,
+		d_ult_mod 
+	from gohonzon_storico_dim
+	where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.3") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into riferimenti
+	select
+		codice,
+		cod_rif,
+		riferimento_descr,
+		predefinito,
+		note,
+		flag_riservato
+	from riferimenti_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.4") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into storico_resp
+	select * from storico_resp_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.5") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into offerte
+	 SELECT
+         offerte_dim.codice,   
+         offerte_dim.data,   
+         offerte_dim.data_ec,   
+         offerte_dim.importo,   
+         offerte_dim.modalita_vers,   
+         offerte_dim.dip_op,   
+         offerte_dim.registrato_da,   
+         offerte_dim.cancellata,   
+         offerte_dim.sessione_id,   
+         offerte_dim.data_ins,   
+         offerte_dim.valuta  
+    	FROM offerte_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.6") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into zaimu
+	 SELECT zaimu_dim.num,
+         zaimu_dim.codice,   
+         zaimu_dim.importo_lire,   
+         zaimu_dim.data,   
+         zaimu_dim.data_ec,   
+         zaimu_dim.importo  
+    	FROM zaimu_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSDIM01.7") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	if ls_status= 'DIM' then
+		ls_message= "Revocata la posizione DIM a: "+ls_codice+" - "+ls_id
+	else
+		ls_message= "Revocata la posizione NOP a: "+ls_codice+" - "+ls_id
+	end if
+	
+	ls_session_s.context= "Gestione dimissionari e non praticanti"
+	ls_session_s.causale= "STATUS"
+	ls_session_s.status_src= ls_status
+	ls_session_s.status_tgt= 'MEM'
+	ls_session_s.codice= ls_codice
+	ls_session_s.tipo_variazione_src= "DA-"+ls_status		
+	ls_session_s.tipo_variazione_tgt= "A-MEM"	
+	
+	f_log(ls_session_s, ls_message, false)	
+	
+	//w_gestione_dimissionari.uodw_current.deleteRow(0)
+	
+	delete from membri_dim where codice=  :ls_codice;
+	
+	if trap_sql(sqlca, "DELDIM01") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	//if w_gestione_dimissionari.uodw_current.uof_aggiorna() < 0 then goto errore
+	
+	commit;
+	
+	if trap_sql(sqlca, "INSDIM01") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	 w_gestione_dimissionari.uodw_current.retrieve()
+	
+	return
+	
+	errore:
+	
+	if sqlca.sqlcode < 0 then
+		
+		rollback;
+		trap_sql(sqlca, "DELDIM02")
+		
+		return
+		
+	end if		
+
+
+
+end event
+
+on m_reinserisciinanagrafica.create
+call super::create
+this.text = "Reinserisci in anagrafica"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_reinserisciinanagrafica.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_preview_dimissionari
+end type
+
+on m_2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+type m_visualizzaschedaanagrafica from menu within m_preview_dimissionari
+end type
+
+on m_visualizzaschedaanagrafica.create
+call super::create
+this.text = "Visualizza scheda anagrafica"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzaschedaanagrafica.destroy
+call super::destroy
+end on
+
+event clicked;s_preview s_preview_s
+
+setpointer(hourGlass!)
+
+s_preview_s.criterio= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_preview_s.dataObject= "dw_scheda_anagrafica_dim"
+s_preview_s.doretrieve= true
+s_preview_s.ib_anteprima= true
+
+openWithParm(w_preview, s_preview_s)		
+end event
+
+type m_visualizzastoricogohonzon from menu within m_preview_dimissionari
+end type
+
+event clicked;s_preview s_preview_s
+
+s_riferimenti s_riferimenti_s
+
+s_riferimenti_s.codice=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_riferimenti_s.status=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cod_dis")
+
+setpointer(hourGlass!)
+
+openWithParm(w_storico_gohonzon, s_riferimenti_s)
+
+end event
+
+on m_visualizzastoricogohonzon.create
+call super::create
+this.text = "Visualizza storico Gohonzon"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzastoricogohonzon.destroy
+call super::destroy
+end on
+
+type m_visualizzastoricovariazioni from menu within m_preview_dimissionari
+end type
+
+event clicked;s_preview s_preview_s
+
+s_riferimenti s_riferimenti_s
+
+s_riferimenti_s.codice=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_riferimenti_s.status=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cod_dis")
+
+setpointer(hourGlass!)
+
+openWithParm(w_storico_variazioni, s_riferimenti_s)
+end event
+
+on m_visualizzastoricovariazioni.create
+call super::create
+this.text = "Visualizza storico variazioni"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzastoricovariazioni.destroy
+call super::destroy
+end on
+
+type m_visualizzastoricoofferte from menu within m_preview_dimissionari
+end type
+
+event clicked;s_riferimenti s_riferimenti_s
+
+s_riferimenti_s.codice=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_riferimenti_s.status=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cod_dis")
+
+setpointer(hourGlass!)
+
+openWithParm(w_info_dim_fs, s_riferimenti_s)
+end event
+
+on m_visualizzastoricoofferte.create
+call super::create
+this.text = "Visualizza storico offerte"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzastoricoofferte.destroy
+call super::destroy
+end on
+

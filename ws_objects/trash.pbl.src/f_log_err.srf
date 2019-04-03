@@ -1,0 +1,35 @@
+﻿$PBExportHeader$f_log_err.srf
+global type f_log_err from function_object
+end type
+
+forward prototypes
+global subroutine f_log_err (string ls_context, string ls_msg)
+end prototypes
+
+global subroutine f_log_err (string ls_context, string ls_msg);int li_ret
+string ls_logid, ls_time
+datetime ldt_time
+
+ldt_time = datetime ( today ( ), now ( ) )
+ls_time = string ( ldt_time, "dd/mm/yyyy hh:mm:ss" )
+ls_logid = sqlca.LogId
+
+ls_msg = mid ( ls_msg, 1 , 255 )
+
+logfile = FileOpen ( str_ini.v_filename, LineMode!, Write!, Shared!, Append! )
+
+if logfile = -1 then
+	MessageBox ( "Attenzione", "Impossibile aprire o creare file '" + str_ini.v_filename + "'", exclamation! )
+	return
+end if
+
+li_ret = FileWrite ( logfile, ls_time + " - " + ls_logid + " - " + gs_host + lfeed + &
+							ls_context + " - " + ls_msg + lfeed )
+
+if li_ret = -1 then MessageBox ( "Attenzione", "Impossibile scrivere su file '" + str_ini.v_filename + "'", exclamation! )
+
+
+return
+
+end subroutine
+

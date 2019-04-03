@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_connect_par.srs
+global type s_connect_par from structure
+	string		dbms
+	string		database
+	string		server
+	string		dbtype
+end type
+

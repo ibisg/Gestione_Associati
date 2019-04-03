@@ -1,0 +1,271 @@
+﻿$PBExportHeader$m_stampe_gen_diplomi.srm
+forward
+global type m_stampe_gen_diplomi from m_stampe_gen_labels
+end type
+end forward
+
+global type m_stampe_gen_diplomi from m_stampe_gen_labels
+end type
+global m_stampe_gen_diplomi m_stampe_gen_diplomi
+
+on m_stampe_gen_diplomi.create
+m_stampe_gen_diplomi=this
+call super::create
+end on
+
+on m_stampe_gen_diplomi.destroy
+call super::destroy
+end on
+
+type m_principale from m_stampe_gen_labels`m_principale within m_stampe_gen_diplomi
+end type
+
+on m_principale.create
+call super::create
+end on
+
+on m_principale.destroy
+call super::destroy
+end on
+
+type m_ricerca from m_stampe_gen_labels`m_ricerca within m_principale
+end type
+
+on m_ricerca.create
+call super::create
+end on
+
+on m_ricerca.destroy
+call super::destroy
+end on
+
+type m_stop from m_stampe_gen_labels`m_stop within m_principale
+end type
+
+on m_stop.create
+call super::create
+end on
+
+on m_stop.destroy
+call super::destroy
+end on
+
+type m_- from m_stampe_gen_labels`m_- within m_principale
+end type
+
+on m_-.create
+call super::create
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_salvacome from m_stampe_gen_labels`m_salvacome within m_principale
+end type
+
+on m_salvacome.create
+call super::create
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_stampa from m_stampe_gen_labels`m_stampa within m_principale
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_ordina from m_stampe_gen_labels`m_ordina within m_principale
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-0 from m_stampe_gen_labels`m_-0 within m_principale
+end type
+
+on m_-0.create
+call super::create
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_filtra from m_stampe_gen_labels`m_filtra within m_principale
+end type
+
+on m_filtra.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_filtra.destroy
+call super::destroy
+end on
+
+type m_-16 from m_stampe_gen_labels`m_-16 within m_principale
+end type
+
+on m_-16.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_-16.destroy
+call super::destroy
+end on
+
+type m_-17 from m_stampe_gen_labels`m_-17 within m_principale
+end type
+
+on m_-17.create
+call super::create
+end on
+
+on m_-17.destroy
+call super::destroy
+end on
+
+type m_selezionatutto from m_stampe_gen_labels`m_selezionatutto within m_principale
+end type
+
+on m_selezionatutto.create
+call super::create
+end on
+
+on m_selezionatutto.destroy
+call super::destroy
+end on
+
+type m_-2 from m_stampe_gen_labels`m_-2 within m_principale
+end type
+
+on m_-2.create
+call super::create
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_generaetichette from m_stampe_gen_labels`m_generaetichette within m_principale
+end type
+
+on m_generaetichette.create
+call super::create
+this.text = "Genera diplomi"
+end on
+
+on m_generaetichette.destroy
+call super::destroy
+end on
+
+event m_generaetichette::clicked;parentwindow.triggerEvent("ue_diplomi")
+end event
+
+type m_mailinglist from m_stampe_gen_labels`m_mailinglist within m_principale
+end type
+
+on m_mailinglist.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_mailinglist.destroy
+call super::destroy
+end on
+
+type m_pagine from m_stampe_gen_labels`m_pagine within m_stampe_gen_diplomi
+end type
+
+on m_pagine.create
+call super::create
+end on
+
+on m_pagine.destroy
+call super::destroy
+end on
+
+type m_prima from m_stampe_gen_labels`m_prima within m_pagine
+end type
+
+on m_prima.create
+call super::create
+end on
+
+on m_prima.destroy
+call super::destroy
+end on
+
+type m_prec from m_stampe_gen_labels`m_prec within m_pagine
+end type
+
+on m_prec.create
+call super::create
+end on
+
+on m_prec.destroy
+call super::destroy
+end on
+
+type m_succ from m_stampe_gen_labels`m_succ within m_pagine
+end type
+
+on m_succ.create
+call super::create
+end on
+
+on m_succ.destroy
+call super::destroy
+end on
+
+type m_ultima from m_stampe_gen_labels`m_ultima within m_pagine
+end type
+
+on m_ultima.create
+call super::create
+end on
+
+on m_ultima.destroy
+call super::destroy
+end on
+
+type m_finestra from m_stampe_gen_labels`m_finestra within m_stampe_gen_diplomi
+end type
+
+on m_finestra.create
+call super::create
+end on
+
+on m_finestra.destroy
+call super::destroy
+end on
+
+type m_chiudi from m_stampe_gen_labels`m_chiudi within m_finestra
+end type
+
+on m_chiudi.create
+call super::create
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+

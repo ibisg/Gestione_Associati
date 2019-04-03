@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_var_budget.srs
+global type s_var_budget from structure
+	string		operatore
+	string		esercizio
+	integer		tipo_operazione
+	datetime		data
+	decimal {0}	importo
+	string		descrizione_operazione
+end type
+

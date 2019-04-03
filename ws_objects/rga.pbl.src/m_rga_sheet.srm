@@ -1,0 +1,170 @@
+﻿$PBExportHeader$m_rga_sheet.srm
+forward
+global type m_rga_sheet from menu
+end type
+type m_accettazionerichiestedivariazione from menu within m_rga_sheet
+end type
+type m_centromessaggi from menu within m_rga_sheet
+end type
+type m_esci from menu within m_rga_sheet
+end type
+global type m_rga_sheet from menu
+m_accettazionerichiestedivariazione m_accettazionerichiestedivariazione
+m_centromessaggi m_centromessaggi
+m_esci m_esci
+end type
+end forward
+
+global type m_rga_sheet from menu
+m_accettazionerichiestedivariazione m_accettazionerichiestedivariazione
+m_centromessaggi m_centromessaggi
+m_esci m_esci
+end type
+global m_rga_sheet m_rga_sheet
+
+on m_rga_sheet.create
+m_rga_sheet=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_accettazionerichiestedivariazione=create m_accettazionerichiestedivariazione
+this.m_centromessaggi=create m_centromessaggi
+this.m_esci=create m_esci
+this.Item[UpperBound(this.Item)+1]=this.m_accettazionerichiestedivariazione
+this.Item[UpperBound(this.Item)+1]=this.m_centromessaggi
+this.Item[UpperBound(this.Item)+1]=this.m_esci
+end on
+
+on m_rga_sheet.destroy
+call super::destroy
+destroy(this.m_accettazionerichiestedivariazione)
+destroy(this.m_centromessaggi)
+destroy(this.m_esci)
+end on
+
+type m_accettazionerichiestedivariazione from menu within m_rga_sheet
+end type
+
+event clicked; m_rga_sheet.m_centromessaggi.enabled= false
+ m_rga_sheet.m_centromessaggi.toolbaritemvisible=false
+ 
+if w_rga_membri_sheet.event e_accettazione()= 0 then
+	m_rga_sheet.m_centromessaggi.enabled= true
+	m_rga_sheet.m_centromessaggi.toolbaritemvisible=true
+end if
+end event
+
+on m_accettazionerichiestedivariazione.create
+call super::create
+this.text = "Accettazione richieste di variazione~tF1"
+this.shortcut = 112
+this.microhelp = "Accettazione richieste di variazione"
+this.toolbaritemname = "custom020!"
+this.toolbaritemtext = "Accettazione richieste di variazione"
+this.toolbaritembarindex = 0
+this.menuimage = "Custom020!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_accettazionerichiestedivariazione.destroy
+call super::destroy
+end on
+
+type m_centromessaggi from menu within m_rga_sheet
+end type
+
+event clicked;w_rga_membri_sheet.event e_messaggi()
+end event
+
+on m_centromessaggi.create
+call super::create
+this.text = "Centro messaggi"
+this.enabled = false
+this.microhelp = "Centro messaggi"
+this.toolbaritemname = "custom025!"
+this.toolbaritemtext = "Centro messaggi"
+this.toolbaritembarindex = 0
+this.menuimage = "Custom025!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_centromessaggi.destroy
+call super::destroy
+end on
+
+type m_esci from menu within m_rga_sheet
+end type
+
+on m_esci.create
+call super::create
+this.text = "Chiudi"
+this.microhelp = "Chiudi"
+this.toolbaritemname = "close!"
+this.toolbaritemtext = "Chiudi"
+this.toolbaritembarindex = 0
+this.menuimage = "Exit!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_esci.destroy
+call super::destroy
+end on
+
+event clicked;close(parentWindow)
+end event
+

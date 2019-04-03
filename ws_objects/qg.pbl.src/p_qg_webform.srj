@@ -1,0 +1,22 @@
+﻿$PBExportHeader$p_qg_webform.srj
+$PBExportComments$Generated .Net Web Form Application Project
+GeneratorID:{B2862E0E-86F1-493e-85A0-173B0DE22A37}GENBC00000000
+VirtualDirectoryName:qg
+TargetName:qg.pbt
+IsFullBuild:0
+BuildSetupFile:0
+SetupFileName:qg.msi
+ServerName:localhost
+InitialCurrentDirectory:C:\svil_11\Gestione_Associati
+CommandLineParameters:
+WebWindowStyle:0
+UseIISDefaultDirectory:1
+DeployDestination:
+RenderFileManagerIcon:0
+RenderMailManagerIcon:0
+ResourceFiles:0
+AssemblyFiles:0
+PBLibraryFiles:1
+qg.pbl
+JavaScriptFiles:0
+Win32DllFiles:0

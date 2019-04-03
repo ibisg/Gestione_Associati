@@ -1,0 +1,423 @@
+﻿$PBExportHeader$m_stampe_gen.srm
+forward
+global type m_stampe_gen from menu
+end type
+type m_principale from menu within m_stampe_gen
+end type
+type m_ricerca from menu within m_principale
+end type
+type m_stop from menu within m_principale
+end type
+type m_- from menu within m_principale
+end type
+type m_salvacome from menu within m_principale
+end type
+type m_stampa from menu within m_principale
+end type
+type m_ordina from menu within m_principale
+end type
+type m_-0 from menu within m_principale
+end type
+type m_filtra from menu within m_principale
+end type
+type m_principale from menu within m_stampe_gen
+m_ricerca m_ricerca
+m_stop m_stop
+m_- m_-
+m_salvacome m_salvacome
+m_stampa m_stampa
+m_ordina m_ordina
+m_-0 m_-0
+m_filtra m_filtra
+end type
+type m_pagine from menu within m_stampe_gen
+end type
+type m_prima from menu within m_pagine
+end type
+type m_prec from menu within m_pagine
+end type
+type m_succ from menu within m_pagine
+end type
+type m_ultima from menu within m_pagine
+end type
+type m_pagine from menu within m_stampe_gen
+m_prima m_prima
+m_prec m_prec
+m_succ m_succ
+m_ultima m_ultima
+end type
+type m_finestra from menu within m_stampe_gen
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_stampe_gen
+m_chiudi m_chiudi
+end type
+global type m_stampe_gen from menu
+m_principale m_principale
+m_pagine m_pagine
+m_finestra m_finestra
+end type
+end forward
+
+global type m_stampe_gen from menu
+m_principale m_principale
+m_pagine m_pagine
+m_finestra m_finestra
+end type
+global m_stampe_gen m_stampe_gen
+
+type variables
+
+end variables
+
+on m_stampe_gen.create
+m_stampe_gen=this
+call super::create
+this.m_principale=create m_principale
+this.m_pagine=create m_pagine
+this.m_finestra=create m_finestra
+this.Item[UpperBound(this.Item)+1]=this.m_principale
+this.Item[UpperBound(this.Item)+1]=this.m_pagine
+this.Item[UpperBound(this.Item)+1]=this.m_finestra
+end on
+
+on m_stampe_gen.destroy
+call super::destroy
+destroy(this.m_principale)
+destroy(this.m_pagine)
+destroy(this.m_finestra)
+end on
+
+type m_principale from menu within m_stampe_gen
+m_ricerca m_ricerca
+m_stop m_stop
+m_- m_-
+m_salvacome m_salvacome
+m_stampa m_stampa
+m_ordina m_ordina
+m_-0 m_-0
+m_filtra m_filtra
+end type
+
+on m_principale.create
+call super::create
+this.text = "&1.Principale"
+this.m_ricerca=create m_ricerca
+this.m_stop=create m_stop
+this.m_-=create m_-
+this.m_salvacome=create m_salvacome
+this.m_stampa=create m_stampa
+this.m_ordina=create m_ordina
+this.m_-0=create m_-0
+this.m_filtra=create m_filtra
+this.Item[UpperBound(this.Item)+1]=this.m_ricerca
+this.Item[UpperBound(this.Item)+1]=this.m_stop
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_salvacome
+this.Item[UpperBound(this.Item)+1]=this.m_stampa
+this.Item[UpperBound(this.Item)+1]=this.m_ordina
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_filtra
+end on
+
+on m_principale.destroy
+call super::destroy
+destroy(this.m_ricerca)
+destroy(this.m_stop)
+destroy(this.m_-)
+destroy(this.m_salvacome)
+destroy(this.m_stampa)
+destroy(this.m_ordina)
+destroy(this.m_-0)
+destroy(this.m_filtra)
+end on
+
+type m_ricerca from menu within m_principale
+end type
+
+on m_ricerca.create
+call super::create
+this.text = "Ricer&ca~tAlt+C"
+this.shortcut = 579
+this.toolbaritemname = "Retrieve!"
+this.toolbaritemtext = "Ricerca/estrazione"
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "query_start" )
+
+end event
+
+on m_ricerca.destroy
+call super::destroy
+end on
+
+type m_stop from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "stop" )
+
+end event
+
+on m_stop.create
+call super::create
+this.text = "Stop~tAlt+S"
+this.enabled = false
+this.shortcut = 595
+this.toolbaritemname = "RetrieveCancel!"
+this.toolbaritemtext = "Interrompi estrazione"
+end on
+
+on m_stop.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_principale
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_salvacome from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "ue_salva_come" )
+end event
+
+on m_salvacome.create
+call super::create
+this.text = "Salva come"
+this.enabled = false
+this.microhelp = "Salva i dati su file"
+this.toolbaritemname = "Custom008!"
+this.toolbaritemtext = "Salva come"
+this.toolbaritemspace = 1
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_stampa from menu within m_principale
+end type
+
+on m_stampa.create
+call super::create
+this.text = "Stam&pa~tAlt+P"
+this.enabled = false
+this.shortcut = 592
+this.toolbaritemname = "Print!"
+this.toolbaritemtext = "Stampa"
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "stampa" )
+
+end event
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_ordina from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "ordina" )
+
+end event
+
+on m_ordina.create
+call super::create
+this.text = "&Ordina~tAlt+O"
+this.enabled = false
+this.shortcut = 591
+this.toolbaritemname = "Sort!"
+this.toolbaritemtext = "Ordina"
+this.toolbaritemspace = 1
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_principale
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_filtra from menu within m_principale
+end type
+
+on m_filtra.create
+call super::create
+this.text = "Filtra"
+this.enabled = false
+this.toolbaritemname = "Group!"
+this.toolbaritemtext = "Filtra secondo la causale"
+end on
+
+on m_filtra.destroy
+call super::destroy
+end on
+
+event clicked;open(w_filtra_causali)
+end event
+
+type m_pagine from menu within m_stampe_gen
+m_prima m_prima
+m_prec m_prec
+m_succ m_succ
+m_ultima m_ultima
+end type
+
+on m_pagine.create
+call super::create
+this.text = "&2.Pagine"
+this.m_prima=create m_prima
+this.m_prec=create m_prec
+this.m_succ=create m_succ
+this.m_ultima=create m_ultima
+this.Item[UpperBound(this.Item)+1]=this.m_prima
+this.Item[UpperBound(this.Item)+1]=this.m_prec
+this.Item[UpperBound(this.Item)+1]=this.m_succ
+this.Item[UpperBound(this.Item)+1]=this.m_ultima
+end on
+
+on m_pagine.destroy
+call super::destroy
+destroy(this.m_prima)
+destroy(this.m_prec)
+destroy(this.m_succ)
+destroy(this.m_ultima)
+end on
+
+type m_prima from menu within m_pagine
+end type
+
+on m_prima.create
+call super::create
+this.text = "Prima"
+this.enabled = false
+this.toolbaritemname = "VCRFirst!"
+this.toolbaritemtext = "Prima pagina"
+this.toolbaritemorder = 5
+this.toolbaritemspace = 2
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "f_page" )
+
+end event
+
+on m_prima.destroy
+call super::destroy
+end on
+
+type m_prec from menu within m_pagine
+end type
+
+on m_prec.create
+call super::create
+this.text = "Precedente"
+this.enabled = false
+this.toolbaritemname = "VCRPrior!"
+this.toolbaritemtext = "Pagina precedente"
+this.toolbaritemorder = 6
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "p_page" )
+
+end event
+
+on m_prec.destroy
+call super::destroy
+end on
+
+type m_succ from menu within m_pagine
+end type
+
+on m_succ.create
+call super::create
+this.text = "Successiva"
+this.enabled = false
+this.toolbaritemname = "VCRNext!"
+this.toolbaritemtext = "Pagina successiva"
+this.toolbaritemorder = 7
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "n_page" )
+
+end event
+
+on m_succ.destroy
+call super::destroy
+end on
+
+type m_ultima from menu within m_pagine
+end type
+
+on m_ultima.create
+call super::create
+this.text = "Ultima"
+this.enabled = false
+this.toolbaritemname = "VCRLast!"
+this.toolbaritemtext = "Ultima pagina"
+this.toolbaritemorder = 8
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "l_page" )
+
+end event
+
+on m_ultima.destroy
+call super::destroy
+end on
+
+type m_finestra from menu within m_stampe_gen
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+call super::create
+this.text = "&3.Finestra"
+this.m_chiudi=create m_chiudi
+this.Item[UpperBound(this.Item)+1]=this.m_chiudi
+end on
+
+on m_finestra.destroy
+call super::destroy
+destroy(this.m_chiudi)
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+on m_chiudi.create
+call super::create
+this.text = "Chiudi~tF10"
+this.shortcut = 121
+this.toolbaritemname = "Custom009!"
+this.toolbaritemtext = "Chiudi finestra"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 2
+end on
+
+event clicked;close ( ParentWindow )
+
+end event
+
+on m_chiudi.destroy
+call super::destroy
+end on
+

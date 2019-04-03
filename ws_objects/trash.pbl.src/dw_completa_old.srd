@@ -1,0 +1,167 @@
+﻿$PBExportHeader$dw_completa_old.srd
+$PBExportComments$Report:lista membri completa
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 80 print.margin.right = 80 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=464 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=180 color="536870912"  height.autosize=yes)
+table(column=(type=char(60) updatewhereclause=yes name=vc_parent dbname="membri_gerarchica.vc_parent" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=codice dbname="membri_gerarchica.codice" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=nome dbname="membri_gerarchica.nome" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cod_div dbname="membri_gerarchica.cod_div" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=cap_dom dbname="membri_gerarchica.cap_dom" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=cod_com dbname="membri_gerarchica.cod_com" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=cod_prof dbname="membri_gerarchica.cod_prof" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=pres_da dbname="membri_gerarchica.pres_da" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_cer dbname="membri_gerarchica.data_cer" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=luogo_cer dbname="membri_gerarchica.luogo_cer" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=cod_att_ist_1 dbname="cod_att_ist_1" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=cod_att_ist_2 dbname="cod_att_ist_2" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=cod_studio dbname="membri_gerarchica.cod_studio" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=cod_dis dbname="membri_gerarchica.cod_dis" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=flag_goh dbname="membri_gerarchica.flag_goh" values="Si	S/No	N/Fam.	F/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=flag_tok dbname="membri_gerarchica.flag_tok" values="Si	S/No	N/Fam.	F/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=flag_oma dbname="membri_gerarchica.flag_oma" values="Si	S/No	N/Fam.	F/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=flag_er dbname="membri_gerarchica.flag_er" values="Aderente all'E.R.	S/Aderente all'E.R.	N" )
+ column=(type=char(42) updatewhereclause=yes name=comune dbname="tab_comuni.comune" )
+ column=(type=char(2) updatewhereclause=yes name=provincia dbname="tab_comuni.provincia" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_livelli_descrizione dbname="struttura_livelli.descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_descrizione dbname="struttura.descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_vc_nodo dbname="struttura.vc_nodo" )
+ column=(type=char(120) updatewhereclause=yes name=ind_dom dbname="membri_gerarchica.ind_dom" )
+ column=(type=char(1) updatewhereclause=yes name=csintetica dbname="compute_0026" values="Sintetica	1/Sintetica	0" )
+ column=(type=datetime updatewhereclause=yes name=data_nas dbname="membri_gerarchica.data_nas" )
+ column=(type=char(60) updatewhereclause=yes name=luogo_nas dbname="membri_gerarchica.citta_nas" )
+ retrieve="SELECT  membri_gerarchica.vc_parent ,
+           membri_gerarchica.codice ,
+           membri_gerarchica.cognome ,
+           membri_gerarchica.nome ,
+           membri_gerarchica.cod_div ,
+           membri_gerarchica.cap_dom ,
+           membri_gerarchica.cod_com ,
+           membri_gerarchica.cod_prof ,
+           membri_gerarchica.pres_da ,
+           membri_gerarchica.data_cer ,
+           membri_gerarchica.luogo_cer ,
+           membri_gerarchica.cod_att_ist_1 ,
+           membri_gerarchica.cod_att_ist_2 ,
+           membri_gerarchica.cod_studio ,
+           membri_gerarchica.cod_dis ,
+           membri_gerarchica.flag_goh ,
+           membri_gerarchica.flag_tok ,
+           membri_gerarchica.flag_oma ,
+           membri_gerarchica.flag_er ,
+           tab_comuni.comune ,
+           tab_comuni.provincia ,
+           struttura_livelli.descrizione ,
+           struttura.descrizione ,
+           struttura.vc_nodo ,
+           membri_gerarchica.ind_dom ,
+           ~"1~",
+           membri_gerarchica.data_nas ,
+           membri_gerarchica.citta_nas     
+        FROM membri_gerarchica ,
+           tab_comuni ,
+           struttura_livelli ,
+           struttura     
+        WHERE ( membri_gerarchica.cod_com = tab_comuni.cod_com ) and          ( membri_gerarchica.vc_parent = struttura.vc_nodo ) and          ( struttura.livello = struttura_livelli.livello ) and          ( ( struttura.vc_nodo like :vc_nodo+~"%~" ) )   " arguments=(("vc_nodo", string))  sort="struttura_vc_nodo A cod_div A cognome A nome A " )
+group(level=1 header.height=92 trailer.height=180 by=("struttura_vc_nodo" ) newpage=yes header.color="536870912" trailer.color="16777215" )
+roundrectangle(band=header ellipseheight="36" ellipsewidth="41"x="9" y="72" height="216" width="4905"  name=rr_1 brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression="f_descrizione_struttura(vc_parent)"border="0" color="0" x="37" y="92" height="176" width="4818" format="[GENERAL]"  name=compute_11  font.face="Tahoma" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cognome e nome
+
+Data e luogo di nascita" border="0" color="0" x="14" y="292" height="156" width="910"  name=t_1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Gohonzon
+" border="0" color="0" x="4430" y="292" height="104" width="466"  name=t_8  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Pag. ' + page() + ' di ' + pageCount()"border="0" color="0" x="4073" y="8" height="60" width="823" format="[general]"  name=page_1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Liv. studio
+
+Status" border="0" color="0" x="4155" y="292" height="156" width="261"  name=t_7  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="1° responsabilità
+
+2° responsabilità" border="0" color="0" x="3657" y="292" height="156" width="485"  name=t_6  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cerimonia
+
+Presentato da" border="0" color="0" x="3141" y="292" height="156" width="498"  name=t_5  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Riferimenti" border="0" color="0" x="2400" y="396" height="52" width="727"  name=t_4  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Divisione
+
+Professione" border="0" color="0" x="942" y="292" height="156" width="439"  name=t_2  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Indirizzo
+
+Località" border="0" color="0" x="1394" y="292" height="156" width="987"  name=t_3  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Oka.
+" border="2" color="0" x="4430" y="396" height="52" width="142"  name=t_9  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tok." border="2" color="0" x="4590" y="396" height="52" width="142"  name=t_10  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Oma." border="2" color="0" x="4745" y="396" height="52" width="151"  name=t_11  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="4434" y="112" height="56" width="434" format="[general]"  name=flag_er checkbox.text="Aderente all'E.R." checkbox.on="S" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="2" color="0" x="4430" y="16" height="72" width="142" format="[general]"  name=flag_goh ddlb.limit=0 ddlb.allowedit=no ddlb.case=upper  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="2" color="0" x="4590" y="16" height="72" width="142" format="[general]"  name=flag_tok ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if(  flag_tok ='S', 1, 0)"border="0" color="0" x="105" y="92" height="76" width="46" format="[GENERAL]"  name=ctok visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if(  flag_oma ='S', 1, 0)"border="0" color="0" x="169" y="96" height="76" width="46" format="[GENERAL]"  name=coma visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_div = '2', 1, 0)"border="0" color="0" x="315" y="100" height="52" width="64" format="[GENERAL]"  name=cdivd visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_div = '1', 1, 0)"border="0" color="0" x="242" y="100" height="52" width="59" format="[GENERAL]"  name=cdivu visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_div = '3', 1, 0)"border="0" color="0" x="398" y="96" height="52" width="59" format="[GENERAL]"  name=cdivgu visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_div = '4', 1, 0)"border="0" color="0" x="489" y="100" height="52" width="59" format="[GENERAL]"  name=cdivgd visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_att_ist_1 ='000' and  cod_att_ist_2 = '000', 0, 1)"border="0" color="0" x="571" y="96" height="52" width="41" format="[GENERAL]"  name=cresp visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_studio = '01', 1, 0)"border="0" color="0" x="635" y="104" height="52" width="32" format="[GENERAL]"  name=cprimoliv visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_studio = '02', 1, 0)"border="0" color="0" x="690" y="104" height="44" width="32" format="[GENERAL]"  name=csecondoliv visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_studio = '03', 1, 0)"border="0" color="0" x="741" y="96" height="52" width="32" format="[GENERAL]"  name=cterzoliv visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_studio = '04', 1, 0)"border="0" color="0" x="795" y="100" height="52" width="37" format="[GENERAL]"  name=cquartoliv visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( cod_studio = '05', 1, 0)"border="0" color="0" x="864" y="108" height="52" width="23" format="[GENERAL]"  name=cquintoliv visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="14" y1="0" x2="4901" y2="0"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="2" tabsequence=32766 border="2" color="0" x="4745" y="16" height="72" width="151" format="[general]"  name=flag_oma ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="4160" y="100" height="76" width="233" format="[general]"  name=cod_dis height.autosize=yes dddw.name=dwc_status dddw.displaycolumn=descrizione dddw.datacolumn=cod_dis dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="4160" y="16" height="72" width="233" format="[general]"  name=cod_studio height.autosize=yes dddw.name=dwc_livelli_studio dddw.displaycolumn=descrizione dddw.datacolumn=cod_studio dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3657" y="100" height="76" width="485" format="[general]"  name=cod_att_ist_2 height.autosize=yes dddw.name=dwc_att_ist dddw.displaycolumn=descrizione dddw.datacolumn=cod_att_ist dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3657" y="16" height="72" width="485" format="[general]"  name=cod_att_ist_1 height.autosize=yes dddw.name=dwc_att_ist dddw.displaycolumn=descrizione dddw.datacolumn=cod_att_ist dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3141" y="100" height="76" width="498" format="[general]"  name=pres_da height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" wordcap(luogo_cer)+~"-~"+string( data_cer, ~"dd.mm.yy~") "border="0" color="0" x="3141" y="16" height="72" width="498" format="[GENERAL]"  name=compute_3  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+report(band=detail dataobject="nr_riferimenti" x="2391" y="12" height="164" width="713" border="0"  height.autosize=yes criteria="" nest_arguments=((" codice ")) trail_footer = yes  name=nrdw_rif visible="1~tif( csintetica = '1', 1, 0)"  slideup=directlyabove )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="942" y="16" height="72" width="439" format="[general]"  name=cod_div height.autosize=yes dddw.name=dwc_divisione dddw.displaycolumn=descrizione dddw.datacolumn=cod_div dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="1394" y="16" height="72" width="983" format="[general]"  name=ind_dom edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" comune +~" (~"+ provincia +~")~""border="0" color="0" x="1394" y="100" height="76" width="983" format="[GENERAL]"  name=compute_2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="4782" y="24" height="52" width="78" format="[general]"  name=csintetica visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="4901" y="0" height="52" width="439" format="[shortdate] [time]"  name=data_nas edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="5339" y="0" height="52" width="1381" format="[general]"  name=luogo_nas edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( flag_goh ='S', 1, 0)"border="0" color="0" x="18" y="92" height="72" width="46" format="[GENERAL]"  name=cgoh visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="942" y="100" height="76" width="439" format="[general]"  name=cod_prof height.autosize=yes dddw.name=dwc_professioni dddw.displaycolumn=descrizione dddw.datacolumn=cod_prof dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" cognome +~" ~" + nome"border="2" color="0" x="14" y="16" height="72" width="910" format="[GENERAL]"  name=compute_1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+compute(band=detail alignment="0" expression=" string(data_nas, ~"dd.mm.yyyy~")+~"-~"+  luogo_nas "border="0" color="0" x="14" y="100" height="72" width="910" format="[GENERAL]"  name=cdataluogo  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="6720" y="0" height="52" width="1381" format="[general]"  name=struttura_livelli_descrizione edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression=" ctotdivu + ctotdivd + ctotdivgu +  ctotdivgd "border="2" color="0" x="3154" y="96" height="76" width="233" format="[GENERAL]"  name=compute_7  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(   cdivu for group 1 )"border="2" color="0" x="2149" y="96" height="76" width="233" format="[GENERAL]"  name=ctotdivu  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(   cdivd for group 1 )"border="2" color="0" x="2400" y="96" height="76" width="233" format="[GENERAL]"  name=ctotdivd  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(   cdivgu for group 1 )"border="2" color="0" x="2651" y="96" height="76" width="233" format="[GENERAL]"  name=ctotdivgu  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(   cdivgd for group 1 )"border="2" color="0" x="2903" y="96" height="76" width="233" format="[GENERAL]"  name=ctotdivgd  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( cresp  for group 1 )"border="2" color="0" x="3406" y="96" height="76" width="233" format="[GENERAL]"  name=ctotresp  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cprimoliv  for group 1 )"border="2" color="0" x="3657" y="96" height="76" width="233" format="[GENERAL]"  name=compute_5  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  csecondoliv  for group 1 )"border="2" color="0" x="3909" y="96" height="76" width="233" format="[GENERAL]"  name=compute_6  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cterzoliv  for group 1 )"border="2" color="0" x="4160" y="96" height="76" width="233" format="[GENERAL]"  name=compute_8  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cquartoliv  for group 1 )"border="2" color="0" x="4411" y="96" height="76" width="233" format="[GENERAL]"  name=compute_9  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  coma for group 1 )"border="2" color="0" x="1897" y="96" height="76" width="233" format="[GENERAL]"  name=ctotoma  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression=" ctotgoh +  ctottok "border="2" color="0" x="1646" y="96" height="76" width="233" format="[GENERAL]"  name=ctotgohonzon  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  ctok for group 1 )"border="2" color="0" x="1394" y="96" height="76" width="233" format="[GENERAL]"  name=ctottok  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="14" y1="0" x2="4901" y2="0"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(  cquintoliv  for group 1 )"border="2" color="0" x="4663" y="96" height="76" width="233" format="[GENERAL]"  name=compute_10  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="U" border="0" color="0" x="2149" y="32" height="52" width="233"  name=t_17  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="GU" border="0" color="0" x="2651" y="32" height="52" width="233"  name=t_19  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="GD" border="0" color="0" x="2903" y="32" height="52" width="233"  name=t_20  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Tot. 4D" border="0" color="0" x="3154" y="32" height="52" width="233"  name=t_21  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="4° Livello" border="0" color="0" x="4411" y="32" height="52" width="233"  name=t_25  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Omamori" border="0" color="0" x="1897" y="32" height="52" width="233"  name=t_16  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Tot. Goh." border="0" color="0" x="1646" y="32" height="52" width="233"  name=t_15  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Tokubetsu" border="0" color="0" x="1394" y="32" height="52" width="233"  name=t_13  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="5° Livello" border="0" color="0" x="4663" y="32" height="52" width="233"  name=t_24  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="3° Livello" border="0" color="0" x="4160" y="32" height="52" width="233"  name=t_26  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="2° Livello" border="0" color="0" x="3909" y="32" height="52" width="233"  name=t_27  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="1° Livello" border="0" color="0" x="3657" y="32" height="52" width="233"  name=t_23  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Tot. resp." border="0" color="0" x="3406" y="32" height="52" width="233"  name=t_22  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="D" border="0" color="0" x="2400" y="32" height="52" width="233"  name=t_18  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="Okatagi" border="0" color="0" x="1143" y="32" height="52" width="233"  name=t_14  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(  cgoh  for group 1 )"border="2" color="0" x="1143" y="96" height="76" width="233" format="[GENERAL]"  name=ctotgoh  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="~"Tot. ~"+wordcap(  struttura_livelli_descrizione )+~" ~"+ struttura_descrizione +~": ~""border="0" color="0" x="18" y="96" height="52" width="1111" format="[GENERAL]"  name=compute_4  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,16 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "custom_reports.pbl" "";
+@end;
+@begin Objects 
+ "dw_consulta.srd" "custom_reports.pbl";
+ "dw_data_responsabilita.srd" "custom_reports.pbl";
+ "dw_lista_futuro.srd" "custom_reports.pbl";
+ "dw_lista_sintetica.srd" "custom_reports.pbl";
+ "dw_lista_studenti.srd" "custom_reports.pbl";
+ "dw_liste_capitoli.srd" "custom_reports.pbl";
+ "dw_liste_esami.srd" "custom_reports.pbl";
+ "dw_queryliste.srd" "custom_reports.pbl";
+ "dw_ricerca_estesa.srd" "custom_reports.pbl";
+ "dw_utenti_web.srd" "custom_reports.pbl";
+@end;

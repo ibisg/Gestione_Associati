@@ -1,0 +1,311 @@
+﻿$PBExportHeader$m_esami.srm
+forward
+global type m_esami from menu
+end type
+type m_opzioni from menu within m_esami
+end type
+type m_sessione from menu within m_opzioni
+end type
+type m_- from menu within m_opzioni
+end type
+type m_ordina from menu within m_opzioni
+end type
+type m_-0 from menu within m_opzioni
+end type
+type m_salvacome from menu within m_opzioni
+end type
+type m_-2 from menu within m_opzioni
+end type
+type m_stampa from menu within m_opzioni
+end type
+type m_opzioni from menu within m_esami
+m_sessione m_sessione
+m_- m_-
+m_ordina m_ordina
+m_-0 m_-0
+m_salvacome m_salvacome
+m_-2 m_-2
+m_stampa m_stampa
+end type
+type m_finestra from menu within m_esami
+end type
+type m_svuota from menu within m_finestra
+end type
+type m_-1 from menu within m_finestra
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_esami
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+global type m_esami from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+end forward
+
+global type m_esami from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+global m_esami m_esami
+
+on m_esami.create
+m_esami=this
+call super::create
+this.m_opzioni=create m_opzioni
+this.m_finestra=create m_finestra
+this.Item[UpperBound(this.Item)+1]=this.m_opzioni
+this.Item[UpperBound(this.Item)+1]=this.m_finestra
+end on
+
+on m_esami.destroy
+call super::destroy
+destroy(this.m_opzioni)
+destroy(this.m_finestra)
+end on
+
+type m_opzioni from menu within m_esami
+m_sessione m_sessione
+m_- m_-
+m_ordina m_ordina
+m_-0 m_-0
+m_salvacome m_salvacome
+m_-2 m_-2
+m_stampa m_stampa
+end type
+
+on m_opzioni.create
+call super::create
+this.text = "&1. Opzioni"
+this.m_sessione=create m_sessione
+this.m_-=create m_-
+this.m_ordina=create m_ordina
+this.m_-0=create m_-0
+this.m_salvacome=create m_salvacome
+this.m_-2=create m_-2
+this.m_stampa=create m_stampa
+this.Item[UpperBound(this.Item)+1]=this.m_sessione
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_ordina
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_salvacome
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_stampa
+end on
+
+on m_opzioni.destroy
+call super::destroy
+destroy(this.m_sessione)
+destroy(this.m_-)
+destroy(this.m_ordina)
+destroy(this.m_-0)
+destroy(this.m_salvacome)
+destroy(this.m_-2)
+destroy(this.m_stampa)
+end on
+
+type m_sessione from menu within m_opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "search_ses" )
+
+end event
+
+on m_sessione.create
+call super::create
+this.text = "&Cerca sessione~tAlt+C"
+this.shortcut = 579
+this.toolbaritemname = "Custom062!"
+this.toolbaritemtext = "Cerca sessione esistente"
+this.toolbaritemorder = 1
+end on
+
+on m_sessione.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_opzioni
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_ordina from menu within m_opzioni
+end type
+
+on m_ordina.create
+call super::create
+this.text = "&Ordina~tAlt+O"
+this.enabled = false
+this.shortcut = 591
+this.microhelp = "Imposta ordinamento dati"
+this.toolbaritemname = "Sort!"
+this.toolbaritemtext = "Ordina"
+this.toolbaritemorder = 2
+this.toolbaritemspace = 1
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "ordina" )
+
+end event
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_opzioni
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_salvacome from menu within m_opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "ue_salva_come" )
+end event
+
+on m_salvacome.create
+call super::create
+this.visible = false
+this.text = "Salva come"
+this.enabled = false
+this.toolbaritemvisible = false
+this.toolbaritemname = "Custom008!"
+this.toolbaritemorder = 3
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_-2 from menu within m_opzioni
+end type
+
+on m_-2.create
+call super::create
+this.visible = false
+this.text = "-"
+this.toolbaritemvisible = false
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_stampa from menu within m_opzioni
+end type
+
+on m_stampa.create
+call super::create
+this.text = "Stam&pa liste~tAlt+P"
+this.enabled = false
+this.shortcut = 592
+this.microhelp = "Stampa liste candidati"
+this.toolbaritemname = "Print!"
+this.toolbaritemtext = "Stampe liste candidati"
+this.toolbaritemorder = 4
+this.toolbaritemspace = 1
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "stampa" )
+
+end event
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_finestra from menu within m_esami
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+call super::create
+this.text = "&2. Finestra"
+this.m_svuota=create m_svuota
+this.m_-1=create m_-1
+this.m_chiudi=create m_chiudi
+this.Item[UpperBound(this.Item)+1]=this.m_svuota
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_chiudi
+end on
+
+on m_finestra.destroy
+call super::destroy
+destroy(this.m_svuota)
+destroy(this.m_-1)
+destroy(this.m_chiudi)
+end on
+
+type m_svuota from menu within m_finestra
+end type
+
+on m_svuota.create
+call super::create
+this.text = "S&vuota~tAlt+V"
+this.shortcut = 598
+this.toolbaritemname = "CheckOut!"
+this.toolbaritemtext = "Svuota"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 1
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "clear" )
+
+end event
+
+on m_svuota.destroy
+call super::destroy
+end on
+
+type m_-1 from menu within m_finestra
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "uscita" )
+
+end event
+
+on m_chiudi.create
+call super::create
+this.text = "Chiudi~tF10"
+this.shortcut = 121
+this.toolbaritemname = "Custom009!"
+this.toolbaritemtext = "Chiudi"
+this.toolbaritemorder = 10
+this.toolbaritemspace = 2
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+

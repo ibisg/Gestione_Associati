@@ -1,0 +1,36 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "funzioni.pbl" "";
+@end;
+@begin Objects 
+ "f_confermaresponsabilita.srf" "funzioni.pbl";
+ "f_creaqueryconsegne.srf" "funzioni.pbl";
+ "f_creaqueryconsegne_old.srf" "funzioni.pbl";
+ "f_creaqueryofferte.srf" "funzioni.pbl";
+ "f_creaqueryofferte_dettaglio.srf" "funzioni.pbl";
+ "f_creaqueryofferte_dis.srf" "funzioni.pbl";
+ "f_creaqueryofferte_div.srf" "funzioni.pbl";
+ "f_creaqueryofferte_resp.srf" "funzioni.pbl";
+ "f_creaqueryofferte_tab.srf" "funzioni.pbl";
+ "f_creaqueryorg.srf" "funzioni.pbl";
+ "f_creaquerystruttura.srf" "funzioni.pbl";
+ "f_creaquerystruttura_old.srf" "funzioni.pbl";
+ "f_esporta_privilege.srf" "funzioni.pbl";
+ "f_invio_liste_privilege.srf" "funzioni.pbl";
+ "f_is_ediz_supervisor.srf" "funzioni.pbl";
+ "f_is_ga_administrator.srf" "funzioni.pbl";
+ "f_is_ga_supervisor.srf" "funzioni.pbl";
+ "f_is_np.srf" "funzioni.pbl";
+ "f_is_opc_supervisor.srf" "funzioni.pbl";
+ "f_is_rga_supervisor.srf" "funzioni.pbl";
+ "f_is_stat_supervisor.srf" "funzioni.pbl";
+ "f_lettera_presentazione_privilege.srf" "funzioni.pbl";
+ "f_np.srf" "funzioni.pbl";
+ "f_offerte_importo_privilege.srf" "funzioni.pbl";
+ "f_offerte_privilege.srf" "funzioni.pbl";
+ "f_organi_privilege.srf" "funzioni.pbl";
+ "f_setcurrentdirectory.srf" "funzioni.pbl";
+ "f_storico_gohonzon_privilege.srf" "funzioni.pbl";
+ "f_vercap.srf" "funzioni.pbl";
+ "f_verificalistaesame.srf" "funzioni.pbl";
+@end;

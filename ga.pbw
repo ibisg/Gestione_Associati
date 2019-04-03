@@ -1,0 +1,16 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+ 0 "..\\Distribuzione Edizioni\\distrib.pbt";
+ 1 "..\\pbnismtp\\pbnismtp.pbt";
+ 2 "..\\Badge MSSQL\\badge.pbt";
+@end;
+@begin Targets
+ 0 "gestione_associati.pbt";
+ 1 "..\\Offerte_per_cassa_MSSQL\\opc.pbt";
+ 2 "..\\COGE11_Euro_Aree_MSSQL\\contabilita_generale.pbt";
+ 3 "..\\Distribuzione Edizioni\\distrib.pbt";
+ 4 "..\\pbnismtp\\pbnismtp.pbt";
+ 5 "..\\Badge MSSQL\\badge.pbt";
+@end;
+DefaultTarget "gestione_associati.pbt";
+DefaultRemoteTarget "gestione_associati.pbt";

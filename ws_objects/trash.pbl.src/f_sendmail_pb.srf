@@ -1,0 +1,98 @@
+﻿$PBExportHeader$f_sendmail_pb.srf
+global type f_sendmail_pb from function_object
+end type
+
+forward prototypes
+global function integer f_sendmail_pb (mailmessage amailmessage, s_sms as_sms)
+end prototypes
+
+global function integer f_sendmail_pb (mailmessage amailmessage, s_sms as_sms);boolean lb_html, lb_return
+integer li_ret
+unsignedinteger lui_port
+long ll_idx
+string ls_send, ls_recipient, ls_recipient_TO, ls_recipient_CC, ls_recipient_BCC, ls_subject, ls_body, ls_server, ls_from, ls_attachment, ls_user, ls_password, ls_options, ls_port, ls_error
+
+n_smtp gn_smtp
+
+gn_smtp= create n_smtp
+
+setPointer(hourGlass!)
+
+ls_server= trim(as_sms.as_smtp)
+
+lui_port= 587
+
+ls_user= trim(as_sms.as_mailuser)
+
+ls_password= trim(as_sms.as_mailpw)
+
+ls_subject= trim(amailmessage.subject)
+
+amailmessage.noteText= f_replace_chars(amailmessage.noteText, "~"", "'") 
+
+ls_body= trim(amailmessage.noteText)
+
+ls_from= trim(as_sms.as_mailfrom)
+
+// *** set email properties *********************
+gn_smtp.of_SetPort(lui_port)
+gn_smtp.of_SetServer(ls_server)
+gn_smtp.of_SetLogFile(true /*cbx_logfile.Checked*/, "smtp_logfile10.txt")
+//gn_smtp.of_SetDebugViewer(cbx_debugviewer.Checked)
+gn_smtp.of_SetSubject(ls_subject)
+gn_smtp.of_SetBody(ls_body, lb_html)
+gn_smtp.of_SetFrom(ls_from, ls_from)
+//gn_smtp.of_AddAddress(sle_send_email.text, sle_send_name.text)
+gn_smtp.of_SetXMailer("Microsoft Outlook 14.0")
+
+if amailMessage.ReceiptRequested= true then gn_smtp.of_setreceipt(true)
+//gn_smtp.of_setreceipt(true)
+
+
+// *****************************************		
+
+
+for ll_idx= 1 to upperBound(amailmessage.recipient)
+	
+	choose case amailMessage.recipient[ll_idx].recipientType
+		case mailTO!
+			
+			li_ret= gn_smtp.of_AddTo(trim(amailmessage.recipient[ll_idx].address), trim(amailmessage.recipient[ll_idx].name))
+
+		case mailCC!
+			
+			li_ret= gn_smtp.of_AddCC(trim(amailmessage.recipient[ll_idx].address), trim(amailmessage.recipient[ll_idx].name))
+			
+		case mailBCC!
+
+			li_ret= gn_smtp.of_AddBCC(trim(amailmessage.recipient[ll_idx].address), trim(amailmessage.recipient[ll_idx].name))
+
+	end choose
+		
+next
+
+// *** set Userid/Password if required **********
+
+	gn_smtp.of_SetLogin(ls_user, ls_password)
+
+		
+for ll_idx= 1 to upperBound(amailmessage.AttachmentFile)
+	
+	li_ret= gn_smtp.of_AddAttachment(trim(amailmessage.AttachmentFile[ll_idx].Pathname) )
+	
+next	
+		
+// Send the mail
+lb_Return = gn_smtp.of_SendTLSMail()
+		
+		if lb_Return then
+			destroy gn_smtp
+			return 0
+		else
+			ls_error= gn_smtp.of_getlastsmtperror()
+			destroy gn_smtp
+			messageBox("Errore SMTP", ls_error)
+			return 1
+		end if
+end function
+

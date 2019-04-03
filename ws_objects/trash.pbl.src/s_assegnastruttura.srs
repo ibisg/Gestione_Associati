@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_assegnastruttura.srs
+global type s_assegnastruttura from structure
+	boolean		ab_abilitaincolla
+	integer		al_ultimolivelloparent
+	s_struttura		as_struttura_s
+end type
+

@@ -1,0 +1,48 @@
+﻿$PBExportHeader$dw_giovani_per_anno.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=anno dbname="anno" )
+ column=(type=long updatewhereclause=yes name=mesi_cod_mese dbname="mesi.cod_mese" )
+ column=(type=char(15) updatewhereclause=yes name=mesi_mese dbname="mesi.mese" )
+ column=(type=char(1) updatewhereclause=yes name=membri_cod_div dbname="membri.cod_div" )
+ column=(type=char(30) updatewhereclause=yes name=divisione_divisione dbname="divisione.divisione" )
+ column=(type=long updatewhereclause=yes name=totale dbname="totale" )
+ retrieve="select datepart(year, data_cer) anno, mesi.mese cod_mese, mesi.desc_mese mese, membri.cod_div, divisione.descrizione divisione, count(*) totale
+
+from membri , divisione, mesi
+
+where
+
+membri.cod_div= divisione.cod_div and
+
+datepart(month, data_cer)= mesi.mese
+
+group by 
+
+datepart(year, data_cer) , mesi.mese , mesi.desc_mese , membri.cod_div, divisione.descrizione 
+
+having datepart(year, data_cer)= :anno_entrata
+
+order by anno, cod_mese, membri.cod_div" arguments=(("anno_entrata", number)) )
+text(band=header alignment="2" text="Anno" border="0" color="0" x="9" y="8" height="64" width="329"  name=anno_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mesi
+Cod Mese" border="0" color="0" x="347" y="8" height="128" width="329"  name=mesi_cod_mese_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mesi
+Mese" border="0" color="0" x="686" y="8" height="128" width="439"  name=mesi_mese_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Membri
+Cod Div" border="0" color="0" x="1134" y="8" height="128" width="201"  name=membri_cod_div_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Divisione
+Divisione" border="0" color="0" x="1344" y="8" height="128" width="850"  name=divisione_divisione_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Totale" border="0" color="0" x="2203" y="8" height="64" width="329"  name=totale_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="329" format="[general]"  name=anno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="347" y="8" height="76" width="329" format="[general]"  name=mesi_cod_mese edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="686" y="8" height="76" width="439" format="[general]"  name=mesi_mese edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1134" y="8" height="76" width="201" format="[general]"  name=membri_cod_div edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1344" y="8" height="76" width="850" format="[general]"  name=divisione_divisione edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2203" y="8" height="76" width="329" format="[general]"  name=totale edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

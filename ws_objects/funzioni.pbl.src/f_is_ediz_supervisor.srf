@@ -1,0 +1,15 @@
+﻿$PBExportHeader$f_is_ediz_supervisor.srf
+global type f_is_ediz_supervisor from function_object
+end type
+
+forward prototypes
+global function boolean f_is_ediz_supervisor ()
+end prototypes
+
+global function boolean f_is_ediz_supervisor ();if s_session_s.s_utente_s.i_ruolo_ediz= 5 OR s_session_s.s_utente_s.i_ruolo_ediz= 6 then
+	return TRUE
+else 
+	return FALSE
+end if
+end function
+

@@ -1,0 +1,59 @@
+﻿$PBExportHeader$f_creaqueryofferte_ori.srf
+global type f_creaqueryofferte_ori from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte_ori (long al_livello, long al_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryofferte_ori (long al_livello, long al_nodo, string as_da, string as_a);// Report offerte solo con percentuali e totali...
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			'select livelli_struttura.descrizione, membri_gerarchica.flag_dis status,'+&   
+        		'sum ( offerte_gerarchica.importo ) importo,'+&  
+        		'count ( distinct membri_gerarchica.codice ) n_soci,' 
+
+				  
+				  
+ls_query+= 	' struttura'+string(al_livello)+'.descrizione descrizione_struttura'+&
+				' from membri_gerarchica, '+&
+				' offerte_gerarchica, '+&
+				' livelli_struttura, '
+									
+			for li_idx= al_livello to MAX_LIVELLO
+				if li_idx= MAX_LIVELLO then
+					ls_query+= 'struttura struttura'+string(li_idx)
+				else
+					ls_query+= 'struttura struttura'+string(li_idx)+", "
+				end if
+			next
+			
+ls_query+= " where membri_gerarchica.cod_dis != 'DEC' and"+&
+				' livelli_struttura.livello='+string(al_livello)+' and'+&
+				' membri_gerarchica.codice *= offerte_gerarchica.codice and'+&
+				" membri_gerarchica.data_cer <= convert(datetime, '"+as_a+" 23:59:59', 3) and"+&
+				" offerte_gerarchica.data between convert(datetime, '"+as_da+" 00:00:00', 3) AND convert(datetime, '"+as_a+" 23:59:59', 3) and"
+				
+ls_query+=	' membri_gerarchica.livello = struttura'+string(MAX_LIVELLO)+'.livello and'+&  
+        			' membri_gerarchica.id_nodo = struttura'+string(MAX_LIVELLO)+'.id_nodo and'
+					  
+			for li_idx= al_livello to MAX_LIVELLO
+				ls_query+= ' struttura'+string(li_idx)+'.livello='+string(li_idx)+' and'
+			next
+			
+			for li_idx= al_livello to MAX_LIVELLO - 1
+				ls_query+= ' struttura'+string(li_idx)+'.id_nodo= struttura'+string(li_idx+1)+'.id_parent and'
+			next
+ls_query+=  ' struttura'+string(al_livello)+'.id_nodo='+string(al_nodo)
+
+ls_query+=	' group by livelli_struttura.descrizione,'+&
+	               ' membri_gerarchica.flag_dis,'+& 
+				' struttura'+string(al_livello)+'.descrizione'
+
+				
+				return ls_query
+end function
+

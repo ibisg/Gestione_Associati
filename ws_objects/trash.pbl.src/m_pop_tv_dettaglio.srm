@@ -1,0 +1,181 @@
+﻿$PBExportHeader$m_pop_tv_dettaglio.srm
+forward
+global type m_pop_tv_dettaglio from menu
+end type
+type m_report from menu within m_pop_tv_dettaglio
+end type
+type m_membricompleta from menu within m_report
+end type
+type m_membrisintesi from menu within m_report
+end type
+type m_membriresposabilità from menu within m_report
+end type
+type m_report from menu within m_pop_tv_dettaglio
+m_membricompleta m_membricompleta
+m_membrisintesi m_membrisintesi
+m_membriresposabilità m_membriresposabilità
+end type
+type m_offerte from menu within m_pop_tv_dettaglio
+end type
+type m_normale from menu within m_offerte
+end type
+type m_divisioni from menu within m_offerte
+end type
+type m_tabellare from menu within m_offerte
+end type
+type m_offerte from menu within m_pop_tv_dettaglio
+m_normale m_normale
+m_divisioni m_divisioni
+m_tabellare m_tabellare
+end type
+global type m_pop_tv_dettaglio from menu
+m_report m_report
+m_offerte m_offerte
+end type
+end forward
+
+global type m_pop_tv_dettaglio from menu
+m_report m_report
+m_offerte m_offerte
+end type
+global m_pop_tv_dettaglio m_pop_tv_dettaglio
+
+on m_pop_tv_dettaglio.create
+m_pop_tv_dettaglio=this
+call super::create
+this.text = "m_pop_tv_dettaglio"
+this.m_report=create m_report
+this.m_offerte=create m_offerte
+this.Item[UpperBound(this.Item)+1]=this.m_report
+this.Item[UpperBound(this.Item)+1]=this.m_offerte
+end on
+
+on m_pop_tv_dettaglio.destroy
+call super::destroy
+destroy(this.m_report)
+destroy(this.m_offerte)
+end on
+
+type m_report from menu within m_pop_tv_dettaglio
+m_membricompleta m_membricompleta
+m_membrisintesi m_membrisintesi
+m_membriresposabilità m_membriresposabilità
+end type
+
+on m_report.create
+call super::create
+this.text = "Report"
+this.m_membricompleta=create m_membricompleta
+this.m_membrisintesi=create m_membrisintesi
+this.m_membriresposabilità=create m_membriresposabilità
+this.Item[UpperBound(this.Item)+1]=this.m_membricompleta
+this.Item[UpperBound(this.Item)+1]=this.m_membrisintesi
+this.Item[UpperBound(this.Item)+1]=this.m_membriresposabilità
+end on
+
+on m_report.destroy
+call super::destroy
+destroy(this.m_membricompleta)
+destroy(this.m_membrisintesi)
+destroy(this.m_membriresposabilità)
+end on
+
+type m_membricompleta from menu within m_report
+end type
+
+on m_membricompleta.create
+call super::create
+this.text = "Membri completa"
+end on
+
+on m_membricompleta.destroy
+call super::destroy
+end on
+
+type m_membrisintesi from menu within m_report
+end type
+
+on m_membrisintesi.create
+call super::create
+this.text = "Sintetica"
+end on
+
+on m_membrisintesi.destroy
+call super::destroy
+end on
+
+type m_membriresposabilità from menu within m_report
+end type
+
+on m_membriresposabilità.create
+call super::create
+this.text = "Resposabilità"
+end on
+
+on m_membriresposabilità.destroy
+call super::destroy
+end on
+
+type m_offerte from menu within m_pop_tv_dettaglio
+m_normale m_normale
+m_divisioni m_divisioni
+m_tabellare m_tabellare
+end type
+
+on m_offerte.create
+call super::create
+this.text = "Offerte"
+this.m_normale=create m_normale
+this.m_divisioni=create m_divisioni
+this.m_tabellare=create m_tabellare
+this.Item[UpperBound(this.Item)+1]=this.m_normale
+this.Item[UpperBound(this.Item)+1]=this.m_divisioni
+this.Item[UpperBound(this.Item)+1]=this.m_tabellare
+end on
+
+on m_offerte.destroy
+call super::destroy
+destroy(this.m_normale)
+destroy(this.m_divisioni)
+destroy(this.m_tabellare)
+end on
+
+type m_normale from menu within m_offerte
+end type
+
+on m_normale.create
+call super::create
+this.text = "Normale"
+end on
+
+on m_normale.destroy
+call super::destroy
+end on
+
+type m_divisioni from menu within m_offerte
+end type
+
+on m_divisioni.create
+call super::create
+this.text = "Divisioni"
+end on
+
+on m_divisioni.destroy
+call super::destroy
+end on
+
+event clicked;w_struttura_tv.event ue_runquery(2)
+end event
+
+type m_tabellare from menu within m_offerte
+end type
+
+on m_tabellare.create
+call super::create
+this.text = "Tabellare"
+end on
+
+on m_tabellare.destroy
+call super::destroy
+end on
+

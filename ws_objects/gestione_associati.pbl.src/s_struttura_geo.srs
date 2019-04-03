@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_struttura_geo.srs
+global type s_struttura_geo from structure
+	long		livello
+	string		descrizione_livello
+	string		descrizione_struttura
+	string		vc_nodo
+	string		vc_parent
+	integer		handle
+end type
+

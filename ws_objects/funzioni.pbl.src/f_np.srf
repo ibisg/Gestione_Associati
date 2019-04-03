@@ -1,0 +1,16 @@
+﻿$PBExportHeader$f_np.srf
+global type f_np from function_object
+end type
+
+forward prototypes
+global function integer f_np (integer ai_ruolo)
+end prototypes
+
+global function integer f_np (integer ai_ruolo);if s_session_s.s_utente_s.i_ruolo_ga > ai_ruolo then 
+	messageBox("Operazione non permessa", "Gli utenti del gruppo "+s_session_s.s_utente_s.s_gruppo+"  non hanno accesso a questa funzione", information!)
+	return 1
+end if
+
+return  0
+end function
+

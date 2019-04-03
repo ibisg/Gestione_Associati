@@ -1,0 +1,157 @@
+﻿$PBExportHeader$m_pop_tv_tab.srm
+forward
+global type m_pop_tv_tab from m_pop_tv
+end type
+type m_1 from menu within m_pop_tv_tab
+end type
+type m_report from menu within m_pop_tv_tab
+end type
+type m_organigramma from menu within m_report
+end type
+type m_quadrogeneralestruttura from menu within m_report
+end type
+type m_reportconsegne from menu within m_report
+end type
+type m_offerte from menu within m_report
+end type
+type m_5 from menu within m_offerte
+end type
+type m_6 from menu within m_offerte
+end type
+type m_7 from menu within m_offerte
+end type
+type m_8 from menu within m_offerte
+end type
+type m_9 from menu within m_offerte
+end type
+type m_10 from menu within m_offerte
+end type
+type m_11 from menu within m_offerte
+end type
+type m_12 from menu within m_offerte
+end type
+type m_13 from menu within m_offerte
+end type
+type m_offerte from menu within m_report
+m_5 m_5
+m_6 m_6
+m_7 m_7
+m_8 m_8
+m_9 m_9
+m_10 m_10
+m_11 m_11
+m_12 m_12
+m_13 m_13
+end type
+type m_report from menu within m_pop_tv_tab
+m_organigramma m_organigramma
+m_quadrogeneralestruttura m_quadrogeneralestruttura
+m_reportconsegne m_reportconsegne
+m_offerte m_offerte
+end type
+type m_pop_tv_tab from m_pop_tv
+m_1 m_1
+m_report m_report
+end type
+end forward
+global type m_pop_tv_tab from m_pop_tv
+m_1 m_1
+m_report m_report
+end type
+global m_pop_tv_tab m_pop_tv_tab
+
+on m_pop_tv_tab.create
+m_pop_tv_tab=this
+call super::create
+this.m_1=create m_1
+this.m_report=create m_report
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_report
+end on
+
+on m_pop_tv_tab.destroy
+call super::destroy
+destroy(this.m_1)
+destroy(this.m_report)
+end on
+
+type m_struttura from m_pop_tv`m_struttura within m_pop_tv_tab
+end type
+
+on m_struttura.create
+call super::create
+end on
+
+type m_inseriscinuovastruttura from m_pop_tv`m_inseriscinuovastruttura within m_struttura
+end type
+
+on m_inseriscinuovastruttura.create
+call super::create
+end on
+
+on m_inseriscinuovastruttura.destroy
+call super::destroy
+end on
+
+type m_modificastruttura from m_pop_tv`m_modificastruttura within m_struttura
+end type
+
+on m_modificastruttura.create
+call super::create
+end on
+
+on m_modificastruttura.destroy
+call super::destroy
+end on
+
+type m_modifica from m_pop_tv`m_modifica within m_struttura
+end type
+
+on m_modifica.create
+call super::create
+end on
+
+on m_modifica.destroy
+call super::destroy
+end on
+
+type m_- from m_pop_tv`m_- within m_pop_tv_tab
+end type
+
+on m_-.create
+call super::create
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_aggiornanodo from m_pop_tv`m_aggiornanodo within m_pop_tv_tab
+end type
+
+on m_aggiornanodo.create
+call super::create
+end on
+
+on m_aggiornanodo.destroy
+call super::destroy
+end on
+
+type m_espanditutto from m_pop_tv`m_espanditutto within m_pop_tv_tab
+end type
+
+on m_espanditutto.create
+call super::create
+end on
+
+on m_espanditutto.destroy
+call super::destroy
+end on
+
+type m_comprimitutto from m_pop_tv`m_comprimitutto within m_pop_tv_tab
+end type
+
+on m_comprimitutto.create
+call super::create
+end on
+

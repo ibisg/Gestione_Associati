@@ -1,0 +1,68 @@
+﻿$PBExportHeader$f_verifica_sessioni_ga.srf
+global type f_verifica_sessioni_ga from function_object
+end type
+
+forward prototypes
+global function integer f_verifica_sessioni_ga ()
+end prototypes
+
+global function integer f_verifica_sessioni_ga ();/* 
+	Verifica che la sessione sia unica, che l'utente cioè non apra due sessioni con le medesime credenziali.
+	Ritorna 0 se l'utente ha solo la sessione corrente aperta, 1 se l'utente ha già una sessione aperta, -1 se si verifica un errore SQL.
+*/
+integer li_count
+long ll_id
+string ls_sql, ls_table, ls_statement, ls_host
+
+ls_table= '##GA_'+s_session_s.s_utente_s.s_logname
+
+ls_statement= "select OBJECT_ID('"+'tempdb..'+ls_table+"')"
+
+DECLARE sessioneunica_cur DYNAMIC CURSOR FOR SQLSA ;
+PREPARE SQLSA FROM :ls_statement ;
+ 	OPEN DYNAMIC sessioneunica_cur ;
+ 	FETCH sessioneunica_cur INTO :ll_id ;
+CLOSE sessioneunica_cur ;
+
+if trap_sql(sqlca, "VERSESSIONE01") < 0 then return -1
+
+if isNull(ll_id) then
+	
+	ls_sql= 'CREATE table '+ls_table+'(host varchar(60) )'
+
+	execute immediate :ls_sql;
+	
+	if trap_sql(sqlca, "VERSESSIONE02") < 0 then return -1
+	
+	ls_sql= "INSERT INTO "+ls_table+" (host) VALUES('"+s_session_s.host+"')"
+
+	execute immediate :ls_sql;	
+	
+	if trap_sql(sqlca, "VERSESSIONE02.1") < 0 then return -1
+	
+	return 0
+	
+else
+	
+	ls_sql= 'SELECT host from '+ls_table
+
+	PREPARE SQLSA FROM :ls_sql;
+	OPEN DYNAMIC sessioneunica_cur ;
+		FETCH sessioneunica_cur INTO :ls_host;
+	CLOSE sessioneunica_cur ;
+	
+	if trap_sql(sqlca, "VERSESSIONE02.2") < 0 then return -1
+	
+	if ls_host= s_session_s.host then return 0 // sta cercando di rientrare sulla stessa macchina...
+	
+	messageBox("Verifica login", "L'utente "+s_session_s.s_utente_s.s_nome_esteso+" sta già utilizzando l'applicazione sull'host: "+ls_host+"~r~nNon è consentito aprire due sessioni con lo stesso nome utente.")
+	
+	return 1
+	
+end if
+		
+	
+	
+	
+end function
+

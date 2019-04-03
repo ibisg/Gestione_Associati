@@ -1,0 +1,236 @@
+﻿$PBExportHeader$m_esiti.srm
+forward
+global type m_esiti from menu
+end type
+type m_opzioni from menu within m_esiti
+end type
+type m_sessione from menu within m_opzioni
+end type
+type m_-2 from menu within m_opzioni
+end type
+type m_stampe from menu within m_opzioni
+end type
+type m_- from menu within m_opzioni
+end type
+type m_salva from menu within m_opzioni
+end type
+type m_aggiorna from menu within m_opzioni
+end type
+type m_opzioni from menu within m_esiti
+m_sessione m_sessione
+m_-2 m_-2
+m_stampe m_stampe
+m_- m_-
+m_salva m_salva
+m_aggiorna m_aggiorna
+end type
+type m_finestra from menu within m_esiti
+end type
+type m_svuota from menu within m_finestra
+end type
+type m_-1 from menu within m_finestra
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_esiti
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+end forward
+
+global type m_esiti from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+global m_esiti m_esiti
+
+on m_esiti.create
+m_esiti=this
+this.m_opzioni=create m_opzioni
+this.m_finestra=create m_finestra
+this.Item[]={this.m_opzioni, &
+this.m_finestra}
+end on
+
+on m_esiti.destroy
+destroy(this.m_opzioni)
+destroy(this.m_finestra)
+end on
+
+type m_opzioni from menu within m_esiti
+m_sessione m_sessione
+m_-2 m_-2
+m_stampe m_stampe
+m_- m_-
+m_salva m_salva
+m_aggiorna m_aggiorna
+end type
+
+on m_opzioni.create
+this.Text="&1. Opzioni"
+this.m_sessione=create m_sessione
+this.m_-2=create m_-2
+this.m_stampe=create m_stampe
+this.m_-=create m_-
+this.m_salva=create m_salva
+this.m_aggiorna=create m_aggiorna
+this.Item[]={this.m_sessione, &
+this.m_-2, &
+this.m_stampe, &
+this.m_-, &
+this.m_salva, &
+this.m_aggiorna}
+end on
+
+on m_opzioni.destroy
+destroy(this.m_sessione)
+destroy(this.m_-2)
+destroy(this.m_stampe)
+destroy(this.m_-)
+destroy(this.m_salva)
+destroy(this.m_aggiorna)
+end on
+
+type m_sessione from menu within m_opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "search_ses" )
+
+end event
+
+on m_sessione.create
+this.Text="&Cerca sessione~tAlt+C"
+this.ToolBarItemName="Custom062!"
+this.ToolBarItemText="Cerca sessione esistente"
+this.ToolBarItemOrder=1
+this.Shortcut=579
+end on
+
+type m_-2 from menu within m_opzioni
+end type
+
+on m_-2.create
+this.Text="-"
+end on
+
+type m_stampe from menu within m_opzioni
+end type
+
+on m_stampe.create
+this.Text="Stam&pa~tAlt+P"
+this.Microhelp="Stampe liste cerimonie"
+this.ToolBarItemName="Print!"
+this.ToolBarItemText="Stampa esiti esami"
+this.ToolBarItemOrder=2
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=592
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "stampa" )
+
+end event
+
+type m_- from menu within m_opzioni
+end type
+
+on m_-.create
+this.Text="-"
+end on
+
+type m_salva from menu within m_opzioni
+end type
+
+on m_salva.create
+this.Text="&Salva~tAlt+S"
+this.ToolBarItemName="Save!"
+this.ToolBarItemText="Salva"
+this.ToolBarItemOrder=3
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=595
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "save" )
+
+end event
+
+type m_aggiorna from menu within m_opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "aggiorna" )
+
+end event
+
+on m_aggiorna.create
+this.Text="&Aggiorna~tAlt+A"
+this.Microhelp="Aggiornamento archivi"
+this.ToolBarItemName="Watcom!"
+this.ToolBarItemText="Aggiorna"
+this.ToolBarItemOrder=4
+this.Enabled=false
+this.Shortcut=577
+end on
+
+type m_finestra from menu within m_esiti
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+this.Text="&2. Finestra"
+this.m_svuota=create m_svuota
+this.m_-1=create m_-1
+this.m_chiudi=create m_chiudi
+this.Item[]={this.m_svuota, &
+this.m_-1, &
+this.m_chiudi}
+end on
+
+on m_finestra.destroy
+destroy(this.m_svuota)
+destroy(this.m_-1)
+destroy(this.m_chiudi)
+end on
+
+type m_svuota from menu within m_finestra
+end type
+
+on m_svuota.create
+this.Text="S&vuota~tAlt+V"
+this.ToolBarItemName="CheckOut!"
+this.ToolBarItemText="Svuota"
+this.ToolBarItemOrder=9
+this.ToolBarItemSpace=1
+this.Shortcut=598
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "clear" )
+
+end event
+
+type m_-1 from menu within m_finestra
+end type
+
+on m_-1.create
+this.Text="-"
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "uscita" )
+
+end event
+
+on m_chiudi.create
+this.Text="Chiudi~tF10"
+this.ToolBarItemName="Custom009!"
+this.ToolBarItemText="Chiudi"
+this.ToolBarItemOrder=10
+this.ToolBarItemSpace=2
+this.Shortcut=121
+end on
+

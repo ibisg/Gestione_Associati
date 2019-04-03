@@ -1,0 +1,53 @@
+﻿$PBExportHeader$f_espandilivelli.srf
+global type f_espandilivelli from function_object
+end type
+
+forward prototypes
+global function integer f_espandilivelli (ref treeview atvi_tv, long al_livello_child, treeviewitem al_tvi_parent)
+end prototypes
+
+global function integer f_espandilivelli (ref treeview atvi_tv, long al_livello_child, treeviewitem al_tvi_parent);integer li_ret
+long ll_handle, ll_firstChild, ll_livellofirstchild, ll_livelloCorrente, ll_pippo
+treeViewItem ltvi_struttura
+
+ll_firstChild= al_tvi_parent.itemHandle
+
+do while ll_firstChild <> -1  //*ll_livelloCorrente <= al_livello_child*/
+
+	ll_pippo= atvi_tv.findItem(childTreeItem!, ll_firstChild)
+	
+	ll_firstChild= ll_pippo
+	
+	li_ret= atvi_tv.getItem( ll_firstChild, ltvi_struttura )
+	
+	ll_livelloCorrente= ltvi_struttura.level
+	
+	ll_handle= ll_firstChild
+	
+	do while ll_handle <> -1
+		
+		/* estrazione dati dall'item e inserimento in tv_dettaglio... */
+			
+		messageBox("test", "livello: "+string(ll_livelloCorrente)+" handle: "+string(ll_handle) )
+		
+		f_espandilivelli(atvi_tv, al_livello_child, ltvi_struttura)
+		
+		ll_handle=  atvi_tv.findItem(nextTreeItem!, ll_handle)
+		
+		li_ret= atvi_tv.getItem( ll_handle, ltvi_struttura )
+		
+		ll_firstChild= ll_handle
+		
+	loop
+	
+//	ll_livelloCorrente= al_livello_child + 1
+
+loop
+
+return 0
+
+
+
+
+end function
+

@@ -1,0 +1,30 @@
+﻿$PBExportHeader$f_vercod.srf
+global type f_vercod from function_object
+end type
+
+forward prototypes
+global function boolean f_vercod (string as_codice)
+end prototypes
+
+global function boolean f_vercod (string as_codice);string ls_prima="", ls_seconda="", ls_senzadip= ""
+uint lui_strlen= 0
+
+ls_senzadip= Mid(as_codice, 1, len(as_codice) - 2)
+
+lui_strlen= Len(ls_senzadip)
+
+ls_prima= Mid(ls_senzadip, 1, lui_strlen - 2) // isola il progressivo
+
+ls_seconda= Mid(ls_senzadip, lui_strlen - 1, lui_strlen) // isola la cifra di controllo
+
+if long(Mid(string(Mod(long(ls_prima), 13)), 1, 2)) <> long(ls_seconda) then // ricalcola la cifra di controllo e la confronta
+	
+	return false // codice non valido
+	
+else
+	
+	return true // codice valido
+	
+end if
+end function
+

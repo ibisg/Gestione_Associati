@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_strutturager.srs
+global type s_strutturager from structure
+	long		livello
+	long		id_nodo
+	string		relazione
+	long		id_parent
+	string		codice
+	string		descrizione
+	string		descrizione_struttura
+	long		handle
+end type
+

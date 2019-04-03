@@ -1,0 +1,14 @@
+﻿$PBExportHeader$dddw_pubblicazioni.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912~tf_righealternate(getRow())" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=tipo_riv dbname="COSTO_UN.TIPO_RIV" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=nome_rivista dbname="COSTO_UN.NOME_RIVISTA" )
+ column=(type=char(40) updatewhereclause=yes name=descrizione dbname="COSTO_UN.DESCRIZIONE" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"COSTO_UN~" ) COLUMN(NAME=~"COSTO_UN.TIPO_RIV~") COLUMN(NAME=~"COSTO_UN.NOME_RIVISTA~") COLUMN(NAME=~"COSTO_UN.DESCRIZIONE~")) " update="COSTO_UN" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Descrizione" border="0" color="0" x="9" y="4" height="64" width="1070"  name=t_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388608" x="9" y="4" height="88" width="1070" format="[general]"  name=descrizione edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

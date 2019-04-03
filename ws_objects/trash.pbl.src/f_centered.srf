@@ -1,0 +1,40 @@
+﻿$PBExportHeader$f_centered.srf
+global type f_centered from function_object
+end type
+
+forward prototypes
+global function integer f_centered (window aw_object)
+end prototypes
+
+global function integer f_centered (window aw_object);//*-----------------------------------------------------------------*/
+//*    f_Center:  Center the window
+//*-----------------------------------------------------------------*/
+int li_screenheight, li_screenwidth, li_rc, li_x=1, li_y=1
+environment	lenv_obj
+
+/*  Check for a window association with this object  */
+If IsNull ( aw_object ) Or Not IsValid ( aw_object ) Then Return -1
+
+/*  Get environment  */
+If GetEnvironment ( lenv_obj ) = -1 Then Return -1
+
+/*  Determine current screen resolution and validate  */
+li_screenheight = PixelsToUnits ( lenv_obj.ScreenHeight, YPixelsToUnits! )
+li_screenwidth  = PixelsToUnits ( lenv_obj.ScreenWidth, XPixelsToUnits! )
+If Not ( li_screenheight > 0 ) Or Not ( li_screenwidth > 0 ) Then Return -1
+
+/*  Get center points  */
+If li_screenwidth > aw_object.Width Then
+	li_x = ( li_screenwidth / 2 ) - ( aw_object.Width / 2 )
+End If
+If li_screenheight > aw_object.Height Then
+	li_y = ( li_screenheight / 2 ) - ( aw_object.Height / 2 )
+End If
+
+/*  Center window  */
+li_rc = aw_object.Move ( li_x, li_y )
+If li_rc <> 1 Then Return -1
+
+Return 1
+end function
+

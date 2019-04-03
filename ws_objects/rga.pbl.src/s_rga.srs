@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_rga.srs
+global type s_rga from structure
+	string		vc_nodo
+	string		tipo
+end type
+

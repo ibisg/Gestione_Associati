@@ -1,0 +1,35 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "rga.pbl" "";
+@end;
+@begin Objects 
+ "dddw_variazioni_tipi.srd" "rga.pbl";
+ "ds_rga_membri.srd" "rga.pbl";
+ "dw_dipendenti_presenze.srd" "rga.pbl";
+ "dw_leggi_messaggi.srd" "rga.pbl";
+ "dw_membri_rga.srd" "rga.pbl";
+ "dw_rga_messaggi.srd" "rga.pbl";
+ "dw_rga_messaggi_in.srd" "rga.pbl";
+ "dw_rga_messaggi_nuovi.srd" "rga.pbl";
+ "dw_rga_messaggi_out.srd" "rga.pbl";
+ "dw_rga_trasfin_offline.srd" "rga.pbl";
+ "dw_rga_trasfout_offline.srd" "rga.pbl";
+ "dw_rga_variazioni_eseguite.srd" "rga.pbl";
+ "dw_rga_variazioni_offline.srd" "rga.pbl";
+ "dw_rga_variazioni_offline_s.srd" "rga.pbl";
+ "dw_rga_variazioni_rga_richieste.srd" "rga.pbl";
+ "dw_rga_variazioni_trasfout_s.srd" "rga.pbl";
+ "dw_rilevamento_presenze.srd" "rga.pbl";
+ "dw_seleziona_gruppo_modifiche.srd" "rga.pbl";
+ "dwc_gruppi.srd" "rga.pbl";
+ "m_rga_sheet.srm" "rga.pbl";
+ "s_messaggi.srs" "rga.pbl";
+ "s_rga.srs" "rga.pbl";
+ "w_archivio_variazioni_rga_generale.srw" "rga.pbl";
+ "w_rga_azioni.srw" "rga.pbl";
+ "w_rga_azioni_offline.srw" "rga.pbl";
+ "w_rga_membri_sheet.srw" "rga.pbl";
+ "w_rga_messaggi.srw" "rga.pbl";
+ "w_rga_messaggi_nuovi.srw" "rga.pbl";
+ "w_seleziona_gruppi_modifiche.srw" "rga.pbl";
+@end;

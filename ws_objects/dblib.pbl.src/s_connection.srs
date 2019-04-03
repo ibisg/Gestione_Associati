@@ -1,0 +1,11 @@
+﻿$PBExportHeader$s_connection.srs
+global type s_connection from structure
+	string		cod_dip
+	string		descrizione
+	datetime		dta_ult_car
+	string		db
+	string		sql_server
+	string		dbtype
+	string		dbms
+end type
+

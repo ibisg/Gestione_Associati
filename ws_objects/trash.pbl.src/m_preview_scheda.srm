@@ -1,0 +1,89 @@
+﻿$PBExportHeader$m_preview_scheda.srm
+forward
+global type m_preview_scheda from menu
+end type
+type m_stampa from menu within m_preview_scheda
+end type
+type m_visualizzazione from menu within m_preview_scheda
+end type
+type m_margini from menu within m_preview_scheda
+end type
+global type m_preview_scheda from menu
+m_stampa m_stampa
+m_visualizzazione m_visualizzazione
+m_margini m_margini
+end type
+end forward
+
+global type m_preview_scheda from menu
+m_stampa m_stampa
+m_visualizzazione m_visualizzazione
+m_margini m_margini
+end type
+global m_preview_scheda m_preview_scheda
+
+on m_preview_scheda.create
+m_preview_scheda=this
+call super::create
+this.m_stampa=create m_stampa
+this.m_visualizzazione=create m_visualizzazione
+this.m_margini=create m_margini
+this.Item[UpperBound(this.Item)+1]=this.m_stampa
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzazione
+this.Item[UpperBound(this.Item)+1]=this.m_margini
+end on
+
+on m_preview_scheda.destroy
+call super::destroy
+destroy(this.m_stampa)
+destroy(this.m_visualizzazione)
+destroy(this.m_margini)
+end on
+
+type m_stampa from menu within m_preview_scheda
+end type
+
+on m_stampa.create
+call super::create
+this.text = "Stampa"
+this.toolbaritemname = "Print!"
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+event clicked;w_preview_scheda.uodw_current.uof_print() 
+end event
+
+type m_visualizzazione from menu within m_preview_scheda
+end type
+
+event clicked;w_preview_scheda.uodw_current.uof_printzoom(w_preview_scheda.uodw_current) 
+end event
+
+on m_visualizzazione.create
+call super::create
+this.text = "Visualizzazione"
+this.toolbaritemname = "Window!"
+end on
+
+on m_visualizzazione.destroy
+call super::destroy
+end on
+
+type m_margini from menu within m_preview_scheda
+end type
+
+event clicked;w_preview_scheda.uodw_current.uof_margini(w_preview_scheda.uodw_current) 
+end event
+on m_margini.create
+call super::create
+this.text = "Margini"
+this.toolbaritemname = "SpaceHorizontal!"
+end on
+
+on m_margini.destroy
+call super::destroy
+end on
+

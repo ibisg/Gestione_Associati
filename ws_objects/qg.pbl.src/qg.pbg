@@ -1,0 +1,11 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "qg.pbl" "";
+@end;
+@begin Objects 
+ "qg.sra" "qg.pbl";
+ "dw_qg_struttura_2.srd" "qg.pbl";
+ "dw_qg_struttura_senza_regione.srd" "qg.pbl";
+ "p_qg_webform.srj" "qg.pbl";
+ "w_qg.srw" "qg.pbl";
+@end;

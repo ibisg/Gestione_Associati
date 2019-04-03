@@ -1,0 +1,220 @@
+﻿$PBExportHeader$f_is_aventediritto.srf
+global type f_is_aventediritto from function_object
+end type
+
+forward prototypes
+global function integer f_is_aventediritto (s_adesioni as_adesioni_s, string as_codice)
+end prototypes
+
+global function integer f_is_aventediritto (s_adesioni as_adesioni_s, string as_codice);integer li_case, li_livello
+long ll_ret
+string ls_messaggio, ls_dt1, ls_dt2
+		
+		if as_adesioni_s.a_g <> "" then
+		
+            	if as_adesioni_s.a_g = 'A' then
+						  
+				select count(*)
+                    into :ll_ret
+                    from membri_gerarchica
+                    where codice= :as_codice and cod_div in (1, 2);
+						  
+				li_case= 4
+						  
+				if ll_ret= 0 then goto esci
+				
+			end if
+			
+          if as_adesioni_s.a_g = 'G' then
+						  
+				select count(*)
+                    into :ll_ret
+                    from membri_gerarchica
+                    where codice= :as_codice and cod_div in (3, 4);
+						  
+				ls_messaggio= "Non ha i requisiti per partecipare a questo esame."		  
+						  
+				li_case= 4
+				
+				if ll_ret= 0 then goto esci
+				
+			end if		
+			
+		end if
+		
+		
+		if as_adesioni_s.livello_resp_soglia <> 0 then
+			select count(*) 
+				into :ll_ret
+			from membri_gerarchica m1
+					where 
+					m1.codice= :as_codice and 	
+					( select MIN(a.livello) from membri_gerarchica m2, att_ist a
+						where (m1.cod_att_ist_1= a.cod_att_ist OR m1.cod_att_ist_2= a.cod_att_ist)
+						and m1.codice= m2.codice and a.livello > 0) <= :as_adesioni_s.livello_resp_soglia;
+						
+			ls_messaggio= "Non ha i requisiti per partecipare a questo esame."		
+					
+			li_case= 4
+			
+		end if
+			
+		// controlla che siano soddisfatti gli altri criteri...
+		
+		ls_dt1= string(as_adesioni_s.data_ultimo_esame, "dd.mm.yyyy")
+		if ls_dt1= "01.01.1900" then setNull(ls_dt1)
+		
+		ls_dt2=string(as_adesioni_s.data_cerimonia_soglia, "dd.mm.yyyy")
+		if ls_dt2= "01.01.1900" then setNull(ls_dt2) 
+		
+		// 3 casi per i criteri
+
+        if NOT isNull(as_adesioni_s.data_ultimo_esame) AND NOT isNull(as_adesioni_s.data_cerimonia_soglia) then
+            
+            li_case= 1
+            
+                    select count(*)
+                    into :ll_ret
+                    from esami_curr, membri_gerarchica
+                    where     
+                            membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                membri_gerarchica.cod_studio= :as_adesioni_s.cod_studio_attuale and
+                                    esami_curr.esito= "P" and
+                                        esami_curr.data_esame <= :ls_dt1 and
+                                            membri_gerarchica.data_cer <= :ls_dt2 and
+                                                membri_gerarchica.codice= :as_codice and
+                                                    membri_gerarchica.codice = esami_curr.codice and
+                                                        membri_gerarchica.cod_studio = esami_curr.cod_studio;
+                                                
+                    if trap_sql(sqlca, "INSADESIONI03") < 0 then return -1                            
+                                                        
+        elseif NOT isNull(as_adesioni_s.data_ultimo_esame) AND isNull(as_adesioni_s.data_cerimonia_soglia) then
+            
+                    li_case= 2
+            
+                    select count(*)
+                    into :ll_ret
+                    from esami_curr, membri_gerarchica
+                    where     
+                            membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                membri_gerarchica.cod_studio= :as_adesioni_s.cod_studio_attuale and
+                                    esami_curr.esito= "P" and
+                                        esami_curr.data_esame <= :ls_dt1 and
+                                            membri_gerarchica.codice= :as_codice and
+                                                membri_gerarchica.codice = esami_curr.codice and
+                                                    membri_gerarchica.cod_studio = esami_curr.cod_studio;
+                                            
+                    if trap_sql(sqlca, "INSADESIONI04") < 0 then return -1                        
+                                                         
+        elseif isNull(as_adesioni_s.data_ultimo_esame) AND NOT isNull(as_adesioni_s.data_cerimonia_soglia) then
+            
+                    li_case= 3
+            
+                   // qui devo distinguere a seconda del livello corrente ...
+                    
+                    if li_livello= 1 then
+                    
+                            select count(*)
+                            into :ll_ret
+                            from membri_gerarchica
+                            where     
+                                    membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                        membri_gerarchica.cod_studio= "00" and
+                                                membri_gerarchica.data_cer <= :ls_dt2 and
+                                                        membri_gerarchica.codice= :as_codice;
+                                                    
+                            if trap_sql(sqlca, "INSADESIONI05") < 0 then return -1        
+                            
+                        else
+                            
+                            select count(*)
+                            into :ll_ret
+                            from esami_curr, membri_gerarchica
+                            where     
+                                    membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                        membri_gerarchica.cod_studio= :as_adesioni_s.cod_studio_attuale and
+                                            esami_curr.esito= "P" and
+                                                membri_gerarchica.data_cer <= :ls_dt2 and
+                                                        membri_gerarchica.codice = esami_curr.codice and
+                                                            membri_gerarchica.cod_studio = esami_curr.cod_studio and
+                                                                membri_gerarchica.codice= :as_codice;
+                                                    
+                            if trap_sql(sqlca, "INSADESIONI06") < 0 then return -1                                                     
+                            
+                            
+                        end if   
+            
+        else
+            
+                    li_case= 4
+            
+                     // nel caso in cui non siano stati definiti criteri... devo comunque distinguere secondo il livello...
+                   
+                    if li_livello= 1 then       
+                       
+                            select count(*)
+                            into :ll_ret
+                            from membri_gerarchica
+                            where
+                                    membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                        membri_gerarchica.cod_studio= "00" and
+                                                membri_gerarchica.codice= :as_codice;
+                                               
+                            if trap_sql(sqlca, "INSADESIONI07") < 0 then return -1       
+                           
+                        else
+                           
+                            select count(*)
+                            into :ll_ret
+                            from esami_curr, membri_gerarchica
+                            where
+                                    membri_gerarchica.cod_dis in ('MEM', 'TFE')  and
+                                        membri_gerarchica.cod_studio= :as_adesioni_s.cod_studio_attuale and
+                                            esami_curr.esito= "P" and
+                                                    membri_gerarchica.codice = esami_curr.codice and
+                                                        membri_gerarchica.cod_studio = esami_curr.cod_studio and
+                                                            membri_gerarchica.codice= :as_codice;
+                                               
+                            if trap_sql(sqlca, "INSADESIONI08") < 0 then return -1       
+                           
+                        end if
+                   
+                end if	 
+		
+		if isNull(ll_ret) then ll_ret= 0
+		
+		esci:
+
+		if ll_ret= 0 then
+			
+			choose case li_case
+					
+				case 1
+					
+					ls_messaggio= "Data ultimo esame o data cerimonia diverse dai limiti assegnati."
+					
+				case 2
+					
+					ls_messaggio= "Data ultimo esame diversa dai limiti assegnati."
+					
+				case 3
+					
+					ls_messaggio= "Data cerimonia diversa dai limiti assegnati."
+					
+				case 4
+					
+					ls_messaggio= "Non ha i requisiti per partecipare a questo esame."
+					
+			end choose
+			
+			messageBox("ldfh ", ls_messaggio)
+			
+			return 1
+			
+		else 
+			
+			return 0
+			
+		end if
+end function
+

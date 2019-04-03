@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_ini.srs
+global type s_ini from structure
+	string		v_dbms
+	string		v_database
+	string		v_server
+	string		v_nodo
+	integer		v_max_retry
+	integer		v_timeout
+	string		v_filename
+	string		v_dip
+	string		v_stop
+	string		v_msg
+end type
+

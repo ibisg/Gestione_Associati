@@ -1,0 +1,22 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "reports.pbl" "";
+@end;
+@begin Objects 
+ "dctb_quadrostatistico.srd" "reports.pbl";
+ "dgraph_etàmembriperanno.srd" "reports.pbl";
+ "dgraph_membri_da_anno.srd" "reports.pbl";
+ "dgraph_membri_per_anno.srd" "reports.pbl";
+ "dgraph_membri_per_anno_div.srd" "reports.pbl";
+ "dgraph_membri_tai_da_anno.srd" "reports.pbl";
+ "dgraph_modalita_versamento.srd" "reports.pbl";
+ "dgraph_primi_versamenti.srd" "reports.pbl";
+ "dw_completa.srd" "reports.pbl";
+ "dw_conteggiopernazione.srd" "reports.pbl";
+ "dw_count_resp.srd" "reports.pbl";
+ "dw_count_struttura.srd" "reports.pbl";
+ "dw_esamipartecipazione.srd" "reports.pbl";
+ "dw_livelloesamiperresp.srd" "reports.pbl";
+ "dw_nuovi_versanti_per_anno.srd" "reports.pbl";
+ "dw_qg_struttura.srd" "reports.pbl";
+@end;

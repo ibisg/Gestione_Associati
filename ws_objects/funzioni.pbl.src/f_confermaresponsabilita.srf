@@ -1,0 +1,121 @@
+﻿$PBExportHeader$f_confermaresponsabilita.srf
+global type f_confermaresponsabilita from function_object
+end type
+
+forward prototypes
+global function integer f_confermaresponsabilita (string codice, string vc_parent, string vc_target)
+end prototypes
+
+global function integer f_confermaresponsabilita (string codice, string vc_parent, string vc_target);/*
+ * estrae il livello numerico di responsabilità, sia per resp1 che per resp2
+ */
+ 
+ boolean lb_toconfirm1= TRUE, lb_toconfirm2=TRUE
+ 
+ integer li_livello1, li_livello2
+ string ls_struttura_parent1, ls_struttura_target1, ls_struttura_parent2, ls_struttura_target2, ls_resp1, ls_resp2, ls_staff, ls_cod_att_new
+ 
+ select a1.livello, a2.livello into :li_livello1, :li_livello2 from att_ist a1, att_ist a2, membri_gerarchica m where a1.cod_att_ist= m.cod_att_ist_1 and a2.cod_att_ist= m.cod_att_ist_2 and m.codice= :codice;
+ 
+ if trap_sql(sqlca, "CONFRESP01") < 0 then goto errore
+ 
+ 
+ /*
+  * utilizza la funzione f_parse_struttura_left per estrarre la sottostringa corrispondete al livello di struttura, sia per vc_parent che per vc_target...
+  */
+  
+  ls_struttura_parent1= f_parse_struttura_left(vc_parent, li_livello1)
+  
+  ls_struttura_target1= f_parse_struttura_left(vc_target, li_livello1)
+  
+  ls_struttura_parent2= f_parse_struttura_left(vc_parent, li_livello2)
+  
+  ls_struttura_target2= f_parse_struttura_left(vc_target, li_livello2)
+  
+/*
+ * se le sottostringhe sono uguali non c'è bisogno di conferma della responsabilità, la verifica va fatta sia per la resp 1 che per la resp 2...
+ */
+
+if (ls_struttura_parent1= ls_struttura_target1) OR li_livello1= 1 then
+	
+	// nessuna riconferma se il trasferimento è avvenuto nello stesso ambito della sua responsabilità o se è una responsabilità nazionale
+	
+	lb_toconfirm1= false
+	
+else
+	
+/*
+ * altrimenti laddove non sono uguali il codice responsabilità 1 o 2 deve essere aggiornato a '-x' (cioè da riconfermare)
+ */	
+ 
+ 	select cod_att_ist_1
+	into :ls_resp1
+	from membri_gerarchica
+	where codice= :codice;
+	
+	 if trap_sql(sqlca, "CONFRESP03") < 0 then goto errore
+
+	ls_cod_att_new= '-'+string(li_livello1)
+ 
+ 	if ls_resp1 <> '000' then
+		update membri_gerarchica
+		set cod_att_ist_1= :ls_cod_att_new
+		where codice= :codice;
+		
+		 if trap_sql(sqlca, "CONFRESP04") < 0 then goto errore
+		
+	end if
+	
+end if
+
+if (ls_struttura_parent2= ls_struttura_target2) OR li_livello2= 1 then
+	
+	// nessuna riconferma se il trasferimento è avvenuto nello stesso ambito della sua responsabilità o se è una responsabilità nazionale
+	
+		lb_toconfirm2= false
+	
+else
+	
+/*
+ * altrimenti laddove non sono uguali il codice responsabilità 1 o 2 deve essere aggiornato a '-x' (cioè da riconfermare)
+ */	
+ 
+ 	ls_cod_att_new= '-'+string(li_livello2)
+ 
+  	select cod_att_ist_2
+	into :ls_resp2
+	from membri_gerarchica
+	where codice= :codice;
+	
+	 if trap_sql(sqlca, "CONFRESP05") < 0 then goto errore
+ 
+ 	if ls_resp2 <> '000' then
+		update membri_gerarchica
+		set cod_att_ist_2= :ls_cod_att_new
+		where codice= :codice;
+		
+		 if trap_sql(sqlca, "CONFRESP06") < 0 then goto errore
+		
+	end if
+	
+end if
+
+if lb_toconfirm1= false AND lb_toconfirm2= false then return 0
+
+commit;
+
+ if trap_sql(sqlca, "CONFRESP07") < 0 then goto errore
+ 
+ messageBox('Trasferimenti', "Attenzione: la persona trasferita ha delle responsabilità istituzionali nella struttura di provenienza.~nVerificare che le responsabilità siano state riconfermate.", exclamation!)
+
+return 0
+
+errore:
+
+rollback;
+
+ if trap_sql(sqlca, "CONFRESP08") < 0 then goto errore
+
+return -1
+end function
+

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_asp.srs
+global type s_asp from structure
+	datetime		v_data
+	string		v_citta
+	string		v_turno
+end type
+

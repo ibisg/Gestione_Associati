@@ -1,0 +1,163 @@
+﻿$PBExportHeader$m_organigrammi.srm
+$PBExportComments$Menu di w_organigrammi
+forward
+global type m_organigrammi from menu
+end type
+type m_1opzioni from menu within m_organigrammi
+end type
+type m_start from menu within m_1opzioni
+end type
+type m_stampa from menu within m_1opzioni
+end type
+type m_1opzioni from menu within m_organigrammi
+m_start m_start
+m_stampa m_stampa
+end type
+type m_2finestra from menu within m_organigrammi
+end type
+type m_annulla from menu within m_2finestra
+end type
+type m_-1 from menu within m_2finestra
+end type
+type m_chiudi from menu within m_2finestra
+end type
+type m_2finestra from menu within m_organigrammi
+m_annulla m_annulla
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+end forward
+
+global type m_organigrammi from menu
+m_1opzioni m_1opzioni
+m_2finestra m_2finestra
+end type
+global m_organigrammi m_organigrammi
+
+on m_organigrammi.create
+m_organigrammi=this
+this.m_1opzioni=create m_1opzioni
+this.m_2finestra=create m_2finestra
+this.Item[]={this.m_1opzioni, &
+this.m_2finestra}
+end on
+
+on m_organigrammi.destroy
+destroy(this.m_1opzioni)
+destroy(this.m_2finestra)
+end on
+
+type m_1opzioni from menu within m_organigrammi
+m_start m_start
+m_stampa m_stampa
+end type
+
+on m_1opzioni.create
+this.Text="&1. Opzioni"
+this.m_start=create m_start
+this.m_stampa=create m_stampa
+this.Item[]={this.m_start, &
+this.m_stampa}
+end on
+
+on m_1opzioni.destroy
+destroy(this.m_start)
+destroy(this.m_stampa)
+end on
+
+type m_start from menu within m_1opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "genera" )
+
+end event
+
+on m_start.create
+this.Text="&Start~tAlt+C"
+this.ToolBarItemName="Custom079!"
+this.ToolBarItemText="Start"
+this.ToolBarItemOrder=1
+this.Shortcut=579
+end on
+
+type m_stampa from menu within m_1opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "stampa" )
+
+end event
+
+on m_stampa.create
+this.Text="Stam&pa~tAlt+P"
+this.Microhelp="Stampa organigrammi"
+this.ToolBarItemName="Print!"
+this.ToolBarItemText="Stampa"
+this.ToolBarItemOrder=2
+this.Enabled=false
+this.Shortcut=592
+end on
+
+type m_2finestra from menu within m_organigrammi
+m_annulla m_annulla
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+
+on m_2finestra.create
+this.Text="&2. Finestra"
+this.m_annulla=create m_annulla
+this.m_-1=create m_-1
+this.m_chiudi=create m_chiudi
+this.Item[]={this.m_annulla, &
+this.m_-1, &
+this.m_chiudi}
+end on
+
+on m_2finestra.destroy
+destroy(this.m_annulla)
+destroy(this.m_-1)
+destroy(this.m_chiudi)
+end on
+
+type m_annulla from menu within m_2finestra
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "clear" )
+
+end event
+
+on m_annulla.create
+this.Text="&Annulla filtri~tAlt+A"
+this.Microhelp="Annulla filtri"
+this.ToolBarItemName="Undo!"
+this.ToolBarItemText="Annulla filtri"
+this.ToolBarItemOrder=9
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=577
+end on
+
+type m_-1 from menu within m_2finestra
+end type
+
+on m_-1.create
+this.Text="-"
+end on
+
+type m_chiudi from menu within m_2finestra
+end type
+
+event clicked;close ( ParentWindow )
+
+end event
+
+on m_chiudi.create
+this.Text="Chiudi~tF10"
+this.Microhelp="Chiudi finestra"
+this.ToolBarItemName="Custom009!"
+this.ToolBarItemText="Chiudi"
+this.ToolBarItemOrder=10
+this.ToolBarItemSpace=2
+this.Shortcut=121
+end on
+

@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_agg_stor.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=codice dbname="gohonzon_storico.codice" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=tipo_goh dbname="gohonzon_storico.tipo_goh" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=data dbname="gohonzon_storico.data" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=cod_causale dbname="gohonzon_storico.cod_causale" )
+ column=(type=char(120) update=yes updatewhereclause=yes name=note dbname="gohonzon_storico.note" )
+ retrieve="SELECT  gohonzon_storico.codice ,
+           gohonzon_storico.tipo_goh ,
+           gohonzon_storico.data ,
+           gohonzon_storico.cod_causale ,
+           gohonzon_storico.note     
+        FROM gohonzon_storico      
+        WHERE ( gohonzon_storico.codice = null )" update="gohonzon_storico" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="9" y="0" height="76" width="951"  name=codice  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Codice" border="0" color="0" x="5" y="4" height="76" width="955"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="974" y="0" height="76" width="87"  name=tipo_goh  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Tipo Goh" border="0" color="0" x="969" y="4" height="76" width="91"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="1074" y="0" height="76" width="599"  name=data_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Data" border="0" color="0" x="1070" y="4" height="76" width="603"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1687" y="0" height="76" width="87"  name=cod_causale  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Cod Causale" border="0" color="0" x="1682" y="4" height="76" width="91"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="1787" y="0" height="76" width="3831"  name=note  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Note" border="0" color="0" x="1783" y="4" height="76" width="3835"  name=t_7  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

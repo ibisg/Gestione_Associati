@@ -1,0 +1,9 @@
+Save Format v3.0(19990112)
+@begin Unchecked
+@end;
+@begin Targets
+ 0 "corsi2.pbt";
+ 1 "gestione_associati.pbt";
+@end;
+DefaultTarget "corsi2.pbt";
+DefaultRemoteTarget "corsi2.pbt";

@@ -1,0 +1,693 @@
+﻿$PBExportHeader$m_pop_tv_tab.srm
+forward
+global type m_pop_tv_tab from m_pop_tv
+end type
+type m_1 from menu within m_pop_tv_tab
+end type
+type m_report from menu within m_pop_tv_tab
+end type
+type m_organigramma from menu within m_report
+end type
+type m_quadrogeneralestruttura from menu within m_report
+end type
+type m_reportconsegne from menu within m_report
+end type
+type m_offerte from menu within m_report
+end type
+type m_5 from menu within m_offerte
+end type
+type m_6 from menu within m_offerte
+end type
+type m_7 from menu within m_offerte
+end type
+type m_8 from menu within m_offerte
+end type
+type m_9 from menu within m_offerte
+end type
+type m_12 from menu within m_offerte
+end type
+type m_13 from menu within m_offerte
+end type
+type m_offerte from menu within m_report
+m_5 m_5
+m_6 m_6
+m_7 m_7
+m_8 m_8
+m_9 m_9
+m_12 m_12
+m_13 m_13
+end type
+type m_2 from menu within m_report
+end type
+type m_report from menu within m_pop_tv_tab
+m_organigramma m_organigramma
+m_quadrogeneralestruttura m_quadrogeneralestruttura
+m_reportconsegne m_reportconsegne
+m_offerte m_offerte
+m_2 m_2
+end type
+global type m_pop_tv_tab from m_pop_tv
+m_1 m_1
+m_report m_report
+end type
+end forward
+
+global type m_pop_tv_tab from m_pop_tv
+m_1 m_1
+m_report m_report
+end type
+global m_pop_tv_tab m_pop_tv_tab
+
+on m_pop_tv_tab.create
+m_pop_tv_tab=this
+call super::create
+this.m_1=create m_1
+this.m_report=create m_report
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_report
+end on
+
+on m_pop_tv_tab.destroy
+call super::destroy
+destroy(this.m_1)
+destroy(this.m_report)
+end on
+
+type m_struttura from m_pop_tv`m_struttura within m_pop_tv_tab
+end type
+
+on m_struttura.create
+call super::create
+end on
+
+on m_struttura.destroy
+call super::destroy
+end on
+
+type m_inseriscinuovastruttura from m_pop_tv`m_inseriscinuovastruttura within m_struttura
+end type
+
+on m_inseriscinuovastruttura.create
+call super::create
+end on
+
+on m_inseriscinuovastruttura.destroy
+call super::destroy
+end on
+
+type m_modificastruttura from m_pop_tv`m_modificastruttura within m_struttura
+end type
+
+on m_modificastruttura.create
+call super::create
+end on
+
+on m_modificastruttura.destroy
+call super::destroy
+end on
+
+type m_modifica from m_pop_tv`m_modifica within m_struttura
+end type
+
+on m_modifica.create
+call super::create
+this.text = "Modifica la descrizione della struttura"
+end on
+
+on m_modifica.destroy
+call super::destroy
+end on
+
+type m_- from m_pop_tv`m_- within m_pop_tv_tab
+end type
+
+on m_-.create
+call super::create
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_aggiornanodo from m_pop_tv`m_aggiornanodo within m_pop_tv_tab
+end type
+
+on m_aggiornanodo.create
+call super::create
+end on
+
+on m_aggiornanodo.destroy
+call super::destroy
+end on
+
+type m_1a from m_pop_tv`m_1a within m_pop_tv_tab
+end type
+
+on m_1a.create
+call super::create
+end on
+
+on m_1a.destroy
+call super::destroy
+end on
+
+type m_comprimitutto from m_pop_tv`m_comprimitutto within m_pop_tv_tab
+end type
+
+on m_comprimitutto.create
+call super::create
+end on
+
+on m_comprimitutto.destroy
+call super::destroy
+end on
+
+type m_0 from m_pop_tv`m_0 within m_pop_tv_tab
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_ridimensionailtreeview from m_pop_tv`m_ridimensionailtreeview within m_pop_tv_tab
+end type
+
+on m_ridimensionailtreeview.create
+call super::create
+end on
+
+on m_ridimensionailtreeview.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_pop_tv_tab
+end type
+
+on m_1.create
+call super::create
+this.visible = false
+this.text = "-"
+this.toolbaritemvisible = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_report from menu within m_pop_tv_tab
+m_organigramma m_organigramma
+m_quadrogeneralestruttura m_quadrogeneralestruttura
+m_reportconsegne m_reportconsegne
+m_offerte m_offerte
+m_2 m_2
+end type
+
+on m_report.create
+call super::create
+this.visible = false
+this.text = "Report"
+this.toolbaritemvisible = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_organigramma=create m_organigramma
+this.m_quadrogeneralestruttura=create m_quadrogeneralestruttura
+this.m_reportconsegne=create m_reportconsegne
+this.m_offerte=create m_offerte
+this.m_2=create m_2
+this.Item[UpperBound(this.Item)+1]=this.m_organigramma
+this.Item[UpperBound(this.Item)+1]=this.m_quadrogeneralestruttura
+this.Item[UpperBound(this.Item)+1]=this.m_reportconsegne
+this.Item[UpperBound(this.Item)+1]=this.m_offerte
+this.Item[UpperBound(this.Item)+1]=this.m_2
+end on
+
+on m_report.destroy
+call super::destroy
+destroy(this.m_organigramma)
+destroy(this.m_quadrogeneralestruttura)
+destroy(this.m_reportconsegne)
+destroy(this.m_offerte)
+destroy(this.m_2)
+end on
+
+type m_organigramma from menu within m_report
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runqueryorg(1, 1)
+end event
+
+on m_organigramma.create
+call super::create
+this.text = "Organigramma"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_organigramma.destroy
+call super::destroy
+end on
+
+type m_quadrogeneralestruttura from menu within m_report
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runqueryorg(2, 1)
+end event
+
+on m_quadrogeneralestruttura.create
+call super::create
+this.text = "Quadro generale struttura"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_quadrogeneralestruttura.destroy
+call super::destroy
+end on
+
+type m_reportconsegne from menu within m_report
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquerystruttura(1, 1)
+end event
+
+on m_reportconsegne.create
+call super::create
+this.text = "Consegne Gohonzon"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_reportconsegne.destroy
+call super::destroy
+end on
+
+type m_offerte from menu within m_report
+m_5 m_5
+m_6 m_6
+m_7 m_7
+m_8 m_8
+m_9 m_9
+m_12 m_12
+m_13 m_13
+end type
+
+on m_offerte.create
+call super::create
+this.text = "Offerte"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_5=create m_5
+this.m_6=create m_6
+this.m_7=create m_7
+this.m_8=create m_8
+this.m_9=create m_9
+this.m_12=create m_12
+this.m_13=create m_13
+this.Item[UpperBound(this.Item)+1]=this.m_5
+this.Item[UpperBound(this.Item)+1]=this.m_6
+this.Item[UpperBound(this.Item)+1]=this.m_7
+this.Item[UpperBound(this.Item)+1]=this.m_8
+this.Item[UpperBound(this.Item)+1]=this.m_9
+this.Item[UpperBound(this.Item)+1]=this.m_12
+this.Item[UpperBound(this.Item)+1]=this.m_13
+end on
+
+on m_offerte.destroy
+call super::destroy
+destroy(this.m_5)
+destroy(this.m_6)
+destroy(this.m_7)
+destroy(this.m_8)
+destroy(this.m_9)
+destroy(this.m_12)
+destroy(this.m_13)
+end on
+
+type m_5 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery(6, 1)
+end event
+
+on m_5.create
+call super::create
+this.text = "Per status"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_5.destroy
+call super::destroy
+end on
+
+type m_6 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery(1, 1)
+end event
+
+on m_6.create
+call super::create
+this.text = "Normale"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+type m_7 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery(2, 1)
+end event
+
+on m_7.create
+call super::create
+this.text = "Divisioni"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_7.destroy
+call super::destroy
+end on
+
+type m_8 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery(3, 1)
+end event
+
+on m_8.create
+call super::create
+this.text = "Responsabilità"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_8.destroy
+call super::destroy
+end on
+
+type m_9 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery(4, 1)
+end event
+
+on m_9.create
+call super::create
+this.text = "Tabellare"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_9.destroy
+call super::destroy
+end on
+
+type m_12 from menu within m_offerte
+end type
+
+on m_12.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_12.destroy
+call super::destroy
+end on
+
+type m_13 from menu within m_offerte
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+s_preview s_preview_s
+
+s_preview_s.tipo_stampa= "M"
+s_preview_s.criterio= iw_main.tv_struttura.is_struttura_s.vc_nodo
+
+iw_main.event ue_bollettini(s_preview_s)
+end event
+
+on m_13.create
+call super::create
+this.text = "Stampa bollettini"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_13.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_report
+end type
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_runquery_offerte(6,1)
+end event
+
+on m_2.create
+call super::create
+this.visible = false
+this.text = "Varie"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+

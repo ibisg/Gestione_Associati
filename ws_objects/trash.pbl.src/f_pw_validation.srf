@@ -1,0 +1,25 @@
+﻿$PBExportHeader$f_pw_validation.srf
+global type f_pw_validation from function_object
+end type
+
+forward prototypes
+global function boolean f_pw_validation (string ls_password, string ls_codice)
+end prototypes
+
+global function boolean f_pw_validation (string ls_password, string ls_codice);
+string ls_stored_pw, ls_passed_pw
+
+select
+HASHBYTES('SHA2_512', password+CAST(salt AS NVARCHAR(36) )), 
+HASHBYTES('SHA2_512', :ls_password+CAST(salt AS NVARCHAR(36) ))
+into :ls_stored_pw, :ls_passed_pw
+from utenti_web where codice= :ls_codice;
+
+if ls_stored_pw= ls_passed_pw then
+	return true
+else
+	return false
+end if
+
+end function
+

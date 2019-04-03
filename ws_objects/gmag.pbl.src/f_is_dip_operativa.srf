@@ -1,0 +1,15 @@
+﻿$PBExportHeader$f_is_dip_operativa.srf
+global type f_is_dip_operativa from function_object
+end type
+
+forward prototypes
+global function boolean f_is_dip_operativa (string as_dip)
+end prototypes
+
+global function boolean f_is_dip_operativa (string as_dip);if as_dip= s_session_s.cod_dip then
+	return true
+else
+	return false
+end if
+end function
+

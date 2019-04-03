@@ -1,0 +1,60 @@
+﻿$PBExportHeader$dw_consegne_goh_tmp.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=172 color="16777215" )
+summary(height=0 color="536870912" )
+footer(height=0 color="81324524" )
+detail(height=160 color="536870912~tif (mid(cod_causale, 1, 1)= 'R', rgb(255,255,128), f_righealternate(getRow()))  " )
+table(column=(type=decimal(0) updatewhereclause=yes name=gohonzon_consegne_id dbname="gohonzon_consegne.id" )
+ column=(type=char(30) updatewhereclause=yes name=gohonzon_consegne_codice dbname="gohonzon_consegne.codice" )
+ column=(type=char(60) updatewhereclause=yes name=cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=nome dbname="membri_gerarchica.nome" )
+ column=(type=char(3) updatewhereclause=yes name=cod_dis dbname="membri_gerarchica.cod_dis" )
+ column=(type=char(1) updatewhereclause=yes name=flag_er dbname="membri_gerarchica.flag_er" )
+ column=(type=char(3) updatewhereclause=yes name=gohonzon_consegne_cod_causale dbname="gohonzon_consegne.cod_causale" )
+ column=(type=char(3) updatewhereclause=yes name=gohonzon_consegne_tipo_goh dbname="gohonzon_consegne.tipo_goh" )
+ column=(type=char(120) updatewhereclause=yes name=gohonzon_consegne_note dbname="gohonzon_consegne.note" )
+ column=(type=char(1) updatewhereclause=yes name=gohonzon_consegne_flag_part dbname="gohonzon_consegne.flag_part" )
+ column=(type=char(60) updatewhereclause=yes name=vc_parent dbname="membri_gerarchica.vc_parent" )
+ column=(type=char(30) updatewhereclause=yes name=codice_fam dbname="membri_gerarchica.codice_fam" )
+ column=(type=char(1) updatewhereclause=yes name=cmod_causale dbname="compute_0013" values="	S/	N" )
+ retrieve="SELECT  gohonzon_consegne.id ,
+           gohonzon_consegne.codice ,
+           membri_gerarchica.cognome ,
+           membri_gerarchica.nome ,
+           membri_gerarchica.cod_dis ,
+           membri_gerarchica.flag_er ,
+           gohonzon_consegne.cod_causale ,
+           gohonzon_consegne.tipo_goh ,
+           gohonzon_consegne.note ,
+           gohonzon_consegne.flag_part ,
+           membri_gerarchica.vc_parent ,
+           membri_gerarchica.codice_fam ,
+           ~"N~"    
+        FROM membri_gerarchica ,
+           gohonzon_consegne     
+        WHERE ( membri_gerarchica.codice = gohonzon_consegne.codice ) and          ( ( gohonzon_consegne.id = :id ) )  " arguments=(("id", number))  sort="cognome A nome A " )
+text(band=header alignment="0" text="Cognome" border="0" color="0" x="9" y="44" height="52" width="1019"  name=cognome_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Nome" border="0" color="0" x="1038" y="44" height="52" width="512"  name=nome_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Status" border="0" color="0" x="1559" y="44" height="52" width="187"  name=cod_dis_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Fed." border="0" color="0" x="1755" y="44" height="52" width="133"  name=flag_er_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Modifica causale" border="0" color="0" x="1897" y="44" height="124" width="256"  name=t_1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="0" color="0" x="1755" y="4" height="152" width="133" format="[general]"  name=flag_er edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="0" color="0" x="1559" y="4" height="152" width="187" format="[general]"  name=cod_dis edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="0" x="1038" y="4" height="152" width="512" format="[general]"  name=nome edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="9" y="4" height="152" width="1019" format="[general]"  name=cognome edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes edit.displayonly=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=50 border="0" color="0" x="1897" y="4" height="152" width="256" format="[general]"  name=cmod_causale checkbox.text="" checkbox.on="S" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="2167" y="0" height="52" width="1993"  name=gohonzon_consegne_id  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Id" border="0" color="0" x="2162" y="4" height="76" width="1998"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="4174" y="0" height="52" width="681"  name=gohonzon_consegne_codice  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Codice" border="0" color="0" x="4169" y="4" height="76" width="686"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="0" x="4869" y="0" height="52" width="59"  name=gohonzon_consegne_cod_causale  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Cod Causale" border="0" color="0" x="4864" y="4" height="76" width="64"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="4942" y="0" height="52" width="59"  name=gohonzon_consegne_tipo_goh  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Tipo Goh" border="0" color="0" x="4937" y="4" height="76" width="64"  name=t_7  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="5015" y="0" height="52" width="2752"  name=gohonzon_consegne_note  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Note" border="0" color="0" x="5010" y="4" height="76" width="2757"  name=t_8  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="7781" y="0" height="52" width="14"  name=gohonzon_consegne_flag_part  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Consegne Flag Part" border="0" color="0" x="7776" y="4" height="76" width="18"  name=t_9  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

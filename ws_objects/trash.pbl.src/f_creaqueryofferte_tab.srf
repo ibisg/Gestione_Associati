@@ -1,0 +1,63 @@
+﻿$PBExportHeader$f_creaqueryofferte_tab.srf
+global type f_creaqueryofferte_tab from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte_tab (long al_livello, string as_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryofferte_tab (long al_livello, string as_nodo, string as_da, string as_a);integer li_idx
+string ls_query
+
+ls_query= &
+			'select distinct struttura'+string(al_livello)+'.vc_nodo, struttura_livelli.descrizione, '+&   
+        		'sum ( offerte.importo ) importo,'+&
+			'offerte.importo*0,'+&
+        		'count ( distinct membri_gerarchica.codice ) n_soci,' +&
+			'sum ( convert( integer, membri_gerarchica.flag_npa ) ) n_npa,'
+				  
+				  
+ls_query+= 	' struttura'+string(al_livello)+'.descrizione descrizione_struttura,'+&
+        			' membri_gerarchica.cod_div divisione,'+&
+        			' att_ist.livello liv_resp'+&
+				' from membri_gerarchica, '+&
+				' offerte, '+&
+				' struttura_livelli, '+&
+				' att_ist, '
+									
+			for li_idx= al_livello to gi_maxlivello
+				if li_idx= gi_maxlivello then
+					ls_query+= 'struttura struttura'+string(li_idx)
+				else
+					ls_query+= 'struttura struttura'+string(li_idx)+", "
+				end if
+			next
+			
+ls_query+= " where /* membri_gerarchica.flag_dis = 'N' and */ "+&
+				' struttura_livelli.livello='+string(al_livello)+' and'+&
+				' membri_gerarchica.codice *= offerte.codice and'+&
+				" membri_gerarchica.data_cer <= '"+as_a+" 23:59:59' and"+&
+				" offerte.data between '"+as_da+" 00:00:00' AND '"+as_a+" 23:59:59' and"+&
+				" att_ist.cod_att_ist = membri_gerarchica.cod_att_ist_1 and"
+				
+ls_query+=	' membri_gerarchica.vc_parent = struttura'+string(gi_maxlivello)+'.vc_nodo and'
+					  
+			for li_idx= al_livello to gi_maxlivello
+				ls_query+= ' struttura'+string(li_idx)+'.livello='+string(li_idx)+' and'
+			next
+			
+			for li_idx= al_livello to gi_maxlivello - 1
+				ls_query+= ' struttura'+string(li_idx)+'.vc_nodo= struttura'+string(li_idx+1)+'.vc_parent and'
+			next
+			
+ls_query+=  ' struttura'+string(al_livello)+".vc_nodo='"+string(as_nodo)+"'"
+
+ls_query+=	' group by struttura'+string(al_livello)+'.vc_nodo, struttura_livelli.descrizione,'+&
+				'offerte.importo*0,'+&
+				' struttura'+string(al_livello)+'.descrizione,'+&
+         			' membri_gerarchica.cod_div,'+&
+		        	' att_ist.livello'
+
+				return ls_query
+end function
+

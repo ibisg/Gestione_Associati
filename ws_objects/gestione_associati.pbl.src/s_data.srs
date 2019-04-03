@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_data.srs
+global type s_data from structure
+	string		ls_da
+	string		ls_a
+end type
+

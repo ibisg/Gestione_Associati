@@ -1,0 +1,456 @@
+﻿$PBExportHeader$f_conteggioaventidiritto_resp.srf
+global type f_conteggioaventidiritto_resp from function_object
+end type
+
+forward prototypes
+global function long f_conteggioaventidiritto (decimal id_sessione, decimal id_evento)
+global function long f_conteggioaventidiritto (integer li_livello, datetime ldt_data_cerimonia_soglia, datetime ldt_data_ultimo_esame)
+global function long f_conteggioaventidiritto_resp (integer li_livello_esame, datetime ldt_data_cerimonia_soglia, datetime ldt_data_ultimo_esame, integer li_livello_resp_soglia, string ls_vc_nodo)
+end prototypes
+
+global function long f_conteggioaventidiritto (decimal id_sessione, decimal id_evento);long ll_ret
+integer li_livello
+datetime ldt_data_ultimo_esame, ldt_data_cerimonia_soglia
+string ls_cod_studio_prec, ls_dt1, ls_dt2
+
+select tipo_evento, data_ultimo_esame, data_cerimonia_soglia
+into :li_livello, :ldt_data_ultimo_esame, :ldt_data_cerimonia_soglia
+from esami_sessioni
+where id= :id_sessione;
+
+if trap_sql(sqlca, "CONTAADESIONI00") < 0 then return -1				
+		
+		ls_cod_studio_prec = "0"+string(li_livello - 1)
+		
+		ls_dt1= string(ldt_data_ultimo_esame, "dd.mm.yyyy")
+		ls_dt2=string(ldt_data_cerimonia_soglia, "dd.mm.yyyy")		
+		
+		if id_evento= 0 then // per tutta la sessione...
+
+				if NOT isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// Siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...
+						
+								select count(*)
+								into :ll_ret
+								from esami_curr, membri_gerarchica
+								where 	
+										membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+											membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+												esami_curr.esito= "P" and
+													esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.data_cer <= :ls_dt2 and
+																membri_gerarchica.codice = esami_curr.codice and 
+																	membri_gerarchica.cod_studio = esami_curr.cod_studio;
+															 
+								if trap_sql(sqlca, "CONTAADESIONI01") < 0 then return -1
+																
+				elseif NOT isNull(ldt_data_ultimo_esame) AND isNull(ldt_data_cerimonia_soglia) then
+					
+					// anche in questo caso siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...	
+					
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI02") < 0 then return -1						 
+																
+				elseif isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// qui devo distinguere a seconda del livello corrente ...
+					
+					if li_livello= 1 then
+					
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00" and
+												membri_gerarchica.data_cer <= :ls_dt2;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												membri_gerarchica.data_cer <= :ls_dt2 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03.1") < 0 then return -1						 							
+							
+							
+						end if
+					
+				else			
+					
+					// nel caso in cui non siano stati definiti criteri... devo comunque distinguere secondo il livello...
+					
+					if li_livello= 1 then		
+						
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00";
+												
+							if trap_sql(sqlca, "CONTAADESIONI04") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+													membri_gerarchica.codice = esami_curr.codice and 
+														membri_gerarchica.cod_studio = esami_curr.cod_studio;
+												
+							if trap_sql(sqlca, "CONTAADESIONI04.1") < 0 then return -1		
+							
+						end if
+					
+				end if
+				
+			else // Data una sessione e per un particolare evento... ( id_evento <> 0 )
+				
+						select count(*)
+							into :ll_ret
+							from esami where id= :id_evento;
+						
+						if trap_sql(sqlca, "CONTAADESIONI05") < 0 then return -1
+						
+			end if
+		
+		return ll_ret
+end function
+
+global function long f_conteggioaventidiritto (integer li_livello, datetime ldt_data_cerimonia_soglia, datetime ldt_data_ultimo_esame);long ll_ret
+//integer li_livello
+//datetime ldt_data_ultimo_esame, ldt_data_cerimonia_soglia
+string ls_cod_studio_prec, ls_dt1, ls_dt2
+
+//select tipo_evento, data_ultimo_esame, data_cerimonia_soglia
+//into :li_livello, :ldt_data_ultimo_esame, :ldt_data_cerimonia_soglia
+//from esami_sessioni
+//where id= :id_sessione;
+//
+//if trap_sql(sqlca, "CONTAADESIONI00") < 0 then return -1				
+		
+		ls_cod_studio_prec = "0"+string(li_livello - 1)
+		
+		ls_dt1= string(ldt_data_ultimo_esame, "dd.mm.yyyy")
+		ls_dt2=string(ldt_data_cerimonia_soglia, "dd.mm.yyyy")		
+
+				if NOT isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// Siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...
+						
+								select count(*)
+								into :ll_ret
+								from esami_curr, membri_gerarchica
+								where 	
+										membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+											membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+												esami_curr.esito= "P" and
+													esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.data_cer <= :ls_dt2 and
+																membri_gerarchica.codice = esami_curr.codice and 
+																	membri_gerarchica.cod_studio = esami_curr.cod_studio;
+															 
+								if trap_sql(sqlca, "CONTAADESIONI01") < 0 then return -1
+																
+				elseif NOT isNull(ldt_data_ultimo_esame) AND isNull(ldt_data_cerimonia_soglia) then
+					
+					// anche in questo caso siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...	
+					
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI02") < 0 then return -1						 
+																
+				elseif isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// qui devo distinguere a seconda del livello corrente ...
+					
+					if li_livello= 1 then
+					
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00" and
+												membri_gerarchica.data_cer <= :ls_dt2;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												membri_gerarchica.data_cer <= :ls_dt2 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03.1") < 0 then return -1						 							
+							
+							
+						end if
+					
+				else			
+					
+					// nel caso in cui non siano stati definiti criteri... devo comunque distinguere secondo il livello...
+					
+					if li_livello= 1 then		
+						
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00";
+												
+							if trap_sql(sqlca, "CONTAADESIONI04") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+													membri_gerarchica.codice = esami_curr.codice and 
+														membri_gerarchica.cod_studio = esami_curr.cod_studio;
+												
+							if trap_sql(sqlca, "CONTAADESIONI04.1") < 0 then return -1		
+							
+						end if
+					
+				end if
+		
+		return ll_ret
+end function
+
+global function long f_conteggioaventidiritto_resp (integer li_livello_esame, datetime ldt_data_cerimonia_soglia, datetime ldt_data_ultimo_esame, integer li_livello_resp_soglia, string ls_vc_nodo);long ll_ret
+
+string ls_cod_studio_prec, ls_dt1, ls_dt2
+
+		ls_cod_studio_prec = "0"+string(li_livello_esame - 1)
+		
+		ls_dt1= string(ldt_data_ultimo_esame, "dd.mm.yyyy")
+		ls_dt2=string(ldt_data_cerimonia_soglia, "dd.mm.yyyy")	
+
+				if NOT isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// Siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...
+						
+								select count(*)
+								into :ll_ret
+								from esami_curr, membri_gerarchica
+								where 	
+										membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+											membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+												esami_curr.esito= "P" and
+													esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.data_cer <= :ls_dt2 and
+																membri_gerarchica.codice = esami_curr.codice and 
+																	membri_gerarchica.cod_studio = esami_curr.cod_studio and
+																		membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+																			(
+																				select MIN(a.livello) from membri_gerarchica m1, att_ist a
+																				where 
+																				(m1.cod_att_ist_1= a.cod_att_ist
+																				OR 
+																				m1.cod_att_ist_2= a.cod_att_ist)
+																				and 
+																				m1.codice= membri_gerarchica.codice
+																				and
+																				a.livello > 0
+																			) <= :li_livello_resp_soglia
+																			  
+																				;
+																				
+
+								if trap_sql(sqlca, "CONTAADESIONI01") < 0 then return -1
+																
+				elseif NOT isNull(ldt_data_ultimo_esame) AND isNull(ldt_data_cerimonia_soglia) then
+					
+					// anche in questo caso siamo sicuramente oltre il livello di ammissione, almeno un esame è stato fatto...	
+					
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												esami_curr.data_esame <= :ls_dt1 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio and
+																membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+																	(
+																		select MIN(a.livello) from membri_gerarchica m1, att_ist a
+																		where 
+																		(m1.cod_att_ist_1= a.cod_att_ist
+																		OR 
+																		m1.cod_att_ist_2= a.cod_att_ist)
+																		and 
+																		m1.codice= membri_gerarchica.codice
+																		and
+																		a.livello > 0
+																	) <= :li_livello_resp_soglia;
+															
+													 
+							if trap_sql(sqlca, "CONTAADESIONI02") < 0 then return -1						 
+																
+				elseif isNull(ldt_data_ultimo_esame) AND NOT isNull(ldt_data_cerimonia_soglia) then
+					
+					// qui devo distinguere a seconda del livello corrente ...
+					
+					if li_livello_esame= 1 then
+					
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00" and
+												membri_gerarchica.data_cer <= :ls_dt2 and
+													membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+														(
+															select MIN(a.livello) from membri_gerarchica m1, att_ist a
+															where 
+															(m1.cod_att_ist_1= a.cod_att_ist
+															OR 
+															m1.cod_att_ist_2= a.cod_att_ist)
+															and 
+															m1.codice= membri_gerarchica.codice
+															and
+															a.livello > 0
+														) <= :li_livello_resp_soglia;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where 	
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+												membri_gerarchica.data_cer <= :ls_dt2 and
+														membri_gerarchica.codice = esami_curr.codice and 
+															membri_gerarchica.cod_studio = esami_curr.cod_studio and
+																membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+																	(
+																		select MIN(a.livello) from membri_gerarchica m1, att_ist a
+																		where 
+																		(m1.cod_att_ist_1= a.cod_att_ist
+																		OR 
+																		m1.cod_att_ist_2= a.cod_att_ist)
+																		and 
+																		m1.codice= membri_gerarchica.codice
+																		and
+																		a.livello > 0
+																	) <= :li_livello_resp_soglia;
+													 
+							if trap_sql(sqlca, "CONTAADESIONI03.1") < 0 then return -1						 							
+							
+							
+						end if
+					
+				else			
+					
+					// nel caso in cui non siano stati definiti criteri... devo comunque distinguere secondo il livello...
+					
+					if li_livello_esame= 1 then		
+						
+							select count(*)
+							into :ll_ret
+							from membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= "00" and
+											membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+												(
+													select MIN(a.livello) from membri_gerarchica m1, att_ist a
+													where 
+													(m1.cod_att_ist_1= a.cod_att_ist
+													OR 
+													m1.cod_att_ist_2= a.cod_att_ist)
+													and 
+													m1.codice= membri_gerarchica.codice
+													and
+													a.livello > 0
+												) <= :li_livello_resp_soglia;
+												
+							if trap_sql(sqlca, "CONTAADESIONI04") < 0 then return -1		
+							
+						else
+							
+							select count(*)
+							into :ll_ret
+							from esami_curr, membri_gerarchica
+							where
+									membri_gerarchica.cod_dis in ('MEM', 'TFE')  and 
+										membri_gerarchica.cod_studio= :ls_cod_studio_prec and
+											esami_curr.esito= "P" and
+													membri_gerarchica.codice = esami_curr.codice and 
+														membri_gerarchica.cod_studio = esami_curr.cod_studio and
+															membri_gerarchica.vc_parent like :ls_vc_nodo+"%" and
+																(
+																	select MIN(a.livello) from membri_gerarchica m1, att_ist a
+																	where 
+																	(m1.cod_att_ist_1= a.cod_att_ist
+																	OR 
+																	m1.cod_att_ist_2= a.cod_att_ist)
+																	and 
+																	m1.codice= membri_gerarchica.codice
+																	and
+																	a.livello > 0
+																) <= :li_livello_resp_soglia;
+												
+							if trap_sql(sqlca, "CONTAADESIONI04.1") < 0 then return -1		
+							
+						end if
+					
+				end if
+		
+		return ll_ret
+end function
+

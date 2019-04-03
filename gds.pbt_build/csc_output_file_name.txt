@@ -1,0 +1,5 @@
+Compilatore Microsoft (R) Visual C# 2005 versione 8.00.50727.1433
+per Microsoft (R) Windows (R) 2005 Framework versione 2.0.50727
+Copyright (C) Microsoft Corporation 2001-2005. Tutti i diritti riservati.
+
+warning CS1668: Percorso di ricerca 'C:\Sybase\LIB' non valido specificato in 'variabile di ambiente LIB' - 'Impossibile trovare il percorso specificato. '.

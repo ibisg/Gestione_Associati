@@ -1,0 +1,48 @@
+of_SendTLSMail Start: 11/12/2018 17:55:17
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 11/12/2018 17:55:47
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 11/12/2018 17:55:52
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 11/12/2018 17:55:57
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 12/03/2019 16:11:43
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 12/03/2019 16:12:10
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 12/03/2019 16:12:21
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS
+of_SendTLSMail Start: 12/03/2019 16:12:30
+
+
+Connect to server
+<null>
+C:EHLO RMWSGDS

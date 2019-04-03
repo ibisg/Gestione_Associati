@@ -1,0 +1,73 @@
+﻿$PBExportHeader$f_sessions.srf
+global type f_sessions from function_object
+end type
+
+forward prototypes
+global function integer f_sessions ()
+end prototypes
+
+global function integer f_sessions ();integer li_ret
+string  ls_sql, ls_host
+environment le_env
+
+if GetEnvironment(le_env) <> 1 then return -1
+	
+choose case le_env.OsType
+		
+	case WindowsNT!
+		
+		// Legge dal registry il nome della macchina su cui gira l'applicazione...
+		RegistryGet("HKEY_CURRENT_USER\Volatile Environment", "ClientName", ls_host)
+					if (ls_host= "" or isnull(ls_host) or ls_host="Console") then
+						RegistryGet("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", ls_host)
+					end if
+					
+	case Windows!
+		
+		RegistryGet("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", ls_host)
+							
+end choose
+
+ls_sql = "CREATE TABLE ##sessioni_attive (host varchar(30) not null, utente varchar(30) not null, inizio datetime not null)";
+
+EXECUTE IMMEDIATE :ls_sql;
+
+
+
+ if sqlca.sqlcode < 0  and sqlca.sqldbcode <> 2714 then
+	
+		messageBox("SQL", "Errore: "+sqlca.sqlerrtext)
+	
+		return -1
+	
+end if
+
+commit;
+
+select count(*)
+into :li_ret
+from ##sessioni_attive
+where
+host= :ls_host and utente= :s_utente_s.s_nome;
+
+if li_ret > 0 then
+	
+	messageBox( "SQL", "Applicazione già attiva su questo computer.")
+	return 1
+	
+else
+	
+	insert into ##sessioni_attive
+	(host, utente, inizio)
+	values
+	(:ls_host, :s_utente_s.s_nome, getDate() );
+	
+	commit;
+	
+end if
+
+return 0
+	
+	
+end function
+

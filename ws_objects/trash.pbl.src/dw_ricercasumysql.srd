@@ -1,0 +1,94 @@
+﻿$PBExportHeader$dw_ricercasumysql.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15780518 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=120 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=struttura_cod_area dbname="struttura.cod_area" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_area dbname="struttura.area" )
+ column=(type=char(3) updatewhereclause=yes name=struttura_cod_territorio dbname="struttura.cod_territorio" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_territorio dbname="struttura.territorio" )
+ column=(type=char(3) updatewhereclause=yes name=struttura_cod_centro dbname="struttura.cod_centro" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_centro dbname="struttura.centro" )
+ column=(type=char(3) updatewhereclause=yes name=struttura_cod_capitolo dbname="struttura.cod_capitolo" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_capitolo dbname="struttura.capitolo" )
+ column=(type=char(3) updatewhereclause=yes name=struttura_cod_settore dbname="struttura.cod_settore" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_settore dbname="struttura.settore" )
+ column=(type=char(3) updatewhereclause=yes name=struttura_cod_gruppo dbname="struttura.cod_gruppo" )
+ column=(type=char(60) updatewhereclause=yes name=struttura_gruppo dbname="struttura.gruppo" )
+ column=(type=char(12) updatewhereclause=yes name=membri_gerarchica_codice_personale dbname="membri_gerarchica.codice" )
+ column=(type=char(60) updatewhereclause=yes name=membri_gerarchica_cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=membri_gerarchica_nome dbname="membri_gerarchica.nome" )
+ retrieve="  SELECT struttura_2.codice,   
+         struttura_2.descrizione,   
+         struttura_3.codice,   
+         struttura_3.descrizione,   
+         struttura_4.codice,   
+         struttura_4.descrizione,   
+         struttura_5.codice,   
+         struttura_5.descrizione,   
+         struttura_6.codice,   
+         struttura_6.descrizione,   
+         struttura_7.codice,   
+         struttura_7.descrizione,   
+         membri_gerarchica.codice,   
+         membri_gerarchica.cognome,   
+         membri_gerarchica.nome
+    FROM membri_gerarchica,   
+         struttura struttura_7,   
+         struttura struttura_6,   
+         struttura struttura_5,   
+         struttura struttura_4,   
+         struttura struttura_3,   
+         struttura struttura_2  
+   WHERE ( membri_gerarchica.livello = struttura_7.livello ) and  
+         ( membri_gerarchica.id_nodo = struttura_7.id_nodo ) and  
+         ( struttura_7.id_parent = struttura_6.id_nodo ) and  
+         ( struttura_6.id_parent = struttura_5.id_nodo ) and  
+         ( struttura_5.id_parent = struttura_4.id_nodo ) and  
+         ( struttura_4.id_parent = struttura_3.id_nodo ) and  
+         ( struttura_3.id_parent = struttura_2.id_nodo ) and  
+         ( struttura_2.livello = 2 )  and
+         ( struttura_3.livello = 3 )  and
+         ( struttura_4.livello = 4 )  and
+         ( struttura_5.livello = 5 )  and
+         ( struttura_6.livello = 6 )  and
+         ( struttura_7.livello = 7 ) 
+"  sort="struttura_cod_area A struttura_cod_territorio A struttura_cod_centro A struttura_cod_capitolo A struttura_cod_settore A struttura_cod_gruppo A membri_gerarchica_cognome A membri_gerarchica_nome A " )
+text(band=header alignment="0" text="Cod.
+Area" border="0" color="8388608" x="9" y="4" height="112" width="507"  name=t_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cod.
+Terr." border="0" color="8388608" x="530" y="4" height="112" width="503"  name=t_3  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cod.
+Centro" border="0" color="8388608" x="1047" y="4" height="112" width="160"  name=t_5  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Centro" border="0" color="8388608" x="1216" y="4" height="56" width="503"  name=t_6  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cod.
+Cap." border="0" color="8388608" x="1728" y="4" height="112" width="160"  name=t_7  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Capitolo" border="0" color="8388608" x="1897" y="4" height="56" width="507"  name=t_8  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cod.
+Settore" border="0" color="8388608" x="2414" y="4" height="112" width="160"  name=t_9  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Settore" border="0" color="8388608" x="2583" y="4" height="56" width="503"  name=t_10  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cod.
+Gruppo" border="0" color="8388608" x="3095" y="4" height="112" width="160"  name=t_11  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Gruppo" border="0" color="8388608" x="3264" y="4" height="56" width="507"  name=t_12  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Codice
+Personale" border="0" color="8388608" x="3781" y="0" height="112" width="503"  name=t_13  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Cognome" border="0" color="8388608" x="4293" y="4" height="56" width="1019"  name=t_14  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Nome" border="0" color="8388608" x="5321" y="4" height="56" width="507"  name=t_15  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="8388608" x="9" y="0" height="76" width="507" format="[general]"  name=struttura_cod_area dddw.name=dwc_aree dddw.displaycolumn=descrizione dddw.datacolumn=codice dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="8388608" x="530" y="0" height="76" width="503" format="[general]"  name=struttura_cod_territorio dddw.name=dwc_territori dddw.displaycolumn=descrizione dddw.datacolumn=codice dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="8388608" x="1047" y="0" height="76" width="160" format="[general]"  name=struttura_cod_centro edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="8388608" x="1216" y="0" height="76" width="503" format="[general]"  name=struttura_centro edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="8388608" x="1728" y="0" height="76" width="160" format="[general]"  name=struttura_cod_capitolo edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="0" color="8388608" x="1897" y="0" height="76" width="507" format="[general]"  name=struttura_capitolo edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="8388608" x="2414" y="0" height="76" width="160" format="[general]"  name=struttura_cod_settore edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="0" color="8388608" x="2583" y="0" height="76" width="503" format="[general]"  name=struttura_settore edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="8388608" x="3095" y="0" height="76" width="160" format="[general]"  name=struttura_cod_gruppo edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="8388608" x="3264" y="0" height="76" width="507" format="[general]"  name=struttura_gruppo edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="8388608" x="3781" y="0" height="76" width="503" format="[general]"  name=membri_gerarchica_codice_personale edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=140 border="0" color="8388608" x="4293" y="0" height="76" width="1019" format="[general]"  name=membri_gerarchica_cognome edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=150 border="0" color="8388608" x="5321" y="0" height="76" width="507" format="[general]"  name=membri_gerarchica_nome edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+
+sparse(names="struttura_cod_area	struttura_cod_territorio	struttura_cod_centro	struttura_centro	struttura_cod_capitolo	struttura_capitolo	struttura_cod_settore	struttura_settore	struttura_cod_gruppo	struttura_gruppo")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

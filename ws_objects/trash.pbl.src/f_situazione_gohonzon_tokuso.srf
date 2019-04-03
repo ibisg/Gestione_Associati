@@ -1,0 +1,55 @@
+﻿$PBExportHeader$f_situazione_gohonzon_tokuso.srf
+global type f_situazione_gohonzon_tokuso from function_object
+end type
+
+forward prototypes
+global function string f_situazione_gohonzon_tokuso (string as_codice, string as_status)
+end prototypes
+
+global function string f_situazione_gohonzon_tokuso (string as_codice, string as_status);string ls_situazione_gohonzon
+
+choose case as_status
+		
+	case 'MEM'
+
+		select  top 1 
+		case substring(cod_causale, 1, 1)
+		when 'A' then 'S'
+		when 'R' then ''
+		end
+		into:ls_situazione_gohonzon
+		from gohonzon_storico where codice= :as_codice
+		and tipo_goh='TOK'
+		order by data DESC;
+		
+	case 'DIM'
+		
+		select  top 1 
+		case substring(cod_causale, 1, 1)
+		when 'A' then 'S'
+		when 'R' then ''//'Reso Okatagi Gohonzon'
+		end
+		into:ls_situazione_gohonzon
+		from gohonzon_storico_dim where codice= :as_codice
+		and tipo_goh='TOK'
+		order by data DESC;
+		
+	case 'DEC', 'ISG'
+		
+		select  top 1 
+		case substring(cod_causale, 1, 1)
+		when 'A' then 'S'
+		when 'R' then ''//'Reso Okatagi Gohonzon'
+		end
+		into:ls_situazione_gohonzon
+		from gohonzon_storico_fs where codice= :as_codice
+		and tipo_goh='TOK'
+		order by data DESC;		
+		
+end choose
+
+if trap_sql(sqlca, "SITTOK01") < 0 then return 'ERR'
+
+return ls_situazione_gohonzon
+end function
+

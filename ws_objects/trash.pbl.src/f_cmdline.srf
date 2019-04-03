@@ -1,0 +1,65 @@
+﻿$PBExportHeader$f_cmdline.srf
+global type f_cmdline from function_object
+end type
+
+forward prototypes
+global function s_connection_parm f_cmdline (string as_cmdline)
+end prototypes
+
+global function s_connection_parm f_cmdline (string as_cmdline);integer li_count
+string ls_switch, ls_token, ls_cmd
+
+s_connection_parm s_connection_parm_s
+
+setNull(s_connection_parm_s.dbms)
+setNull(s_connection_parm_s.database)
+setNull(s_connection_parm_s.server)
+setNull(s_connection_parm_s.dbtype)
+setNull(s_connection_parm_s.dbParm)			
+setNull(s_connection_parm_s.dip)
+
+// GdS 03.06.2005: legge la linea di comando per ricavare i parametri di connessione di default...
+
+do while as_cmdline <> ""
+	
+	ls_token= trim(f_get_token(as_cmdline, "-"))
+	
+	if ls_token= "" then continue
+	
+	ls_switch= mid(ls_token, 1, 1)
+	ls_cmd= mid(ls_token, 2, len(ls_token) - 1 )
+
+	choose case ls_switch
+			
+		case 's' // DBMS
+			
+			s_connection_parm_s.dbms= ls_cmd
+			
+		case 'd' // DATABASE
+			
+			s_connection_parm_s.database= ls_cmd
+			
+		case 'v' // SERVER
+			
+			s_connection_parm_s.server= ls_cmd
+			
+		case 't' // DBTYPE
+			
+			s_connection_parm_s.dbtype= ls_cmd	
+			
+		case 'p' // DBPARM
+			
+			s_connection_parm_s.dbParm= ls_cmd				
+			
+		case 'o' // DIPENDENZA OPERATIVA
+			
+			s_connection_parm_s.dip= ls_cmd
+			
+			
+	end choose
+
+loop
+
+return s_connection_parm_s
+end function
+

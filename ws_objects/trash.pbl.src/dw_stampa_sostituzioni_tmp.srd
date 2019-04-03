@@ -1,0 +1,56 @@
+﻿$PBExportHeader$dw_stampa_sostituzioni_tmp.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=356 color="16777215" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912~tf_righealternate(getRow() )"  height.autosize=yes)
+table(column=(type=datetime updatewhereclause=yes name=data_evento dbname="eventi.data_evento" )
+ column=(type=char(6) updatewhereclause=yes name=cod_luogo dbname="eventi.cod_luogo" )
+ column=(type=char(10) updatewhereclause=yes name=turno dbname="eventi.turno" )
+ column=(type=char(60) updatewhereclause=yes name=cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=nome dbname="membri_gerarchica.nome" )
+ column=(type=char(1) updatewhereclause=yes name=cod_div dbname="membri_gerarchica.cod_div" values="U	1/D	2/GU	3/GD	4/" )
+ column=(type=char(3) updatewhereclause=yes name=tipo_goh dbname="sostituzioni.tipo_goh" )
+ column=(type=char(60) updatewhereclause=yes name=vc_parent dbname="membri_gerarchica.vc_parent" )
+ column=(type=char(60) updatewhereclause=yes name=tipo_evento dbname="eventi_tipo.descrizione" )
+ column=(type=char(30) updatewhereclause=yes name=gohonzon_causali_descr dbname="gohonzon_causali.descr" )
+ retrieve="SELECT  eventi.data_evento ,
+           eventi.cod_luogo ,
+           eventi.turno ,
+           membri_gerarchica.cognome ,
+           membri_gerarchica.nome ,
+           membri_gerarchica.cod_div ,
+           sostituzioni.tipo_goh ,
+           membri_gerarchica.vc_parent ,
+           eventi_tipo.descrizione ,
+           gohonzon_causali.descr     
+        FROM sostituzioni ,
+           membri_gerarchica ,
+           eventi ,
+           eventi_tipo ,
+           gohonzon_causali     
+        WHERE ( sostituzioni.codice = membri_gerarchica.codice ) and          ( eventi.id = sostituzioni.id ) and          ( eventi_tipo.tipo_evento = eventi.tipo_evento ) and          ( sostituzioni.cod_causale = gohonzon_causali.cod_causale ) and          ( ( eventi.id = :id ) )   " arguments=(("id", number))  sort="id A cognome A nome A " )
+group(level=1 header.height=0 trailer.height=0 by=("cognomenome" ) header.color="536870912" trailer.color="536870912" )
+roundrectangle(band=header ellipseheight="36" ellipsewidth="41"x="2094" y="4" height="184" width="3282"  name=rr_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+button(band=header text="Aggiorna lo storico"filename=""action="0" border="0" color="8421376" x="4768" y="36" height="112" width="466" vtextalign="0" htextalign="0"  name=b_storico  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+compute(band=header alignment="1" expression="'Pag. ' + page() + ' di ' + pageCount()"border="0" color="0" x="1879" y="196" height="52" width="800" format="[general]"  name=page_1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cognome e nome" border="0" color="0" x="242" y="300" height="52" width="1166"  name=cognome_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Tipo Goh." border="0" color="0" x="1522" y="300" height="52" width="347"  name=tipo_goh_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Struttura" border="0" color="0" x="1879" y="300" height="52" width="800"  name=vc_parent_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Div." border="0" color="0" x="1417" y="300" height="52" width="91"  name=cod_div_t  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="N." border="0" color="0" x="9" y="300" height="52" width="224"  name=t_2  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="getrow()"border="0" color="0" x="9" y="4" height="88" width="224" format="###,##0"  name=compute_2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1522" y="4" height="88" width="347" format="[general]"  name=tipo_goh height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1879" y="4" height="88" width="800" format="[general]"  name=vc_parent height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" cognome +~" ~"+nome"border="0" color="0" x="242" y="4" height="88" width="1166" format="[GENERAL]"  name=cognomenome  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1417" y="4" height="88" width="91" format="[general]"  name=cod_div height.autosize=yes ddlb.limit=0 ddlb.allowedit=no ddlb.case=upper  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="/* tipo_evento +~" - ~"+ string(data_evento, ~"dd.mm.yy~") + ~" - ~"+ cod_luogo+ ~" (~"+ turno +~")~" */"border="0" color="0" x="2130" y="20" height="148" width="3223" format="[GENERAL]"  name=compute_4  resizeable=1  moveable=1  font.face="Tahoma" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="~"Record estratti: ~"+string(rowcount())"border="0" color="0" x="23" y="196" height="52" width="846" format="[GENERAL]"  name=compute_3  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="2693" y="0" height="52" width="1371"  name=tipo_evento  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Eventi Tipo Descrizione" border="0" color="0" x="2688" y="4" height="76" width="1376"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="4078" y="0" height="52" width="681"  name=gohonzon_causali_descr  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Gohonzon Causali Descr" border="0" color="0" x="4073" y="4" height="76" width="686"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+
+sparse(names="cognomenome	vc_parent")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_soglia.srs
+global type s_soglia from structure
+	datetime		data
+	string		livello
+	integer		soglia
+	decimal{0}		id
+end type
+

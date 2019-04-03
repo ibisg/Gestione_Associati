@@ -1,0 +1,499 @@
+﻿$PBExportHeader$m_preview_tab.srm
+forward
+global type m_preview_tab from menu
+end type
+type m_aggiungi from menu within m_preview_tab
+end type
+type m_rimuovi from menu within m_preview_tab
+end type
+type m_salva from menu within m_preview_tab
+end type
+type m_-0 from menu within m_preview_tab
+end type
+type m_storicoabbonamenti from menu within m_preview_tab
+end type
+type m_-1 from menu within m_preview_tab
+end type
+type m_importi from menu within m_preview_tab
+end type
+type m_- from menucascade within m_preview_tab
+end type
+type m_stampa from menu within m_preview_tab
+end type
+type m_layoutdistampa from menu within m_preview_tab
+end type
+type m_impostapagina from menu within m_preview_tab
+end type
+type m_esporta from menu within m_preview_tab
+end type
+type m_zoom from menucascade within m_preview_tab
+end type
+type m_500% from menu within m_zoom
+end type
+type m_200% from menu within m_zoom
+end type
+type m_100% from menu within m_zoom
+end type
+type m_75% from menu within m_zoom
+end type
+type m_50% from menu within m_zoom
+end type
+type m_25% from menu within m_zoom
+end type
+type m_zoom from menucascade within m_preview_tab
+m_500% m_500%
+m_200% m_200%
+m_100% m_100%
+m_75% m_75%
+m_50% m_50%
+m_25% m_25%
+end type
+global type m_preview_tab from menu
+m_aggiungi m_aggiungi
+m_rimuovi m_rimuovi
+m_salva m_salva
+m_-0 m_-0
+m_storicoabbonamenti m_storicoabbonamenti
+m_-1 m_-1
+m_importi m_importi
+m_- m_-
+m_stampa m_stampa
+m_layoutdistampa m_layoutdistampa
+m_impostapagina m_impostapagina
+m_esporta m_esporta
+m_zoom m_zoom
+end type
+end forward
+
+global type m_preview_tab from menu
+m_aggiungi m_aggiungi
+m_rimuovi m_rimuovi
+m_salva m_salva
+m_-0 m_-0
+m_storicoabbonamenti m_storicoabbonamenti
+m_-1 m_-1
+m_importi m_importi
+m_- m_-
+m_stampa m_stampa
+m_layoutdistampa m_layoutdistampa
+m_impostapagina m_impostapagina
+m_esporta m_esporta
+m_zoom m_zoom
+end type
+global m_preview_tab m_preview_tab
+
+on m_preview_tab.create
+m_preview_tab=this
+call super::create
+this.text = "m_preview_tab"
+this.m_aggiungi=create m_aggiungi
+this.m_rimuovi=create m_rimuovi
+this.m_salva=create m_salva
+this.m_-0=create m_-0
+this.m_storicoabbonamenti=create m_storicoabbonamenti
+this.m_-1=create m_-1
+this.m_importi=create m_importi
+this.m_-=create m_-
+this.m_stampa=create m_stampa
+this.m_layoutdistampa=create m_layoutdistampa
+this.m_impostapagina=create m_impostapagina
+this.m_esporta=create m_esporta
+this.m_zoom=create m_zoom
+this.Item[UpperBound(this.Item)+1]=this.m_aggiungi
+this.Item[UpperBound(this.Item)+1]=this.m_rimuovi
+this.Item[UpperBound(this.Item)+1]=this.m_salva
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_storicoabbonamenti
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_importi
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_stampa
+this.Item[UpperBound(this.Item)+1]=this.m_layoutdistampa
+this.Item[UpperBound(this.Item)+1]=this.m_impostapagina
+this.Item[UpperBound(this.Item)+1]=this.m_esporta
+this.Item[UpperBound(this.Item)+1]=this.m_zoom
+end on
+
+on m_preview_tab.destroy
+call super::destroy
+destroy(this.m_aggiungi)
+destroy(this.m_rimuovi)
+destroy(this.m_salva)
+destroy(this.m_-0)
+destroy(this.m_storicoabbonamenti)
+destroy(this.m_-1)
+destroy(this.m_importi)
+destroy(this.m_-)
+destroy(this.m_stampa)
+destroy(this.m_layoutdistampa)
+destroy(this.m_impostapagina)
+destroy(this.m_esporta)
+destroy(this.m_zoom)
+end on
+
+type m_aggiungi from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+
+w_pw.idw_dettaglio.triggerEvent("ue_aggiungi") 
+
+
+m_salva.enabled= true
+end event
+
+on m_aggiungi.create
+call super::create
+this.text = "Aggiungi"
+this.enabled = false
+end on
+
+on m_aggiungi.destroy
+call super::destroy
+end on
+
+type m_rimuovi from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+
+w_pw.idw_dettaglio.triggerEvent("ue_rimuovi") 
+m_salva.enabled= true
+end event
+
+on m_rimuovi.create
+call super::create
+this.text = "Rimuovi"
+this.enabled = false
+end on
+
+on m_rimuovi.destroy
+call super::destroy
+end on
+
+type m_salva from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+
+w_pw.idw_dettaglio.triggerEvent("ue_salva") 
+this.enabled= false
+end event
+
+on m_salva.create
+call super::create
+this.text = "Salva"
+this.enabled = false
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_preview_tab
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_storicoabbonamenti from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+
+w_pw.idw_dettaglio.triggerEvent("ue_storicoabbonamenti") 
+end event
+
+on m_storicoabbonamenti.create
+call super::create
+this.text = "Mostra/Nascondi lo storico abbonamenti"
+end on
+
+on m_storicoabbonamenti.destroy
+call super::destroy
+end on
+
+type m_-1 from menu within m_preview_tab
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_importi from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_visualizzaimporti") 
+end event
+
+on m_importi.create
+call super::create
+this.text = "Mostra/Nascondi gli importi"
+end on
+
+on m_importi.destroy
+call super::destroy
+end on
+
+type m_- from menucascade within m_preview_tab
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_stampa from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_stampa") 
+end event
+
+on m_stampa.create
+call super::create
+this.text = "Stampa"
+this.toolbaritemname = "Print!"
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from menu within m_preview_tab
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_layout") 
+
+end event
+
+on m_layoutdistampa.create
+call super::create
+this.text = "Layout di stampa"
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from menu within m_preview_tab
+end type
+
+on m_impostapagina.create
+call super::create
+this.text = "Imposta pagina"
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_impostapagina") 
+
+end event
+
+type m_esporta from menu within m_preview_tab
+end type
+
+on m_esporta.create
+call super::create
+this.text = "Esporta"
+end on
+
+on m_esporta.destroy
+call super::destroy
+end on
+
+type m_zoom from menucascade within m_preview_tab
+m_500% m_500%
+m_200% m_200%
+m_100% m_100%
+m_75% m_75%
+m_50% m_50%
+m_25% m_25%
+end type
+
+on m_zoom.create
+call super::create
+this.text = "Zoom"
+this.toolbaritemname = "EditDataGrid!"
+this.m_500%=create m_500%
+this.m_200%=create m_200%
+this.m_100%=create m_100%
+this.m_75%=create m_75%
+this.m_50%=create m_50%
+this.m_25%=create m_25%
+this.Item[UpperBound(this.Item)+1]=this.m_500%
+this.Item[UpperBound(this.Item)+1]=this.m_200%
+this.Item[UpperBound(this.Item)+1]=this.m_100%
+this.Item[UpperBound(this.Item)+1]=this.m_75%
+this.Item[UpperBound(this.Item)+1]=this.m_50%
+this.Item[UpperBound(this.Item)+1]=this.m_25%
+end on
+
+on m_zoom.destroy
+call super::destroy
+destroy(this.m_500%)
+destroy(this.m_200%)
+destroy(this.m_100%)
+destroy(this.m_75%)
+destroy(this.m_50%)
+destroy(this.m_25%)
+end on
+
+type m_500% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 500)
+end event
+
+on m_500%.create
+call super::create
+this.text = "500%"
+end on
+
+on m_500%.destroy
+call super::destroy
+end on
+
+type m_200% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 200)
+end event
+
+on m_200%.create
+call super::create
+this.text = "200%"
+end on
+
+on m_200%.destroy
+call super::destroy
+end on
+
+type m_100% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 100)
+end event
+
+on m_100%.create
+call super::create
+this.text = "100%"
+end on
+
+on m_100%.destroy
+call super::destroy
+end on
+
+type m_75% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 75)
+end event
+
+on m_75%.create
+call super::create
+this.text = "75%"
+end on
+
+on m_75%.destroy
+call super::destroy
+end on
+
+type m_50% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 50)
+end event
+
+on m_50%.create
+call super::create
+this.text = "50%"
+end on
+
+on m_50%.destroy
+call super::destroy
+end on
+
+type m_25% from menu within m_zoom
+end type
+
+event clicked;w_struttura_tv_tab w_pw
+
+w_pw= m_preview_tab.parentWindow
+
+w_pw.idw_dettaglio.triggerEvent("ue_zoom", 0, 25)
+end event
+
+on m_25%.create
+call super::create
+this.text = "25%"
+end on
+
+on m_25%.destroy
+call super::destroy
+end on
+

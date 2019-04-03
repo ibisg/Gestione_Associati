@@ -1,0 +1,52 @@
+﻿$PBExportHeader$f_cerca_nodo.srf
+global type f_cerca_nodo from function_object
+end type
+
+forward prototypes
+global function integer f_cerca_nodo (ref treeview atv_arg, long al_livello, long al_nodo)
+end prototypes
+
+global function integer f_cerca_nodo (ref treeview atv_arg, long al_livello, long al_nodo);integer li_ret= 1
+long ll_handle
+s_struttura s_struttura_loc
+treeViewItem ltvi_item
+
+ll_handle= atv_arg.findItem(rootTreeItem!, 0)
+
+do while li_ret= 1
+	
+	li_ret= atv_arg.getItem(ll_handle, ltvi_item)
+	
+	if li_ret= -1 then continue
+	
+	s_struttura_loc= ltvi_item.data
+
+	if s_struttura_loc.livello= al_livello then
+		
+		if s_struttura_loc.id_nodo= al_nodo then
+			
+			// ha trovato anche il nodo...
+			
+			atv_arg.expandItem(ll_handle)
+			
+			return li_ret
+			
+		end if
+		
+		// cerca tra i pari livello...
+		
+		ll_handle= atv_arg.findItem(nextTreeItem!, ll_handle)
+		
+	else
+		
+		// passa al livello superiore...
+		
+		ll_handle= atv_arg.findItem(childTreeItem!, ll_handle)
+		
+	end if
+	
+loop
+
+return li_ret
+end function
+

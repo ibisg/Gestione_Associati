@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_ricercanominativa_esami.srs
+global type s_ricercanominativa_esami from structure
+	datetime		data_esame
+	string		sede
+	string		cod_studio
+	long		codice_membro
+	string		cod_dip
+	string		cognome
+	string		nome
+	string		codice
+end type
+

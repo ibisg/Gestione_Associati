@@ -1,0 +1,77 @@
+﻿$PBExportHeader$f_creaquerystruttura.srf
+global type f_creaquerystruttura from function_object
+end type
+
+forward prototypes
+global function string f_creaquerystruttura (long al_livello, string as_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaquerystruttura (long al_livello, string as_nodo, string as_da, string as_a);// Report consegne
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			'select distinct struttura_livelli.descrizione, datepart(year, m.data_cer) anno,'+&   
+			' m.data_cer, m.luogo_cer,  ' +&
+			"	(select count(*) from vw_situazione_gohonzon x where x.cod_div= '1' and x.vc_parent like '"+as_nodo+"%'" +& 
+					" and (x.data_cer= m.data_cer or m.data_cer= null) " +& 
+				" and (x.okatagi='A' OR x.tokuso= 'A' ) ) UGOH, " +&
+				" (select count(*) from vw_situazione_gohonzon w where w.cod_div= '1' and w.vc_parent like '"+as_nodo+"%'" +& 
+				" and (w.data_cer= m.data_cer or m.data_cer= null)   " +&
+				" and (w.okatagi !='A' and w.tokuso != 'A' ) ) UFED," +&
+				"	(select count(*) from vw_situazione_gohonzon x where x.cod_div= '2' and x.vc_parent like '"+as_nodo+"%'" +& 
+					" and (x.data_cer= m.data_cer or m.data_cer= null)  " +& 
+				" and (x.okatagi='A' OR x.tokuso= 'A' ) ) DGOH, " +&
+				"(select count(*) from vw_situazione_gohonzon w where w.cod_div= '2' and w.vc_parent like '"+as_nodo+"%'" +& 
+				" and (w.data_cer= m.data_cer or m.data_cer= null)   " +&
+				" and (w.okatagi !='A' and w.tokuso != 'A' ) ) DFED, " +&
+				"	(select count(*) from vw_situazione_gohonzon x where x.cod_div= '3' and x.vc_parent like '"+as_nodo+"%'" +& 
+					" and (x.data_cer= m.data_cer or m.data_cer= null)  " +& 
+				" and (x.okatagi='A' OR x.tokuso= 'A' ) ) GUGOH, " +&
+				" (select count(*) from vw_situazione_gohonzon w where w.cod_div= '3' and w.vc_parent like '"+as_nodo+"%'" +& 
+				" and (w.data_cer= m.data_cer or m.data_cer= null)   " +&
+				" and (w.okatagi !='A' and w.tokuso != 'A' ) ) GUFED," +&		
+				"	(select count(*) from vw_situazione_gohonzon x where x.cod_div= '4' and x.vc_parent like '"+as_nodo+"%'" +& 
+					" and (x.data_cer= m.data_cer or m.data_cer= null)  " +& 
+				" and (x.okatagi='A' OR x.tokuso= 'A') )  GDGOH, " +&
+				" (select count(*) from vw_situazione_gohonzon w where w.cod_div= '4' and w.vc_parent like '"+as_nodo+"%'" +& 
+				" and (w.data_cer= m.data_cer or m.data_cer= null)   " +&
+				" and (w.okatagi !='A' and w.tokuso != 'A' ) ) GDFED,"
+  
+ls_query+= 	' struttura'+string(al_livello)+'.descrizione descrizione_struttura'+&
+				' from vw_situazione_gohonzon m, '+&
+				' struttura_livelli, '
+									
+			for li_idx= al_livello to gi_maxlivello
+				if li_idx= gi_maxlivello then
+					ls_query+= 'struttura struttura'+string(li_idx)
+				else
+					ls_query+= 'struttura struttura'+string(li_idx)+", "
+				end if
+			next
+			
+ls_query+= "  where struttura_livelli.livello="+string(al_livello)+" and"+&
+				" m.data_cer between '"+as_da+" 00:00:00' AND '"+as_a+" 23:59:59' and"
+
+				
+ls_query+=	' m.vc_parent = struttura'+string(gi_maxlivello)+'.vc_nodo and'
+					  
+			for li_idx= al_livello to gi_maxlivello
+				ls_query+= ' struttura'+string(li_idx)+'.livello='+string(li_idx)+' and'
+			next
+			
+			for li_idx= al_livello to gi_maxlivello - 1
+				ls_query+= ' struttura'+string(li_idx)+'.vc_nodo= struttura'+string(li_idx+1)+'.vc_parent and'
+			next
+ls_query+=  " struttura"+string(al_livello)+".vc_nodo='"+string(as_nodo)+"'"
+
+ls_query+=	' group by struttura_livelli.descrizione,'+&
+				' m.luogo_cer,'+& 
+	               ' m.data_cer,'+& 
+				' struttura'+string(al_livello)+'.descrizione'
+//				' offerte_gerarchica.importo*0,'+&  
+
+				return ls_query
+end function
+

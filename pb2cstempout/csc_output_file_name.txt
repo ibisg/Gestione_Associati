@@ -1,0 +1,11 @@
+Compilatore Microsoft (R) Visual C# 2005 versione 8.00.50727.42
+per Microsoft (R) Windows (R) 2005 Framework versione 2.0.50727
+Copyright (C) Microsoft Corporation 2001-2005. Tutti i diritti riservati.
+
+warning CS1668: Percorso di ricerca 'C:\Sybase\LIB' non valido specificato in 'variabile di ambiente LIB' - 'Impossibile trovare il percorso specificato. '.
+uotv_struttura.uf_cerca_nodo(LS)(67,3): warning CS0162: Rilevato codice non eseguibile.
+w_contatti_tv.wf_aggiorna_parent(Cs_struttura.RCs_struttura.Cs_struttura.)(60,3): warning CS0162: Rilevato codice non eseguibile.
+w_doppioni.cb_del2.clicked(39,4): warning CS0162: Rilevato codice non eseguibile.
+w_doppioni.cb_del1.clicked(39,4): warning CS0162: Rilevato codice non eseguibile.
+w_entrata.uodw_conferma.buttonclicked(170,7): warning CS0162: Rilevato codice non eseguibile.
+w_struttura_tv.wf_aggiorna_parent(Cs_struttura.RCs_struttura.Cs_struttura.)(60,3): warning CS0162: Rilevato codice non eseguibile.

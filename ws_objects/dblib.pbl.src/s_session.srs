@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_session.srs
+global type s_session from structure
+	string		session
+	s_utente		s_utente_s
+	string		context
+	string		appname
+	string		host
+	string		cod_dip
+	string		codice
+	string		struttura_src
+	string		struttura_tgt
+end type
+

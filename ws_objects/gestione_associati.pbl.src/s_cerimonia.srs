@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_cerimonia.srs
+global type s_cerimonia from structure
+	decimal{0}		id
+	datetime		data_cer
+	string		luogo_cer
+	string		turno
+	string		tipo_cer
+end type
+

@@ -1,0 +1,486 @@
+﻿$PBExportHeader$m_pop_tv.srm
+forward
+global type m_pop_tv from menu
+end type
+type m_struttura from menu within m_pop_tv
+end type
+type m_inseriscinuovastruttura from menu within m_struttura
+end type
+type m_modificastruttura from menu within m_struttura
+end type
+type m_modifica from menu within m_struttura
+end type
+type m_struttura from menu within m_pop_tv
+m_inseriscinuovastruttura m_inseriscinuovastruttura
+m_modificastruttura m_modificastruttura
+m_modifica m_modifica
+end type
+type m_- from menu within m_pop_tv
+end type
+type m_aggiornanodo from menu within m_pop_tv
+end type
+type m_1a from menu within m_pop_tv
+end type
+type m_comprimitutto from menu within m_pop_tv
+end type
+type m_0 from menu within m_pop_tv
+end type
+type m_ridimensionailtreeview from menu within m_pop_tv
+end type
+global type m_pop_tv from menu
+m_struttura m_struttura
+m_- m_-
+m_aggiornanodo m_aggiornanodo
+m_1a m_1a
+m_comprimitutto m_comprimitutto
+m_0 m_0
+m_ridimensionailtreeview m_ridimensionailtreeview
+end type
+end forward
+
+global type m_pop_tv from menu
+m_struttura m_struttura
+m_- m_-
+m_aggiornanodo m_aggiornanodo
+m_1a m_1a
+m_comprimitutto m_comprimitutto
+m_0 m_0
+m_ridimensionailtreeview m_ridimensionailtreeview
+end type
+global m_pop_tv m_pop_tv
+
+type variables
+
+w_struttura_tv_tab iw_main
+
+end variables
+
+on m_pop_tv.create
+m_pop_tv=this
+call super::create
+this.text = "m_pop_tv"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_struttura=create m_struttura
+this.m_-=create m_-
+this.m_aggiornanodo=create m_aggiornanodo
+this.m_1a=create m_1a
+this.m_comprimitutto=create m_comprimitutto
+this.m_0=create m_0
+this.m_ridimensionailtreeview=create m_ridimensionailtreeview
+this.Item[UpperBound(this.Item)+1]=this.m_struttura
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_aggiornanodo
+this.Item[UpperBound(this.Item)+1]=this.m_1a
+this.Item[UpperBound(this.Item)+1]=this.m_comprimitutto
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_ridimensionailtreeview
+end on
+
+on m_pop_tv.destroy
+call super::destroy
+destroy(this.m_struttura)
+destroy(this.m_-)
+destroy(this.m_aggiornanodo)
+destroy(this.m_1a)
+destroy(this.m_comprimitutto)
+destroy(this.m_0)
+destroy(this.m_ridimensionailtreeview)
+end on
+
+type m_struttura from menu within m_pop_tv
+m_inseriscinuovastruttura m_inseriscinuovastruttura
+m_modificastruttura m_modificastruttura
+m_modifica m_modifica
+end type
+
+on m_struttura.create
+call super::create
+this.text = "Gestione della struttura"
+this.microhelp = "Gestione della struttura"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_inseriscinuovastruttura=create m_inseriscinuovastruttura
+this.m_modificastruttura=create m_modificastruttura
+this.m_modifica=create m_modifica
+this.Item[UpperBound(this.Item)+1]=this.m_inseriscinuovastruttura
+this.Item[UpperBound(this.Item)+1]=this.m_modificastruttura
+this.Item[UpperBound(this.Item)+1]=this.m_modifica
+end on
+
+on m_struttura.destroy
+call super::destroy
+destroy(this.m_inseriscinuovastruttura)
+destroy(this.m_modificastruttura)
+destroy(this.m_modifica)
+end on
+
+type m_inseriscinuovastruttura from menu within m_struttura
+end type
+
+on m_inseriscinuovastruttura.create
+call super::create
+this.text = "Aggiungi / Rimuovi"
+this.enabled = false
+this.microhelp = "Aggiungere o rimuovere un elemento di struttura"
+this.toolbaritemtext = "Inserisci un nuovo elemento di struttura"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inseriscinuovastruttura.destroy
+call super::destroy
+end on
+
+event clicked;if f_np(3)= 1 then return
+
+iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_insertitem()
+end event
+
+type m_modificastruttura from menu within m_struttura
+end type
+
+on m_modificastruttura.create
+call super::create
+this.text = "Sposta"
+this.enabled = false
+this.microhelp = "Spostare un elemento della struttura e gli elementi sottostanti"
+this.toolbaritemtext = "Sposta un elemento della struttura"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_modificastruttura.destroy
+call super::destroy
+end on
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+//iw_main= parentWindow //parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+if f_has_p("O") = false then
+	messageBox(iw_main.title, "Operazione non permessa", exclamation!)
+	return
+end if
+
+//if iw_main.event ue_moveitem() <= 0 then
+//	messageBox(iw_main.title, "Spostamento anullato", exclamation!)
+//	return
+//end if
+
+	if iw_main.tv_struttura.uf_moveitem(iw_main.tv_struttura.is_struttura_s.handle, iw_main) < 0 then
+		rollback;
+		messageBox(iw_main.title, "Spostamento annullato", exclamation!)
+	else
+		commit;
+		open(w_message)
+	end if
+	
+return
+end event
+
+type m_modifica from menu within m_struttura
+end type
+
+on m_modifica.create
+call super::create
+this.text = "Modifica"
+this.microhelp = "Modifica la descrizione"
+this.toolbaritemvisible = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_modifica.destroy
+call super::destroy
+end on
+
+event clicked;iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+iw_main.event ue_modifyitem()
+end event
+
+type m_- from menu within m_pop_tv
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_aggiornanodo from menu within m_pop_tv
+end type
+
+event clicked;long ll_handle
+treeViewItem tvi_local
+
+iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+ll_handle = iw_main.tv_struttura.FindItem(currentTreeItem!, 0)
+
+if iw_main.tv_struttura.getItem(ll_handle, tvi_local)= -1 then return
+
+iw_main.tv_struttura.uf_visualizzanuovoitem(ll_handle)
+
+
+end event
+
+on m_aggiornanodo.create
+call super::create
+this.text = "Aggiorna~tF5"
+this.shortcut = 116
+this.microhelp = "Aggiorna il contenuto del nodo"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_aggiornanodo.destroy
+call super::destroy
+end on
+
+type m_1a from menu within m_pop_tv
+end type
+
+on m_1a.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1a.destroy
+call super::destroy
+end on
+
+type m_comprimitutto from menu within m_pop_tv
+end type
+
+event clicked;long ll_handle
+treeViewItem tvi_local
+
+iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+ll_handle = iw_main.tv_struttura.FindItem(currentTreeItem!, 0)
+
+if iw_main.tv_struttura.getItem(ll_handle, tvi_local)= -1 then return
+
+iw_main.tv_struttura.CollapseItem(ll_handle)
+end event
+
+on m_comprimitutto.create
+call super::create
+this.text = "Comprimi nodo"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_comprimitutto.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_pop_tv
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_ridimensionailtreeview from menu within m_pop_tv
+end type
+
+event clicked;integer li_pos
+
+s_tvdim s_tvdim_s
+
+iw_main= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(iw_main) then return
+
+li_pos= (iw_main.tv_struttura.width / iw_main.WorkspaceWidth() ) * 100
+
+s_tvdim_s.ai_pos= (iw_main.tv_struttura.width / iw_main.WorkspaceWidth() ) * 100
+s_tvdim_s.aw_struttura_tv= iw_main
+
+openWithParm(w_dim_tv, s_tvdim_s)
+
+end event
+
+on m_ridimensionailtreeview.create
+call super::create
+this.text = "Ridimensiona il treeView"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ridimensionailtreeview.destroy
+call super::destroy
+end on
+

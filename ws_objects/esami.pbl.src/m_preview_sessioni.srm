@@ -1,0 +1,332 @@
+﻿$PBExportHeader$m_preview_sessioni.srm
+forward
+global type m_preview_sessioni from m_preview
+end type
+type m_0 from menu within m_preview_sessioni
+end type
+type m_mediavotidellasessione from menu within m_preview_sessioni
+end type
+type m_1 from menu within m_preview_sessioni
+end type
+global type m_preview_sessioni from m_preview
+m_0 m_0
+m_mediavotidellasessione m_mediavotidellasessione
+m_1 m_1
+end type
+end forward
+
+global type m_preview_sessioni from m_preview
+m_0 m_0
+m_mediavotidellasessione m_mediavotidellasessione
+m_1 m_1
+end type
+global m_preview_sessioni m_preview_sessioni
+
+on m_preview_sessioni.create
+m_preview_sessioni=this
+call super::create
+this.m_0=create m_0
+this.m_mediavotidellasessione=create m_mediavotidellasessione
+this.m_1=create m_1
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_mediavotidellasessione
+this.Item[UpperBound(this.Item)+1]=this.m_1
+end on
+
+on m_preview_sessioni.destroy
+call super::destroy
+destroy(this.m_0)
+destroy(this.m_mediavotidellasessione)
+destroy(this.m_1)
+end on
+
+type m_aggiungi from m_preview`m_aggiungi within m_preview_sessioni
+end type
+
+on m_aggiungi.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_aggiungi.destroy
+call super::destroy
+end on
+
+type m_inserisci from m_preview`m_inserisci within m_preview_sessioni
+end type
+
+on m_inserisci.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_inserisci.destroy
+call super::destroy
+end on
+
+type m_rimuovi from m_preview`m_rimuovi within m_preview_sessioni
+end type
+
+on m_rimuovi.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_rimuovi.destroy
+call super::destroy
+end on
+
+event m_rimuovi::clicked;iuodw_generica.uof_cancella()
+
+iuodw_generica.uof_aggiorna()
+end event
+
+type m_salva from m_preview`m_salva within m_preview_sessioni
+end type
+
+on m_salva.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_stampa from m_preview`m_stampa within m_preview_sessioni
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_ordina from m_preview`m_ordina within m_preview_sessioni
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from m_preview`m_layoutdistampa within m_preview_sessioni
+end type
+
+on m_layoutdistampa.create
+call super::create
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from m_preview`m_impostapagina within m_preview_sessioni
+end type
+
+on m_impostapagina.create
+call super::create
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+
+type m_esporta from m_preview`m_esporta within m_preview_sessioni
+end type
+
+on m_esporta.create
+call super::create
+end on
+
+on m_esporta.destroy
+call super::destroy
+end on
+
+type m_zoom from m_preview`m_zoom within m_preview_sessioni
+end type
+
+on m_zoom.create
+call super::create
+end on
+
+on m_zoom.destroy
+call super::destroy
+end on
+
+type m_500% from m_preview`m_500% within m_zoom
+end type
+
+on m_500%.create
+call super::create
+end on
+
+on m_500%.destroy
+call super::destroy
+end on
+
+type m_200% from m_preview`m_200% within m_zoom
+end type
+
+on m_200%.create
+call super::create
+end on
+
+on m_200%.destroy
+call super::destroy
+end on
+
+type m_100% from m_preview`m_100% within m_zoom
+end type
+
+on m_100%.create
+call super::create
+end on
+
+on m_100%.destroy
+call super::destroy
+end on
+
+type m_75% from m_preview`m_75% within m_zoom
+end type
+
+on m_75%.create
+call super::create
+end on
+
+on m_75%.destroy
+call super::destroy
+end on
+
+type m_50% from m_preview`m_50% within m_zoom
+end type
+
+on m_50%.create
+call super::create
+end on
+
+on m_50%.destroy
+call super::destroy
+end on
+
+type m_25% from m_preview`m_25% within m_zoom
+end type
+
+on m_25%.create
+call super::create
+end on
+
+on m_25%.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_preview_sessioni
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_mediavotidellasessione from menu within m_preview_sessioni
+end type
+
+event clicked;decimal ld_id
+
+ld_id= w_esami_sessioni.uodw_esami_sessioni.getItemDecimal(w_esami_sessioni.uodw_esami_sessioni.getRow(), "id")
+
+openWithParm(w_media_sessione_dipendenze, ld_id)
+end event
+
+on m_mediavotidellasessione.create
+call super::create
+this.text = "Media voti per dipendenze"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_mediavotidellasessione.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_preview_sessioni
+end type
+
+event clicked;decimal ld_id
+
+ld_id= w_esami_sessioni.uodw_esami_sessioni.getItemDecimal(w_esami_sessioni.uodw_esami_sessioni.getRow(), "id")
+
+openWithParm(w_media_sessione, ld_id)
+end event
+
+on m_1.create
+call super::create
+this.text = "Media voti"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+

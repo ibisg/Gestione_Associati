@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_nom.srs
+global type s_nom from structure
+	string		v_cognome
+	string		v_nome
+end type
+

@@ -1,0 +1,315 @@
+﻿$PBExportHeader$m_conferma_cerimonie.srm
+forward
+global type m_conferma_cerimonie from m_search_archivio_sheet
+end type
+type m_- from menu within m_gestionearchivio
+end type
+type m_inserimentoinanagrafica from menu within m_gestionearchivio
+end type
+type m_gestionearchivio from m_search_archivio_sheet`m_gestionearchivio within m_conferma_cerimonie
+m_- m_-
+m_inserimentoinanagrafica m_inserimentoinanagrafica
+end type
+end forward
+
+global type m_conferma_cerimonie from m_search_archivio_sheet
+end type
+global m_conferma_cerimonie m_conferma_cerimonie
+
+on m_conferma_cerimonie.create
+m_conferma_cerimonie=this
+call super::create
+end on
+
+on m_conferma_cerimonie.destroy
+call super::destroy
+end on
+
+type m_gestionearchivio from m_search_archivio_sheet`m_gestionearchivio within m_conferma_cerimonie
+m_- m_-
+m_inserimentoinanagrafica m_inserimentoinanagrafica
+end type
+
+on m_gestionearchivio.create
+call super::create
+this.m_-=create m_-
+this.m_inserimentoinanagrafica=create m_inserimentoinanagrafica
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_inserimentoinanagrafica
+end on
+
+on m_gestionearchivio.destroy
+call super::destroy
+destroy(this.m_-)
+destroy(this.m_inserimentoinanagrafica)
+end on
+
+type m_inserimento from m_search_archivio_sheet`m_inserimento within m_gestionearchivio
+end type
+
+on m_inserimento.create
+call super::create
+end on
+
+on m_inserimento.destroy
+call super::destroy
+end on
+
+type m_0 from m_search_archivio_sheet`m_0 within m_gestionearchivio
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_ricerca from m_search_archivio_sheet`m_ricerca within m_gestionearchivio
+end type
+
+on m_ricerca.create
+call super::create
+end on
+
+on m_ricerca.destroy
+call super::destroy
+end on
+
+type m_cancella from m_search_archivio_sheet`m_cancella within m_gestionearchivio
+end type
+
+on m_cancella.create
+call super::create
+end on
+
+on m_cancella.destroy
+call super::destroy
+end on
+
+type m_-1 from m_search_archivio_sheet`m_-1 within m_gestionearchivio
+end type
+
+on m_-1.create
+call super::create
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_salva from m_search_archivio_sheet`m_salva within m_gestionearchivio
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_-2 from m_search_archivio_sheet`m_-2 within m_gestionearchivio
+end type
+
+on m_-2.create
+call super::create
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_anteprima from m_search_archivio_sheet`m_anteprima within m_gestionearchivio
+end type
+
+on m_anteprima.create
+call super::create
+end on
+
+on m_anteprima.destroy
+call super::destroy
+end on
+
+type m_stampa from m_search_archivio_sheet`m_stampa within m_gestionearchivio
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_-3 from m_search_archivio_sheet`m_-3 within m_gestionearchivio
+end type
+
+on m_-3.create
+call super::create
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_annulla from m_search_archivio_sheet`m_annulla within m_gestionearchivio
+end type
+
+on m_annulla.create
+call super::create
+end on
+
+on m_annulla.destroy
+call super::destroy
+end on
+
+type m_-4 from m_search_archivio_sheet`m_-4 within m_gestionearchivio
+end type
+
+on m_-4.create
+call super::create
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_ordina from m_search_archivio_sheet`m_ordina within m_gestionearchivio
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-5 from m_search_archivio_sheet`m_-5 within m_gestionearchivio
+end type
+
+on m_-5.create
+call super::create
+end on
+
+on m_-5.destroy
+call super::destroy
+end on
+
+type m_undo from m_search_archivio_sheet`m_undo within m_gestionearchivio
+end type
+
+on m_undo.create
+call super::create
+end on
+
+on m_undo.destroy
+call super::destroy
+end on
+
+type m_-6 from m_search_archivio_sheet`m_-6 within m_gestionearchivio
+end type
+
+on m_-6.create
+call super::create
+end on
+
+on m_-6.destroy
+call super::destroy
+end on
+
+type m_reset from m_search_archivio_sheet`m_reset within m_gestionearchivio
+end type
+
+on m_reset.create
+call super::create
+end on
+
+on m_reset.destroy
+call super::destroy
+end on
+
+type m_-7 from m_search_archivio_sheet`m_-7 within m_gestionearchivio
+end type
+
+on m_-7.create
+call super::create
+end on
+
+on m_-7.destroy
+call super::destroy
+end on
+
+type m_chiudi from m_search_archivio_sheet`m_chiudi within m_gestionearchivio
+end type
+
+on m_chiudi.create
+call super::create
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+
+type m_-100 from m_search_archivio_sheet`m_-100 within m_gestionearchivio
+end type
+
+on m_-100.create
+call super::create
+end on
+
+on m_-100.destroy
+call super::destroy
+end on
+
+type m_salvacome from m_search_archivio_sheet`m_salvacome within m_gestionearchivio
+end type
+
+on m_salvacome.create
+call super::create
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_gestionearchivio
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_inserimentoinanagrafica from menu within m_gestionearchivio
+end type
+
+on m_inserimentoinanagrafica.create
+call super::create
+this.text = "Inserimento in anagrafica"
+this.microhelp = "Inserimento in anagrafica"
+this.toolbaritemname = "Watcom!"
+this.toolbaritemtext = "Inserimento in anagrafica"
+end on
+
+on m_inserimentoinanagrafica.destroy
+call super::destroy
+end on
+
+event clicked;long ll_ret
+
+ll_ret=  w_conferma_cerimonie_sheet.dw_current.event ue_aggiorna()
+
+if ll_ret < 0 then
+	messageBox("Conferma partecipazione", "Errore nel'aggiornamento dei dati.", exclamation!)
+else
+	messageBox("Conferma partecipazione", "Sono stati inseriti "+string(ll_ret, "###,###,###")+" record.", information!)
+end if
+end event
+

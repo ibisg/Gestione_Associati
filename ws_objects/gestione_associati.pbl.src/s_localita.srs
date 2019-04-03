@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_localita.srs
+global type s_localita from structure
+	string		cod_com
+	string		comune
+	string		cap
+end type
+

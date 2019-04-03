@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_utenti_web.srs
+global type s_utenti_web from structure
+	string		codice
+	string		vc_nodo
+	string		password
+	string		flag_abilitato
+	string		cognome_nome
+end type
+

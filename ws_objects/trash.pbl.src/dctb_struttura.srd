@@ -1,0 +1,42 @@
+﻿$PBExportHeader$dctb_struttura.srd
+$PBExportComments$Report: composizione della struttura
+release 11;
+datawindow(units=0 timer_interval=0 color=16777215 processing=4 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=192 color="536870912" )
+header[2](height=76 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=compute_0003 dbname="compute_0003" )
+ column=(type=number updatewhereclause=yes name=vc_nodo dbname="vc_nodo" )
+ retrieve="SELECT  struttura.livello ,
+           struttura.vc_nodo ,
+           convert(varchar,
+ struttura_livelli.livello)+~" - ~"+struttura_livelli.descrizione    , ~"~"
+        FROM struttura ,
+           struttura_livelli     
+        WHERE ( struttura.livello = struttura_livelli.livello ) and          ( ( struttura.livello >= :livello ) and          ( struttura.vc_nodo like :vc_nodo+'%' ) )  " arguments=(("vc_nodo", string),("anno", number),("livello", number))  sort="compute_0003 A " )
+group(level=1 header.height=0 trailer.height=0 by=("vc_nodo" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+roundrectangle(band=header[1] ellipseheight="36" ellipsewidth="41"x="5" y="8" height="160" width="2597"  name=rr_2 visible="1" brush.hatch="7" brush.color="536870912" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header[2] alignment="0" text="Livelli di struttura" border="0" color="0" x="9" y="20" height="52" width="841" html.valueishtml="0"  name=compute_0003_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="@col" border="0" color="0" x="859" y="20" height="52" width="329" html.valueishtml="0"  name=vc_nodo_t visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="1" text="Totale elementi" border="0" color="0" x="1198" y="20" height="52" width="869" html.valueishtml="0"  name=grand_count_vc_nodo_t visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="76" width="841" format="[general]" html.valueishtml="0"  name=compute_0003 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="859" y="4" height="76" width="329" format="###,###,###0" html.valueishtml="0"  name=vc_nodo visible="1~t0" edit.limit=0 edit.case=any edit.format="###,###,###0" edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="0" x="1198" y="4" height="76" width="869" format="###,###,###0" html.valueishtml="0"  name=grand_count_vc_nodo visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="~"Grand Total~""border="0" color="0" x="9" y="4" height="76" width="841" format="[general]" html.valueishtml="0"  name=compute_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(vc_nodo for all )"border="0" color="0" x="859" y="4" height="76" width="329" format="###,###,###0" html.valueishtml="0"  name=compute_2 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(grand_count_vc_nodo for all )"border="0" color="0" x="1198" y="4" height="76" width="869" format="###,###,###0" html.valueishtml="0"  name=compute_3 visible="1"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=foreground alignment="0" expression="~"Composizione della struttura al ~"+string(today(), ~"dd.mm.yyyy~")+ vc_nodo "border="0" color="0" x="23" y="36" height="92" width="2496" format="[GENERAL]" html.valueishtml="0"  name=compute_4 visible="1"  resizeable=1  moveable=1  font.face="Tahoma" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "~"~"" rows = "compute_0003" values = "count(vc_nodo for crosstab)" sourcenames = "livello, vc_nodo, compute_0003, compute_0004")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

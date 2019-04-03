@@ -1,0 +1,43 @@
+﻿$PBExportHeader$s_struttura.srs
+global type s_struttura from structure
+	integer		livello
+	long		id_nodo
+	string		relazione
+	long		id_parent
+	string		codice
+	string		descrizione_livello
+	string		descrizione_struttura
+	long		handle
+	string		vc_nodo
+	string		vc_parent
+	string		cognome
+	string		nome
+	integer		cod_div
+	string		divisione
+	string		citta_nas
+	string		prov_nas
+	datetime		data_nas
+	string		ind_dom
+	string		cap_dom
+	string		comune
+	string		provincia
+	string		num_tel
+	string		num_tel_2
+	string		e_mail
+	string		professione
+	string		pres_da
+	datetime		data_cer
+	string		luogo_cer
+	string		responsabilita1
+	string		responsabilita2
+	string		livello_studio
+	string		flag_goh
+	string		flag_tok
+	string		flag_oma
+	string		flag_er
+	string		status
+	string		cod_dip
+	string		cod_dis
+	string		flag_ldr
+end type
+

@@ -1,0 +1,10 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "nuclei.pbl" "";
+@end;
+@begin Objects 
+ "dw_gestione_componenti.srd" "nuclei.pbl";
+ "dw_seleziona_componenti.srd" "nuclei.pbl";
+ "w_fai_nuclei.srw" "nuclei.pbl";
+ "w_visualizza_nuclei.srw" "nuclei.pbl";
+@end;

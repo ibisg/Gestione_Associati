@@ -1,0 +1,190 @@
+﻿$PBExportHeader$m_preview_todolist.srm
+forward
+global type m_preview_todolist from m_preview
+end type
+end forward
+
+global type m_preview_todolist from m_preview
+end type
+global m_preview_todolist m_preview_todolist
+
+on m_preview_todolist.create
+m_preview_todolist=this
+call super::create
+end on
+
+on m_preview_todolist.destroy
+call super::destroy
+end on
+
+type m_aggiungi from m_preview`m_aggiungi within m_preview_todolist
+end type
+
+event m_aggiungi::clicked;call super::clicked;iuodw_generica.setItem(iuodw_generica.getRow(), "id", w_todolist.id_id)
+end event
+
+on m_aggiungi.create
+call super::create
+end on
+
+on m_aggiungi.destroy
+call super::destroy
+end on
+
+type m_inserisci from m_preview`m_inserisci within m_preview_todolist
+end type
+
+on m_inserisci.create
+call super::create
+end on
+
+on m_inserisci.destroy
+call super::destroy
+end on
+
+event m_inserisci::clicked;call super::clicked;iuodw_generica.setItem(iuodw_generica.getRow(), "id", w_todolist.id_id)
+end event
+
+type m_rimuovi from m_preview`m_rimuovi within m_preview_todolist
+end type
+
+on m_rimuovi.create
+call super::create
+end on
+
+on m_rimuovi.destroy
+call super::destroy
+end on
+
+type m_salva from m_preview`m_salva within m_preview_todolist
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_stampa from m_preview`m_stampa within m_preview_todolist
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from m_preview`m_layoutdistampa within m_preview_todolist
+end type
+
+on m_layoutdistampa.create
+call super::create
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from m_preview`m_impostapagina within m_preview_todolist
+end type
+
+on m_impostapagina.create
+call super::create
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+
+type m_esporta from m_preview`m_esporta within m_preview_todolist
+end type
+
+on m_esporta.create
+call super::create
+end on
+
+on m_esporta.destroy
+call super::destroy
+end on
+
+type m_zoom from m_preview`m_zoom within m_preview_todolist
+end type
+
+on m_zoom.create
+call super::create
+end on
+
+on m_zoom.destroy
+call super::destroy
+end on
+
+type m_500% from m_preview`m_500% within m_zoom
+end type
+
+on m_500%.create
+call super::create
+end on
+
+on m_500%.destroy
+call super::destroy
+end on
+
+type m_200% from m_preview`m_200% within m_zoom
+end type
+
+on m_200%.create
+call super::create
+end on
+
+on m_200%.destroy
+call super::destroy
+end on
+
+type m_100% from m_preview`m_100% within m_zoom
+end type
+
+on m_100%.create
+call super::create
+end on
+
+on m_100%.destroy
+call super::destroy
+end on
+
+type m_75% from m_preview`m_75% within m_zoom
+end type
+
+on m_75%.create
+call super::create
+end on
+
+on m_75%.destroy
+call super::destroy
+end on
+
+type m_50% from m_preview`m_50% within m_zoom
+end type
+
+on m_50%.create
+call super::create
+end on
+
+on m_50%.destroy
+call super::destroy
+end on
+
+type m_25% from m_preview`m_25% within m_zoom
+end type
+
+on m_25%.create
+call super::create
+end on
+
+on m_25%.destroy
+call super::destroy
+end on
+

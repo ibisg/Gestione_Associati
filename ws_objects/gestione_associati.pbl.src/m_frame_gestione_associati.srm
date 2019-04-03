@@ -1,0 +1,2944 @@
+﻿$PBExportHeader$m_frame_gestione_associati.srm
+forward
+global type m_frame_gestione_associati from m_templ_frame
+end type
+type m_-0 from menu within m_finestre
+end type
+type m_finestre from m_templ_frame`m_finestre within m_frame_gestione_associati
+m_-0 m_-0
+end type
+type m_sviluppo from menu within m_frame_gestione_associati
+end type
+type m_nuovastruttura from menu within m_sviluppo
+end type
+type m_capdacorreggere from menu within m_sviluppo
+end type
+type m_viedacorreggere from menu within m_sviluppo
+end type
+type m_cartoline from menu within m_sviluppo
+end type
+type m_cap from menu within m_sviluppo
+end type
+type m_aggiornacomuni from menu within m_sviluppo
+end type
+type m_sviluppo from menu within m_frame_gestione_associati
+m_nuovastruttura m_nuovastruttura
+m_capdacorreggere m_capdacorreggere
+m_viedacorreggere m_viedacorreggere
+m_cartoline m_cartoline
+m_cap m_cap
+m_aggiornacomuni m_aggiornacomuni
+end type
+type m_test from menu within m_frame_gestione_associati
+end type
+type m_quickselect from menu within m_test
+end type
+type m_quickselectori from menu within m_test
+end type
+type m_testpdf from menu within m_test
+end type
+type m_testcursore from menu within m_test
+end type
+type m_0 from menu within m_test
+end type
+type m_anomalieesami from menu within m_test
+end type
+type m_lettereofferte from menu within m_test
+end type
+type m_fuoristruttura from menu within m_test
+end type
+type m_test from menu within m_frame_gestione_associati
+m_quickselect m_quickselect
+m_quickselectori m_quickselectori
+m_testpdf m_testpdf
+m_testcursore m_testcursore
+m_0 m_0
+m_anomalieesami m_anomalieesami
+m_lettereofferte m_lettereofferte
+m_fuoristruttura m_fuoristruttura
+end type
+type m_eventi from menu within m_frame_gestione_associati
+end type
+type m_inserisciomodificaluoghieventi from menu within m_eventi
+end type
+type m_inserisciomodificasaleeventi from menu within m_eventi
+end type
+type m_pianificazioneeventi from menu within m_eventi
+end type
+type m_gestioneesami from menu within m_eventi
+end type
+type m_gestionesessioni from menu within m_gestioneesami
+end type
+type m_stampadiplomi from menu within m_gestioneesami
+end type
+type m_conteggioaventidiritto from menu within m_gestioneesami
+end type
+type m_gestioneesami from menu within m_eventi
+m_gestionesessioni m_gestionesessioni
+m_stampadiplomi m_stampadiplomi
+m_conteggioaventidiritto m_conteggioaventidiritto
+end type
+type m_1 from menu within m_eventi
+end type
+type m_eventi from menu within m_frame_gestione_associati
+m_inserisciomodificaluoghieventi m_inserisciomodificaluoghieventi
+m_inserisciomodificasaleeventi m_inserisciomodificasaleeventi
+m_pianificazioneeventi m_pianificazioneeventi
+m_gestioneesami m_gestioneesami
+m_1 m_1
+end type
+type m_struttura from menu within m_frame_gestione_associati
+end type
+type m_esploralastruttura from menu within m_struttura
+end type
+type m_percomuni from menu within m_struttura
+end type
+type m_report from menu within m_struttura
+end type
+type m_doppiinserimenti from menu within m_struttura
+end type
+type m_stampabadge from menu within m_struttura
+end type
+type m_rga from menu within m_struttura
+end type
+type m_tvgeo from menu within m_struttura
+end type
+type m_storicorichiestevariazionirga from menu within m_struttura
+end type
+type m_storicoeventi from menu within m_struttura
+end type
+type m_struttura from menu within m_frame_gestione_associati
+m_esploralastruttura m_esploralastruttura
+m_percomuni m_percomuni
+m_report m_report
+m_doppiinserimenti m_doppiinserimenti
+m_stampabadge m_stampabadge
+m_rga m_rga
+m_tvgeo m_tvgeo
+m_storicorichiestevariazionirga m_storicorichiestevariazionirga
+m_storicoeventi m_storicoeventi
+end type
+type m_gestionestaff from menu within m_frame_gestione_associati
+end type
+type m_comunicazioni from menu within m_frame_gestione_associati
+end type
+type m_gestioneliste from menu within m_comunicazioni
+end type
+type m_invio from menu within m_comunicazioni
+end type
+type m_storicoinvii from menu within m_comunicazioni
+end type
+type m_comunicazioni from menu within m_frame_gestione_associati
+m_gestioneliste m_gestioneliste
+m_invio m_invio
+m_storicoinvii m_storicoinvii
+end type
+type m_amministrazione from menu within m_frame_gestione_associati
+end type
+type m_ambitooperativo from menu within m_amministrazione
+end type
+type m_5 from menu within m_amministrazione
+end type
+type m_gestionedepositogohonzon from menu within m_amministrazione
+end type
+type m_sessioniattive from menu within m_amministrazione
+end type
+type m_utenti_web from menu within m_amministrazione
+end type
+type m_2 from menu within m_amministrazione
+end type
+type m_gestionedimissionari from menu within m_amministrazione
+end type
+type m_4 from menu within m_amministrazione
+end type
+type m_gestionedeceduti from menu within m_amministrazione
+end type
+type m_6 from menu within m_amministrazione
+end type
+type m_gestionemembriisg from menu within m_amministrazione
+end type
+type m_gestionetrasferitidefinitivamenteallestero from menu within m_amministrazione
+end type
+type m_3 from menu within m_amministrazione
+end type
+type m_amministrazione from menu within m_frame_gestione_associati
+m_ambitooperativo m_ambitooperativo
+m_5 m_5
+m_gestionedepositogohonzon m_gestionedepositogohonzon
+m_sessioniattive m_sessioniattive
+m_utenti_web m_utenti_web
+m_2 m_2
+m_gestionedimissionari m_gestionedimissionari
+m_4 m_4
+m_gestionedeceduti m_gestionedeceduti
+m_6 m_6
+m_gestionemembriisg m_gestionemembriisg
+m_gestionetrasferitidefinitivamenteallestero m_gestionetrasferitidefinitivamenteallestero
+m_3 m_3
+end type
+type m_organi from menu within m_frame_gestione_associati
+end type
+type m_gestionemembri from menu within m_organi
+end type
+type m_statistichepresenzeallaconsulta from menu within m_organi
+end type
+type m_organi from menu within m_frame_gestione_associati
+m_gestionemembri m_gestionemembri
+m_statistichepresenzeallaconsulta m_statistichepresenzeallaconsulta
+end type
+global type m_frame_gestione_associati from m_templ_frame
+m_sviluppo m_sviluppo
+m_test m_test
+m_eventi m_eventi
+m_struttura m_struttura
+m_gestionestaff m_gestionestaff
+m_comunicazioni m_comunicazioni
+m_amministrazione m_amministrazione
+m_organi m_organi
+end type
+end forward
+
+global type m_frame_gestione_associati from m_templ_frame
+m_sviluppo m_sviluppo
+m_test m_test
+m_eventi m_eventi
+m_struttura m_struttura
+m_gestionestaff m_gestionestaff
+m_comunicazioni m_comunicazioni
+m_amministrazione m_amministrazione
+m_organi m_organi
+end type
+global m_frame_gestione_associati m_frame_gestione_associati
+
+on m_frame_gestione_associati.create
+m_frame_gestione_associati=this
+call super::create
+this.text = "m_frame_gestione_associati"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_sviluppo=create m_sviluppo
+this.m_test=create m_test
+this.m_eventi=create m_eventi
+this.m_struttura=create m_struttura
+this.m_gestionestaff=create m_gestionestaff
+this.m_comunicazioni=create m_comunicazioni
+this.m_amministrazione=create m_amministrazione
+this.m_organi=create m_organi
+this.Item[UpperBound(this.Item)+1]=this.m_sviluppo
+this.Item[UpperBound(this.Item)+1]=this.m_test
+this.Item[UpperBound(this.Item)+1]=this.m_eventi
+this.Item[UpperBound(this.Item)+1]=this.m_struttura
+this.Item[UpperBound(this.Item)+1]=this.m_gestionestaff
+this.Item[UpperBound(this.Item)+1]=this.m_comunicazioni
+this.Item[UpperBound(this.Item)+1]=this.m_amministrazione
+this.Item[UpperBound(this.Item)+1]=this.m_organi
+end on
+
+on m_frame_gestione_associati.destroy
+call super::destroy
+destroy(this.m_sviluppo)
+destroy(this.m_test)
+destroy(this.m_eventi)
+destroy(this.m_struttura)
+destroy(this.m_gestionestaff)
+destroy(this.m_comunicazioni)
+destroy(this.m_amministrazione)
+destroy(this.m_organi)
+end on
+
+type m_finestre from m_templ_frame`m_finestre within m_frame_gestione_associati
+m_-0 m_-0
+end type
+
+on m_finestre.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_-0=create m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+end on
+
+on m_finestre.destroy
+call super::destroy
+destroy(this.m_-0)
+end on
+
+type m_affiancaverticalmente from m_templ_frame`m_affiancaverticalmente within m_finestre
+end type
+
+on m_affiancaverticalmente.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_affiancaverticalmente.destroy
+call super::destroy
+end on
+
+type m_affianca from m_templ_frame`m_affianca within m_finestre
+end type
+
+on m_affianca.create
+call super::create
+this.toolbaritemname = ""
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_affianca.destroy
+call super::destroy
+end on
+
+type m_sovrapponi from m_templ_frame`m_sovrapponi within m_finestre
+end type
+
+on m_sovrapponi.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sovrapponi.destroy
+call super::destroy
+end on
+
+type m_disponiincascata from m_templ_frame`m_disponiincascata within m_finestre
+end type
+
+on m_disponiincascata.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_disponiincascata.destroy
+call super::destroy
+end on
+
+type m_-1 from m_templ_frame`m_-1 within m_finestre
+end type
+
+on m_-1.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_barredeglistrumenti from m_templ_frame`m_barredeglistrumenti within m_finestre
+end type
+
+on m_barredeglistrumenti.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_barredeglistrumenti.destroy
+call super::destroy
+end on
+
+type m_-2 from m_templ_frame`m_-2 within m_finestre
+end type
+
+on m_-2.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_info from m_templ_frame`m_info within m_finestre
+end type
+
+on m_info.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_info.destroy
+call super::destroy
+end on
+
+event m_info::clicked;call super::clicked;open(w_info_ga)
+end event
+
+type m_- from m_templ_frame`m_- within m_finestre
+end type
+
+on m_-.create
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_help from m_templ_frame`m_help within m_finestre
+end type
+
+on m_help.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+this.toolbaritemname = "help!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_-8 from m_templ_frame`m_-8 within m_finestre
+end type
+
+on m_-8.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-8.destroy
+call super::destroy
+end on
+
+type m_esci from m_templ_frame`m_esci within m_finestre
+end type
+
+on m_esci.create
+call super::create
+this.toolbaritemname = "exit!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_esci.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_finestre
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_sviluppo from menu within m_frame_gestione_associati
+m_nuovastruttura m_nuovastruttura
+m_capdacorreggere m_capdacorreggere
+m_viedacorreggere m_viedacorreggere
+m_cartoline m_cartoline
+m_cap m_cap
+m_aggiornacomuni m_aggiornacomuni
+end type
+
+on m_sviluppo.create
+call super::create
+this.visible = false
+this.text = "Sviluppo"
+this.enabled = false
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Sviluppo"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_nuovastruttura=create m_nuovastruttura
+this.m_capdacorreggere=create m_capdacorreggere
+this.m_viedacorreggere=create m_viedacorreggere
+this.m_cartoline=create m_cartoline
+this.m_cap=create m_cap
+this.m_aggiornacomuni=create m_aggiornacomuni
+this.Item[UpperBound(this.Item)+1]=this.m_nuovastruttura
+this.Item[UpperBound(this.Item)+1]=this.m_capdacorreggere
+this.Item[UpperBound(this.Item)+1]=this.m_viedacorreggere
+this.Item[UpperBound(this.Item)+1]=this.m_cartoline
+this.Item[UpperBound(this.Item)+1]=this.m_cap
+this.Item[UpperBound(this.Item)+1]=this.m_aggiornacomuni
+end on
+
+on m_sviluppo.destroy
+call super::destroy
+destroy(this.m_nuovastruttura)
+destroy(this.m_capdacorreggere)
+destroy(this.m_viedacorreggere)
+destroy(this.m_cartoline)
+destroy(this.m_cap)
+destroy(this.m_aggiornacomuni)
+end on
+
+type m_nuovastruttura from menu within m_sviluppo
+end type
+
+event clicked;SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheet ( w_nuova_struttura, w_frame_gestioneassociati, 3, Original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_nuovastruttura.create
+call super::create
+this.visible = false
+this.text = "Nuova struttura"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_nuovastruttura.destroy
+call super::destroy
+end on
+
+type m_capdacorreggere from menu within m_sviluppo
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//OpenSheet ( w_cap_da_correggere, w_frame_gestioneassociati, 3, Original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_capdacorreggere.create
+call super::create
+this.visible = false
+this.text = "Cap da correggere"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_capdacorreggere.destroy
+call super::destroy
+end on
+
+type m_viedacorreggere from menu within m_sviluppo
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//OpenSheet ( w_viecap_da_correggere, w_frame_gestioneassociati, 3, Original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_viedacorreggere.create
+call super::create
+this.visible = false
+this.text = "Vie da correggere"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_viedacorreggere.destroy
+call super::destroy
+end on
+
+type m_cartoline from menu within m_sviluppo
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//OpenSheet ( w_cartoline, w_frame_gestioneassociati, 3, Original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_cartoline.create
+call super::create
+this.visible = false
+this.text = "Cartoline"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cartoline.destroy
+call super::destroy
+end on
+
+type m_cap from menu within m_sviluppo
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+////OpenSheet ( w_cap, w_frame_gestioneassociati, 3, Original! )
+
+s_cap s_cap_s
+Open ( w_cap_poste )
+
+s_cap_s=message.powerobjectparm
+
+return
+
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_cap.create
+call super::create
+this.visible = false
+this.text = "Cap"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cap.destroy
+call super::destroy
+end on
+
+type m_aggiornacomuni from menu within m_sviluppo
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+////OpenSheet ( w_cap, w_frame_gestioneassociati, 3, Original! )
+//Open ( w_aggiona_comuni )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_aggiornacomuni.create
+call super::create
+this.visible = false
+this.text = "Aggiorna comuni"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_aggiornacomuni.destroy
+call super::destroy
+end on
+
+type m_test from menu within m_frame_gestione_associati
+m_quickselect m_quickselect
+m_quickselectori m_quickselectori
+m_testpdf m_testpdf
+m_testcursore m_testcursore
+m_0 m_0
+m_anomalieesami m_anomalieesami
+m_lettereofferte m_lettereofferte
+m_fuoristruttura m_fuoristruttura
+end type
+
+on m_test.create
+call super::create
+this.visible = false
+this.text = "Test"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_quickselect=create m_quickselect
+this.m_quickselectori=create m_quickselectori
+this.m_testpdf=create m_testpdf
+this.m_testcursore=create m_testcursore
+this.m_0=create m_0
+this.m_anomalieesami=create m_anomalieesami
+this.m_lettereofferte=create m_lettereofferte
+this.m_fuoristruttura=create m_fuoristruttura
+this.Item[UpperBound(this.Item)+1]=this.m_quickselect
+this.Item[UpperBound(this.Item)+1]=this.m_quickselectori
+this.Item[UpperBound(this.Item)+1]=this.m_testpdf
+this.Item[UpperBound(this.Item)+1]=this.m_testcursore
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_anomalieesami
+this.Item[UpperBound(this.Item)+1]=this.m_lettereofferte
+this.Item[UpperBound(this.Item)+1]=this.m_fuoristruttura
+end on
+
+on m_test.destroy
+call super::destroy
+destroy(this.m_quickselect)
+destroy(this.m_quickselectori)
+destroy(this.m_testpdf)
+destroy(this.m_testcursore)
+destroy(this.m_0)
+destroy(this.m_anomalieesami)
+destroy(this.m_lettereofferte)
+destroy(this.m_fuoristruttura)
+end on
+
+type m_quickselect from menu within m_test
+end type
+
+event clicked;//open(w_set_visible_columns)
+end event
+
+on m_quickselect.create
+call super::create
+this.text = "Quick select"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_quickselect.destroy
+call super::destroy
+end on
+
+type m_quickselectori from menu within m_test
+end type
+
+event clicked;//open(w_quick_select_old)
+end event
+
+on m_quickselectori.create
+call super::create
+this.text = "Quick select ori"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_quickselectori.destroy
+call super::destroy
+end on
+
+type m_testpdf from menu within m_test
+event create ( )
+event destroy ( )
+end type
+
+on m_testpdf.create
+call super::create
+this.text = "testMagazzinoG"
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_testpdf.destroy
+call super::destroy
+end on
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//	OpenSheet ( w_gohonzon_magazzino, w_frame_gestioneassociati, 3, original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+type m_testcursore from menu within m_test
+end type
+
+on m_testcursore.create
+call super::create
+this.text = "test cursore"
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_testcursore.destroy
+call super::destroy
+end on
+
+event clicked;SetPointer ( hourglass! )
+
+
+Open ( w_updliste)
+
+
+end event
+
+type m_0 from menu within m_test
+end type
+
+event clicked;SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+Open ( w_loadsgi)
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_0.create
+call super::create
+this.text = "sgi"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_anomalieesami from menu within m_test
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//OpenSheet ( w_anomalie_esami_curr, w_frame_gestioneassociati, 3, original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_anomalieesami.create
+call super::create
+this.text = "Anomalie esami"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_anomalieesami.destroy
+call super::destroy
+end on
+
+type m_lettereofferte from menu within m_test
+end type
+
+event clicked;//s_preview s_preview_s
+//
+//
+//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+////OpenSheetWithParm ( w_lettereofferte, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+//
+//		//is_preview_s.criterio= uodw_aggiornamento.getItemString(uodw_aggiornamento.getRow(), "codice")
+//		s_preview_s.dataObject= "dw_letteraofferte_rotis"
+//		s_preview_s.doretrieve= false
+//		s_preview_s.ib_allowstop= true
+//		s_preview_s.ib_anteprima= true
+//		s_preview_s.ib_append= true
+//		
+//		openSheetWithParm(w_lettereofferte, s_preview_s, w_frame_gestioneassociati, 3, original! )		
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+//
+end event
+
+on m_lettereofferte.create
+call super::create
+this.text = "Lettere offerte"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_lettereofferte.destroy
+call super::destroy
+end on
+
+type m_fuoristruttura from menu within m_test
+end type
+
+on m_fuoristruttura.create
+call super::create
+this.text = "Fuori struttura"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fuoristruttura.destroy
+call super::destroy
+end on
+
+type m_eventi from menu within m_frame_gestione_associati
+m_inserisciomodificaluoghieventi m_inserisciomodificaluoghieventi
+m_inserisciomodificasaleeventi m_inserisciomodificasaleeventi
+m_pianificazioneeventi m_pianificazioneeventi
+m_gestioneesami m_gestioneesami
+m_1 m_1
+end type
+
+on m_eventi.create
+call super::create
+this.text = "Eventi"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_inserisciomodificaluoghieventi=create m_inserisciomodificaluoghieventi
+this.m_inserisciomodificasaleeventi=create m_inserisciomodificasaleeventi
+this.m_pianificazioneeventi=create m_pianificazioneeventi
+this.m_gestioneesami=create m_gestioneesami
+this.m_1=create m_1
+this.Item[UpperBound(this.Item)+1]=this.m_inserisciomodificaluoghieventi
+this.Item[UpperBound(this.Item)+1]=this.m_inserisciomodificasaleeventi
+this.Item[UpperBound(this.Item)+1]=this.m_pianificazioneeventi
+this.Item[UpperBound(this.Item)+1]=this.m_gestioneesami
+this.Item[UpperBound(this.Item)+1]=this.m_1
+end on
+
+on m_eventi.destroy
+call super::destroy
+destroy(this.m_inserisciomodificaluoghieventi)
+destroy(this.m_inserisciomodificasaleeventi)
+destroy(this.m_pianificazioneeventi)
+destroy(this.m_gestioneesami)
+destroy(this.m_1)
+end on
+
+type m_inserisciomodificaluoghieventi from menu within m_eventi
+end type
+
+event clicked;open(w_eventi_luoghi)
+end event
+
+on m_inserisciomodificaluoghieventi.create
+call super::create
+this.text = "Inserisci o modifica luoghi eventi"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inserisciomodificaluoghieventi.destroy
+call super::destroy
+end on
+
+type m_inserisciomodificasaleeventi from menu within m_eventi
+end type
+
+on m_inserisciomodificasaleeventi.create
+call super::create
+this.text = "Inserisci o modifica sale eventi"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inserisciomodificasaleeventi.destroy
+call super::destroy
+end on
+
+event clicked;open(w_eventi_sale)
+end event
+
+type m_pianificazioneeventi from menu within m_eventi
+end type
+
+event clicked;//if f_np(3)= 1 then return 
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm (w_eventi, 'P', w_frame_gestioneassociati, 2,  original!)
+//OpenWithParm (w_eventi, 'P', w_frame_gestioneassociati)
+
+w_frame_gestioneassociati.SetRedraw ( true )
+
+end event
+
+on m_pianificazioneeventi.create
+call super::create
+this.text = "Pianificazione eventi"
+this.microhelp = "Pianificazione eventi"
+this.toolbaritemname = "computetoday5!"
+this.toolbaritemtext = "Pianificazione eventi"
+this.menuimage = "computetoday5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_pianificazioneeventi.destroy
+call super::destroy
+end on
+
+type m_gestioneesami from menu within m_eventi
+m_gestionesessioni m_gestionesessioni
+m_stampadiplomi m_stampadiplomi
+m_conteggioaventidiritto m_conteggioaventidiritto
+end type
+
+on m_gestioneesami.create
+call super::create
+this.text = "Gestione esami"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_gestionesessioni=create m_gestionesessioni
+this.m_stampadiplomi=create m_stampadiplomi
+this.m_conteggioaventidiritto=create m_conteggioaventidiritto
+this.Item[UpperBound(this.Item)+1]=this.m_gestionesessioni
+this.Item[UpperBound(this.Item)+1]=this.m_stampadiplomi
+this.Item[UpperBound(this.Item)+1]=this.m_conteggioaventidiritto
+end on
+
+on m_gestioneesami.destroy
+call super::destroy
+destroy(this.m_gestionesessioni)
+destroy(this.m_stampadiplomi)
+destroy(this.m_conteggioaventidiritto)
+end on
+
+type m_gestionesessioni from menu within m_gestioneesami
+end type
+
+event clicked;SetPointer ( hourglass! )
+
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheet (w_esami_sessioni, w_frame_gestioneassociati, 3, Original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+
+end event
+
+on m_gestionesessioni.create
+call super::create
+this.text = "Gestione sessioni esami"
+this.menuimage = "Custom023!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionesessioni.destroy
+call super::destroy
+end on
+
+type m_stampadiplomi from menu within m_gestioneesami
+end type
+
+event clicked;SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+
+s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+
+OpenSheetWithParm (w_stampa_diplomi_sheet, s_assegnastruttura_s, w_frame_gestioneassociati, 3, Original! )
+
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_stampadiplomi.create
+call super::create
+this.text = "Stampa diplomi"
+this.menuimage = "Tables!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_stampadiplomi.destroy
+call super::destroy
+end on
+
+type m_conteggioaventidiritto from menu within m_gestioneesami
+end type
+
+event clicked;SetPointer ( hourglass! )
+
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheet (w_conteggio, w_frame_gestioneassociati, 3, original!)
+
+w_frame_gestioneassociati.SetRedraw ( true )
+
+end event
+
+on m_conteggioaventidiritto.create
+call super::create
+this.visible = false
+this.text = "Conteggio aventi diritto"
+this.enabled = false
+this.menuimage = "Compute5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_conteggioaventidiritto.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_eventi
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm (w_aspiranti_prenotazioni, s_assegnastruttura_s, w_frame_gestioneassociati, 2,  original!)
+//OpenSheet (w_aspiranti_prenotazioni,  w_frame_gestioneassociati, 2,  original!)
+w_frame_gestioneassociati.SetRedraw ( true )
+
+end event
+
+on m_1.create
+call super::create
+this.visible = false
+this.text = "Cerimonie prenotazioni"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_struttura from menu within m_frame_gestione_associati
+m_esploralastruttura m_esploralastruttura
+m_percomuni m_percomuni
+m_report m_report
+m_doppiinserimenti m_doppiinserimenti
+m_stampabadge m_stampabadge
+m_rga m_rga
+m_tvgeo m_tvgeo
+m_storicorichiestevariazionirga m_storicorichiestevariazionirga
+m_storicoeventi m_storicoeventi
+end type
+
+on m_struttura.create
+call super::create
+this.text = "Struttura"
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_esploralastruttura=create m_esploralastruttura
+this.m_percomuni=create m_percomuni
+this.m_report=create m_report
+this.m_doppiinserimenti=create m_doppiinserimenti
+this.m_stampabadge=create m_stampabadge
+this.m_rga=create m_rga
+this.m_tvgeo=create m_tvgeo
+this.m_storicorichiestevariazionirga=create m_storicorichiestevariazionirga
+this.m_storicoeventi=create m_storicoeventi
+this.Item[UpperBound(this.Item)+1]=this.m_esploralastruttura
+this.Item[UpperBound(this.Item)+1]=this.m_percomuni
+this.Item[UpperBound(this.Item)+1]=this.m_report
+this.Item[UpperBound(this.Item)+1]=this.m_doppiinserimenti
+this.Item[UpperBound(this.Item)+1]=this.m_stampabadge
+this.Item[UpperBound(this.Item)+1]=this.m_rga
+this.Item[UpperBound(this.Item)+1]=this.m_tvgeo
+this.Item[UpperBound(this.Item)+1]=this.m_storicorichiestevariazionirga
+this.Item[UpperBound(this.Item)+1]=this.m_storicoeventi
+end on
+
+on m_struttura.destroy
+call super::destroy
+destroy(this.m_esploralastruttura)
+destroy(this.m_percomuni)
+destroy(this.m_report)
+destroy(this.m_doppiinserimenti)
+destroy(this.m_stampabadge)
+destroy(this.m_rga)
+destroy(this.m_tvgeo)
+destroy(this.m_storicorichiestevariazionirga)
+destroy(this.m_storicoeventi)
+end on
+
+type m_esploralastruttura from menu within m_struttura
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm ( w_struttura_tv_tab, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_esploralastruttura.create
+call super::create
+this.text = "Gestione struttura"
+this.microhelp = "Gestione struttura"
+this.toolbaritemname = "treeview!"
+this.toolbaritemtext = "Gestione struttura"
+this.menuimage = "TreeView!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_esploralastruttura.destroy
+call super::destroy
+end on
+
+type m_percomuni from menu within m_struttura
+end type
+
+event clicked;OpenSheet ( w_ricercapercomuni, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_percomuni.create
+call super::create
+this.text = "Ricerca per località"
+this.microhelp = "Ricerca per località"
+this.toolbaritemname = "mondo.gif"
+this.toolbaritemtext = "Ricerca per località"
+this.toolbaritemorder = 3
+this.menuimage = "mondo.gif"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_percomuni.destroy
+call super::destroy
+end on
+
+type m_report from menu within m_struttura
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm ( w_reportrunner, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_report.create
+call super::create
+this.visible = false
+this.text = "Report runner"
+this.toolbaritemvisible = false
+this.toolbaritemname = "report!"
+this.toolbaritemtext = "Report runner"
+this.toolbaritemorder = 1
+this.menuimage = "Report!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_report.destroy
+call super::destroy
+end on
+
+type m_doppiinserimenti from menu within m_struttura
+end type
+
+event clicked;if f_np(3)= 1 then return 
+
+open(w_doppioni)
+end event
+
+on m_doppiinserimenti.create
+call super::create
+this.text = "Accorpamento doppi inserimenti"
+this.microhelp = "Accorpamento doppi inserimenti"
+this.toolbaritemvisible = false
+this.toolbaritemname = "UserObject5!"
+this.toolbaritemtext = "Accorpamento doppi inserimenti"
+this.toolbaritemorder = 2
+this.menuimage = "UserObject5!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_doppiinserimenti.destroy
+call super::destroy
+end on
+
+type m_stampabadge from menu within m_struttura
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm ( w_badge_sheet, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_stampabadge.create
+call super::create
+this.text = "Stampa Badge"
+this.toolbaritemorder = 6
+this.menuimage = "Print!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_stampabadge.destroy
+call super::destroy
+end on
+
+type m_rga from menu within m_struttura
+end type
+
+on m_rga.create
+call super::create
+this.text = "RGA"
+this.menuimage = "Regenerate!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_rga.destroy
+call super::destroy
+end on
+
+event clicked;integer li_ret
+s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+li_ret= OpenSheet ( w_rga_membri_sheet, w_frame_gestioneassociati, 3, original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+type m_tvgeo from menu within m_struttura
+end type
+
+event clicked;//SetPointer ( hourglass! )
+//w_frame_gestioneassociati.SetRedraw ( false )
+//
+//OpenSheet ( w_struttura_tv_geo, w_frame_gestioneassociati, 3, Original! )
+//
+//w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_tvgeo.create
+call super::create
+this.visible = false
+this.text = "TV GEO"
+this.enabled = false
+this.toolbaritemvisible = false
+this.toolbaritemname = "globals!"
+this.toolbaritemorder = 4
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tvgeo.destroy
+call super::destroy
+end on
+
+type m_storicorichiestevariazionirga from menu within m_struttura
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm ( w_archivio_variazioni_rga_generale, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_storicorichiestevariazionirga.create
+call super::create
+this.text = "Storico variazioni RGA"
+this.toolbaritemorder = 8
+this.menuimage = "Custom004!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_storicorichiestevariazionirga.destroy
+call super::destroy
+end on
+
+type m_storicoeventi from menu within m_struttura
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.as_ambito= gs_ambito
+
+SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheetWithParm (w_event_log, s_assegnastruttura_s, w_frame_gestioneassociati, 3, Original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_storicoeventi.create
+call super::create
+this.text = "Storico variazioni effettuate"
+this.toolbaritemorder = 7
+this.menuimage = "Custom004!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_storicoeventi.destroy
+call super::destroy
+end on
+
+type m_gestionestaff from menu within m_frame_gestione_associati
+end type
+
+on m_gestionestaff.create
+call super::create
+this.visible = false
+this.text = "Gestione staff"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionestaff.destroy
+call super::destroy
+end on
+
+type m_comunicazioni from menu within m_frame_gestione_associati
+m_gestioneliste m_gestioneliste
+m_invio m_invio
+m_storicoinvii m_storicoinvii
+end type
+
+on m_comunicazioni.create
+call super::create
+this.text = "Comunicazioni"
+this.enabled = false
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_gestioneliste=create m_gestioneliste
+this.m_invio=create m_invio
+this.m_storicoinvii=create m_storicoinvii
+this.Item[UpperBound(this.Item)+1]=this.m_gestioneliste
+this.Item[UpperBound(this.Item)+1]=this.m_invio
+this.Item[UpperBound(this.Item)+1]=this.m_storicoinvii
+end on
+
+on m_comunicazioni.destroy
+call super::destroy
+destroy(this.m_gestioneliste)
+destroy(this.m_invio)
+destroy(this.m_storicoinvii)
+end on
+
+type m_gestioneliste from menu within m_comunicazioni
+end type
+
+on m_gestioneliste.create
+call super::create
+this.text = "Gestione liste"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestioneliste.destroy
+call super::destroy
+end on
+
+event clicked;SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheet (w_gestione_liste, w_frame_gestioneassociati, 3, Original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+type m_invio from menu within m_comunicazioni
+end type
+
+event clicked;SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+OpenSheet (w_liste_manuali_tab, w_frame_gestioneassociati, 3, Original! )
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+on m_invio.create
+call super::create
+this.visible = false
+this.text = "Invio"
+this.enabled = false
+this.microhelp = "Invio messaggi da liste"
+this.toolbaritemname = "custom002!"
+this.toolbaritemtext = "Invio messaggi"
+this.menuimage = "Custom002!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_invio.destroy
+call super::destroy
+end on
+
+type m_storicoinvii from menu within m_comunicazioni
+end type
+
+on m_storicoinvii.create
+call super::create
+this.text = "Storico invii"
+this.toolbaritemvisible = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_storicoinvii.destroy
+call super::destroy
+end on
+
+event clicked;SetPointer ( hourglass! )
+w_frame_gestioneassociati.SetRedraw ( false )
+
+Open (w_storico_invii)
+
+w_frame_gestioneassociati.SetRedraw ( true )
+end event
+
+type m_amministrazione from menu within m_frame_gestione_associati
+m_ambitooperativo m_ambitooperativo
+m_5 m_5
+m_gestionedepositogohonzon m_gestionedepositogohonzon
+m_sessioniattive m_sessioniattive
+m_utenti_web m_utenti_web
+m_2 m_2
+m_gestionedimissionari m_gestionedimissionari
+m_4 m_4
+m_gestionedeceduti m_gestionedeceduti
+m_6 m_6
+m_gestionemembriisg m_gestionemembriisg
+m_gestionetrasferitidefinitivamenteallestero m_gestionetrasferitidefinitivamenteallestero
+m_3 m_3
+end type
+
+on m_amministrazione.create
+call super::create
+this.text = "Amministrazione"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_ambitooperativo=create m_ambitooperativo
+this.m_5=create m_5
+this.m_gestionedepositogohonzon=create m_gestionedepositogohonzon
+this.m_sessioniattive=create m_sessioniattive
+this.m_utenti_web=create m_utenti_web
+this.m_2=create m_2
+this.m_gestionedimissionari=create m_gestionedimissionari
+this.m_4=create m_4
+this.m_gestionedeceduti=create m_gestionedeceduti
+this.m_6=create m_6
+this.m_gestionemembriisg=create m_gestionemembriisg
+this.m_gestionetrasferitidefinitivamenteallestero=create m_gestionetrasferitidefinitivamenteallestero
+this.m_3=create m_3
+this.Item[UpperBound(this.Item)+1]=this.m_ambitooperativo
+this.Item[UpperBound(this.Item)+1]=this.m_5
+this.Item[UpperBound(this.Item)+1]=this.m_gestionedepositogohonzon
+this.Item[UpperBound(this.Item)+1]=this.m_sessioniattive
+this.Item[UpperBound(this.Item)+1]=this.m_utenti_web
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_gestionedimissionari
+this.Item[UpperBound(this.Item)+1]=this.m_4
+this.Item[UpperBound(this.Item)+1]=this.m_gestionedeceduti
+this.Item[UpperBound(this.Item)+1]=this.m_6
+this.Item[UpperBound(this.Item)+1]=this.m_gestionemembriisg
+this.Item[UpperBound(this.Item)+1]=this.m_gestionetrasferitidefinitivamenteallestero
+this.Item[UpperBound(this.Item)+1]=this.m_3
+end on
+
+on m_amministrazione.destroy
+call super::destroy
+destroy(this.m_ambitooperativo)
+destroy(this.m_5)
+destroy(this.m_gestionedepositogohonzon)
+destroy(this.m_sessioniattive)
+destroy(this.m_utenti_web)
+destroy(this.m_2)
+destroy(this.m_gestionedimissionari)
+destroy(this.m_4)
+destroy(this.m_gestionedeceduti)
+destroy(this.m_6)
+destroy(this.m_gestionemembriisg)
+destroy(this.m_gestionetrasferitidefinitivamenteallestero)
+destroy(this.m_3)
+end on
+
+type m_ambitooperativo from menu within m_amministrazione
+end type
+
+event clicked;open(w_ambito_operativo)
+end event
+
+on m_ambitooperativo.create
+call super::create
+this.text = "Ambito operativo"
+this.menuimage = "SetNextStatement!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ambitooperativo.destroy
+call super::destroy
+end on
+
+type m_5 from menu within m_amministrazione
+end type
+
+on m_5.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_5.destroy
+call super::destroy
+end on
+
+type m_gestionedepositogohonzon from menu within m_amministrazione
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+openSheet(w_deposito_gohonzon, w_frame_gestioneassociati, 3, original! )
+
+end event
+
+on m_gestionedepositogohonzon.create
+call super::create
+this.text = "Gestione deposito Gohonzon"
+this.menuimage = "Synchronizer!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionedepositogohonzon.destroy
+call super::destroy
+end on
+
+type m_sessioniattive from menu within m_amministrazione
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ab_readonly= true
+//s_assegnastruttura_s.as_ambito= gs_ambito
+//s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.ab_vedielencodw= false
+
+
+openSheetWithParm(w_elenca_sessioni, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_sessioniattive.create
+call super::create
+this.text = "Sessioni attive"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sessioniattive.destroy
+call super::destroy
+end on
+
+type m_utenti_web from menu within m_amministrazione
+end type
+
+event clicked;//s_assegnastruttura s_assegnastruttura_s
+//
+//s_assegnastruttura_s.ab_readonly= true
+//s_assegnastruttura_s.as_ambito= gs_ambito
+//s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+//s_assegnastruttura_s.ab_vedielencodw= false
+//
+//
+//openSheetWithParm(w_utenti_web, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+//
+s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.as_first_dw= "dw_utenti_web"
+s_assegnastruttura_s.ab_vedielencodw= false
+s_assegnastruttura_s.as_reportpath= gs_docdir+"\"+gs_customreportpath
+s_assegnastruttura_s.ab_readonly= true
+s_assegnastruttura_s.ab_aggiorna= false
+
+OpenSheetWithParm ( w_utenti_web, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_utenti_web.create
+call super::create
+this.text = "Gestione utenti"
+this.menuimage = "Custom076!"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_utenti_web.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_amministrazione
+end type
+
+on m_2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+type m_gestionedimissionari from menu within m_amministrazione
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ab_readonly= true
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.ab_vedielencodw= false
+
+OpenSheetWithParm ( w_gestione_dimissionari, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_gestionedimissionari.create
+call super::create
+this.text = "Gestione dimissionari e non praticanti"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionedimissionari.destroy
+call super::destroy
+end on
+
+type m_4 from menu within m_amministrazione
+end type
+
+on m_4.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+type m_gestionedeceduti from menu within m_amministrazione
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ab_readonly= true
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.ab_vedielencodw= false
+s_assegnastruttura_s.as_struttura_s.cod_dis= 'DEC'
+
+OpenSheetWithParm ( w_gestione_fs, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_gestionedeceduti.create
+call super::create
+this.text = "Gestione deceduti"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionedeceduti.destroy
+call super::destroy
+end on
+
+type m_6 from menu within m_amministrazione
+end type
+
+on m_6.create
+call super::create
+this.visible = false
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+type m_gestionemembriisg from menu within m_amministrazione
+end type
+
+on m_gestionemembriisg.create
+call super::create
+this.text = "Gestione membri ISG"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionemembriisg.destroy
+call super::destroy
+end on
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ab_readonly= true
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.ab_vedielencodw= false
+s_assegnastruttura_s.as_struttura_s.cod_dis= 'ISG'
+
+OpenSheetWithParm ( w_gestione_fs, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+type m_gestionetrasferitidefinitivamenteallestero from menu within m_amministrazione
+end type
+
+on m_gestionetrasferitidefinitivamenteallestero.create
+call super::create
+this.visible = false
+this.text = "Gestione trasferiti definitivamente all~'estero"
+this.enabled = false
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionetrasferitidefinitivamenteallestero.destroy
+call super::destroy
+end on
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ab_readonly= true
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.ab_vedielencodw= false
+s_assegnastruttura_s.as_struttura_s.cod_dis= 'TFE'
+
+OpenSheetWithParm ( w_gestione_fs, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+type m_3 from menu within m_amministrazione
+end type
+
+on m_3.create
+call super::create
+this.visible = false
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+type m_organi from menu within m_frame_gestione_associati
+m_gestionemembri m_gestionemembri
+m_statistichepresenzeallaconsulta m_statistichepresenzeallaconsulta
+end type
+
+on m_organi.create
+call super::create
+this.text = "Organi"
+this.microhelp = "Organi dell~'Istituto"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_gestionemembri=create m_gestionemembri
+this.m_statistichepresenzeallaconsulta=create m_statistichepresenzeallaconsulta
+this.Item[UpperBound(this.Item)+1]=this.m_gestionemembri
+this.Item[UpperBound(this.Item)+1]=this.m_statistichepresenzeallaconsulta
+end on
+
+on m_organi.destroy
+call super::destroy
+destroy(this.m_gestionemembri)
+destroy(this.m_statistichepresenzeallaconsulta)
+end on
+
+type m_gestionemembri from menu within m_organi
+end type
+
+event clicked;s_assegnastruttura s_assegnastruttura_s
+
+s_assegnastruttura_s.ai_maxlivello= gi_maxlivello
+s_assegnastruttura_s.as_ambito= gs_ambito
+s_assegnastruttura_s.as_first_dw= "dw_consulta"
+s_assegnastruttura_s.ab_vedielencodw= false
+s_assegnastruttura_s.as_reportpath= gs_docdir+"\"+gs_customreportpath
+s_assegnastruttura_s.ab_readonly= false
+s_assegnastruttura_s.ab_aggiorna= true
+
+OpenSheetWithParm ( w_reportrunner, s_assegnastruttura_s, w_frame_gestioneassociati, 3, original! )
+end event
+
+on m_gestionemembri.create
+call super::create
+this.text = "Componenti della consulta"
+this.microhelp = "Inserimento o cancellazione dei componenti degli organi dell~'Istituto"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gestionemembri.destroy
+call super::destroy
+end on
+
+type m_statistichepresenzeallaconsulta from menu within m_organi
+end type
+
+on m_statistichepresenzeallaconsulta.create
+call super::create
+this.text = "Statistiche presenze alla consulta"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_statistichepresenzeallaconsulta.destroy
+call super::destroy
+end on
+
+event clicked;OpenSheet ( w_consulta_statistiche, w_frame_gestioneassociati, 3, original! )
+end event
+

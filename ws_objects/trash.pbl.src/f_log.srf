@@ -1,0 +1,51 @@
+﻿$PBExportHeader$f_log.srf
+$PBExportComments$Funzione di memorizzazione degli eventi da tracciare.
+global type f_log from function_object
+end type
+
+forward prototypes
+global function integer f_log (string ls_context, string ls_msg)
+end prototypes
+
+global function integer f_log (string ls_context, string ls_msg);datetime ldt_date, ldt_time
+string ls_logid
+
+ldt_date = datetime ( today ( ) )
+ldt_time = datetime ( today ( ), now ( ) )
+
+if not IsNull ( FullName ) then
+	ls_logid = FullName
+else
+	ls_logid = gs_logid
+end if
+
+ls_msg = mid ( ls_msg, 1 , 255 )
+
+insert into event_log
+		 (data,   
+		  ora,
+		  utente,
+		  host,
+		  contesto,
+		  messaggio)  
+values (:ldt_date,
+		  :ldt_time,
+		  :ls_logid,
+		  :gs_host,
+		  :ls_context,
+		  :ls_msg)
+		  using tracking;
+
+if tracking.SqlCode = -1 then
+	MessageBox ( string ( tracking.SqlDbCode ), tracking.SqlErrText, exclamation! )
+	rollback using tracking;
+	f_log_err ( "Tracciamento eventi", tracking.SqlErrText )
+	return -1
+else
+	commit using tracking; /* GdS 05.12.00 */
+end if
+
+return 0
+
+end function
+

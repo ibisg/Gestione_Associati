@@ -1,0 +1,25 @@
+﻿$PBExportHeader$ds_membri_gerarchica_query.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15780518 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes key=yes name=codice dbname="membri_gerarchica.codice" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=nome dbname="membri_gerarchica.nome" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cod_div dbname="membri_gerarchica.cod_div" )
+ retrieve="select codice, cognome, nome, cod_div
+	from membri_gerarchica
+	where livello= :livello and id_nodo= :id_nodo
+	order by cod_div, cognome, nome" update="membri_gerarchica" updatewhere=1 updatekeyinplace=no arguments=(("livello", number),("id_nodo", number)) )
+text(band=header alignment="2" text="Codice" border="0" color="8388608" x="9" y="8" height="64" width="357"  name=codice_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cognome" border="0" color="8388608" x="375" y="8" height="64" width="1673"  name=cognome_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nome" border="0" color="8388608" x="2057" y="8" height="64" width="850"  name=nome_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cod Div" border="0" color="8388608" x="2917" y="8" height="64" width="201"  name=cod_div_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="8388608" x="9" y="8" height="76" width="357" format="[general]"  name=codice edit.limit=12 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="8388608" x="375" y="8" height="76" width="1673" format="[general]"  name=cognome edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="8388608" x="2057" y="8" height="76" width="850" format="[general]"  name=nome edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="8388608" x="2917" y="8" height="76" width="201" format="[general]"  name=cod_div edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

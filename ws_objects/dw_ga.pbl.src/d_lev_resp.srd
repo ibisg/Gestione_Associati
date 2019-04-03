@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_lev_resp.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=184 color="536870912" )
+table(column=(type=number updatewhereclause=no name=minimo dbname="minimo" values="Gruppo	100/Settore	200/Capitolo	300/Centro	400/Territorio	500/Area	600/Nazionale	700/Dir. generale	800/	/" )
+ column=(type=number updatewhereclause=no name=massimo dbname="massimo" values="Gruppo	199/Settore	299/Capitolo	399/Centro	499/Territorio	599/Area	699/Nazionale	799/Dir. Generale	899/	/" )
+ column=(type=char(1) updatewhereclause=no name=cbx_dis dbname="cbx_dis" initial="S" values="Solo attivi	N/Tutti	S/" )
+ )
+groupbox(band=detail text="Selezione livelli di responsabilità"border="5" color="8388608" x="18" y="0" height="168" width="2478"  name=gb_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="8388608" x="1742" y="68" height="64" width="722" format="[general]"  name=cbx_dis pointer="HyperLink!" radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="MS Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="5" color="8388608" x="978" y="68" height="64" width="718" format="[general]"  name=massimo pointer="HyperLink!" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="5" color="8388608" x="155" y="68" height="64" width="718" format="[general]"  name=minimo pointer="HyperLink!" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="Da:" border="0" color="8388608" x="50" y="72" height="52" width="78"  name=inizio_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="A:" border="0" color="8388608" x="905" y="72" height="52" width="46"  name=fine_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$f_setcurrentdirectory.srf
+global type f_setcurrentdirectory from function_object
+end type
+
+forward prototypes
+global function boolean f_setcurrentdirectory ()
+end prototypes
+
+global function boolean f_setcurrentdirectory ();boolean rtn
+string l_dir
+l_dir = "c:\svil_11"
+rtn = SetCurrentDirectoryW(l_dir)
+MessageBox("SetCurrentDirectory", string(rtn))
+
+return rtn
+end function
+

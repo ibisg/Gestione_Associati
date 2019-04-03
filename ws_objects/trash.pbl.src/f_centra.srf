@@ -1,0 +1,22 @@
+﻿$PBExportHeader$f_centra.srf
+$PBExportComments$Funzione per la centratura di finestre.
+global type f_centra from function_object
+end type
+
+forward prototypes
+global function integer f_centra (ref window finestra)
+end prototypes
+
+global function integer f_centra (ref window finestra);integer rtn
+
+rtn = GetEnvironment(env)
+
+if rtn <> 1 then return -1
+
+finestra.x= PixelsToUnits(env.screenWidth, XPixelsToUnits!)/2 - finestra.width/2
+finestra.y= PixelsToUnits(env.screenHeight, YPixelsToUnits!)/2 - finestra.height/2
+
+return 0
+
+end function
+

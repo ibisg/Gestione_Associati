@@ -1,0 +1,77 @@
+﻿$PBExportHeader$f_creaqueryconsegne_1.srf
+global type f_creaqueryconsegne_1 from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryconsegne_1 (long al_livello, string as_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryconsegne_1 (long al_livello, string as_nodo, string as_da, string as_a);// Report consegne per anno con incremento %
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			"select distinct struttura_livelli.descrizione,"+ as_da +" anno,"+&   
+			"	(select count(*) from membri_gerarchica m1 where m1.cod_div= '1' and m1.vc_parent like '"+as_nodo+"%'" +& 
+					" and (datepart(year, m1.data_cer) = "+as_da+")  " +& 
+				" and (m1.flag_goh='S' OR m1.flag_tok= 'S' ) ) UGOH, " +&
+				" (select count(*) from membri_gerarchica m2 where  m2.cod_div= '1' and m2.vc_parent like '"+as_nodo+"%'" +& 
+				" and (datepart(year, m2.data_cer) ="+as_da +")  " +&
+				" and (m2.flag_goh !='S' and m2.flag_tok != 'S' ) ) UFED," +&
+				"	(select count(*) from membri_gerarchica m3 where m3.cod_div= '2' and m3.vc_parent like '"+as_nodo+"%'" +& 
+					" and (datepart(year, m3.data_cer) = "+as_da +")  " +&
+				" and (m3.flag_goh='S' OR m3.flag_tok= 'S' ) ) DGOH, " +&
+				"(select count(*) from membri_gerarchica m4 where m4.cod_div= '2' and m4.vc_parent like '"+as_nodo+"%'" +& 
+				" and (datepart(year, m4.data_cer) = "+as_da +" )  " +&
+				" and (m4.flag_goh !='S' and m4.flag_tok != 'S' ) ) DFED, " +&
+				"	(select count(*) from membri_gerarchica m5 where m5.cod_div= '3' and m5.vc_parent like '"+as_nodo+"%'" +& 
+					" and (datepart(year, m5.data_cer) = "+as_da +" )  " +&
+				" and (m5.flag_goh='S' OR m5.flag_tok= 'S' ) ) GUGOH, " +&
+				" (select count(*) from membri_gerarchica m6 where m6.cod_div= '3' and m6.vc_parent like '"+as_nodo+"%'" +& 
+				" and (datepart(year, m6.data_cer) = "+as_da +" )  " +&
+				" and (m6.flag_goh !='S' and m6.flag_tok != 'S' ) ) GUFED," +&		
+				"	(select count(*) from membri_gerarchica m7 where m7.cod_div= '4' and m7.vc_parent like '"+as_nodo+"%'" +& 
+					" and (datepart(year, m7.data_cer) = "+as_da +" )  " +&
+				" and (m7.flag_goh='S' OR m7.flag_tok= 'S') )  GDGOH, " +&
+				" (select count(*) from membri_gerarchica m8 where m8.cod_div= '4' and m8.vc_parent like '"+as_nodo+"%'" +& 
+				" and (datepart(year, m8.data_cer) = "+as_da +" )  " +&
+				" and (m8.flag_goh !='S' and m8.flag_tok != 'S' ) ) GDFED,"
+  
+ls_query+= ' struttura'+string(al_livello)+'.descrizione descrizione_struttura, '+&
+				" (select count(*) from membri_gerarchica g where g.vc_parent like '"+as_nodo+"%'" +& 
+				" and datepart(year, g.data_cer ) < "+as_da +" and g.cod_dis='MEM' and flag_er= 'S' "+") TOTATTIVI,"+&		
+				" (select count(*) from event_log e1,  membri_gerarchica g1 where e1.codice= g1.codice and g1.vc_parent like '"+as_nodo+"%'" +& 
+				" and datepart(year, e1.dth ) = "+as_da +" and g1.cod_dis= 'TAI' and g1.flag_er= 'S'  and e1.status_src= 'MEM' and e1.status_tgt= 'TAI' "+") TAITEN,"+&
+				" (select count(*) from event_log e2,  membri_gerarchica g2 where e2.codice= g2.codice and g2.vc_parent like '"+as_nodo+"%'" +& 
+				" and datepart(year, e2.dth ) = "+as_da +" and g2.cod_dis= 'TFE' and g2.flag_er= 'S'  and e2.status_src= 'MEM' and e2.status_tgt= 'TFE' "+") TFE"+&	
+				' from membri_gerarchica m, '+&
+				' struttura_livelli, '
+									
+			for li_idx= al_livello to gi_maxlivello
+				if li_idx= gi_maxlivello then
+					ls_query+= 'struttura struttura'+string(li_idx)
+				else
+					ls_query+= 'struttura struttura'+string(li_idx)+", "
+				end if
+			next
+			
+ls_query+= " where "+&
+				' struttura_livelli.livello='+string(al_livello)+' and'+&
+				' m.vc_parent = struttura'+string(gi_maxlivello)+'.vc_nodo and'
+					  
+			for li_idx= al_livello to gi_maxlivello
+				ls_query+= ' struttura'+string(li_idx)+'.livello='+string(li_idx)+' and'
+			next
+			
+			for li_idx= al_livello to gi_maxlivello - 1
+				ls_query+= ' struttura'+string(li_idx)+'.vc_nodo= struttura'+string(li_idx+1)+'.vc_parent and'
+			next
+ls_query+=  " struttura"+string(al_livello)+".vc_nodo='"+string(as_nodo)+"'"
+
+ls_query+=	' group by struttura_livelli.descrizione,'+&
+				' struttura'+string(al_livello)+'.descrizione'
+
+				return ls_query
+end function
+

@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_prenotazioni.srs
+global type s_prenotazioni from structure
+	decimal		id
+	decimal		id_evento
+	string		vc_nodo
+end type
+

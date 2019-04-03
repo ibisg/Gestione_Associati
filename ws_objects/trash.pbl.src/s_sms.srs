@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_sms.srs
+global type s_sms from structure
+	string		as_mailuser
+	string		as_mailpw
+	string		as_smsgateway
+	string		as_smtp
+	string		as_mailfrom
+	string		as_smsuser
+	string		as_smspw
+	string		as_smsfrom
+	integer		ai_maxnames
+end type
+

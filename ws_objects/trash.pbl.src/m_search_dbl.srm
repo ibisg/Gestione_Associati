@@ -1,0 +1,140 @@
+﻿$PBExportHeader$m_search_dbl.srm
+forward
+global type m_search_dbl from menu
+end type
+type m_opzioni from menu within m_search_dbl
+end type
+type m_cerca from menu within m_opzioni
+end type
+type m_stop from menu within m_opzioni
+end type
+type m_seleziona from menu within m_opzioni
+end type
+type m_opzioni from menu within m_search_dbl
+m_cerca m_cerca
+m_stop m_stop
+m_seleziona m_seleziona
+end type
+type m_finestra from menu within m_search_dbl
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_search_dbl
+m_chiudi m_chiudi
+end type
+end forward
+
+global type m_search_dbl from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+global m_search_dbl m_search_dbl
+
+on m_search_dbl.create
+m_search_dbl=this
+this.m_opzioni=create m_opzioni
+this.m_finestra=create m_finestra
+this.Item[]={this.m_opzioni, &
+this.m_finestra}
+end on
+
+on m_search_dbl.destroy
+destroy(this.m_opzioni)
+destroy(this.m_finestra)
+end on
+
+type m_opzioni from menu within m_search_dbl
+m_cerca m_cerca
+m_stop m_stop
+m_seleziona m_seleziona
+end type
+
+on m_opzioni.create
+this.Text="&Opzioni"
+this.m_cerca=create m_cerca
+this.m_stop=create m_stop
+this.m_seleziona=create m_seleziona
+this.Item[]={this.m_cerca, &
+this.m_stop, &
+this.m_seleziona}
+end on
+
+on m_opzioni.destroy
+destroy(this.m_cerca)
+destroy(this.m_stop)
+destroy(this.m_seleziona)
+end on
+
+type m_cerca from menu within m_opzioni
+end type
+
+on m_cerca.create
+this.Text="&Cerca~tAlt+C"
+this.ToolBarItemName="Retrieve!"
+this.ToolBarItemText="Cerca"
+this.Shortcut=579
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "query_start" )
+
+end event
+
+type m_stop from menu within m_opzioni
+end type
+
+on m_stop.create
+this.Text="&Stop~tAlt+S"
+this.ToolBarItemName="RetrieveCancel!"
+this.ToolBarItemText="Interrompe estrazione"
+this.Enabled=false
+this.Shortcut=595
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "stop" )
+
+end event
+
+type m_seleziona from menu within m_opzioni
+end type
+
+on m_seleziona.create
+this.Text="Sele&ziona"
+this.Microhelp="Seleziona una coppia di record da confrontare"
+this.ToolBarItemName="Query!"
+this.ToolBarItemText="Seleziona"
+this.Enabled=false
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "ue_select" )
+
+end event
+
+type m_finestra from menu within m_search_dbl
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+this.Text="&Finestra"
+this.m_chiudi=create m_chiudi
+this.Item[]={this.m_chiudi}
+end on
+
+on m_finestra.destroy
+destroy(this.m_chiudi)
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+on m_chiudi.create
+this.Text="Chiudi~tF10"
+this.ToolBarItemName="Custom009!"
+this.ToolBarItemText="Chiude finestra"
+this.ToolBarItemSpace=1
+this.Shortcut=121
+end on
+
+event clicked;close ( ParentWindow )
+
+end event
+

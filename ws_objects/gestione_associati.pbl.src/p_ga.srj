@@ -1,0 +1,29 @@
+﻿$PBExportHeader$p_ga.srj
+EXE:ga.exe,..\Risorse\Immagini\cat.pbr,0,1,1
+CMP:0,0,0,2,0,0,0
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:gestione_associati.pbl,..\risorse\immagini\cat.pbr,0
+PBD:nuclei.pbl,,1
+PBD:aspiranti.pbl,,1
+PBD:consegne.pbl,,1
+PBD:dw_ga.pbl,,1
+PBD:esami.pbl,,1
+PBD:funzioni.pbl,,1
+PBD:docdir\pbl\reports.pbl,,1
+PBD:docdir\pbl\custom_reports.pbl,,1
+PBD:eventi.pbl,,1
+PBD:gmag.pbl,,1
+PBD:..\Shared_MSSQL\cap_poste.pbl,,1
+PBD:..\Shared_MSSQL\dblib.pbl,,1
+PBD:..\Shared_MSSQL\liste.pbl,,1
+PBD:..\Shared_MSSQL\sharedobj.pbl,,1
+PBD:..\Shared_MSSQL\struttura.pbl,,1
+PBD:rga.pbl,,1

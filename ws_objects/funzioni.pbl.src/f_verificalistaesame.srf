@@ -1,0 +1,156 @@
+﻿$PBExportHeader$f_verificalistaesame.srf
+global type f_verificalistaesame from function_object
+end type
+
+forward prototypes
+global function integer f_verificalistaesame (string as_codice, string as_vc_nodo_tgt)
+end prototypes
+
+global function integer f_verificalistaesame (string as_codice, string as_vc_nodo_tgt);boolean lb_found= false
+decimal id_esame, id_trasferiti, id_esami_sessioni
+integer li_ret, li_len, li_max, li_livello_tgt, li_tipo_evento
+string dip_esame, dip_tgt, ls_dip, vc_nodo_tgt, vc_nodo, ls_nome_evento, ls_token
+
+
+// Individua la dip. di arrivo
+
+declare dip_cur cursor for
+select cod_dip, len(vc_nodo), vc_nodo
+from dipendenze
+where 	cod_dip <> "IT" ;
+			
+open dip_cur;			
+if trap_sql(sqlca, "VERESAMI01") < 0 then goto errore
+
+
+do while sqlca.sqlcode= 0 AND lb_found= false
+	
+	fetch dip_cur into :ls_dip, :li_len, :vc_nodo;
+	if trap_sql(sqlca, "VERESAMI02") < 0 then goto errore
+	
+	if pos(vc_nodo, ",") > 0 then // se la string vc_nodo contiene delle virgole...
+		
+		do until ls_token <> ""
+		
+			ls_token= f_get_token(vc_nodo, ",") 
+		
+			if pos(as_vc_nodo_tgt, ls_token, 1) > 0 then
+				
+				dip_tgt= ls_dip
+				
+				lb_found= true
+				
+			end if
+			
+		loop // ... do until ls_token <> "" ...
+		
+	else // se non contiene virgole...
+		
+			if pos(as_vc_nodo_tgt, vc_nodo, 1) > 0 then
+				
+				dip_tgt= ls_dip
+				
+				lb_found= true
+				
+			end if		
+		
+	end if
+		
+loop // ... do while sqlca.sqlcode= 0 AND lb_found= false ...
+
+close dip_cur;
+
+// Verifica la presenza della persona su liste esami e ricava l'id dell'evento...
+
+	select id
+	into :id_esame
+	from esami
+	where codice= :as_codice;
+	
+	if trap_sql(sqlca, "VERESAMI03") < 0 then goto errore
+
+	if sqlca.sqlcode= 100 then return 0
+	
+// Estrae la dipendenza d'esame e l'id della sessione mediante l'id dell'evento	
+
+	select cod_dip, id_esami_sessioni, tipo_evento
+	into :dip_esame, :id_esami_sessioni, :li_tipo_evento
+	from eventi
+	where id= :id_esame;
+	
+	if trap_sql(sqlca, "VERESAMI04") < 0 then goto errore
+	
+// se la dipendenza d'esame coincide con la dipendenza in cui si trasferisce non c'è bisogno di proseguire...	
+
+if dip_esame= dip_tgt then return 0
+
+// nuova procedura
+
+// il nome dell'evento comprende anche il livello dell'esame...
+
+ls_nome_evento= "TRASFERITI_"+string(li_tipo_evento)
+
+// se già esiste per es. TRASFERITI03...
+
+select id into :id_trasferiti from eventi where cod_dip=  :dip_tgt and descrizione_evento= :ls_nome_evento and tipo_evento= :li_tipo_evento;
+
+if isNull(id_trasferiti) OR id_trasferiti= 0 then
+	
+	// non esiste l'evento e deve essere creato
+	
+	insert into eventi
+	select :dip_tgt, "EXT", "EXT", tipo_evento, "01", "", :ls_nome_evento, 0, data_evento, data_evento, ora_inizio, ora_fine, data_creazione, "da trasferimento", "S", 0, id from esami_sessioni where id= :id_esami_sessioni;
+	
+	if trap_sql(sqlca, "INEVENTOTRASFERITI01") < 0 then
+	
+	rollback;
+	goto errore
+		
+	end if
+	
+	li_livello_tgt=  f_livello_struttura(vc_nodo_tgt)
+	
+	// N.B. l'update e la successiva insert devono essere esattamente in quest'ordine
+	
+	update esami set id= SCOPE_IDENTITY() where codice= :as_codice;
+	
+	if trap_sql(sqlca, "INEVENTOTRASFERITI02") < 0 then
+		
+		rollback;
+		goto errore
+		
+	end if	
+	
+	insert into esami_raggruppamento values( SCOPE_IDENTITY() , :li_livello_tgt, :vc_nodo_tgt, :li_livello_tgt, :vc_nodo_tgt);
+	
+	if trap_sql(sqlca, "INEVENTOTRASFERITI03") < 0 then
+	
+	rollback;
+	goto errore
+		
+	end if
+	
+else
+	
+	update esami set id= :id_trasferiti  where codice= :as_codice;
+	
+	if trap_sql(sqlca, "INEVENTOTRASFERITI04") < 0 then
+		
+		rollback;
+		goto errore
+		
+	end if		
+	
+end if
+
+return 0
+
+errore:
+
+close dip_cur;
+
+return -1
+
+
+end function
+

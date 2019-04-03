@@ -1,0 +1,14 @@
+﻿$PBExportHeader$dwc_aree.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=15780518 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=codice dbname="struttura.codice" )
+ column=(type=char(60) updatewhereclause=yes name=descrizione dbname="struttura.descrizione" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"struttura~" ) COLUMN(NAME=~"struttura.codice~") COLUMN(NAME=~"struttura.descrizione~")WHERE(    EXP1 =~"livello~"   OP =~"=~"    EXP2 =~"2~" ) ) "  sort="descrizione A " )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="8388608" x="352" y="8" height="76" width="507" format="[general]"  name=descrizione edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="8388608" x="178" y="8" height="76" width="165" format="[general]"  name=codice edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="getrow()"border="0" color="8388608" x="5" y="8" height="76" width="165" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

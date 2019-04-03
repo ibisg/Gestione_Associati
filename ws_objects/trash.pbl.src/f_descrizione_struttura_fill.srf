@@ -1,0 +1,40 @@
+﻿$PBExportHeader$f_descrizione_struttura_fill.srf
+global type f_descrizione_struttura_fill from function_object
+end type
+
+forward prototypes
+global function string f_descrizione_struttura_fill (string as_struttura)
+end prototypes
+
+global function string f_descrizione_struttura_fill (string as_struttura);integer li_dot, li_livello, li_start= 1
+string ls_livello, ls_struttura, ls_descrizione, ls_substring, ls_descrizionestruttura
+
+if isNull(as_struttura) then return ""
+
+do
+	
+	li_dot= pos(as_struttura, ".", li_start)
+	
+	if li_dot= 0 then
+		ls_substring= as_struttura
+	else
+		ls_substring= mid(as_struttura, 1, li_dot - 1)
+	end if
+	
+	li_start= li_dot + 1
+	
+		select struttura_livelli.descrizione, struttura.descrizione
+		into :ls_livello, :ls_descrizionestruttura
+		from struttura, struttura_livelli
+		where struttura_livelli.livello= struttura.livello and vc_nodo= :ls_substring;
+	
+	ls_descrizione= fill(" ", gi_maxlenstruttura - len(ls_livello) )+ ls_livello+": "+ls_descrizionestruttura
+	
+	if li_dot> 0 then ls_descrizione += "."
+	ls_struttura += ls_descrizione
+
+loop until li_dot= 0
+
+return ls_struttura
+end function
+

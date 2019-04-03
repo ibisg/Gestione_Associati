@@ -1,0 +1,25 @@
+﻿$PBExportHeader$f_count_db_sessions.srf
+global type f_count_db_sessions from function_object
+end type
+
+forward prototypes
+global function integer f_count_db_sessions ()
+end prototypes
+
+global function integer f_count_db_sessions ();integer i_quanti
+
+select count(distinct hostname)
+into :i_quanti
+from master..syslogins, master..sysprocesses
+where master..syslogins.suid= master..sysprocesses.suid and
+tran_name != null and
+suser_name()= name
+using sqlca;
+
+if trap_sql(sqlca, "DBSESSIONS01") < 0 then return -1
+
+if isNull(i_quanti) then i_quanti= 0
+
+return i_quanti
+end function
+

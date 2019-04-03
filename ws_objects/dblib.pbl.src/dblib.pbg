@@ -1,0 +1,27 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "dblib.pbl" "";
+@end;
+@begin Objects 
+ "dddw_ruoli.srd" "dblib.pbl";
+ "ds_getrole.srd" "dblib.pbl";
+ "dw_utenti_web.srd" "dblib.pbl";
+ "f_count_db_sessions.srf" "dblib.pbl";
+ "f_getwinuser.srf" "dblib.pbl";
+ "f_vercod.srf" "dblib.pbl";
+ "trap_sql.srf" "dblib.pbl";
+ "s_connect_par.srs" "dblib.pbl";
+ "s_connection.srs" "dblib.pbl";
+ "s_connection_parm.srs" "dblib.pbl";
+ "s_connectionparm.srs" "dblib.pbl";
+ "s_session.srs" "dblib.pbl";
+ "s_sqllogin.srs" "dblib.pbl";
+ "s_utente.srs" "dblib.pbl";
+ "s_utenti_web.srs" "dblib.pbl";
+ "n_connection.sru" "dblib.pbl";
+ "w_ch_pw.srw" "dblib.pbl";
+ "w_confirm_update.srw" "dblib.pbl";
+ "w_login.srw" "dblib.pbl";
+ "w_message.srw" "dblib.pbl";
+ "w_message_negative.srw" "dblib.pbl";
+@end;

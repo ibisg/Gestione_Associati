@@ -1,0 +1,22 @@
+﻿$PBExportHeader$edw_datemese.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=308 color="16777215" )
+table(column=(type=number updatewhereclause=no name=numerogiorno dbname="cnome" values="1	Lunedì/2	Martedì/3	Mercoledì/4	Giovedì/5	Venerdì/6	Sabato/7	Domenica/" )
+ column=(type=date updatewhereclause=no name=cdata dbname="cdata" )
+ )
+compute(band=detail alignment="2" expression="cnumerogiorno + ~"~~n~"+ cdata "border="2" color="8388608" x="128" y="8" height="292" width="672" format="[GENERAL]"  name=compute_1  font.face="Tahoma" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="0" background.color="553648127~tif( dayNumber(cdata) > 5, rgb(250,250,200), rgb(235,246,255))" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="8388608" x="2309" y="92" height="140" width="169" format="dd.mm.yyyy"  name=cdata  resizeable=1 editmask.mask="dd.mm.yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-20" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="8388608" x="2610" y="84" height="140" width="151" format="[general]"  name=numerogiorno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="case(  dayNumber(cdata)  
+when 1 then ~"Lunedì~" 
+when 2 then ~"Martedì~"
+when 3 then ~"Mercoledì~"
+when 4 then ~"Giovedì~"
+when 5 then ~"Venerdì~"
+when 6 then ~"Sabato~" 
+when 7 then ~"Domenica~")"border="0" color="8388608" x="2889" y="136" height="132" width="142" format="[GENERAL]"  name=cnumerogiorno  font.face="Arial" font.height="-20" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

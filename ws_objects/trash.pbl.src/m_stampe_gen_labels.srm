@@ -1,0 +1,133 @@
+﻿$PBExportHeader$m_stampe_gen_labels.srm
+forward
+global type m_stampe_gen_labels from m_stampe_gen
+end type
+type m_-16 from menu within m_principale
+end type
+type m_-17 from menu within m_principale
+end type
+type m_selezionatutto from menu within m_principale
+end type
+type m_-2 from menu within m_principale
+end type
+type m_generaetichette from menu within m_principale
+end type
+type m_mailinglist from menu within m_principale
+end type
+end forward
+
+global type m_stampe_gen_labels from m_stampe_gen
+end type
+global m_stampe_gen_labels m_stampe_gen_labels
+
+on m_stampe_gen_labels.create
+m_stampe_gen_labels=this
+call super::create
+end on
+
+on m_stampe_gen_labels.destroy
+call super::destroy
+end on
+
+type m_principale from m_stampe_gen`m_principale within m_stampe_gen_labels
+m_-16 m_-16
+m_-17 m_-17
+m_selezionatutto m_selezionatutto
+m_-2 m_-2
+m_generaetichette m_generaetichette
+m_mailinglist m_mailinglist
+end type
+
+on m_principale.create
+call super::create
+this.m_-16=create m_-16
+this.m_-17=create m_-17
+this.m_selezionatutto=create m_selezionatutto
+this.m_-2=create m_-2
+this.m_generaetichette=create m_generaetichette
+this.m_mailinglist=create m_mailinglist
+this.Item[UpperBound(this.item)+1]=this.m_-16
+this.Item[UpperBound(this.item)+1]=this.m_-17
+this.Item[UpperBound(this.item)+1]=this.m_selezionatutto
+this.Item[UpperBound(this.item)+1]=this.m_-2
+this.Item[UpperBound(this.item)+1]=this.m_generaetichette
+this.Item[UpperBound(this.item)+1]=this.m_mailinglist
+end on
+
+on m_principale.destroy
+call super::destroy
+destroy(this.m_-16)
+destroy(this.m_-17)
+destroy(this.m_selezionatutto)
+destroy(this.m_-2)
+destroy(this.m_generaetichette)
+destroy(this.m_mailinglist)
+end on
+
+on m_chiudi.create
+call super::create
+this.ToolBarItemOrder=30
+end on
+
+type m_-16 from menu within m_principale
+end type
+
+on m_-16.create
+this.Text=""
+end on
+
+type m_-17 from menu within m_principale
+end type
+
+on m_-17.create
+this.Text="-"
+end on
+
+type m_selezionatutto from menu within m_principale
+end type
+
+on m_selezionatutto.create
+this.Text="Seleziona tutto"
+this.ToolBarItemName="SelectAll!"
+this.ToolBarItemText="Seleziona tutte le righe"
+this.ToolBarItemOrder=10
+this.ToolBarItemSpace=1
+end on
+
+event clicked;parentwindow.triggerEvent("ue_select_all_rows")
+end event
+
+type m_-2 from menu within m_principale
+end type
+
+on m_-2.create
+this.Text="-"
+end on
+
+type m_generaetichette from menu within m_principale
+end type
+
+event clicked;parentwindow.triggerEvent("ue_create_labels")
+end event
+
+on m_generaetichette.create
+this.Text="Genera etichette"
+this.ToolBarItemName="TabOrder!"
+this.ToolBarItemText="Genera etichette"
+this.ToolBarItemOrder=11
+this.ToolBarItemSpace=1
+end on
+
+type m_mailinglist from menu within m_principale
+end type
+
+on m_mailinglist.create
+this.Text="Mailing list"
+this.ToolBarItemName="Custom002!"
+this.ToolBarItemText="Genera etichette per mailing list"
+this.ToolBarItemOrder=12
+end on
+
+event clicked;parentwindow.triggerEvent("ue_create_labels_mail")
+end event
+

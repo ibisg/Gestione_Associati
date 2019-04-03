@@ -1,0 +1,8 @@
+﻿$PBExportHeader$s_messaggi.srs
+global type s_messaggi from structure
+	string		vc_nodo
+	string		oggetto
+	string		cod_variazione
+	string		mittente
+end type
+

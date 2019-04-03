@@ -1,0 +1,346 @@
+﻿$PBExportHeader$m_asp.srm
+forward
+global type m_asp from menu
+end type
+type m_main from menu within m_asp
+end type
+type m_ricerca_nome from menu within m_main
+end type
+type m_r_cerimonia from menu within m_main
+end type
+type m_n_cerimonia from menu within m_main
+end type
+type m_-3 from menu within m_main
+end type
+type m_salva from menu within m_main
+end type
+type m_annulla from menu within m_main
+end type
+type m_- from menu within m_main
+end type
+type m_cancella from menu within m_main
+end type
+type m_-2 from menu within m_main
+end type
+type m_stampe from menu within m_main
+end type
+type m_main from menu within m_asp
+m_ricerca_nome m_ricerca_nome
+m_r_cerimonia m_r_cerimonia
+m_n_cerimonia m_n_cerimonia
+m_-3 m_-3
+m_salva m_salva
+m_annulla m_annulla
+m_- m_-
+m_cancella m_cancella
+m_-2 m_-2
+m_stampe m_stampe
+end type
+type m_finestra from menu within m_asp
+end type
+type m_svuota from menu within m_finestra
+end type
+type m_-1 from menu within m_finestra
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_asp
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+end forward
+
+global type m_asp from menu
+m_main m_main
+m_finestra m_finestra
+end type
+global m_asp m_asp
+
+on m_asp.create
+m_asp=this
+this.m_main=create m_main
+this.m_finestra=create m_finestra
+this.Item[]={this.m_main, &
+this.m_finestra}
+end on
+
+on m_asp.destroy
+destroy(this.m_main)
+destroy(this.m_finestra)
+end on
+
+type m_main from menu within m_asp
+m_ricerca_nome m_ricerca_nome
+m_r_cerimonia m_r_cerimonia
+m_n_cerimonia m_n_cerimonia
+m_-3 m_-3
+m_salva m_salva
+m_annulla m_annulla
+m_- m_-
+m_cancella m_cancella
+m_-2 m_-2
+m_stampe m_stampe
+end type
+
+on m_main.create
+this.Text="&1. Principale"
+this.m_ricerca_nome=create m_ricerca_nome
+this.m_r_cerimonia=create m_r_cerimonia
+this.m_n_cerimonia=create m_n_cerimonia
+this.m_-3=create m_-3
+this.m_salva=create m_salva
+this.m_annulla=create m_annulla
+this.m_-=create m_-
+this.m_cancella=create m_cancella
+this.m_-2=create m_-2
+this.m_stampe=create m_stampe
+this.Item[]={this.m_ricerca_nome, &
+this.m_r_cerimonia, &
+this.m_n_cerimonia, &
+this.m_-3, &
+this.m_salva, &
+this.m_annulla, &
+this.m_-, &
+this.m_cancella, &
+this.m_-2, &
+this.m_stampe}
+end on
+
+on m_main.destroy
+destroy(this.m_ricerca_nome)
+destroy(this.m_r_cerimonia)
+destroy(this.m_n_cerimonia)
+destroy(this.m_-3)
+destroy(this.m_salva)
+destroy(this.m_annulla)
+destroy(this.m_-)
+destroy(this.m_cancella)
+destroy(this.m_-2)
+destroy(this.m_stampe)
+end on
+
+type m_ricerca_nome from menu within m_main
+end type
+
+on m_ricerca_nome.create
+this.Text="Ricer&ca nome~tAlt+C"
+this.ToolBarItemName="Search!"
+this.ToolBarItemText="Ricerca nome"
+this.ToolBarItemOrder=1
+this.Shortcut=579
+end on
+
+event clicked;if w_asp.Event mod_state ( ) = -1 then return
+
+m_asp.m_main.m_ricerca_nome.enabled = false
+m_asp.m_main.m_n_cerimonia.enabled = false
+m_asp.m_main.m_r_cerimonia.enabled = false
+
+end event
+
+type m_r_cerimonia from menu within m_main
+end type
+
+on m_r_cerimonia.create
+this.Text="&Ricerca cerimonia~tAlt+R"
+this.ToolBarItemName="Custom062!"
+this.ToolBarItemText="Ricerca cerimonia"
+this.ToolBarItemOrder=2
+this.Shortcut=594
+end on
+
+event clicked;choose case w_asp.event cerca_cer ( )
+		
+	case -1, 1
+		
+		return
+
+	case else
+
+		if not w_asp.modify then
+			
+			m_asp.m_main.m_ricerca_nome.enabled = false
+			m_asp.m_main.m_n_cerimonia.enabled = false
+			m_asp.m_main.m_r_cerimonia.enabled = false
+			
+		end if
+		
+end choose
+
+end event
+
+type m_n_cerimonia from menu within m_main
+end type
+
+event clicked;m_asp.m_main.m_n_cerimonia.enabled = false
+m_asp.m_main.m_r_cerimonia.enabled = false
+m_asp.m_main.m_ricerca_nome.enabled = false
+
+ParentWindow.TriggerEvent ( "crea_cer" )
+
+end event
+
+on m_n_cerimonia.create
+this.Text="&Nuova cerimonia~tAlt+N"
+this.ToolBarItemName="SelectScript!"
+this.ToolBarItemText="Nuova cerimonia"
+this.ToolBarItemOrder=3
+this.Shortcut=590
+end on
+
+type m_-3 from menu within m_main
+end type
+
+on m_-3.create
+this.Text="-"
+end on
+
+type m_salva from menu within m_main
+end type
+
+on m_salva.create
+this.Text="&Salva~tAlt+S"
+this.ToolBarItemName="Save!"
+this.ToolBarItemText="Salva"
+this.ToolBarItemOrder=4
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=595
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "save" )
+
+end event
+
+type m_annulla from menu within m_main
+end type
+
+on m_annulla.create
+this.Text="&Annulla modifiche~tAlt+A"
+this.ToolBarItemName="Undo!"
+this.ToolBarItemText="Annulla modifiche"
+this.ToolBarItemOrder=5
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=577
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "undo" )
+
+end event
+
+type m_- from menu within m_main
+end type
+
+on m_-.create
+this.Text="-"
+end on
+
+type m_cancella from menu within m_main
+end type
+
+on m_cancella.create
+this.Text="Canc&ella~tAlt+E"
+this.ToolBarItemName="Trash.bmp"
+this.ToolBarItemText="Cancella"
+this.ToolBarItemOrder=6
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=581
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "erase" )
+
+end event
+
+type m_-2 from menu within m_main
+end type
+
+on m_-2.create
+this.Text="-"
+end on
+
+type m_stampe from menu within m_main
+end type
+
+event clicked;oldpointer = SetPointer ( hourglass! )
+w_prelude.SetRedraw ( false )
+
+OpenSheetWithParm ( w_stampe_gen, "rq_passaggi", w_prelude, 3, Original! )
+
+w_prelude.SetRedraw ( true )
+SetPointer ( oldpointer )
+
+end event
+
+on m_stampe.create
+this.Text="Stam&pe~tAlt+P"
+this.ToolBarItemName="Print!"
+this.ToolBarItemText="Stampe"
+this.ToolBarItemOrder=7
+this.ToolBarItemSpace=1
+this.Shortcut=592
+end on
+
+type m_finestra from menu within m_asp
+m_svuota m_svuota
+m_-1 m_-1
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+this.Text="&2. Finestra"
+this.m_svuota=create m_svuota
+this.m_-1=create m_-1
+this.m_chiudi=create m_chiudi
+this.Item[]={this.m_svuota, &
+this.m_-1, &
+this.m_chiudi}
+end on
+
+on m_finestra.destroy
+destroy(this.m_svuota)
+destroy(this.m_-1)
+destroy(this.m_chiudi)
+end on
+
+type m_svuota from menu within m_finestra
+end type
+
+on m_svuota.create
+this.Text="S&vuota~tAlt+V"
+this.ToolBarItemName="CheckOut!"
+this.ToolBarItemText="Svuota"
+this.ToolBarItemOrder=8
+this.ToolBarItemSpace=1
+this.Shortcut=598
+end on
+
+event clicked;w_asp.event clear ( "menu" )
+
+end event
+
+type m_-1 from menu within m_finestra
+end type
+
+on m_-1.create
+this.Text="-"
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+on m_chiudi.create
+this.Text="Chiudi~tF10"
+this.ToolBarItemName="Custom009!"
+this.ToolBarItemText="Chiudi"
+this.ToolBarItemOrder=9
+this.ToolBarItemSpace=2
+this.Shortcut=121
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "uscita" )
+
+end event
+

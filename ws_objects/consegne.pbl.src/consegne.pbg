@@ -1,0 +1,32 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "consegne.pbl" "";
+@end;
+@begin Objects 
+ "d_agg_stor.srd" "consegne.pbl";
+ "d_goh_soci.srd" "consegne.pbl";
+ "d_note.srd" "consegne.pbl";
+ "d_part.srd" "consegne.pbl";
+ "d_part_new.srd" "consegne.pbl";
+ "d_s_data_cons_soci.srd" "consegne.pbl";
+ "d_s_loc_cons_soci.srd" "consegne.pbl";
+ "d_s_part.srd" "consegne.pbl";
+ "d_s_turno_cons_soci.srd" "consegne.pbl";
+ "d_sel_cer.srd" "consegne.pbl";
+ "dddw_causali_goh.srd" "consegne.pbl";
+ "ds_famiglia.srd" "consegne.pbl";
+ "dsc_fam.srd" "consegne.pbl";
+ "dw_consegne.srd" "consegne.pbl";
+ "dw_consegne_goh.srd" "consegne.pbl";
+ "dw_consegne_gohonzon.srd" "consegne.pbl";
+ "dw_lista_consegna_gohonzon.srd" "consegne.pbl";
+ "dw_lista_consegna_gohonzon_1.srd" "consegne.pbl";
+ "dw_part.srd" "consegne.pbl";
+ "dw_part_nominativa.srd" "consegne.pbl";
+ "s_consegna.srs" "consegne.pbl";
+ "uo_ds_gen.sru" "consegne.pbl";
+ "uo_ds_stor.sru" "consegne.pbl";
+ "w_consegne_gohonzon.srw" "consegne.pbl";
+ "w_consegne_gohonzon_ori.srw" "consegne.pbl";
+ "w_consegnesostituzioni.srw" "consegne.pbl";
+@end;

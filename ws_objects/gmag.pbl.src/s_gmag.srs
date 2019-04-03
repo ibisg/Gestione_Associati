@@ -1,0 +1,10 @@
+﻿$PBExportHeader$s_gmag.srs
+global type s_gmag from structure
+	unsignedinteger		li_stato
+	string		ls_dip_richiedente
+	string		ls_dip_mittente
+	unsignedinteger		li_qta
+	string		ls_tipo
+	decimal		ld_id
+end type
+

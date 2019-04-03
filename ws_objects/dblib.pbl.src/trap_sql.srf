@@ -1,0 +1,35 @@
+﻿$PBExportHeader$trap_sql.srf
+global type trap_sql from function_object
+end type
+
+forward prototypes
+global function integer trap_sql (transaction sqlca_trap, string messaggio)
+end prototypes
+
+global function integer trap_sql (transaction sqlca_trap, string messaggio);integer i_err= 0
+
+i_err= sqlca_trap.sqlcode
+
+if i_err < 0 then
+
+			messagebox("Errore SQL N."+string(sqlca_trap.sqlDBCODE)+" in "+messaggio, &
+			            sqlca_trap.sqlerrtext,stopSign!)
+							
+			if sqlca_trap.dbHandle() > 0 then
+
+				ROLLBACK using sqlca_trap;
+				
+					if sqlca_trap.sqlcode < 0 then
+	
+						messagebox("Errore SQL in "+messaggio+" : fallito il ROLLBACK!", &
+						sqlca_trap.sqlerrtext,stopSign!)
+	
+					end if
+					
+			end if
+
+end if
+
+return i_err
+end function
+

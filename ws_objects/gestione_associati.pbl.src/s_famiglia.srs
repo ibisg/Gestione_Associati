@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_famiglia.srs
+global type s_famiglia from structure
+	string		codice
+	string		codice_fam
+end type
+

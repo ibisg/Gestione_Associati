@@ -1,0 +1,210 @@
+﻿$PBExportHeader$mq_conf_pass.srm
+forward
+global type mq_conf_pass from menu
+end type
+type m_principale from menu within mq_conf_pass
+end type
+type m_ricerca from menu within m_principale
+end type
+type m_stop from menu within m_principale
+end type
+type m_salva from menu within m_principale
+end type
+type m_ordina from menu within m_principale
+end type
+type m_-1 from menu within m_principale
+end type
+type m_aggiorna from menu within m_principale
+end type
+type m_principale from menu within mq_conf_pass
+m_ricerca m_ricerca
+m_stop m_stop
+m_salva m_salva
+m_ordina m_ordina
+m_-1 m_-1
+m_aggiorna m_aggiorna
+end type
+type m_finestra from menu within mq_conf_pass
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within mq_conf_pass
+m_chiudi m_chiudi
+end type
+end forward
+
+global type mq_conf_pass from menu
+m_principale m_principale
+m_finestra m_finestra
+end type
+global mq_conf_pass mq_conf_pass
+
+type variables
+
+end variables
+
+on mq_conf_pass.create
+mq_conf_pass=this
+this.m_principale=create m_principale
+this.m_finestra=create m_finestra
+this.Item[]={this.m_principale, &
+this.m_finestra}
+end on
+
+on mq_conf_pass.destroy
+destroy(this.m_principale)
+destroy(this.m_finestra)
+end on
+
+type m_principale from menu within mq_conf_pass
+m_ricerca m_ricerca
+m_stop m_stop
+m_salva m_salva
+m_ordina m_ordina
+m_-1 m_-1
+m_aggiorna m_aggiorna
+end type
+
+on m_principale.create
+this.Text="&1.Principale"
+this.m_ricerca=create m_ricerca
+this.m_stop=create m_stop
+this.m_salva=create m_salva
+this.m_ordina=create m_ordina
+this.m_-1=create m_-1
+this.m_aggiorna=create m_aggiorna
+this.Item[]={this.m_ricerca, &
+this.m_stop, &
+this.m_salva, &
+this.m_ordina, &
+this.m_-1, &
+this.m_aggiorna}
+end on
+
+on m_principale.destroy
+destroy(this.m_ricerca)
+destroy(this.m_stop)
+destroy(this.m_salva)
+destroy(this.m_ordina)
+destroy(this.m_-1)
+destroy(this.m_aggiorna)
+end on
+
+type m_ricerca from menu within m_principale
+end type
+
+on m_ricerca.create
+this.Text="Ricer&ca~tAlt+C"
+this.ToolBarItemName="Retrieve!"
+this.ToolBarItemText="Ricerca/estrazione"
+this.ToolBarItemOrder=1
+this.Shortcut=579
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "query_start" )
+
+end event
+
+type m_stop from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "stop" )
+
+end event
+
+on m_stop.create
+this.Text="S&top~tAlt+T"
+this.ToolBarItemName="RetrieveCancel!"
+this.ToolBarItemText="Interrompi estrazione"
+this.ToolBarItemOrder=2
+this.Enabled=false
+this.Shortcut=596
+end on
+
+type m_salva from menu within m_principale
+end type
+
+event clicked;if wq_conf_pass.Event save ( ) = 0 then OpenWithParm ( w_msgauto, "Salvataggio effettuato" )
+
+end event
+
+on m_salva.create
+this.Text="&Salva~tAlt+S"
+this.ToolBarItemName="Save!"
+this.ToolBarItemText="Salva modifiche"
+this.ToolBarItemOrder=3
+this.ToolBarItemSpace=1
+this.Enabled=false
+this.Shortcut=595
+end on
+
+type m_ordina from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "ordina" )
+
+end event
+
+on m_ordina.create
+this.Text="&Ordina~tAlt+O"
+this.ToolBarItemName="Sort!"
+this.ToolBarItemText="Ordina i record estratti"
+this.ToolBarItemOrder=4
+this.Enabled=false
+this.Shortcut=591
+end on
+
+type m_-1 from menu within m_principale
+end type
+
+on m_-1.create
+this.Text="-"
+end on
+
+type m_aggiorna from menu within m_principale
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "aggiorna" )
+
+end event
+
+on m_aggiorna.create
+this.Text="&Aggiorna~tAlt+A"
+this.ToolBarItemName="Watcom!"
+this.ToolBarItemText="Aggiorna anagrafica membri"
+this.ToolBarItemOrder=5
+this.ToolBarItemSpace=2
+this.Enabled=false
+this.Shortcut=577
+end on
+
+type m_finestra from menu within mq_conf_pass
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+this.Text="&2.Finestra"
+this.m_chiudi=create m_chiudi
+this.Item[]={this.m_chiudi}
+end on
+
+on m_finestra.destroy
+destroy(this.m_chiudi)
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+on m_chiudi.create
+this.Text="Chiudi~tF10"
+this.ToolBarItemName="Custom009!"
+this.ToolBarItemText="Chiudi finestra"
+this.ToolBarItemOrder=10
+this.ToolBarItemSpace=2
+this.Shortcut=121
+end on
+
+event clicked;close ( ParentWindow )
+
+end event
+

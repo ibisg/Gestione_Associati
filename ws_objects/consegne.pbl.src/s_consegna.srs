@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_consegna.srs
+global type s_consegna from structure
+	string		codice
+	string		nominativo
+	string		localita
+	datetime		data_cer
+	string		luogo_cer
+	string		turno
+	string		causale
+	string		descrizione_causale
+	string		tipo_goh
+	string		flag_er
+end type
+

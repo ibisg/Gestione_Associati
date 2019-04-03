@@ -1,0 +1,43 @@
+﻿$PBExportHeader$f_getwinuser.srf
+global type f_getwinuser from function_object
+end type
+
+forward prototypes
+global function s_utente f_getwinuser ()
+end prototypes
+
+global function s_utente f_getwinuser ();
+environment le_env
+integer i_ret
+
+s_utente ls_utente_s
+
+i_ret = GetEnvironment(le_env)
+if i_ret <> 1 then return ls_utente_s
+	
+choose case le_env.OsType
+		
+	case WindowsNT!
+		// Legge dal registry il nome utente
+		RegistryGet ( "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer", "Logon user name", ls_utente_s.s_nome )
+//		
+//		if (s_utente_s.s_nome = "" or isnull(s_utente_s.s_nome)) then
+//			registryGet("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", s_utente_s.s_nome)
+//		end if
+		
+		// Legge dal registry il nome della macchina su cui gira l'applicazione...
+		RegistryGet("HKEY_CURRENT_USER\Volatile Environment", "ClientName", ls_utente_s.s_host)
+					if (ls_utente_s.s_host= "" or isnull(ls_utente_s.s_host) or ls_utente_s.s_host="Console") then
+						RegistryGet("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", ls_utente_s.s_host)
+					end if
+					
+	case Windows!
+		RegistryGet ( "HKEY_LOCAL_MACHINE\Network\Logon", "UserName", ls_utente_s.s_nome )					  
+						// Legge dal registry il nome della macchina su cui gira l'applicazione...
+						RegistryGet("HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName", "ComputerName", ls_utente_s.s_nome)
+							
+end choose
+
+return ls_utente_s
+end function
+

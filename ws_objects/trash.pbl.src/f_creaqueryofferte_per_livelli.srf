@@ -1,0 +1,38 @@
+﻿$PBExportHeader$f_creaqueryofferte_per_livelli.srf
+global type f_creaqueryofferte_per_livelli from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte_per_livelli (integer ai_livello_estrazione, string as_coordinate_estrazione, integer ai_pos_raggruppamento, integer ai_livello_raggruppamento, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryofferte_per_livelli (integer ai_livello_estrazione, string as_coordinate_estrazione, integer ai_pos_raggruppamento, integer ai_livello_raggruppamento, string as_da, string as_a);// Report offerte solo con percentuali e totali...
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			'select distinct (select l1.descrizione from livelli_struttura l1 where l1.livello='+string(ai_livello_estrazione)+' livello,'+&   
+			"(select s1.descrizione from struttura s1 where s1.vc_nodo='"+as_coordinate_estrazione+"' descrizione,"+&
+			'livelli_struttura.descrizione livello raggruppamento,'+&
+			'struttura.descrizione descrizione_raggruppamento,'+&
+			'membri_gerarchica.flag_dis status,'+&
+        		'sum ( offerte_gerarchica.importo ) importo,'+&  
+        		'count(distinct membri_gerarchica.codice) n_soci'+&
+			' from membri_gerarchica, offerte_gerarchica, livelli_struttura, struttura '+&
+		 	" where membri_gerarchica.cod_dis != 'DEC' and"+&
+				' livelli_struttura.livello='+string(ai_livello_raggruppamento)+' and'+&
+				' membri_gerarchica.codice *= offerte_gerarchica.codice and'+&
+				" membri_gerarchica.data_cer <= convert(datetime, '"+as_a+" 23:59:59', 3) and"+&
+				" offerte_gerarchica.data between convert(datetime, '"+as_da+" 00:00:00', 3) AND convert(datetime, '"+as_a+" 23:59:59', 3) and"+&
+				" substring(membri_gerarchica.vc_parent, 1, "+string(ai_pos_raggruppamento)+") = substring(struttura.vc_nodo, 1, "+string(ai_pos_raggruppamento)+") and"+&
+				" struttura.livello="+string(ai_livello_raggruppamento)+" and"+&
+				" livelli_struttura.livello= "+string(ai_livello_raggruppamento)+&
+				' group by livelli_struttura.descrizione,'+&
+				' struttura.descrizione'+&
+	               ' membri_gerarchica.flag_dis'
+			/*	' offerte_gerarchica.importo*0, membri_gerarchica.codice, membri_gerarchica.cognome, membri_gerarchica.nome,'+&  */
+
+return ls_query
+end function
+

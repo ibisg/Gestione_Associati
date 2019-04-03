@@ -1,0 +1,7 @@
+﻿$PBExportHeader$s_esami.srs
+global type s_esami from structure
+	datetime		v_data
+	string		v_sede
+	string		v_liv
+end type
+

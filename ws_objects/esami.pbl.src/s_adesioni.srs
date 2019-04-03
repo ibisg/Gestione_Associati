@@ -1,0 +1,13 @@
+﻿$PBExportHeader$s_adesioni.srs
+global type s_adesioni from structure
+	decimal		id_sessione
+	integer		tipo_evento
+	datetime		data_evento
+	datetime		data_ultimo_esame
+	datetime		data_cerimonia_soglia
+	integer		livello_resp_soglia
+	string		a_g
+	string		cod_studio_attuale
+	string		cod_studio_sessione
+end type
+

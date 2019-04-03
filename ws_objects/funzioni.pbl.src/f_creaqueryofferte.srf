@@ -1,0 +1,36 @@
+﻿$PBExportHeader$f_creaqueryofferte.srf
+global type f_creaqueryofferte from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte (long al_livello, string as_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryofferte (long al_livello, string as_nodo, string as_da, string as_a);// Report offerte solo con percentuali e totali...
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			"select l.descrizione livello_struttura, "+&   
+        		"sum(importo) Importo,"+&  
+			" (select count(distinct o2.codice) from membri_gerarchica m2, offerte o2 where m2.cod_dis= 'MEM' and o2.cancellata= 0 and o2.data between '"+as_da+"' and '"+as_a+"' and m2.codice= o2.codice and m2.vc_parent like '"+as_nodo+"%'"+" ) Versanti, "+&						  
+        		"(select count(*) from membri_gerarchica m1 where "+&
+			" m1.cod_dis= 'MEM' and "+&
+			" m1.vc_parent like '"+as_nodo+'%'+"' and "+&
+			" m1.data_cer <= '"+as_a+"') Totale_persone," +&
+        		" sum ( convert(integer, m.flag_npa) ) n_npa, "+&
+			"  s.descrizione "+&
+			" from membri_gerarchica m, offerte o, struttura_livelli l, struttura s "+&
+			" where "+&
+			" o.data between '"+as_da+"' and '"+as_a+"' and "+&
+			" m.codice = o.codice and "+&
+			" l.livello= s.livello and "+&
+			" s.vc_nodo= '"+as_nodo+"' and "+&
+			" m.vc_parent like s.vc_nodo+'%' "+&
+			" group by "+&
+			" l.descrizione,  s.descrizione; "				  
+
+			return ls_query
+end function
+

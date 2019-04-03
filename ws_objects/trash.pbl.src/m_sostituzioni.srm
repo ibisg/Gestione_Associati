@@ -1,0 +1,263 @@
+﻿$PBExportHeader$m_sostituzioni.srm
+forward
+global type m_sostituzioni from menu
+end type
+type m_opzioni from menu within m_sostituzioni
+end type
+type m_cerca_cer from menu within m_opzioni
+end type
+type m_- from menu within m_opzioni
+end type
+type m_stampe from menu within m_opzioni
+end type
+type m_-1 from menu within m_opzioni
+end type
+type m_aggiorna from menu within m_opzioni
+end type
+type m_-2 from menu within m_opzioni
+end type
+type m_svuota from menu within m_opzioni
+end type
+type m_opzioni from menu within m_sostituzioni
+m_cerca_cer m_cerca_cer
+m_- m_-
+m_stampe m_stampe
+m_-1 m_-1
+m_aggiorna m_aggiorna
+m_-2 m_-2
+m_svuota m_svuota
+end type
+type m_finestra from menu within m_sostituzioni
+end type
+type m_chiudi from menu within m_finestra
+end type
+type m_finestra from menu within m_sostituzioni
+m_chiudi m_chiudi
+end type
+global type m_sostituzioni from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+end forward
+
+global type m_sostituzioni from menu
+m_opzioni m_opzioni
+m_finestra m_finestra
+end type
+global m_sostituzioni m_sostituzioni
+
+on m_sostituzioni.create
+m_sostituzioni=this
+call super::create
+this.m_opzioni=create m_opzioni
+this.m_finestra=create m_finestra
+this.Item[UpperBound(this.Item)+1]=this.m_opzioni
+this.Item[UpperBound(this.Item)+1]=this.m_finestra
+end on
+
+on m_sostituzioni.destroy
+call super::destroy
+destroy(this.m_opzioni)
+destroy(this.m_finestra)
+end on
+
+type m_opzioni from menu within m_sostituzioni
+m_cerca_cer m_cerca_cer
+m_- m_-
+m_stampe m_stampe
+m_-1 m_-1
+m_aggiorna m_aggiorna
+m_-2 m_-2
+m_svuota m_svuota
+end type
+
+on m_opzioni.create
+call super::create
+this.text = "&1. Opzioni"
+this.m_cerca_cer=create m_cerca_cer
+this.m_-=create m_-
+this.m_stampe=create m_stampe
+this.m_-1=create m_-1
+this.m_aggiorna=create m_aggiorna
+this.m_-2=create m_-2
+this.m_svuota=create m_svuota
+this.Item[UpperBound(this.Item)+1]=this.m_cerca_cer
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_stampe
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_aggiorna
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_svuota
+end on
+
+on m_opzioni.destroy
+call super::destroy
+destroy(this.m_cerca_cer)
+destroy(this.m_-)
+destroy(this.m_stampe)
+destroy(this.m_-1)
+destroy(this.m_aggiorna)
+destroy(this.m_-2)
+destroy(this.m_svuota)
+end on
+
+type m_cerca_cer from menu within m_opzioni
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "search_cer" )
+
+this.enabled= false
+
+end event
+
+on m_cerca_cer.create
+call super::create
+this.text = "Cerca/Crea cerimonia"
+this.toolbaritemname = "Custom062!"
+this.toolbaritemtext = "Cerca/Crea cerimonia"
+this.toolbaritemorder = 1
+end on
+
+on m_cerca_cer.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_opzioni
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_stampe from menu within m_opzioni
+end type
+
+on m_stampe.create
+call super::create
+this.text = "Stampe"
+this.microhelp = "Stampe liste cerimonie"
+this.toolbaritemname = "Print!"
+this.toolbaritemtext = "Stampe liste cerimonie"
+this.toolbaritemorder = 3
+this.toolbaritemspace = 1
+end on
+
+event clicked; SetPointer ( hourglass! )
+
+//OpenSheetWithParm ( w_stampe_gen, "rq_cerimonie", w_frame_gestione_associati , 3, Original! )
+
+end event
+
+on m_stampe.destroy
+call super::destroy
+end on
+
+type m_-1 from menu within m_opzioni
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_aggiorna from menu within m_opzioni
+end type
+
+on m_aggiorna.create
+call super::create
+this.text = "Aggiorna"
+this.enabled = false
+this.toolbaritemname = "Watcom!"
+this.toolbaritemtext = "Aggiorna storico"
+this.toolbaritemorder = 3
+this.toolbaritemspace = 1
+end on
+
+event clicked;ParentWindow.TriggerEvent ( "ue_aggiorna" )
+
+end event
+
+on m_aggiorna.destroy
+call super::destroy
+end on
+
+type m_-2 from menu within m_opzioni
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_svuota from menu within m_opzioni
+end type
+
+event clicked;w_sostituzioni.Event  clear ( "menu" )
+
+
+end event
+
+on m_svuota.create
+call super::create
+this.text = "S&vuota~tAlt+V"
+this.shortcut = 598
+this.toolbaritemname = "CheckOut!"
+this.toolbaritemtext = "Svuota"
+this.toolbaritemorder = 9
+this.toolbaritemspace = 1
+end on
+
+on m_svuota.destroy
+call super::destroy
+end on
+
+type m_finestra from menu within m_sostituzioni
+m_chiudi m_chiudi
+end type
+
+on m_finestra.create
+call super::create
+this.text = "&2. Finestra"
+this.m_chiudi=create m_chiudi
+this.Item[UpperBound(this.Item)+1]=this.m_chiudi
+end on
+
+on m_finestra.destroy
+call super::destroy
+destroy(this.m_chiudi)
+end on
+
+type m_chiudi from menu within m_finestra
+end type
+
+event clicked;ParentWindow.TriggerEvent ( "Chiudi" )
+
+end event
+
+on m_chiudi.create
+call super::create
+this.text = "Chiudi~tF10"
+this.shortcut = 121
+this.toolbaritemname = "Custom009!"
+this.toolbaritemtext = "Chiudi"
+this.toolbaritemorder = 10
+this.toolbaritemspace = 2
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+

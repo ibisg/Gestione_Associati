@@ -1,0 +1,12 @@
+﻿$PBExportHeader$dwc_tipo_eventi.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=100 color="536870912"  height.autosize=yes)
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=tipo_evento dbname="tipo_eventi.tipo_evento" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=descrizione dbname="tipo_eventi.descrizione" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"tipo_eventi~" ) COLUMN(NAME=~"tipo_eventi.tipo_evento~") COLUMN(NAME=~"tipo_eventi.descrizione~")) " update="tipo_eventi" updatewhere=1 updatekeyinplace=no  sort="descrizione A " )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="88" width="850" format="[general]"  name=descrizione height.autosize=yes edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

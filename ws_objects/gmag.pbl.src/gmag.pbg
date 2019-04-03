@@ -1,0 +1,17 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "gmag.pbl" "";
+@end;
+@begin Objects 
+ "dddw_gohonzon_stato_ordini.srd" "gmag.pbl";
+ "dddw_gohonzon_tipo_movimenti.srd" "gmag.pbl";
+ "dw_gohonzon_magazzino.srd" "gmag.pbl";
+ "dw_gohonzon_movimenti.srd" "gmag.pbl";
+ "dw_ins_gohonzon_magazzino.srd" "gmag.pbl";
+ "dw_test_cursore.srd" "gmag.pbl";
+ "f_is_dip_operativa.srf" "gmag.pbl";
+ "s_gmag.srs" "gmag.pbl";
+ "w_gohonzon_magazzino.srw" "gmag.pbl";
+ "w_ins_gohonzon_magazzino.srw" "gmag.pbl";
+ "w_test_cursore.srw" "gmag.pbl";
+@end;

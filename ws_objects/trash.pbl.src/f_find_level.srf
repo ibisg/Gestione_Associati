@@ -1,0 +1,23 @@
+﻿$PBExportHeader$f_find_level.srf
+global type f_find_level from function_object
+end type
+
+forward prototypes
+global function integer f_find_level (integer ai_livello, string as_nodo)
+end prototypes
+
+global function integer f_find_level (integer ai_livello, string as_nodo);integer li_pos[], li_start= 0, li_idx
+
+for li_idx= 1 to ai_livello
+
+	li_pos[li_idx]= pos(as_nodo, ".", li_start+1)
+	
+	li_start= li_pos[li_idx]
+	
+next
+
+return 0
+	
+	
+end function
+

@@ -1,0 +1,38 @@
+﻿$PBExportHeader$f_cercastruttura_fw.srf
+global type f_cercastruttura_fw from function_object
+end type
+
+forward prototypes
+global function string f_cercastruttura_fw (integer ai_livello, integer ai_nodo)
+end prototypes
+
+global function string f_cercastruttura_fw (integer ai_livello, integer ai_nodo);uint li_livello, li_nodo, li_parent
+string ls_relazione, ls_codice, ls_descrizione, ls_struttura
+	
+	do while sqlca.sqlcode <> 100
+		
+		select livello, id_nodo, relazione, id_parent, codice, descrizione
+		into	:li_livello,
+				:li_nodo,
+				:ls_relazione,
+				:li_parent,
+				:ls_codice,
+				:ls_descrizione
+    		from struttura
+    		where livello= :ai_livello + 1 and
+          id_parent= :ai_nodo;
+		if trap_sql(sqlca, "STR01") < 0 then return ""
+		
+		if sqlca.sqlcode= 100 then continue
+			 
+		ls_struttura = ls_codice+" "+ls_struttura
+		ai_livello ++
+		ai_nodo= li_parent
+				
+	loop
+				
+return ls_struttura
+	
+	
+end function
+

@@ -1,0 +1,116 @@
+﻿$PBExportHeader$f_sendmail_blat_working.srf
+global type f_sendmail_blat_working from function_object
+end type
+
+forward prototypes
+global function integer f_sendmail_blat_working (mailmessage amailmessage, s_sms as_sms)
+end prototypes
+
+global function integer f_sendmail_blat_working (mailmessage amailmessage, s_sms as_sms);integer li_ret
+long ll_idx
+string ls_send, ls_recipient, ls_recipient_TO, ls_recipient_CC, ls_recipient_BCC, ls_subject, ls_body, ls_server, ls_from, ls_attachment, ls_user, ls_password, ls_options
+
+setPointer(hourGlass!)
+
+ls_subject= " -s ~""+trim(amailmessage.subject)+"~""
+amailmessage.noteText= f_replace_chars(amailmessage.noteText, "~"", "'") 
+ls_body= " -body ~""+trim(amailmessage.noteText)+"~""
+ls_from= " -f "+trim(as_sms.as_mailfrom)
+ls_server= " -server "+trim(as_sms.as_smtp)+" -u "+trim(as_sms.as_mailuser)+" -p "+trim(as_sms.as_mailpw)
+
+//ls_server=' -server localhost:25 ' 
+// -u gino.desimone@sgi-italia.org -pw xyz'
+
+ls_options= " -dsn f  -maxNames "+string(as_sms.ai_maxnames)
+
+if amailmessage.ReceiptRequested= true then
+	ls_options += " -r "
+end if
+
+for ll_idx= 1 to upperBound(amailmessage.recipient)
+	
+	choose case amailMessage.recipient[ll_idx].recipientType
+		case mailTO!
+			if len(ls_recipient_TO)= 0 then
+				ls_recipient_TO = " -to "+trim(amailmessage.recipient[ll_idx].address)
+			else
+				ls_recipient_TO += ","+trim(amailmessage.recipient[ll_idx].address)		
+			end if
+		case mailCC!
+			if len(ls_recipient_CC)= 0 then
+				ls_recipient_CC = " -cc "+trim(amailmessage.recipient[ll_idx].address)
+			else
+				ls_recipient_CC += ","+trim(amailmessage.recipient[ll_idx].address)		
+			end if
+		case mailBCC!
+			if len(ls_recipient_BCC)= 0 then
+				ls_recipient_BCC = " -bcc "+trim(amailmessage.recipient[ll_idx].address)
+			else
+				ls_recipient_BCC += ","+trim(amailmessage.recipient[ll_idx].address)		
+			end if		
+	end choose
+		
+//next
+
+		if len(ls_recipient_TO) > 0 then ls_recipient= ls_recipient_TO
+		
+		if len(ls_recipient_CC) > 0 then ls_recipient += ls_recipient_CC
+		
+		if len(ls_recipient_BCC) > 0 then ls_recipient += ls_recipient_BCC
+		
+		for ll_idx= 1 to upperBound(amailmessage.AttachmentFile)
+			
+			if ll_idx= 1 then
+				ls_attachment = "~""+trim(amailmessage.AttachmentFile[ll_idx].Pathname)+"~""
+			else
+				ls_attachment += ",~""+trim(amailmessage.AttachmentFile[ll_idx].Pathname)+"~""
+			end if
+			
+		next
+		
+		if len(ls_attachment)= 0 then
+			ls_send=  ls_recipient + ls_subject + ls_body + ls_server + ls_from
+		else
+			ls_send=  ls_recipient + ls_subject + ls_body + ls_server + ls_from +" -attach "+ls_attachment
+		end if
+		
+		if len(as_sms.as_mailuser) > 0 then
+		
+			ls_send +=  " -u "+as_sms.as_mailuser+" -pw "+as_sms.as_mailpw+" "
+			
+		end if
+		
+		ls_send += ls_options // dsn + rr
+		
+		// Send the mail
+		
+		li_ret= SendBlat(ls_send)
+		
+next		
+
+IF li_ret <> 0 THEN
+	
+		choose case li_ret
+				
+			case 1
+				
+				MessageBox("Invio messaggi", "Messaggio non inviato. Verificare gli indirizzi dei destinatari")
+				
+			case 2
+				
+				MessageBox("Invio messaggi", "Messaggio non inviato. Verificare indirizzo e password del mittente")
+				
+		end choose
+	
+		li_ret= 1
+	
+	else
+		
+		MessageBox("Invio messaggi", 'Messaggio inviato')
+		li_ret= 0
+		
+end if
+
+return li_ret
+end function
+

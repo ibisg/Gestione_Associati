@@ -1,0 +1,71 @@
+﻿$PBExportHeader$f_gencod.srf
+global type f_gencod from function_object
+end type
+
+forward prototypes
+global function string f_gencod (string as_cod_dip)
+global function string f_gencod (string as_cod_dip, transaction at_sqlca)
+end prototypes
+
+global function string f_gencod (string as_cod_dip);ulong progr_codmem, resto_codmem, ul_newcod
+string str_resto=""
+
+	select counter+1
+		into:ul_newcod
+		from dipendenze
+	where cod_dip= :as_cod_dip;
+		
+	if trap_sql ( sqlca, "Generazione codice" ) = -1 then return ""
+	
+	update dipendenze
+	set counter = :ul_newcod
+	where cod_dip= :as_cod_dip;
+	
+	if trap_sql ( sqlca, "Aggiornamento contatore" ) = -1 then return ""	
+	
+	// ora bisogna generare le cifre di controllo
+
+		resto_codmem= Mod(ul_newcod, 13)
+
+		str_resto= string(resto_codmem)
+
+		if len(str_resto) = 1 then str_resto= "0"+str_resto
+
+
+
+	return string(ul_newcod)+str_resto+as_cod_dip
+
+end function
+
+global function string f_gencod (string as_cod_dip, transaction at_sqlca);ulong progr_codmem, resto_codmem, ul_newcod
+string str_resto=""
+
+	select COALESCE(counter, 0) +1
+		into:ul_newcod
+		from dipendenze
+	where cod_dip= :as_cod_dip
+	using at_sqlca;
+		
+	if trap_sql ( at_sqlca, "Generazione codice" ) = -1 then return ""
+	
+	update dipendenze
+	set counter = :ul_newcod
+	where cod_dip= :as_cod_dip
+	using at_sqlca;
+	
+	if trap_sql ( at_sqlca, "Aggiornamento contatore" ) = -1 then return ""	
+	
+	// ora bisogna generare le cifre di controllo
+
+		resto_codmem= Mod(ul_newcod, 13)
+
+		str_resto= string(resto_codmem)
+
+		if len(str_resto) = 1 then str_resto= "0"+str_resto
+
+
+
+	return string(ul_newcod)+str_resto+as_cod_dip
+
+end function
+

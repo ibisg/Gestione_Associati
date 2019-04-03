@@ -1,0 +1,100 @@
+﻿$PBExportHeader$dw_eventi.srd
+release 11;
+datawindow(units=0 timer_interval=60000 color=81324524 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=176 color="81324524" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=468 color="81324524~tif(mod(getRow(), 2)= 0, 111,444)" )
+table(column=(type=decimal(0) updatewhereclause=yes identity=yes name=id dbname="eventi.id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_evento dbname="eventi.data_evento" )
+ column=(type=char(6) updatewhereclause=yes name=cod_luogo dbname="eventi.cod_luogo" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=turno dbname="eventi.turno" initial="01" )
+ column=(type=long update=yes updatewhereclause=yes name=tipo_evento dbname="eventi.tipo_evento" )
+ column=(type=char(6) updatewhereclause=yes name=cod_sala dbname="eventi.cod_sala" )
+ column=(type=datetime update=yes updatewhereclause=yes name=ora_inizio dbname="eventi.ora_inizio" )
+ column=(type=datetime update=yes updatewhereclause=yes name=ora_fine dbname="eventi.ora_fine" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=responsabile_evento dbname="eventi.responsabile_evento" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=descrizione_evento dbname="eventi.descrizione_evento" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=cod_dip dbname="eventi.cod_dip" )
+ column=(type=datetime update=yes updatewhereclause=yes name=data_fine_evento dbname="eventi.data_fine_evento" )
+ column=(type=long update=yes updatewhereclause=yes name=stato dbname="eventi.stato" initial="0" values="Programmato	0/In corso	1/Chiuso	2/" )
+ column=(type=char(1) updatewhereclause=yes name=flag_storico dbname="eventi_tipo.flag_storico" )
+ retrieve="SELECT  eventi.id ,
+           eventi.data_evento ,
+           eventi.cod_luogo ,
+           eventi.turno ,
+           eventi.tipo_evento ,
+           eventi.cod_sala ,
+           eventi.ora_inizio ,
+           eventi.ora_fine ,
+           eventi.responsabile_evento ,
+           eventi.descrizione_evento ,
+           eventi.cod_dip ,
+           eventi.data_fine_evento ,
+           eventi.stato ,
+           eventi_tipo.flag_storico     
+        FROM eventi ,
+           eventi_tipo     
+        WHERE ( eventi.tipo_evento = eventi_tipo.tipo_evento ) and          ( ( eventi.cod_dip = :cod_dip ) )  " arguments=(("cod_dip", string))  sort="canno D cnmese D data_evento D ora_inizio D " )
+group(level=1 header.height=152 trailer.height=0 by=("cod_dip" ) newpage=yes header.color="536870912" trailer.color="536870912" )
+line(band=header x1="9" y1="168" x2="3890" y2="168"  name=l_1 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+button(band=header text="Non visualizzare eventi chiusi" filename="" enabled=yes action="0" border="0" color="16711680" x="2075" y="28" height="120" width="745" vtextalign="0" htextalign="0"  name=b_1 visible="1"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+text(band=header.1 alignment="0" text="Sala" border="0" color="0" x="3342" y="4" height="56" width="480" html.valueishtml="0"  name=t_3 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="Ubicazione" border="0" color="0" x="2839" y="4" height="56" width="480" html.valueishtml="0"  name=descrizione_evento_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header.1 x1="9" y1="72" x2="3890" y2="72"  name=l_2 visible="1" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header.1 alignment="0" text="Tipo evento" border="0" color="0" x="1659" y="4" height="56" width="539" html.valueishtml="0"  name=t_5 visible="1"  resizeable=1  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Orario" border="0" color="0" x="1303" y="4" height="56" width="169" html.valueishtml="0"  name=t_6 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header.1 alignment="0" text="Descrizione evento" border="0" color="0" x="1659" y="88" height="56" width="539" html.valueishtml="0"  name=t_1 visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="Responsabile" border="0" color="0" x="2843" y="88" height="56" width="480" html.valueishtml="0"  name=responsabile_evento_t visible="1"  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="1655" y="8" height="208" width="1166"  name=rr_4 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="3333" y="8" height="208" width="503"  name=rr_6 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="2825" y="8" height="208" width="503"  name=rr_5 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="2830" y="240" height="216" width="1015"  name=rr_7 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="1659" y="240" height="216" width="1166"  name=rr_8 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1673" y="264" height="172" width="1129" format="[general]" html.valueishtml="0"  name=descrizione_evento visible="1" edit.limit=0 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.required=yes  font.face="Tahoma" font.height="-8" font.weight="700~t if(date(data_evento)= date(string(today(), ~"dd.mm.yy~")) , 700, 400)"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="1280" y="4" height="452" width="366"  name=rr_3 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="704" y="4" height="452" width="571"  name=rr_2 visible="1~tif( data_evento =  data_fine_evento, 0 , 1)" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+roundrectangle(band=detail ellipseheight="36" ellipsewidth="41"x="128" y="4" height="452" width="571"  name=rr_1 visible="1" brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="{" border="0" color="0" x="1294" y="156" height="176" width="46" html.valueishtml="0"  name=t_8 visible="1"  font.face="Century" font.height="-28" font.weight="400"  font.family="1" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="ch:" border="0" color="0" x="1353" y="260" height="92" width="96" html.valueishtml="0"  name=t_9 visible="1"  font.face="Comic Sans MS" font.height="-12" font.weight="400"  font.family="4" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1463" y="272" height="80" width="169" format="[shortdate] [time]" html.valueishtml="0"  name=ora_fine visible="1" editmask.mask="hh:mm" editmask.focusrectangle=no  font.face="Comic Sans MS" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="ap:" border="0" color="0" x="1339" y="104" height="92" width="101" html.valueishtml="0"  name=t_2 visible="1"  font.face="Comic Sans MS" font.height="-12" font.weight="400"  font.family="4" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1454" y="116" height="96" width="169" format="[shortdate] [time]" html.valueishtml="0"  name=ora_inizio visible="1" editmask.mask="hh:mm" editmask.focusrectangle=no  font.face="Comic Sans MS" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="year( data_evento )"border="0" color="0" x="215" y="328" height="112" width="402" format="[GENERAL]" html.valueishtml="0"  name=canno visible="1"  font.face="Tahoma" font.height="-18" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="da" border="0" color="0" x="151" y="16" height="52" width="105" html.valueishtml="0"  name=t_10 visible="1~tif( data_evento =  data_fine_evento, 0 , 1)"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="a" border="0" color="0" x="731" y="16" height="52" width="101" html.valueishtml="0"  name=t_11 visible="1~tif( data_evento =  data_fine_evento, 0 , 1)"  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression=" f_monthname( month( data_evento )) "border="0" color="0" x="155" y="204" height="112" width="521" format="[GENERAL]" html.valueishtml="0"  name=cmese visible="1"  font.face="Tahoma" font.height="-18" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression=" f_monthname( month( data_fine_evento ))"border="0" color="0" x="731" y="204" height="108" width="521" format="[GENERAL]" html.valueishtml="0"  name=cmesefine visible="1~tif( data_evento =  data_fine_evento, 0, 1)"  font.face="Tahoma" font.height="-18" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="year( data_evento )"border="0" color="0" x="791" y="328" height="112" width="402" format="[GENERAL]" html.valueishtml="0"  name=compute_2 visible="1~tif( data_evento =  data_fine_evento, 0, 1)"  font.face="Tahoma" font.height="-18" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="upper(mid(cnomegiorno, 1, 3))+~".~""border="0" color="33521792~tif(daynumber( data_evento ) = 7 or daynumber( data_evento ) = 1, 255, 0 )
+" x="174" y="92" height="92" width="238" format="[GENERAL]" html.valueishtml="0"  name=cnomebreve1 visible="1"  font.face="Tahoma" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="day( data_evento )"border="0" color="33521792~tif(daynumber( data_evento ) = 7 or daynumber( data_evento ) = 1, 255, 0 )
+" x="457" y="56" height="128" width="192" format="[General]" html.valueishtml="0"  name=cgiorno visible="1"  font.face="Tahoma" font.height="-24" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="day( data_fine_evento )"border="0" color="15780518~tif(daynumber(  data_fine_evento ) = 7 or daynumber(  data_fine_evento ) = 1, 255, 0 )
+" x="1015" y="56" height="128" width="192" format="" html.valueishtml="0"  name=cgiorno_fine visible="1~tif( data_evento =  data_fine_evento, 0, 1)"  font.face="Tahoma" font.height="-24" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="upper(mid(cnomegiornofine, 1, 3))+~".~""border="0" color="15780518~tif(daynumber(  data_fine_evento ) = 7 or daynumber(  data_fine_evento ) = 1, 255, 0 )
+" x="745" y="92" height="92" width="238" format="[GENERAL]" html.valueishtml="0"  name=cnomebreve2 visible="1~tif( data_evento =  data_fine_evento, 0, 1)"  font.face="Tahoma" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3611" y="328" height="64" width="119" format="[general]" html.valueishtml="0"  name=flag_storico visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="f_dayname(daynumber(data_fine_evento))"border="0" color="0" x="3360" y="332" height="76" width="370" format="[GENERAL]" html.valueishtml="0"  name=cnomegiornofine visible="1~t0"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="month( data_evento )"border="0" color="8388608" x="3561" y="44" height="52" width="59" format="[GENERAL]" html.valueishtml="0"  name=cnmese visible="1~t0"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2843" y="24" height="176" width="471" format="[general]" html.valueishtml="0"  name=cod_luogo visible="1" dddw.name=dwc_luoghi dddw.displaycolumn=descrizione dddw.datacolumn=cod_luogo dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3351" y="24" height="176" width="471" format="[general]" html.valueishtml="0"  name=cod_sala visible="1" dddw.name=dwc_sale dddw.displaycolumn=descrizione dddw.datacolumn=cod_sala dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="f_dayname( daynumber( data_evento ))"border="0" color="0" x="3374" y="316" height="76" width="370" format="[GENERAL]" html.valueishtml="0"  name=cnomegiorno visible="1~t0"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2843" y="264" height="172" width="965" format="[general]" html.valueishtml="0"  name=responsabile_evento visible="1" edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="700~t if(date(data_evento)= date(string(today(), ~"dd.mm.yy~")) , 700, 400)"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1673" y="24" height="176" width="1115" format="[general]" html.valueishtml="0"  name=tipo_evento visible="1"  resizeable=1 dddw.name=dddw_eventi_tipo dddw.displaycolumn=tipo_descrizione dddw.datacolumn=tipo_evento dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=foreground alignment="0" expression="~"Dipendenza: ~"+ cod_dip "border="0" color="0" x="133" y="28" height="132" width="1038" format="[GENERAL]" html.valueishtml="0"  name=compute_1 visible="1"  resizeable=1  moveable=1  font.face="Tahoma" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+button(band=foreground text="Altra dipendenza" filename="" enabled=yes action="0" border="0" color="16711680" x="1262" y="28" height="112" width="439" vtextalign="0" htextalign="0"  name=b_dip visible="1~tif( f_is_np(2) , 0, 1)"  resizeable=1  moveable=1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+button(band=foreground text="<" filename="" enabled=yes action="0" border="0" color="8388608" x="3529" y="28" height="112" width="155" vtextalign="0" htextalign="0"  name=b_prior visible="1"  resizeable=1  moveable=1  font.face="Terminal" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="255" background.mode="2" background.color="81324524" )
+button(band=foreground text="+" filename="" enabled=yes action="0" border="0" color="16711680" x="3173" y="28" height="112" width="155" vtextalign="2" htextalign="0"  name=b_nuovo visible="1"  resizeable=1  moveable=1  font.face="Tahoma" font.height="-16" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+button(band=foreground text=">" filename="" enabled=yes action="0" border="0" color="8388608" x="3689" y="28" height="112" width="155" vtextalign="0" htextalign="0"  name=b_next visible="1"  resizeable=1  moveable=1  font.face="Terminal" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="255" background.mode="2" background.color="81324524" )
+
+sparse(names="cnomegiorno	cmesefine")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

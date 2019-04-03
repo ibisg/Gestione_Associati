@@ -1,0 +1,56 @@
+﻿$PBExportHeader$dw_membri_per_anno_per_area.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=4 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=252 color="536870912" )
+header[2](height=120 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=104 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=anno dbname="anno" )
+ column=(type=char(20) updatewhereclause=yes name=area dbname="area" )
+ column=(type=char(20) updatewhereclause=yes name=row_column dbname="row_column" )
+ column=(type=number updatewhereclause=yes name=val dbname="val" )
+ retrieve="select datepart(year, data_cer) anno, mesi.mese cod_mese, mesi.desc_mese mese, aree.descrizione area, membri.cod_div, divisione.descrizione divisione, count(*) totale
+
+from membri , divisione, mesi, aree
+
+where
+
+membri.cod_div= divisione.cod_div and
+
+datepart(month, data_cer)= mesi.mese and
+
+membri.cod_area= aree.cod_area
+
+group by 
+
+datepart(year, data_cer) , mesi.mese , mesi.desc_mese , aree.descrizione , membri.cod_div, divisione.descrizione 
+
+having datepart(year, data_cer)= :anno_entrata
+
+order by anno, cod_mese, area, membri.cod_div" arguments=(("anno_entrata", number))  sort="anno A area A row_column A " )
+group(level=1 header.height=0 trailer.height=116 by=("anno" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=116 by=("area" ) header.color="536870912" trailer.color="536870912" )
+roundrectangle(band=header[1] ellipseheight="36" ellipsewidth="41"x="5" y="8" height="236" width="2222"  name=rr_1 brush.hatch="6" brush.color="16777215" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header[2] alignment="0" text="Anno" border="0" color="0" x="9" y="4" height="52" width="334"  name=anno_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Area" border="0" color="0" x="352" y="4" height="52" width="677"  name=area_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Mese" border="0" color="0" x="1038" y="4" height="52" width="1033"  name=row_column_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="@col" border="0" color="0" x="2080" y="4" height="112" width="507"  name=val_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Totale generale mese" border="0" color="0" x="2597" y="4" height="52" width="686"  name=grand_sum_val_t  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="76" width="334" format="[general]"  name=anno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="352" y="4" height="76" width="677" format="[general]"  name=area edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="1038" y="4" height="76" width="1033" format="[general]"  name=row_column edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="2080" y="4" height="76" width="507" format="[general]"  name=val edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes crosstab.repeat=yes  font.face="Microsoft Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="33554432" x="2597" y="4" height="76" width="686" format="###,###,##0"  name=grand_sum_val  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="area + ~" Totale: ~""border="0" color="33554432" x="352" y="4" height="108" width="677" format="[general]"  name=compute_1  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(val for group 2)"border="0" color="33554432" x="2080" y="4" height="76" width="507" format="[general]"  name=compute_2  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(grand_sum_val for group 2)"border="0" color="33554432" x="2597" y="4" height="76" width="686" format="###,###,##0"  name=compute_3  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="anno + ~" Totale: ~""border="0" color="33554432" x="9" y="4" height="76" width="334" format="[general]"  name=compute_4  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(val for group 1)"border="0" color="33554432" x="2080" y="4" height="76" width="507" format="###,###,##0"  name=compute_5  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(grand_sum_val for group 1)"border="0" color="33554432" x="2597" y="4" height="76" width="686" format="###,###,##0"  name=compute_6  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="0" expression="'Pag. ' + page() + ' di ' + pageCount()"border="0" color="33554432" x="2597" y="4" height="76" width="686" format="[general]"  name=page_1  font.face="Microsoft Sans Serif" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="Nuovi membri anno 2006" border="0" color="33554432" x="50" y="52" height="116" width="2144"  name=t_header  resizeable=1  moveable=1  font.face="Microsoft Sans Serif" font.height="-18" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "string(cod_div)+~" - ~"+divisione" rows = "anno, area, string(cod_mese)+~" - ~"+mese" values = "sum(  totale  for crosstab )" sourcenames = "anno, cod_mese, mese, area, cod_div, divisione, totale")
+sparse(names="anno	area")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

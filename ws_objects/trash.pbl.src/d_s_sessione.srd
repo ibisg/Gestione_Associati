@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_s_sessione.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=100 color="553648127" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="553648127" )
+table(column=(type=datetime updatewhereclause=yes name=data_esame dbname="esami.data_esame" )
+ column=(type=char(60) updatewhereclause=yes name=sede dbname="esami.sede" )
+ column=(type=char(2) updatewhereclause=yes name=cod_studio dbname="esami.cod_studio" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"esami~" ) COLUMN(NAME=~"esami.data_esame~") COLUMN(NAME=~"esami.sede~") COLUMN(NAME=~"esami.cod_studio~")) "  sort="cod_studio A data_esame A sede A " )
+text(band=header alignment="0" text="Sede" border="0" color="8388608" x="901" y="8" height="88" width="1504"  name=sede_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Data esame" border="0" color="8388608" x="526" y="8" height="52" width="366"  name=data_esame_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Livello" border="0" color="8388608" x="9" y="4" height="52" width="507"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="8388608" x="901" y="4" height="84" width="1504" format="[general]"  name=sede edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="8388608" x="526" y="4" height="84" width="366" format="dd/mm/yyyy"  name=data_esame editmask.mask="dd/mm/yyyy" editmask.focusrectangle=no  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388608" x="9" y="4" height="84" width="507" format="[general]"  name=cod_studio dddw.name=d_liv_studio dddw.displaycolumn=descrizione dddw.datacolumn=cod_studio dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+
+sparse(names="cod_studio	data_esame")htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,5 @@
+Microsoft (R) Visual C# 2005 Compiler version 8.00.50727.3053
+for Microsoft (R) Windows (R) 2005 Framework version 2.0.50727
+Copyright (C) Microsoft Corporation 2001-2005. All rights reserved.
+
+warning CS1668: Invalid search path 'C:\Sybase\LIB' specified in 'LIB environment variable' -- 'Impossibile trovare il percorso specificato. '

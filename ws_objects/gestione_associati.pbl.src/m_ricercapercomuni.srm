@@ -1,0 +1,266 @@
+﻿$PBExportHeader$m_ricercapercomuni.srm
+forward
+global type m_ricercapercomuni from menu
+end type
+type m_grafico from menu within m_ricercapercomuni
+end type
+type m_report from menu within m_ricercapercomuni
+end type
+type m_0 from menu within m_ricercapercomuni
+end type
+type m_stampa from menu within m_ricercapercomuni
+end type
+type m_layoutdistampa from menu within m_ricercapercomuni
+end type
+type m_impostapagina from menu within m_ricercapercomuni
+end type
+global type m_ricercapercomuni from menu
+m_grafico m_grafico
+m_report m_report
+m_0 m_0
+m_stampa m_stampa
+m_layoutdistampa m_layoutdistampa
+m_impostapagina m_impostapagina
+end type
+end forward
+
+global type m_ricercapercomuni from menu
+m_grafico m_grafico
+m_report m_report
+m_0 m_0
+m_stampa m_stampa
+m_layoutdistampa m_layoutdistampa
+m_impostapagina m_impostapagina
+end type
+global m_ricercapercomuni m_ricercapercomuni
+
+on m_ricercapercomuni.create
+m_ricercapercomuni=this
+call super::create
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_grafico=create m_grafico
+this.m_report=create m_report
+this.m_0=create m_0
+this.m_stampa=create m_stampa
+this.m_layoutdistampa=create m_layoutdistampa
+this.m_impostapagina=create m_impostapagina
+this.Item[UpperBound(this.Item)+1]=this.m_grafico
+this.Item[UpperBound(this.Item)+1]=this.m_report
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_stampa
+this.Item[UpperBound(this.Item)+1]=this.m_layoutdistampa
+this.Item[UpperBound(this.Item)+1]=this.m_impostapagina
+end on
+
+on m_ricercapercomuni.destroy
+call super::destroy
+destroy(this.m_grafico)
+destroy(this.m_report)
+destroy(this.m_0)
+destroy(this.m_stampa)
+destroy(this.m_layoutdistampa)
+destroy(this.m_impostapagina)
+end on
+
+type m_grafico from menu within m_ricercapercomuni
+end type
+
+event clicked;w_ricercapercomuni.event ue_report(2)
+end event
+
+on m_grafico.create
+call super::create
+this.text = "Grafico "
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_grafico.destroy
+call super::destroy
+end on
+
+type m_report from menu within m_ricercapercomuni
+end type
+
+event clicked;w_ricercapercomuni.event ue_report(1)
+end event
+
+on m_report.create
+call super::create
+this.text = "Report"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_report.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_ricercapercomuni
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_stampa from menu within m_ricercapercomuni
+end type
+
+event clicked;setpointer(hourGlass!)
+
+openWithParm(w_dw_print_options, w_ricercapercomuni.dw_current)
+end event
+
+on m_stampa.create
+call super::create
+this.text = "Stampa"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from menu within m_ricercapercomuni
+end type
+
+event clicked;w_ricercapercomuni.event ue_layout()
+end event
+
+on m_layoutdistampa.create
+call super::create
+this.text = "Layout di stampa"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from menu within m_ricercapercomuni
+end type
+
+event clicked;setpointer(hourGlass!)
+
+openWithParm(w_setup_margini, w_ricercapercomuni.dw_current)
+end event
+
+on m_impostapagina.create
+call super::create
+this.text = "Imposta pagina"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+

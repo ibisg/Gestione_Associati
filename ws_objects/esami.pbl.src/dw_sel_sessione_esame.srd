@@ -1,0 +1,15 @@
+﻿$PBExportHeader$dw_sel_sessione_esame.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912~tf_righealternate(getRow())" )
+table(column=(type=datetime updatewhereclause=yes name=data_esame dbname="esami_curr.data_esame" )
+ column=(type=char(20) updatewhereclause=yes name=livelli_descrizione dbname="esami_livelli.descrizione" )
+ retrieve="PBSELECT( VERSION(400) DISTINCT ()TABLE(NAME=~"esami_curr~" )  TABLE(NAME=~"esami_livelli~" ) COLUMN(NAME=~"esami_curr.data_esame~") COLUMN(NAME=~"esami_livelli.descrizione~")    JOIN (LEFT=~"esami_curr.cod_studio~"    OP =~"=~"RIGHT=~"esami_livelli.cod_studio~" )) "  sort="data_esame D " )
+text(band=header alignment="0" text="Data Esame" border="0" color="0" x="5" y="4" height="76" width="421"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Esami Livelli Descrizione" border="0" color="0" x="434" y="4" height="56" width="457"  name=t_4  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=0 border="0" color="0" x="9" y="4" height="84" width="416" format="dd.mm.yyyy"  name=data_esame editmask.mask="dd.mm.yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="439" y="4" height="84" width="453"  name=livelli_descrizione  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

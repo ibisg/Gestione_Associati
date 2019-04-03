@@ -1,0 +1,50 @@
+﻿$PBExportHeader$f_creaqueryofferte_div.srf
+global type f_creaqueryofferte_div from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte_div (long al_livello, string as_nodo, string as_da, string as_a)
+end prototypes
+
+global function string f_creaqueryofferte_div (long al_livello, string as_nodo, string as_da, string as_a);// Report offerte solo con percentuali e totali...
+
+integer li_idx
+string ls_query
+
+ls_query= &
+			"select s.vc_nodo, "+&
+			" l.descrizione livello_struttura, "+&   
+			" (select count(distinct o3.codice) from membri_gerarchica m3, offerte o3 where m3.cod_dis= 'MEM'  and o3.cancellata= 0 and o3.data between '"+as_da+"' and '"+as_a+"' and m3.codice= o3.codice and m3.vc_parent like '"+as_nodo+'%'+"' and m3.cod_div= 1) VersantiU, "+&
+        		"(select count(*) from membri_gerarchica m3a where "+&
+			" m3a.cod_dis= 'MEM' and m3a.cod_div= 1 and"+&
+			" m3a.vc_parent like '"+as_nodo+"%"+"' and "+&
+			" m3a.data_cer <= '"+as_a+"') Totale_U, " +&
+			" (select count(distinct o4.codice) from membri_gerarchica m4, offerte o4 where  m4.cod_dis= 'MEM'  and o4.data between '"+as_da+"' and '"+as_a+"' and m4.codice= o4.codice and m4.vc_parent like '"+as_nodo+'%'+"' and m4.cod_div= 2) VersantiD, "+&
+        		"(select count(*) from membri_gerarchica m4a where "+&
+			" m4a.cod_dis= 'MEM' and m4a.cod_div= 2 and"+&
+			" m4a.vc_parent like '"+as_nodo+"%"+"' and "+&
+			" m4a.data_cer <= '"+as_a+"') Totale_D, " +&			
+			" (select count(distinct o5.codice) from membri_gerarchica m5, offerte o5 where  m5.cod_dis= 'MEM'  and o5.data between '"+as_da+"' and '"+as_a+"' and m5.codice= o5.codice and m5.vc_parent like '"+as_nodo+'%'+"' and m5.cod_div= 3) VersantiGU, "+&
+        		"(select count(*) from membri_gerarchica m5a where "+&
+			" m5a.cod_dis= 'MEM' and m5a.cod_div= 3 and"+&
+			" m5a.vc_parent like '"+as_nodo+"%"+"' and "+&
+			" m5a.data_cer <= '"+as_a+"') Totale_GU, " +&					
+			" (select count(distinct o6.codice) from membri_gerarchica m6, offerte o6 where  m6.cod_dis= 'MEM'  and o6.data between '"+as_da+"' and '"+as_a+"' and m6.codice= o6.codice and m6.vc_parent like '"+as_nodo+'%'+"' and m6.cod_div= 4) VersantiGD, "+&	
+        		"(select count(*) from membri_gerarchica m6a where "+&
+			" m6a.cod_dis= 'MEM' and m6a.cod_div= 4 and"+&
+			" m6a.vc_parent like '"+as_nodo+"%"+"' and "+&
+			" m6a.data_cer <= '"+as_a+"') Totale_GD, " +&					
+        		" sum ( convert(integer, m.flag_npa) ) n_npa, "+&
+			" s.descrizione "+&
+			" from membri_gerarchica m, struttura_livelli l, struttura s "+&
+			" where "+&
+			" l.livello= s.livello and "+&
+			" s.vc_nodo= '"+as_nodo+"' and "+&
+			" m.vc_parent like s.vc_nodo+'%' "+&
+			" group by "+&
+			" s.vc_nodo, "+&
+			" l.descrizione,  s.descrizione;"
+
+			return ls_query
+end function
+

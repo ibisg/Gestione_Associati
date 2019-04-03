@@ -1,0 +1,14 @@
+﻿$PBExportHeader$s_connectionparm.srs
+global type s_connectionparm from structure
+	string		dbms
+	string		database
+	string		server
+	string		dbtype
+	string		dbparm
+	string		dip
+	string		lock
+	string		autocommit
+	string		logid
+	string		logpass
+end type
+

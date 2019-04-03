@@ -1,0 +1,12 @@
+﻿$PBExportHeader$s_utente.srs
+global type s_utente from structure
+	string		s_nome
+	string		s_nome_esteso
+	integer		id_gruppo
+	string		s_gruppo
+	string		s_password
+	string		s_host
+	string		s_logname
+	boolean		b_superuser
+end type
+

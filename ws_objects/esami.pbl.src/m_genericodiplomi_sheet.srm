@@ -1,0 +1,385 @@
+﻿$PBExportHeader$m_genericodiplomi_sheet.srm
+forward
+global type m_genericodiplomi_sheet from m_genericoricerca_sheet
+end type
+type m_-0 from menu within m_gestionearchivio
+end type
+type m_selezionatutto from menu within m_gestionearchivio
+end type
+type m_faiidiplomi from menu within m_gestionearchivio
+end type
+type m_gestionearchivio from m_genericoricerca_sheet`m_gestionearchivio within m_genericodiplomi_sheet
+m_-0 m_-0
+m_selezionatutto m_selezionatutto
+m_faiidiplomi m_faiidiplomi
+end type
+end forward
+
+global type m_genericodiplomi_sheet from m_genericoricerca_sheet
+end type
+global m_genericodiplomi_sheet m_genericodiplomi_sheet
+
+on m_genericodiplomi_sheet.create
+m_genericodiplomi_sheet=this
+call super::create
+end on
+
+on m_genericodiplomi_sheet.destroy
+call super::destroy
+end on
+
+type m_gestionearchivio from m_genericoricerca_sheet`m_gestionearchivio within m_genericodiplomi_sheet
+m_-0 m_-0
+m_selezionatutto m_selezionatutto
+m_faiidiplomi m_faiidiplomi
+end type
+
+on m_gestionearchivio.create
+call super::create
+this.m_-0=create m_-0
+this.m_selezionatutto=create m_selezionatutto
+this.m_faiidiplomi=create m_faiidiplomi
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_selezionatutto
+this.Item[UpperBound(this.Item)+1]=this.m_faiidiplomi
+end on
+
+on m_gestionearchivio.destroy
+call super::destroy
+destroy(this.m_-0)
+destroy(this.m_selezionatutto)
+destroy(this.m_faiidiplomi)
+end on
+
+type m_inserimento from m_genericoricerca_sheet`m_inserimento within m_gestionearchivio
+end type
+
+on m_inserimento.create
+call super::create
+end on
+
+on m_inserimento.destroy
+call super::destroy
+end on
+
+type m_0 from m_genericoricerca_sheet`m_0 within m_gestionearchivio
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_ricerca from m_genericoricerca_sheet`m_ricerca within m_gestionearchivio
+end type
+
+on m_ricerca.create
+call super::create
+end on
+
+on m_ricerca.destroy
+call super::destroy
+end on
+
+event m_ricerca::clicked;call super::clicked;m_selezionatutto.enabled= false
+m_faiidiplomi.enabled= false
+if this.text= "Ricerca" then
+	m_selezionatutto.enabled= true
+	m_faiidiplomi.enabled= true
+end if
+end event
+
+type m_cancella from m_genericoricerca_sheet`m_cancella within m_gestionearchivio
+end type
+
+on m_cancella.create
+call super::create
+end on
+
+on m_cancella.destroy
+call super::destroy
+end on
+
+type m_-1 from m_genericoricerca_sheet`m_-1 within m_gestionearchivio
+end type
+
+on m_-1.create
+call super::create
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_salva from m_genericoricerca_sheet`m_salva within m_gestionearchivio
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_-2 from m_genericoricerca_sheet`m_-2 within m_gestionearchivio
+end type
+
+on m_-2.create
+call super::create
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_stampa from m_genericoricerca_sheet`m_stampa within m_gestionearchivio
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_-3 from m_genericoricerca_sheet`m_-3 within m_gestionearchivio
+end type
+
+on m_-3.create
+call super::create
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_annulla from m_genericoricerca_sheet`m_annulla within m_gestionearchivio
+end type
+
+on m_annulla.create
+call super::create
+end on
+
+on m_annulla.destroy
+call super::destroy
+end on
+
+type m_-4 from m_genericoricerca_sheet`m_-4 within m_gestionearchivio
+end type
+
+on m_-4.create
+call super::create
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_ordina from m_genericoricerca_sheet`m_ordina within m_gestionearchivio
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-5 from m_genericoricerca_sheet`m_-5 within m_gestionearchivio
+end type
+
+on m_-5.create
+call super::create
+end on
+
+on m_-5.destroy
+call super::destroy
+end on
+
+type m_undo from m_genericoricerca_sheet`m_undo within m_gestionearchivio
+end type
+
+on m_undo.create
+call super::create
+end on
+
+on m_undo.destroy
+call super::destroy
+end on
+
+type m_-6 from m_genericoricerca_sheet`m_-6 within m_gestionearchivio
+end type
+
+on m_-6.create
+call super::create
+end on
+
+on m_-6.destroy
+call super::destroy
+end on
+
+type m_reset from m_genericoricerca_sheet`m_reset within m_gestionearchivio
+end type
+
+on m_reset.create
+call super::create
+end on
+
+on m_reset.destroy
+call super::destroy
+end on
+
+type m_-7 from m_genericoricerca_sheet`m_-7 within m_gestionearchivio
+end type
+
+on m_-7.create
+call super::create
+end on
+
+on m_-7.destroy
+call super::destroy
+end on
+
+type m_chiudi from m_genericoricerca_sheet`m_chiudi within m_gestionearchivio
+end type
+
+on m_chiudi.create
+call super::create
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+
+type m_-100 from m_genericoricerca_sheet`m_-100 within m_gestionearchivio
+end type
+
+on m_-100.create
+call super::create
+end on
+
+on m_-100.destroy
+call super::destroy
+end on
+
+type m_salvacome from m_genericoricerca_sheet`m_salvacome within m_gestionearchivio
+end type
+
+on m_salvacome.create
+call super::create
+this.toolbaritemtext = "Salva su file"
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_export from m_genericoricerca_sheet`m_export within m_gestionearchivio
+end type
+
+on m_export.create
+call super::create
+this.toolbaritemtext = "Esporta i dati direttamente in un foglio Excel"
+end on
+
+on m_export.destroy
+call super::destroy
+end on
+
+type m_- from m_genericoricerca_sheet`m_- within m_gestionearchivio
+end type
+
+on m_-.create
+call super::create
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_ricercastruttura from m_genericoricerca_sheet`m_ricercastruttura within m_gestionearchivio
+end type
+
+on m_ricercastruttura.create
+call super::create
+this.toolbaritemtext = "Ricerca un elemento della struttura"
+end on
+
+on m_ricercastruttura.destroy
+call super::destroy
+end on
+
+type m_-0 from menu within m_gestionearchivio
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_selezionatutto from menu within m_gestionearchivio
+end type
+
+on m_selezionatutto.create
+call super::create
+this.text = "Seleziona tutto"
+this.enabled = false
+this.microhelp = "Seleziona tutto"
+this.toolbaritemname = "SelectAll!"
+this.toolbaritemtext = "Seleziona tutto"
+end on
+
+on m_selezionatutto.destroy
+call super::destroy
+end on
+
+event clicked;w_generica_sheet active_sheet
+
+active_sheet= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(active_sheet) then goto uscita
+
+active_sheet.setRedraw(false)
+
+active_sheet.uodw_current.event ue_selectall()
+
+uscita: active_sheet.setRedraw(true)
+end event
+
+type m_faiidiplomi from menu within m_gestionearchivio
+end type
+
+on m_faiidiplomi.create
+call super::create
+this.text = "Fai i diplomi"
+this.enabled = false
+this.microhelp = "Genera i diplomi"
+this.toolbaritemname = "Custom092!"
+this.toolbaritemtext = "Genera i diplomi"
+end on
+
+on m_faiidiplomi.destroy
+call super::destroy
+end on
+
+event clicked;w_stampa_diplomi_sheet active_sheet
+
+active_sheet= parentWindow.parentWindow().getActiveSheet()
+
+if NOT isValid(active_sheet) then return
+
+active_sheet.event ue_diplomi()
+
+active_sheet.setRedraw(true)
+end event
+

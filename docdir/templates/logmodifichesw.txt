@@ -1,0 +1,116 @@
+04/07/2013: Corretta maschera w_rga_membri_sheet, errori sulle condizioni di estrazione  dei vari tipi di variazione.
+04/07/2013: w_rga_membri_sheet eliminata funzione wf_retrieve e corretti valori della variabile che definisce la competenza
+09/07/2013: w_preview e dw_completa, correzioni sui filtri, più fluida apertura e resize
+16/07/2013: w_struttura_tv_tab - Tab studenti modificata la gestione della caselle a discesa
+23/07/2013: report obiettivi, corretti calcoli delle colonne totale mancanti e % mancante; modificato font weight in dw riferimenti anagrafica.
+23/07/2013: inserita procedura di invio automatico di una mail in caso di modifica password di accesso
+25/07/2013: inserita procedura di invio automatico di una mail in caso di riattivazione utenza
+25/07/2013: accesso remoto, aggiorna le date di attivazione e cambio pw in utenti_web
+25/07/2013: corretta lettera di presentazione, eliminato il livello di area tra le responsabilità
+26/07/2013: aggiunta finestra di visualizzazione delle modifiche sw effettuate, da w_info_ga
+07/11/2013: corretta ed integrata procedura di tracciamento delle variazioni nell event log
+07/11/2013: corretto bug in inserimento eventi, quando l'ambito è tutta la struttura si deve vedere tutto l'elenco delle dipendenze
+08/11/2013: corretta lista modalità di versamento in dw offerte in scheda anagrafica
+13/11/2013: Aggiunto report conteggio aventi diritto, tolto report treeview aventi diritto
+15/11/2013: Liste esami, possibile ordinare in alfabetico per qualunque livello di raggruppamento
+12/12/2013: Corretta logica di filtraggio della lista membri completa
+30/01/2014: Corretta logica in gestione utenti accesso remoto, il livello di inserimento minimo della statistica corrisponde alla responsabilità di minore livello
+04/02/2014: Corretto dropDownDw causali Goh in w_struttura_tv_tab, aggiunte linee in visualizzazione
+04/02/2014: In w_struttura_tv_tab, in caso di cancellazione corretta procedura di refresh sull'item di struttura
+05/02/2014: Ora possibile stampare bollettini singoli anche per TFE
+10/02/2014: Aggiunto un report per estrarre la lista della divisione Futuro
+13/02/2014: Correzione su finestra modale Attendi... su invio liste
+20/02/2014: Scommentato l'inserimento in storico Gohonzon da cerimonia entrata; a suo tempo commentato per errore
+03/03/2014: Modificati report Organigramma e Quadro generale; velocizzata l'estrazione.
+04/03/2014: In sessioni esami nuova funzione di inserimento nuova sessione
+07/03/2014: Login, modificato il messaggio di errore in caso di disattivazione e riportato a 180 gg il periodo max di inattività prima della disattivazione
+10/03/2014: Modificato diploma esami con firme nuovi responsabili
+13/03/2014: Aggiunta data diploma alla gestione sessioni di esame. sul diploma comparirà questa data.
+11/06/2014: Modifiche e correzioni ai modelli dei diplomi di esame.
+25/06/2014: Correzione a report consulta, attivazione menu salva.
+30/06/2014: Modifica policy di accesso ai dati personali offerte: accesso possibile solo per direzione segreteria
+11/07/2014: Correzione a procedura di login, se l'utenza viene disattivata perchè mai utilizzata per più di 180 giorni valorizza alla data odierna la data di attivazione
+14/07/2014: Aggiunti 3 decimali alla % in report consegne per anno con incremento.
+15/09/2014: Corretto problema su visualizzazione appartenenza gli organi in dw anagrafica, il campo era scrivibile, deve essere read-only.
+23/09/2014: Modificato il report consegne per anno e per divisione.
+06/10/2014: Corretta la sequenza di verifica su db nella procedura di inserimenti/cancellazione elementi di struttura
+23/10/2014: In linea il nuovo DB CAP, modificata la finestra di ricerca CAP, nuovo db si chiama cap2014
+23/10/2014: Modifica procedura cancellazione dimissionari, aggiunto redraw della dw con il dettaglio del gruppo
+29/10/2014: Modificata query nei report struttura: messo ".%" invece di "%"
+03/11/2014: Aggiunta colonna DB flag_rappreg alla tabella membri_gerarchica e alla dw_consulta. (richiesta di Alberto Aprea)
+04/11/2014: Corretta query generazione dw_cerca_cap in modo che possano essere estratte anche le provincie = NULL
+06/11/2014: Modificata modalità di gestione della w_wait
+07/11/2014: Corretta procedura di reinerimento dimissionari, nelòla insert mancava un valore di una colonna
+11/11/2014: Aggiunto un setRedraw nella funzione uf_visualizzanuovoitem in uotv_struttura
+14/11/2014: Liste esami, modificata modalità di raggrupamento in caso di liste con livelli differenti
+20/11/2014: In tab offerte il bottone è un toggle Visualizza/Nascondi
+25/11/2014: In finestra conferma nuova password corretto bug, nella sle di conferma metteva tutto minuscolo
+26/11/2014: Modificata w_ordina, con doppio clic si spostano le colonne dalla dw_source alla dw_target.
+02/12/2014: Modificata w_cap_poste, inserito oggetto n_connection per la connessione al db cap
+15/12/2014: Modificata w_esami_tab in esiti; modificato il testo del bottone ricerca
+19/01/2015: Corretta procedura entrata aspiranti membri, quando si compila il form dati anagrafici, corretto errore nel controllo di omonimie con membri.
+20/02/2015: Modificata procedura gestione dimissioni, la scheda anagrafica ora deve essere stampata in Amministrazione -> Gestione dimissionari
+02/03/2015: Il flag_er può essere modificato se si è di Direzione Segreteria e solo se la data_cer è inferiore o uguale al 27/03/1998, data in cui siamo diventati ente religioso.
+11/03/2015: Aggiunto in Struttura una funzione di ricerca delle variazioni effettuate in RGA
+25/03/2015: Modificata gestione delle liste di invio; viene utilizzato il server SMTP di Office365, le credenziali user/pw vengono introdotte dall'utente all'atto dell'invio, nel caso degli sms user/pw vengono letti nel connection.ini
+03/04/2015: Modificato l'oggetto uotv_struttura, funzione uf_populate in modo da poter visualizzare più nodi al livello root nel caso in cui l'ambito operativo comprenda più entità allo stesso livello.
+07/04/2015: Modificati tutti gli oggetti interessati alla nuova gestione di più nodi a livello root
+08/04/2015: Modificata gestione presenze consulta in eventi, aggiunta possibilità di aggiornare adesione, presenza e un campo note
+13/04/2015: Corretto bug su funzione f_verificaesami, il trasferimento automatico non prevedeva che ci fossero due sessioni contemporanee di diversi livelli
+15/04/2015: Esami, aggiunta possibilità di nascondere la colonna voti nel report finale
+16/04/2015: In caso di variazione del voto minimo in gestione sessioni esami viene attivato un controllo in esiti esami in modo che rilevi il cambiamento ed avverta l'operatore di rieseguire la procedura di applicazione del voto minimo 
+23/04/2015: Stampa badge, corretto bug in stampa badge membri
+06/05/2015: Rivista procedura di aggiornamento esami_curr finale esami; 
+28/05/2015: Modificata dw lista dim
+28/05/2015: Modificata dw gestione liste, ora visualizza anche le liste di tipo T e ne consente modifica e cancellazione
+08/06/2015: Corretto bug in inserimento riferimenti, in alcune condizioni era possibile salvare senza riferimenti predefiniti.
+09/06/2015: Corretta funzione ricerca struttura in tv_struttura, gestisce gli apostrofi all'interno della stringa di ricerca e utilizzai una datastore per velocizzare la ricerca.
+06/07/2015: Corretto bug su reinserimento dimissionari in dw_dimissionari.
+30/07/2015: Corretto bug su visualizzazione scheda anagrafica in gestione struttura, tolto setPointer superfluo.
+31/07/2015: Corretto bug in cancellazione spostamento entità di struttura, il controllo di variazioni esistenti su RGA non era svolto correttamente.
+04/08/2015: Aggiunto campo note in esami/esiti
+25/08/2015: Gestione dimissionari: aggiunta la possibilità di aggiornare il campo dt_ult_mod
+03/10/2015: In gestione esami, la maschera del conteggio aventi diritto è stata modificata nel layout, aggiunti i criteri di estrazione nell'intestazione del report del report
+18/11/2015: In inserimento eventi, i campi obbligatori non venivano controllati prima dell'aggiornamento, inserito controllo con funzione f_checknull
+09/12/2015: In Login momentaneamente commentata la funzione di disattivazione utenza dopo 365 giorni di non utilizzo
+09/12/2015: In cambio status, se TAI viene cancellato l'eventuale record da utenti_web
+09/12/2015: Corretto bug in esami, ricerca persone tra tutte le sedi; estraeva le persone di tutti i livelli e non solo i partecipanti a quella sessione.
+04/01/2016: In liste dettaglio aggiunta la colonna Regione
+13/01/2016: In scheda anagrafica aggiunto controllo per evitare di inserire spazi vuoti all'inizio di cognome  e nome.
+15/01/2016: In w_insert_item, se cancella gruppo o settore aggiorna anche la corrispondente richiesta variazione in rga_variazioni come effettuata.
+20/01/2016: Nei report offerte aggiunta la condizione che le offerte non devono essere state cancellate (flag cancellate= 0)
+29/01/2016: Menu gestione eventi rese non visibii alcune voci
+08/02/2016: In w_struttura_tv_tab, in altri tipi di estrazione, dopo il dippio click sul report tornava in anagrafica ma l'altezza della dw era mal calcolata.
+11/02/2016: Cancellazione DIM, corretta la gestione del log modifiche
+12/02/2016: In anagrafica lo status DIM compare nel menu a tendina solo per gli operatori abilitati
+15/02/2016: In inserimento elementi di struttura corretto bug per cui l'operatore poteva inserire elementi vuoti.
+29/02/2016: Eliminato controllo su richieste RGA pendenti in spostamento elementi di struttura.
+23/05/2016: Gestione accesso remoto, possono accedere anche i supervisori RGA solo per attivare gli utenti RGA
+13/06/2016: Correzione sulla procedura unisci liste di consegna/sostituzione, scorretto il codice sql della query, sintassi outer join
+03/08/2016: Ripristinato il controllo sull'età (minore di 16 anni) su aspiranti e scheda anagrafica; corretta la funzione f_min(data)
+31/08/2016: Corretto bug su estrazione organigrammi, in caso di entità di struttira con nomi simili es: "MA" e "MAE" dava errore
+02/09/2016: Aggiunto tracciamento errori sql, rilevati nella funzione trap_sql e inseriti nella tabella sql_errors
+29/09/2016: Implementata gestione deceduti, vengono spostati in tabelle a parte, prevista anche la procedura di recupero in caso di errore.
+29/09/2016: Storico Gohonzon anche in gestione dimissionari e deceduti con possibilità di aggiornamento e inserimento nuovi record
+14/10/2016: Ripristinata funzione di invio email (con Outlook2016) dal tab riferimenti.
+20/10/2016: Abilitata funzione liste per gli utenti consultatori, la funzione viene gestita nella gestione accesso remoto.
+03/11/2016: Corretta Join in estrazione liste di recapito in invio messaggi
+06/12/2016: In inserimento riferimenti modificata l'azione del bottone "Annulla"
+20/12/2016: In Gestione Struttura, Aggiungi/Rimuovi, aggiunta verifica lunghezza del codice struttura, min. 3 caratteri e controllo che siano inseriti solo lettere o numeri.
+18/01/2017: Inserito il campo codice fiscale in anagrafica e aspiranti; nuova funzione di controllo della checkdigit del c.f.
+28/02/2017: Modificata maschera gestione eventi, in inserimento eventi corretta la funzione di attribuzione data inizio e data fine.
+03/04/2017: Modificata l'età minima di ingresso nell'IBISG, da 16 anni a 14 (funzione f_min() )
+11/04/2017: Nuova funzione SQL uf_parse_struttura utilizzata in organigrammi e altro
+26/04/2017: Nuovo layout report organigrammi.
+07/06/2017: Disattivata possibilità di salvare le liste automatiche.
+17/10/2017: In anagrafica, trasferimenti dall'esterno, inserito un warning: se la persona in trasferimento ha responsabilità segnala all'operatore la necessità di effettuare una verifica sull'eventuale conferma della/e responsabilità.
+26/03/2018: I dati dei membru fuori struttuta (DEC, TFE, ISG, DIM) vengono spostati in un archivio separato al momento del cambiamento di stato.
+26/03/2018: Inserita la colonna flag_ministro_culto, si valorizza in Organi e viene visualizzata anche nella scheda anagrafica.
+26/03/2018: Non si utilizza più il flag_E.R., diventa uno status (ISG)
+26/03/2018: Ora sarà possibile inserire un solo riferimento per tipo, scompare il flag "predefinito"
+26/03/2018: Al posto di "Divisione" ora si mette "Gruppo"
+26/03/2018: Migliorato il tracciamento delle modifiche nella scheda anagrafica.
+26/03/2018: Autenticazione ora solo con codice membro e password.
+16/05/2018: Sessioni esami, quando si genera una lista è possibile filtrare per responsabilità e/o gruppi adulti o giovani
+13/06/2018: Implementata gestione di password crittate
+14/06/2018: email modificabile solo dall'utente nello Spazio Aderenti o dagli ads nel pannello gestione utenze

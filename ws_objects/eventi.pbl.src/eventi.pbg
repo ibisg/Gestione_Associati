@@ -1,0 +1,38 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "eventi.pbl" "";
+@end;
+@begin Objects 
+ "dctb_consulta_presenze.srd" "eventi.pbl";
+ "dddw_eventi_tipo.srd" "eventi.pbl";
+ "ds_eventi_compiti.srd" "eventi.pbl";
+ "ds_eventi_id.srd" "eventi.pbl";
+ "dw_consulta_filtra.srd" "eventi.pbl";
+ "dw_consulta_presenze.srd" "eventi.pbl";
+ "dw_dettaglio_eventi.srd" "eventi.pbl";
+ "dw_eventi.srd" "eventi.pbl";
+ "dw_eventi_luoghi.srd" "eventi.pbl";
+ "dw_eventi_messages.srd" "eventi.pbl";
+ "dw_eventi_sale.srd" "eventi.pbl";
+ "dw_ins_eventi.srd" "eventi.pbl";
+ "dw_todolist.srd" "eventi.pbl";
+ "dwc_luoghi.srd" "eventi.pbl";
+ "dwc_sale.srd" "eventi.pbl";
+ "dwc_tipo_eventi.srd" "eventi.pbl";
+ "tvdw_eventi.srd" "eventi.pbl";
+ "tvdw_eventi_sale.srd" "eventi.pbl";
+ "m_gestione_eventi.srm" "eventi.pbl";
+ "m_preview_todolist.srm" "eventi.pbl";
+ "s_evento.srs" "eventi.pbl";
+ "w_consulta_filtra.srw" "eventi.pbl";
+ "w_consulta_presenze.srw" "eventi.pbl";
+ "w_consulta_statistiche.srw" "eventi.pbl";
+ "w_eventi.srw" "eventi.pbl";
+ "w_eventi_luoghi.srw" "eventi.pbl";
+ "w_eventi_sale.srw" "eventi.pbl";
+ "w_ins_eventi.srw" "eventi.pbl";
+ "w_ins_eventi_sale.srw" "eventi.pbl";
+ "w_mod_eventi.srw" "eventi.pbl";
+ "w_seleziona_consulta.srw" "eventi.pbl";
+ "w_todolist.srw" "eventi.pbl";
+@end;

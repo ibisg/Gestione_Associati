@@ -1,0 +1,46 @@
+﻿$PBExportHeader$dw_membri_per_anno.srd
+$PBExportComments$Report: nuovi entrati per anno
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=252 color="536870912" )
+header[2](height=120 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=number updatewhereclause=yes name=anno dbname="anno" )
+ column=(type=number updatewhereclause=yes name=cod_mese dbname="cod_mese" )
+ column=(type=char(20) updatewhereclause=yes name=mese dbname="mese" )
+ column=(type=number updatewhereclause=yes name=totale dbname="totale" )
+ retrieve="select datepart(year, data_cer) anno, mesi.id cod_mese, mesi.mese mese, membri_gerarchica.cod_div, divisione.descrizione divisione, count(*) totale
+
+from membri_gerarchica , divisione, mesi
+
+where
+
+membri_gerarchica.cod_div= divisione.cod_div and
+
+datepart(month, data_cer)= mesi.id and
+
+membri_gerarchica.vc_parent like :vc_nodo
+
+group by 
+
+datepart(year, data_cer) , mesi.id , mesi.mese , membri_gerarchica.cod_div, divisione.descrizione 
+
+having datepart(year, data_cer)= :anno_entrata
+
+order by anno, mesi.id, membri_gerarchica.cod_div" arguments=(("vc_nodo", string),("anno_entrata", number),("livello", number))  sort="anno A cod_mese A mese A " )
+text(band=header[1] alignment="0" text=" " border="0" color="0" x="9" y="4" height="52" width="334"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[1] alignment="0" text="obj_1" border="0" color="0" x="352" y="4" height="52" width="165"  name=t_2  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Anno" border="0" color="0" x="9" y="4" height="52" width="334"  name=anno_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Cod Mese" border="0" color="0" x="352" y="4" height="52" width="165"  name=cod_mese_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Mese" border="0" color="0" x="526" y="4" height="52" width="507"  name=mese_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="@col" border="0" color="0" x="1042" y="4" height="52" width="681"  name=totale_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="76" width="334" format="[general]"  name=anno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="352" y="4" height="76" width="165" format="[general]"  name=cod_mese edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="33554432" x="526" y="4" height="76" width="507" format="[general]"  name=mese edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="1042" y="4" height="76" width="681" format="###,###,##0"  name=totale edit.limit=0 edit.case=any edit.format="###,###,##0" edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "string( cod_div )+~" - ~"+ divisione" rows = "anno, cod_mese, mese" values = "totale" sourcenames = "anno, cod_mese, mese, cod_div, divisione, totale")
+sparse(names="anno	cod_mese")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

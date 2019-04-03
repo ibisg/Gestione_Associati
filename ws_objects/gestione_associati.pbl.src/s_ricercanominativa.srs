@@ -1,0 +1,9 @@
+﻿$PBExportHeader$s_ricercanominativa.srs
+global type s_ricercanominativa from structure
+	decimal { 0 }		id
+	string		codice
+	string		cognome
+	string		nome
+	string		cod_dip
+end type
+

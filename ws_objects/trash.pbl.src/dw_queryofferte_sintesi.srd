@@ -1,0 +1,49 @@
+﻿$PBExportHeader$dw_queryofferte_sintesi.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=164 color="536870912" )
+summary(height=148 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=descrizione_livello dbname="descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=descrizione_struttura dbname="descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=descrizione dbname="descrizione" )
+ column=(type=long updatewhereclause=yes name=versanti dbname="versanti" )
+ column=(type=long updatewhereclause=yes name=non_versanti dbname="non_versanti" )
+ column=(type=decimal(2) updatewhereclause=yes name=importo dbname="importo" )
+ retrieve="select
+s11.descrizione,
+l1.descrizione,
+s1.descrizione, 
+count(distinct m1.codice) versanti,
+(select count(*)  from membri_gerarchica m2 where NOT EXISTS 
+(select 1 from offerte o2 where o2.codice= m2.codice and datepart(year, o2.data)= :anno ) ) non_versanti,
+sum(o1.importo) importo
+from membri_gerarchica m1, offerte o1, struttura s1, struttura s11, struttura_livelli l1
+where m1.codice = o1.codice
+and s1.livello= l1.livello  
+and datepart(year, o1.data)= :anno
+and m1.vc_parent like :struttura+'%'
+and s1.vc_nodo like :struttura+~"%~"
+and s1.livello= :livello
+and s11.vc_nodo=  :struttura
+group by s11.descrizione, l1.descrizione, s1.descrizione
+having sum(o1.importo) > 0;" arguments=(("anno", number),("struttura", string),("livello", number))  sort="descrizione_livello A descrizione_struttura A " )
+roundrectangle(band=header ellipseheight="36" ellipsewidth="41"x="0" y="0" height="160" width="3374"  name=rr_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression=" ~"Report offerte per ~"+descrizione_livello + ~" ~" +  descrizione_struttura + ~" al ~"+string(today(), ~"dd.mm.yyyy~")"border="0" color="0" x="23" y="28" height="108" width="3319" format="[GENERAL]"  name=descrizione  font.face="Tahoma" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" versanti +  non_versanti "border="0" color="0" x="1879" y="4" height="76" width="384" format="###,###,###,##0"  name=ctotale  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="versanti / ctotale"border="0" color="0" x="2281" y="4" height="76" width="302" format="##0.00 %"  name=cperc  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2601" y="4" height="76" width="384" format="###,###,###,##0.00"  name=importo editmask.mask="###,###,###,##0.00" editmask.focusrectangle=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="importo /  ctotale "border="0" color="0" x="3003" y="4" height="76" width="384" format="###,###,###,##0.00"  name=cmedia  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1477" y="4" height="76" width="384" format="###,###,###,##0"  name=non_versanti editmask.mask="###,###,###,###" editmask.focusrectangle=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1074" y="4" height="76" width="384" format="###,###,###,##0"  name=versanti editmask.mask="###,###,###,##0" editmask.focusrectangle=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="~"Totale ~"+ descrizione_livello + ~" ~" +  descrizione_struttura "border="0" color="0" x="14" y="8" height="76" width="1042" format="[GENERAL]"  name=compute_5  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/* sum(  versanti  for group 1 ) */"border="0" color="0" x="1074" y="48" height="76" width="384" format="###,###,###,##0"  name=cversanti1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/* sum(  ctotale  for group 1 ) */"border="0" color="0" x="1879" y="48" height="76" width="384" format="###,###,###,##0"  name=ctotale1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/*  cversanti1 / ctotale1 */"border="0" color="0" x="2281" y="48" height="76" width="302" format="##0.00 %"  name=cperc1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/* sum(  importo  for group 1 ) */"border="0" color="0" x="2601" y="48" height="76" width="384" format="###,###,###,##0.00"  name=cimporto1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/*  cimporto1 /  ctotale1  */"border="0" color="0" x="3003" y="48" height="76" width="384" format="###,###,###,##0.00"  name=cmedia1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="/* sum(  non_versanti  for group 1 ) */"border="0" color="0" x="1477" y="48" height="76" width="384" format="###,###,###,##0"  name=cnon_versanti1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="3387" y="0" height="52" width="1381"  name=descrizione_1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

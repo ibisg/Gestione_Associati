@@ -1,0 +1,87 @@
+﻿$PBExportHeader$f_verificalistaesame_old.srf
+global type f_verificalistaesame_old from function_object
+end type
+
+forward prototypes
+global function integer f_verificalistaesame_old (string as_codice, string as_vc_nodo_tgt)
+end prototypes
+
+global function integer f_verificalistaesame_old (string as_codice, string as_vc_nodo_tgt);decimal id_esame
+integer li_ret, li_len, li_max
+string dip_esame, dip_tgt, ls_dip
+
+
+// Individua la dip. di arrivo
+
+declare dip_cur cursor for
+select cod_dip, len(vc_nodo)
+from dipendenze
+where 	cod_dip <> "IT" and 
+			vc_nodo = substring(:as_vc_nodo_tgt, 1, len(vc_nodo));
+			
+open dip_cur;			
+if trap_sql(sqlca, "VERESAMI01") < 0 then goto errore
+
+
+do while sqlca.sqlcode= 0
+	
+	fetch dip_cur into :ls_dip, :li_len;
+	if trap_sql(sqlca, "VERESAMI02") < 0 then goto errore
+	
+	if li_len > li_max then
+		li_max= li_len
+		dip_tgt= ls_dip
+	end if
+	
+loop
+
+close dip_cur;
+
+// Verifica la presenza della persona su liste esami
+
+	select id
+	into :id_esame
+	from esami
+	where codice= :as_codice;
+	
+	if trap_sql(sqlca, "VERESAMI03") < 0 then goto errore
+
+	if sqlca.sqlcode= 100 then return 0
+
+	select cod_dip
+	into :dip_esame
+	from eventi
+	where id= :id_esame;
+	
+	if trap_sql(sqlca, "VERESAMI04") < 0 then goto errore
+
+if dip_esame= dip_tgt then return 0
+
+li_ret= messageBox("Trasferimenti", "Questa persona è presente in una lista esami della dipendenza "+dip_esame+"~nVerrà cancellata e dovrà essere inserita in una lista esami locale.", information!, okCancel!, 2)
+
+if li_ret= 2 then goto errore
+	
+	delete from esami where codice= :as_codice and id= :id_esame;
+	
+	if trap_sql(sqlca, "VERESAMI05") < 0 then
+		
+		rollback;
+		goto errore
+		
+	end if
+	
+	//commit;
+	
+	//if trap_sql(sqlca, "VERESAMI04") < 0 then return -1
+
+return 0
+
+errore:
+
+close dip_cur;
+
+return -1
+
+
+end function
+

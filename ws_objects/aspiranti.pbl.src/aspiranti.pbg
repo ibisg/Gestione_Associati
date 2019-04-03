@@ -1,0 +1,45 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "aspiranti.pbl" "";
+@end;
+@begin Objects 
+ "dw_anagrafica_aspiranti.srd" "aspiranti.pbl";
+ "dw_aspiranti_membri.srd" "aspiranti.pbl";
+ "dw_aspiranti_prenotazioni.srd" "aspiranti.pbl";
+ "dw_aspiranti_riferimenti.srd" "aspiranti.pbl";
+ "dw_conferma_aspiranti.srd" "aspiranti.pbl";
+ "dw_conteggio_cerimonia.srd" "aspiranti.pbl";
+ "dw_doppioni.srd" "aspiranti.pbl";
+ "dw_header_eventi.srd" "aspiranti.pbl";
+ "dw_ins_aspiranti_prenotazioni.srd" "aspiranti.pbl";
+ "dw_ins_riferimenti_asp.srd" "aspiranti.pbl";
+ "dw_labels_asp.srd" "aspiranti.pbl";
+ "dw_lista_aspiranti.srd" "aspiranti.pbl";
+ "dw_sel_cerimonia.srd" "aspiranti.pbl";
+ "dw_seleziona_aspiranti.srd" "aspiranti.pbl";
+ "dw_sposta_cerimonia.srd" "aspiranti.pbl";
+ "dw_stampa_sostituzioni.srd" "aspiranti.pbl";
+ "dw_storico_consegne.srd" "aspiranti.pbl";
+ "dw_storico_consegne_anno.srd" "aspiranti.pbl";
+ "dw_storico_consegne_data.srd" "aspiranti.pbl";
+ "dw_unisci_cerimonie.srd" "aspiranti.pbl";
+ "dw_unisci_liste.srd" "aspiranti.pbl";
+ "edw_livelli_struttura.srd" "aspiranti.pbl";
+ "edw_livello_da_a.srd" "aspiranti.pbl";
+ "edw_reportcerimonie.srd" "aspiranti.pbl";
+ "edw_reportcerimonieanno.srd" "aspiranti.pbl";
+ "edw_unisci_cerimonie.srd" "aspiranti.pbl";
+ "f_gencod.srf" "aspiranti.pbl";
+ "s_prenotazioni.srs" "aspiranti.pbl";
+ "w_aspiranti_prenotazioni.srw" "aspiranti.pbl";
+ "w_entrata.srw" "aspiranti.pbl";
+ "w_gestione_cerimonie.srw" "aspiranti.pbl";
+ "w_ins_aspiranti_prenotazioni.srw" "aspiranti.pbl";
+ "w_ricerca_doppioni.srw" "aspiranti.pbl";
+ "w_sel_cerimonie.srw" "aspiranti.pbl";
+ "w_seleziona_aspiranti.srw" "aspiranti.pbl";
+ "w_seleziona_cerimonie.srw" "aspiranti.pbl";
+ "w_sposta_cerimonia.srw" "aspiranti.pbl";
+ "w_unisci_cerimonie.srw" "aspiranti.pbl";
+ "w_unisci_liste.srw" "aspiranti.pbl";
+@end;

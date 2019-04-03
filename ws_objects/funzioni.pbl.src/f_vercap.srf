@@ -1,0 +1,45 @@
+﻿$PBExportHeader$f_vercap.srf
+global type f_vercap from function_object
+end type
+
+forward prototypes
+global function s_strade f_vercap (s_strade as_strade_s)
+end prototypes
+
+global function s_strade f_vercap (s_strade as_strade_s);integer i_err, li_exists
+string ls_vercap
+
+select cap into :ls_vercap from tab_comuni where cod_com= :as_strade_s.cod_com;
+if trap_sql(sqlca, "VERCAP01") < 0 then goto errore
+
+select count(*)  into :li_exists from cap_generici where cap= :ls_vercap;
+if trap_sql(sqlca, "VERCAP02") < 0 then goto errore
+
+if isNull(li_exists) or li_exists= 0 then // se non è un cap generico...
+	if ls_vercap <> as_strade_s.cap then
+		i_err= messageBox("Verifica C.A.P.", "Il C.A.P. corretto relativo alla località "+as_strade_s.comune+" ("+as_strade_s.provincia+") è: "+ls_vercap+"~nVuoi eseguire la correzione?", question!, yesNo!, 1)
+		as_strade_s.return_code= 2
+		if i_err= 2 then as_strade_s.return_code= 0
+		as_strade_s.cap= ls_vercap
+	else
+		messageBox("Verifica C.A.P.", "Il C.A.P. "+ls_vercap+ " relativo alla località "+as_strade_s.comune+" ("+as_strade_s.provincia+") è corretto.")
+		as_strade_s.return_code= -1
+	end if
+else // se è un cap generico...
+
+			messageBox("Verifica C.A.P.", "Il C.A.P. relativo alla località "+as_strade_s.comune +" ("+as_strade_s.provincia+") è un C.A.P. generico.~nOccorre eseguire la ricerca del C.A.P. nell'archivio strade.", information!)
+			
+			OpenWithParm(w_cerca_strade, as_strade_s)
+			as_strade_s= message.powerObjectParm
+		
+end if
+
+return as_strade_s
+
+errore:
+
+as_strade_s.return_code= -1
+
+return as_strade_s
+end function
+

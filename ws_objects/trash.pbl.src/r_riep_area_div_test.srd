@@ -1,0 +1,101 @@
+﻿$PBExportHeader$r_riep_area_div_test.srd
+release 7;
+datawindow(units=3 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 635 print.margin.right = 635 print.margin.top = 635 print.margin.bottom = 635 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=1164 color="15793151" )
+summary(height=1217 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1270 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_status dbname="membri_gerarchica.status" )
+ column=(type=decimal(2) updatewhereclause=yes name=importo dbname="importo" )
+ column=(type=decimal(2) updatewhereclause=yes name=zero dbname="zero" )
+ column=(type=long updatewhereclause=yes name=n_soci dbname="n_soci" )
+ column=(type=char(60) updatewhereclause=yes name=varee_area dbname="varee.area" )
+ column=(type=char(1) updatewhereclause=yes name=membri_gerarchica_divisione dbname="membri_gerarchica.divisione" )
+ retrieve="  SELECT membri_gerarchica.flag_dis status,   
+         sum ( offerte_gerarchica.importo ) importo,   
+			offerte_gerarchica.importo*0 zero, 
+         count ( distinct membri_gerarchica.codice ) n_soci,   
+         varee.descrizione area,   
+         membri_gerarchica.cod_div divisione
+    FROM membri_gerarchica,   
+         offerte_gerarchica,    
+         vgruppi,   
+         vsettori,   
+         vcapitoli,   
+         vcentri,   
+         vterritori,   
+         varee   
+   WHERE ( membri_gerarchica.codice *= offerte_gerarchica.codice) and  
+         		varee.codice like :v_area and
+			datepart ( year, offerte_gerarchica.data ) = :v_anno and 
+			offerte_gerarchica.data  <= :v_finoa and 
+			membri_gerarchica.data_cer  <= :v_finoa and 
+			membri_gerarchica.flag_er = 'S' and
+			( membri_gerarchica.livello = vgruppi.livello ) and  
+        		( membri_gerarchica.id_nodo = vgruppi.id_nodo ) and  
+         		( vgruppi.id_parent = vsettori.id_nodo ) and  
+         		( vsettori.id_parent = vcapitoli.id_nodo ) and  
+         		( vcapitoli.id_parent = vcentri.id_nodo ) and  
+         		( vcentri.id_parent = vterritori.id_nodo ) and  
+         		( vterritori.id_parent = varee.id_nodo )    
+GROUP BY membri_gerarchica.flag_dis,varee.descrizione,   
+         membri_gerarchica.cod_div, offerte_gerarchica.importo*0
+
+" arguments=(("v_area", string),("v_anno", number),("v_finoa", date)) )
+group(level=1 header.height=687 trailer.height=608 by=("varee_area" ) newpage=yes resetpagecount=yes header.color="15793151" trailer.color="536870912"  sort=" varee_area  A " )
+group(level=2 header.height=873 trailer.height=846 by=("membri_gerarchica_status" ) header.color="536870912" trailer.color="553648127"  sort=" membri_gerarchica_status  A " )
+group(level=3 header.height=0 trailer.height=423 by=("membri_gerarchica_divisione" ) header.color="536870912" trailer.color="536870912"  sort=" membri_gerarchica_divisione  A " )
+compute(band=header alignment="0" expression="today()"border="0" color="8388608" x="8334" y="767" height="370" width="2037" format="dd/mm/yyyy"  name=compute_1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="Contributi per area, esploso per divisione - Generato il:" border="0" color="8388608" x="79" y="767" height="343" width="8122"  name=t_1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="                                                                                               " border="0" color="0" x="105" y="158" height="423" width="10054"  name=st_rag  font.face="Tahoma" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="~"Situazione per l'anno ~" + string ( v_anno )"border="0" color="8388608" x="11615" y="26" height="370" width="5053" format="[general]"  name=compute_2  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="0" expression="~"Pag. ~"+page()+~" di ~"+pageCount()"border="0" color="8388608" x="14366" y="793" height="370" width="2328" format="[general]"  name=compute_3  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=header alignment="1" expression="~"(fino a ~" + string ( v_finoa )+~")~""border="0" color="8388608" x="12991" y="423" height="370" width="3677" format="[general]"  name=compute_8  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+text(band=header.1 alignment="1" text="Area" border="0" color="8388608" x="1084" y="132" height="502" width="1084"  name=t_2  font.face="Tahoma" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=header.2 x1="26" y1="53" x2="17039" y2="53"  name=l_1 pen.style="0" pen.width="52" pen.color="8388608"  background.mode="2" background.color="15793151" )
+text(band=header.2 alignment="2" text="Versanti" border="0" color="8388608" x="3413" y="133" height="343" width="2513"  name=t_3  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="% vers." border="0" color="8388608" x="7223" y="503" height="343" width="1402"  name=t_13  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Tot." border="0" color="8388608" x="5953" y="503" height="343" width="1217"  name=t_12  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="No" border="0" color="8388608" x="4683" y="503" height="343" width="1217"  name=t_10  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Sì" border="0" color="8388608" x="3413" y="503" height="343" width="1217"  name=t_11  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Totale
+versato" border="0" color="8388608" x="8704" y="159" height="687" width="3201"  name=t_7  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header.2 alignment="2" text="Media
+versamenti" border="0" color="8388608" x="11959" y="159" height="687" width="2090"  name=t_9  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="/* if (  tot_vers > 0,  cn_soci ,  0 ) */"border="2" color="8388608" x="17012" y="185" height="635" width="1878" format="[general]"  name=t_vers visible="1~t0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="/* if (  tot_vers > 0, 0,  cn_soci ) */"border="2" color="8388608" x="14393" y="185" height="714" width="2116" format="[general]"  name=t_nonvers visible="1~t0"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="/* if(membri_flag_dis= 'N', cn_soci, 0) */"border="0" color="8388608" x="11535" y="53" height="370" width="1005" format="[general]"  name=c_attivi visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="/* if(tot_vers > 0, cn_soci, 0) */"border="0" color="8388608" x="4921" y="27" height="370" width="1005" format="[general]"  name=c_att_pag visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="/* if(tot_vers > 0, 0,cn_soci) */"border="0" color="8388608" x="2804" y="80" height="370" width="1005" format="[general]"  name=c_att_np visible="1~t0"  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=trailer.3 alignment="1" expression="/* string(round ( c_totpag4 *100/c_totpers4, 2 ))+' %' */"border="2" color="8388608" x="7223" y="0" height="370" width="1402" format="[General]"  name=compute_9  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.3 alignment="2" expression="/* sum(  cn_soci  for group 3 ) */"border="2" color="8388608" x="5953" y="0" height="370" width="1217" format="###.###.##0"  name=c_totpers4  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.3 alignment="2" expression="/* sum(  c_att_np  for group 3 ) */"border="2" color="8388608" x="4683" y="0" height="370" width="1217" format="###.###.##0"  name=c_totnp4  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.3 alignment="2" expression="/* sum(  c_att_pag  for group 3 ) */"border="2" color="8388608" x="3413" y="0" height="370" width="1217" format="###,###,##0.00"  name=c_totpag4  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+rectangle(band=trailer.2 x="26" y="0" height="449" width="15134"  name=r_1 brush.hatch="6" brush.color="15780518~tif (membri_flag_dis = 'S', rgb(255,255,255),rgb(240,240,240) )" pen.style="5" pen.width="26" pen.color="15780518"  background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="if  (membri_gerarchica_status = 'S', 'Tot. non attivi:', ' Tot. attivi:' ) "border="0" color="8388608" x="79" y="27" height="370" width="3095" format="[general]"  name=compute_5  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="/* string(round ( c_totpag2 *100/c_totpers2, 2 ))+' %' */"border="2" color="8388608" x="7223" y="27" height="370" width="1402" format="[General]"  name=compute_12  font.face="Tahoma" font.height="-8" font.weight="700~tif (membri_flag_dis = 'S',400,700 )"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="2" expression="/* sum(  cn_soci  for group 2 ) */"border="2" color="8388608" x="5953" y="27" height="370" width="1217" format="###,###,##0.00"  name=c_totpers2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="2" expression="/* sum(  c_att_np  for group 2 ) */"border="2" color="8388608" x="4683" y="27" height="370" width="1217" format="###,###,##0.00"  name=c_totnp2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="2" expression="/* sum(  c_att_pag  for group 2 ) */"border="2" color="8388608" x="3413" y="27" height="370" width="1217" format="###,###,##0.00"  name=c_totpag2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="/* sum ( tot_vers for group 2 ) */"border="2" color="8388608" x="8704" y="27" height="370" width="3201" format="###,###,##0.00"  name=c_totvers2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="/* round ( c_totvers2 /c_totpag2, 2 ) */"border="2" color="8388608" x="11959" y="27" height="370" width="2090" format="###,###,##0.00"  name=compute_14  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="/* string(round ( c_totpag1 *100/c_totpers1, 2 ))+' %' */"border="2" color="8388608" x="7223" y="185" height="370" width="1402" format="[General]"  name=compute_13  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="2" expression="/* sum(  cn_soci  for group 1 ) */"border="2" color="8388608" x="5953" y="185" height="370" width="1217" format="###,###,##0.00"  name=c_totpers1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="2" expression="/* sum(  c_att_np  for group 1 ) */"border="2" color="8388608" x="4683" y="185" height="370" width="1217" format="###,###,##0.00"  name=c_totnp1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="2" expression="/* sum(  c_att_pag  for group 1 ) */"border="2" color="8388608" x="3413" y="185" height="370" width="1217" format="###,###,##0.00"  name=c_totpag1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="/* sum ( tot_vers for group 1 ) */"border="2" color="8388608" x="8704" y="185" height="370" width="3201" format="###,###,##0.00"  name=c_totvers1  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+compute(band=trailer.1 alignment="1" expression="/* round ( c_totvers1 /c_totpag1, 2 ) */"border="2" color="8388608" x="11959" y="185" height="370" width="2090" format="###,###,##0.00"  name=compute_16  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+line(band=trailer.1 x1="26" y1="53" x2="17039" y2="53"  name=l_3 pen.style="0" pen.width="79" pen.color="8388608"  background.mode="2" background.color="15793151" )
+text(band=trailer.1 alignment="1" text="Totale generale:" border="0" color="8388608" x="52" y="212" height="343" width="3175"  name=t_4  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="0" text="Si considerano ~"Attivi~" i fedeli che partecipano alle attività e quelli indicati come NPA, ovvero non partecipanti alle attività da almeno 6 mesi. Dopo 3 anni vengono considerati NOP,  non attivi." border="0" color="0" x="211" y="503" height="264" width="17938"  name=t_15  font.face="Tahoma" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=summary alignment="0" text="La percentuale di riferimento (evidenziata in grassetto) è calcolata come rapporto tra il numero di fedeli attivi versanti e fedeli attivi totale." border="0" color="0" x="211" y="212" height="264" width="16748"  name=t_16  font.face="Tahoma" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="0" y1="53" x2="17012" y2="53"  name=l_5 pen.style="3" pen.width="26" pen.color="8388608"  background.mode="1" background.color="553648127" )
+text(band=summary alignment="0" text="L'importo totale generale, evidenziato in fondo, comprende anche i versamenti effettuati dai fedeli non attivi." border="0" color="0" x="211" y="794" height="264" width="16748"  name=t_17  font.face="Tahoma" font.height="-6" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="34263" y="0" height="502" width="1852"  name=n_soci  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="36115" y="0" height="502" width="185"  name=membri_gerarchica_status  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="36300" y="0" height="502" width="7963"  name=importo  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="44264" y="0" height="502" width="7963"  name=zero  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="52228" y="0" height="502" width="11086"  name=varee_area  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="63314" y="0" height="502" width="185"  name=membri_gerarchica_divisione  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="0" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,13 @@
+﻿$PBExportHeader$f_is_np.srf
+global type f_is_np from function_object
+end type
+
+forward prototypes
+global function boolean f_is_np (integer ai_ruolo)
+end prototypes
+
+global function boolean f_is_np (integer ai_ruolo);// I ruoli sono: dirseg= 1, suoerv= 2, op= 3, cons= 4
+if s_session_s.s_utente_s.i_ruolo_ga > ai_ruolo then return true // non ha i privilegi...
+return false
+end function
+

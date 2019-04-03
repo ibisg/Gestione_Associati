@@ -1,0 +1,84 @@
+﻿$PBExportHeader$dw_lettera_presentazione.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=732 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=260 color="536870912" )
+detail(height=3004 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=cognome dbname="vw_query.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=nome dbname="vw_query.nome" )
+ column=(type=char(30) updatewhereclause=yes name=responsabilita1 dbname="responsabilita1" )
+ column=(type=char(30) updatewhereclause=yes name=divisione dbname="vw_query.divisione" )
+ column=(type=datetime updatewhereclause=yes name=data_cerimonia dbname="vw_query.data_cerimonia" )
+ column=(type=char(60) updatewhereclause=yes name=luogo_cerimonia dbname="vw_query.luogo_cerimonia" )
+ column=(type=datetime updatewhereclause=yes name=data_nascita dbname="vw_query.data_nascita" )
+ column=(type=char(60) updatewhereclause=yes name=indirizzo dbname="vw_query.indirizzo" )
+ column=(type=char(5) updatewhereclause=yes name=cap dbname="vw_query.cap" )
+ column=(type=char(42) updatewhereclause=yes name=comune dbname="vw_query.comune" )
+ column=(type=char(2) updatewhereclause=yes name=provincia dbname="vw_query.provincia" )
+ column=(type=char(20) updatewhereclause=yes name=livello_studio dbname="vw_query.livello_studio" values="1° Livello // First level	PRIMO/2° Livello // Second level	SECONDO/3° Livello // Third level	TERZO/4° Livello // Fourth level	QUARTO/5° Livello // Fifth level	QUINTO/" )
+ column=(type=char(1) updatewhereclause=yes name=cdestinatario dbname="compute_0013" )
+ column=(type=char(1) updatewhereclause=yes name=motivo dbname="compute_0014" values="BUSINESS	B/TOURISM 	T/STUDY	S/NEW PERMANENT RESIDENCE	N/OTHER	O/" )
+ column=(type=char(1) updatewhereclause=yes name=cdal dbname="compute_0015" )
+ column=(type=char(1) updatewhereclause=yes name=cal dbname="compute_0016" )
+ column=(type=char(1) updatewhereclause=yes name=destinatario dbname="compute_0017" )
+ column=(type=char(1) updatewhereclause=yes name=sigla_resp dbname="compute_0018" )
+ column=(type=char(1) updatewhereclause=yes name=destinatario dbname="compute_0019" initial="aaa" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"vw_query~" )  TABLE(NAME=~"membri_gerarchica~" ) COLUMN(NAME=~"vw_query.cognome~") COLUMN(NAME=~"vw_query.nome~") COLUMN(NAME=~"vw_query.responsabilita1~") COLUMN(NAME=~"vw_query.divisione~") COLUMN(NAME=~"vw_query.data_cerimonia~") COLUMN(NAME=~"vw_query.luogo_cerimonia~") COLUMN(NAME=~"vw_query.data_nascita~") COLUMN(NAME=~"vw_query.indirizzo~") COLUMN(NAME=~"vw_query.cap~") COLUMN(NAME=~"vw_query.comune~") COLUMN(NAME=~"vw_query.provincia~") COLUMN(NAME=~"vw_query.livello_studio~") COMPUTE(NAME=~"~~~"~~~"~") COMPUTE(NAME=~"~~~"~~~"~") COMPUTE(NAME=~"~~~"~~~"~") COMPUTE(NAME=~"~~~"~~~"~") COMPUTE(NAME=~"~~~"~~~"~") COMPUTE(NAME=~"substring(membri_gerarchica.cod_att_ist_1, 1, 1)~") COMPUTE(NAME=~"~~~"~~~"~")    JOIN (LEFT=~"vw_query.codice~"    OP =~"=~"RIGHT=~"membri_gerarchica.codice~" )WHERE(    EXP1 =~"vw_query.codice~"   OP =~"=~"    EXP2 =~":codice~" ) ) ARG(NAME = ~"codice~" TYPE = string) " arguments=(("codice", string)) )
+text(band=header alignment="0" text="ISTITUTO BUDDISTA ITALIANO SOKA GAKKAI
+Via della Marcigliana 532/9
+00139 Roma
+Tel. 06-872861, Fax 06-87286220" border="0" color="0" x="9" y="8" height="304" width="2030"  name=t_header  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=header alignment="0" expression="~"Date: ~"+string(today(), ~"dd.mm.yyyy~")"border="0" color="0" x="2363" y="428" height="64" width="919" format="[GENERAL]"  name=compute_8  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=18 alignment="0" tabsequence=32766 border="0" color="0" x="2331" y="136" height="64" width="82" format="[general]"  name=sigla_resp visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2578" y="152" height="64" width="27" format="[general]"  name=compute_0015 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2606" y="152" height="64" width="27" format="[general]"  name=compute_0016 visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Letter of introduction" border="0" color="0" x="9" y="628" height="92" width="3273"  name=t_1  font.face="Arial" font.height="-14" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=40 border="0" color="0" x="1783" y="1440" height="64" width="677" format="##.##.####"  name=cal editmask.mask="##.##.####" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=30 border="0" color="0" x="366" y="1440" height="64" width="677" format="##.##.####"  name=cdal editmask.autoskip=yes editmask.mask="##.##.####" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Reason of visit: " border="0" color="0" x="9" y="1212" height="64" width="421"  name=t_motivo  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="Period from: " border="0" color="0" x="9" y="1440" height="64" width="338"  name=t_periodo  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="Notes:" border="0" color="0" x="9" y="1664" height="64" width="197"  name=t_3  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=20 border="0" color="0" x="448" y="1212" height="64" width="1189" format="[general]"  name=motivo ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="9" y1="452" x2="3282" y2="452"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="684" x2="3282" y2="684"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="904" x2="3282" y2="904"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="~"Address: ~"+ indirizzo + ~" - ~"+ cap + ~" ~" +  comune + ~" (~"+ provincia +~")~""border="0" color="0" x="9" y="984" height="64" width="3273" format="[GENERAL]"  name=compute_6  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="9" y1="1136" x2="3282" y2="1136"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="1360" x2="3282" y2="1360"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="1584" x2="3282" y2="1584"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=50 border="2" color="0" x="9" y="1740" height="760" width="3273" format="[general]"  name=cnote edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Name: ~"+wordcap(cognome+ ~" ~" + nome)"border="0" color="0" x="9" y="304" height="64" width="3273" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Division: ~"+ case(divisione
+when ~"UOMINI~" then ~"Uomini / Men division~"
+when ~"DONNE~" then ~"Donne / Women division~"
+when ~"GIOVANI UOMINI~" then ~"Giovani uomini / Young men division~"
+when ~"GIOVANI DONNE~" then ~"Giovani donne / Young women division~" )"border="0" color="0" x="1655" y="536" height="64" width="1627" format="[GENERAL]"  name=compute_3  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Date of birth: ~"+ string(data_nascita, ~"dd.mm.yyyy~") "border="0" color="0" x="1655" y="760" height="64" width="1627" format="[GENERAL]"  name=compute_5  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Study level: ~"+ 
+case (livello_studio 
+when ~"PRIMO~" then ~"Primo livello / First level~"
+when ~"SECONDO~" then ~"Secondo livello / Second level~"
+when~"TERZO~" then ~"Terzo livello / Third level~"
+when ~"QUARTO~" then ~"Quarto livello / Fourth level~"
+when ~"QUINTO~" then ~"Quinto livello / Fifth level~"
+)"border="0" color="0" x="1655" y="1212" height="64" width="1627" format="[GENERAL]"  name=compute_7  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="To: " border="0" color="0" x="1655" y="1440" height="64" width="110"  name=t_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+bitmap(band=detail filename="firmaSilvia.jpg" x="1947" y="2656" height="320" width="1335" border="0"  name=p_firma )
+text(band=detail alignment="2" text="The secretary's office" border="0" color="0" x="2144" y="2560" height="64" width="942"  name=t_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="~"Ceremony date and place: ~"+string( data_cerimonia , ~"dd.mm.yyyy~")+~" - ~"+ luogo_cerimonia "border="0" color="0" x="9" y="760" height="64" width="1627" format="[GENERAL]"  name=compute_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Responsibility: ~"+
+case(sigla_resp 
+when ~"1~" then ~"Block~"
+when ~"2~" then ~"District~"
+when ~"3~" then ~"Chapter~"
+when ~"4~" then ~"Headquarter~"
+when ~"5~" then ~"Zone~"
+when ~"6~" then ~"Prefecture~"
+when ~"7~" then ~"Region~"
+when ~"8~" then ~"General Director~")"border="0" color="0" x="9" y="536" height="64" width="1627" format="[GENERAL]"  name=compute_9  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="To: " border="0" color="0" x="14" y="8" height="64" width="110"  name=t_5  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=10 border="0" color="0" x="137" y="8" height="220" width="3145" format="[general]"  name=destinatario edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+button(band=footer text="Stampa"filename="PRINTER2.BMP"action="0" border="0" color="0" x="2885" y="12" height="232" width="398" vtextalign="2" htextalign="0"  name=b_stampa  font.face="Microsoft Sans Serif" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

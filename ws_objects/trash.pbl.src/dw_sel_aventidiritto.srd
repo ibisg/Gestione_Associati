@@ -1,0 +1,60 @@
+﻿$PBExportHeader$dw_sel_aventidiritto.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=vc_parent dbname="membri_gerarchica.vc_parent" )
+ column=(type=char(60) updatewhereclause=yes name=cognome dbname="membri_gerarchica.cognome" )
+ column=(type=char(30) updatewhereclause=yes name=nome dbname="membri_gerarchica.nome" )
+ column=(type=char(1) updatewhereclause=yes name=cod_div dbname="membri_gerarchica.cod_div" )
+ column=(type=datetime updatewhereclause=yes name=data_cer dbname="membri_gerarchica.data_cer" )
+ column=(type=char(6) updatewhereclause=yes name=cod_com dbname="membri_gerarchica.cod_com" )
+ column=(type=char(42) updatewhereclause=yes name=comune dbname="tab_comuni.comune" )
+ column=(type=char(2) updatewhereclause=yes name=provincia dbname="tab_comuni.provincia" )
+ column=(type=datetime updatewhereclause=yes name=data_esame dbname="curr_studio.data_esame" )
+ column=(type=char(2) updatewhereclause=yes name=cod_studio dbname="curr_studio.cod_studio" )
+ column=(type=char(3) updatewhereclause=yes name=cod_att_ist_1 dbname="cod_att_ist_1" )
+ retrieve="  SELECT membri_gerarchica.vc_parent,   
+         membri_gerarchica.cognome,   
+         membri_gerarchica.nome,   
+         membri_gerarchica.cod_div,   
+         membri_gerarchica.data_cer,   
+         membri_gerarchica.cod_com,  
+         tab_comuni.comune,   
+         tab_comuni.provincia,   
+         curr_studio.data_esame,   
+         curr_studio.cod_studio,   
+         membri_gerarchica.cod_att_ist_1
+    FROM membri_gerarchica,   
+         tab_comuni,   
+         curr_studio  
+   WHERE ( membri_gerarchica.cod_com = tab_comuni.cod_com ) and  
+         ( membri_gerarchica.codice= curr_studio.codice) and  
+         ( ( curr_studio.esito = 'P' ) AND not exists ( select 1 from curr_studio x where x.cod_studio = ~"04~" and x.codice= membri_gerarchica.codice) and
+         ( curr_studio.cod_studio = :livello ) )   " arguments=(("livello", number)) )
+text(band=header alignment="0" text="Membri Gerarchica Vc Parent" border="0" color="0" x="9" y="4" height="52" width="1015"  name=t_1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Membri Gerarchica Cognome" border="0" color="0" x="1033" y="4" height="52" width="960"  name=t_2  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Membri Gerarchica Nome" border="0" color="0" x="2002" y="4" height="52" width="951"  name=t_3  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Membri Gerarchica Cod Div" border="0" color="0" x="2962" y="4" height="52" width="219"  name=t_4  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Membri Gerarchica Data Cer" border="0" color="0" x="3191" y="4" height="52" width="274"  name=t_5  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Membri Gerarchica Cod Com" border="0" color="0" x="3474" y="4" height="52" width="183"  name=t_6  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Tab Comuni Comune" border="0" color="0" x="3666" y="4" height="52" width="1335"  name=t_7  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Tab Comuni Provincia" border="0" color="0" x="5010" y="4" height="52" width="174"  name=t_8  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Curr Studio Data Esame" border="0" color="0" x="5193" y="4" height="52" width="599"  name=t_9  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Curr Studio Cod Studio" border="0" color="0" x="5801" y="4" height="52" width="55"  name=t_10  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Cod Att Ist 1" border="0" color="0" x="5865" y="4" height="52" width="142"  name=t_11  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="0" height="76" width="1015" format="[general]"  name=vc_parent edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="1033" y="0" height="76" width="960" format="[general]"  name=cognome edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2002" y="0" height="76" width="951" format="[general]"  name=nome edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2962" y="0" height="76" width="219" format="[general]"  name=cod_div edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3191" y="0" height="76" width="274" format="[shortdate] [time]"  name=data_cer edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="3474" y="0" height="76" width="183" format="[general]"  name=cod_com edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="3666" y="0" height="76" width="1335" format="[general]"  name=comune edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="5010" y="0" height="76" width="174" format="[general]"  name=provincia edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="5193" y="0" height="76" width="599" format="[shortdate] [time]"  name=data_esame edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="5801" y="0" height="76" width="55" format="[general]"  name=cod_studio edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="5865" y="0" height="76" width="142" format="[general]"  name=cod_att_ist_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

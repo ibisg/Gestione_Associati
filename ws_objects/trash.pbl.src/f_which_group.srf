@@ -1,0 +1,80 @@
+﻿$PBExportHeader$f_which_group.srf
+global type f_which_group from function_object
+end type
+
+forward prototypes
+global function integer f_which_group (transaction sqlca_arg)
+end prototypes
+
+global function integer f_which_group (transaction sqlca_arg);
+
+//choose case s_connect_par_s.dbtype
+//		
+//	case 'SYBASE'		
+//		
+//		select distinct g.name,m.fullname
+//		into :s_sqllogin_s.sql_group, :s_sqllogin_s.sql_fullname
+//		from 	sysusers u, sysusers g, sysalternates a,
+//		master..syslogins m
+//		where (( 
+//			/*
+//			 * estrae gli utenti definiti come alias...
+//			 */
+//				a.suid= m.suid 
+//				and u.suid = a.altsuid
+//		)
+//		OR /*
+//			 * seleziona gli utenti non presenti
+//			 * nella tabella sysalternates...
+//			 */
+//		(
+//			m.suid= u.suid
+//		))	
+//		/*
+//		 * join per estrarre i gruppi...
+//		 */
+//		and u.gid = g.uid
+//		and u.uid <= 16383 and u.uid > 0 and
+//		m.name= :sqlca_arg.logid
+//		using sqlca_arg;
+//		
+//		if trap_sql(sqlca_arg, "OPEN01") < 0 then return -1
+//		
+//		/*
+//		 * Se la select non ha estratto record...
+//		 */
+//			
+//			if sqlca_arg.sqlcode= 100 then
+//				
+//				select distinct g.name,m.fullname
+//				into :s_sqllogin_s.sql_group, :s_sqllogin_s.sql_fullname
+//				from 	sysusers u, sysusers g, master..syslogins m
+//				where
+//				m.suid= u.suid
+//				/*
+//				 * join per estrarre i gruppi...
+//				 */
+//				and u.gid = g.uid
+//				and u.uid <= 16383 and u.uid > 0 and
+//				m.name= :sqlca_arg.logid
+//				using sqlca_arg;
+//				
+//				if trap_sql(sqlca_arg, "OPEN02") < 0 then return -1
+//				
+//				if sqlca_arg.sqlcode= 100 then return -1
+//				
+//			end if
+//			
+//		case 'ODBC'
+//			
+//		case 'MSS'
+			
+			select p1.name, p2.name
+			into :s_sqllogin_s.sql_group, :s_sqllogin_s.sql_fullname
+			from sys.database_principals p1, sys.database_principals p2, sys.database_role_members m
+			where p1.principal_id=m.role_principal_id and p2.principal_id=m.member_principal_id
+			and p1.type= 'R' and p1.is_fixed_role= '0';
+	
+return 0
+end function
+

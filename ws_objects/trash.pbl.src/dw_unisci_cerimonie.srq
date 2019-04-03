@@ -1,0 +1,22 @@
+﻿$PBExportHeader$dw_unisci_cerimonie.srq
+  SELECT eventi.data_evento,   
+         eventi.cod_dip,   
+         eventi_tipo.descrizione,   
+         eventi_luoghi.descrizione,   
+         eventi_sale.descrizione,   
+         eventi.descrizione_evento  
+    FROM eventi,   
+         eventi_luoghi,   
+         eventi_sale,   
+         eventi_tipo  
+   WHERE ( eventi_luoghi.cod_dip = eventi.cod_dip ) and  
+         ( eventi_luoghi.cod_luogo = eventi.cod_luogo ) and  
+         ( eventi_sale.cod_dip = eventi_luoghi.cod_dip ) and  
+         ( eventi_sale.cod_luogo = eventi_luoghi.cod_luogo ) and  
+         ( eventi_sale.cod_dip = eventi.cod_dip ) and  
+         ( eventi_sale.cod_luogo = eventi.cod_luogo ) and  
+         ( eventi_sale.cod_sala = eventi.cod_sala ) and  
+         ( eventi_tipo.tipo_evento = eventi.tipo_evento ) and  
+         ( ( eventi_tipo.tipo_evento > 5 ) AND  
+         ( eventi_tipo.tipo_evento < 8 ) )    
+

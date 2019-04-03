@@ -1,0 +1,407 @@
+﻿$PBExportHeader$m_gestione_partecipanti_sheet.srm
+forward
+global type m_gestione_partecipanti_sheet from m_gestione_archivio_sheet
+end type
+type m_-8 from menu within m_gestionearchivio
+end type
+type m_inserimentopartecipantiesterni from menu within m_gestionearchivio
+end type
+type m_- from menu within m_gestionearchivio
+end type
+type m_ricercamembri from menu within m_gestionearchivio
+end type
+type m_gestionearchivio from m_gestione_archivio_sheet`m_gestionearchivio within m_gestione_partecipanti_sheet
+m_-8 m_-8
+m_inserimentopartecipantiesterni m_inserimentopartecipantiesterni
+m_- m_-
+m_ricercamembri m_ricercamembri
+end type
+end forward
+
+global type m_gestione_partecipanti_sheet from m_gestione_archivio_sheet
+end type
+global m_gestione_partecipanti_sheet m_gestione_partecipanti_sheet
+
+on m_gestione_partecipanti_sheet.create
+m_gestione_partecipanti_sheet=this
+call super::create
+end on
+
+on m_gestione_partecipanti_sheet.destroy
+call super::destroy
+end on
+
+type m_gestionearchivio from m_gestione_archivio_sheet`m_gestionearchivio within m_gestione_partecipanti_sheet
+m_-8 m_-8
+m_inserimentopartecipantiesterni m_inserimentopartecipantiesterni
+m_- m_-
+m_ricercamembri m_ricercamembri
+end type
+
+on m_gestionearchivio.create
+call super::create
+this.m_-8=create m_-8
+this.m_inserimentopartecipantiesterni=create m_inserimentopartecipantiesterni
+this.m_-=create m_-
+this.m_ricercamembri=create m_ricercamembri
+this.Item[UpperBound(this.Item)+1]=this.m_-8
+this.Item[UpperBound(this.Item)+1]=this.m_inserimentopartecipantiesterni
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_ricercamembri
+end on
+
+on m_gestionearchivio.destroy
+call super::destroy
+destroy(this.m_-8)
+destroy(this.m_inserimentopartecipantiesterni)
+destroy(this.m_-)
+destroy(this.m_ricercamembri)
+end on
+
+type m_inserimento from m_gestione_archivio_sheet`m_inserimento within m_gestionearchivio
+end type
+
+on m_inserimento.create
+call super::create
+this.text = "Inserimento partecipanti"
+this.microhelp = "Inserimento partecipanti"
+this.toolbaritemtext = "Inserimento partecipanti"
+end on
+
+on m_inserimento.destroy
+call super::destroy
+end on
+
+event m_inserimento::clicked;call super::clicked;m_inserimentopartecipantiesterni.enabled= false
+end event
+
+type m_0 from m_gestione_archivio_sheet`m_0 within m_gestionearchivio
+end type
+
+on m_0.create
+call super::create
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_ricerca from m_gestione_archivio_sheet`m_ricerca within m_gestionearchivio
+end type
+
+on m_ricerca.create
+call super::create
+this.text = "Ricerca tra i partecipanti"
+this.shortcut = 0
+this.microhelp = "Ricerca tra i partecipanti"
+this.toolbaritemtext = "Ricerca tra i partecipanti"
+end on
+
+on m_ricerca.destroy
+call super::destroy
+end on
+
+event m_ricerca::clicked;call super::clicked;m_inserimentopartecipantiesterni.enabled= false
+end event
+
+type m_cancella from m_gestione_archivio_sheet`m_cancella within m_gestionearchivio
+end type
+
+on m_cancella.create
+call super::create
+end on
+
+on m_cancella.destroy
+call super::destroy
+end on
+
+type m_-1 from m_gestione_archivio_sheet`m_-1 within m_gestionearchivio
+end type
+
+on m_-1.create
+call super::create
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_salva from m_gestione_archivio_sheet`m_salva within m_gestionearchivio
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+event m_salva::clicked;call super::clicked;m_ricercamembri.enabled= false
+m_inserimento.enabled= false
+end event
+
+type m_-2 from m_gestione_archivio_sheet`m_-2 within m_gestionearchivio
+end type
+
+on m_-2.create
+call super::create
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_anteprima from m_gestione_archivio_sheet`m_anteprima within m_gestionearchivio
+end type
+
+on m_anteprima.create
+call super::create
+this.visible = false
+end on
+
+on m_anteprima.destroy
+call super::destroy
+end on
+
+type m_stampa from m_gestione_archivio_sheet`m_stampa within m_gestionearchivio
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_-3 from m_gestione_archivio_sheet`m_-3 within m_gestionearchivio
+end type
+
+on m_-3.create
+call super::create
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_annulla from m_gestione_archivio_sheet`m_annulla within m_gestionearchivio
+end type
+
+on m_annulla.create
+call super::create
+end on
+
+on m_annulla.destroy
+call super::destroy
+end on
+
+type m_-4 from m_gestione_archivio_sheet`m_-4 within m_gestionearchivio
+end type
+
+on m_-4.create
+call super::create
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_ordina from m_gestione_archivio_sheet`m_ordina within m_gestionearchivio
+end type
+
+on m_ordina.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_-5 from m_gestione_archivio_sheet`m_-5 within m_gestionearchivio
+end type
+
+on m_-5.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+end on
+
+on m_-5.destroy
+call super::destroy
+end on
+
+type m_undo from m_gestione_archivio_sheet`m_undo within m_gestionearchivio
+end type
+
+on m_undo.create
+call super::create
+end on
+
+on m_undo.destroy
+call super::destroy
+end on
+
+type m_-6 from m_gestione_archivio_sheet`m_-6 within m_gestionearchivio
+end type
+
+on m_-6.create
+call super::create
+end on
+
+on m_-6.destroy
+call super::destroy
+end on
+
+type m_reset from m_gestione_archivio_sheet`m_reset within m_gestionearchivio
+end type
+
+on m_reset.create
+call super::create
+end on
+
+on m_reset.destroy
+call super::destroy
+end on
+
+event m_reset::clicked;call super::clicked;m_ricercamembri.enabled= false
+m_inserimentopartecipantiesterni.enabled= true
+end event
+
+type m_-7 from m_gestione_archivio_sheet`m_-7 within m_gestionearchivio
+end type
+
+on m_-7.create
+call super::create
+end on
+
+on m_-7.destroy
+call super::destroy
+end on
+
+type m_chiudi from m_gestione_archivio_sheet`m_chiudi within m_gestionearchivio
+end type
+
+on m_chiudi.create
+call super::create
+end on
+
+on m_chiudi.destroy
+call super::destroy
+end on
+
+type m_-100 from m_gestione_archivio_sheet`m_-100 within m_gestionearchivio
+end type
+
+on m_-100.create
+call super::create
+end on
+
+on m_-100.destroy
+call super::destroy
+end on
+
+type m_salvacome from m_gestione_archivio_sheet`m_salvacome within m_gestionearchivio
+end type
+
+on m_salvacome.create
+call super::create
+this.visible = false
+this.toolbaritemvisible = false
+this.toolbaritemtext = "Salva come"
+end on
+
+on m_salvacome.destroy
+call super::destroy
+end on
+
+type m_-8 from menu within m_gestionearchivio
+end type
+
+on m_-8.create
+call super::create
+this.visible = false
+this.text = "-"
+this.toolbaritemvisible = false
+end on
+
+on m_-8.destroy
+call super::destroy
+end on
+
+type m_inserimentopartecipantiesterni from menu within m_gestionearchivio
+end type
+
+event m_inserimentopartecipantiesterni::clicked;call super::clicked;if w_gestione_partecipanti_sheet.event ue_insert_esterni() < 0 then
+	messageBox("Inserimento", "Errore in inserimento riga.", exclamation!)
+else
+	this.enabled= false
+	m_salva.enabled= false
+	m_reset.enabled= true
+	m_inserimento.enabled= false
+	m_ricerca.enabled= false
+end if
+end event
+
+on m_inserimentopartecipantiesterni.create
+call super::create
+this.text = "Inserimento partecipanti esterni"
+this.microhelp = "Inserimento partecipanti esterni"
+this.toolbaritemname = "Custom076!"
+this.toolbaritemtext = "Inserimento partecipanti esterni"
+end on
+
+on m_inserimentopartecipantiesterni.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_gestionearchivio
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_ricercamembri from menu within m_gestionearchivio
+end type
+
+event clicked;integer li_ret
+//if w_gestione_partecipanti_sheet.dw_current.modifiedCount() > 0 or w_gestione_partecipanti_sheet.dw_current.deletedCount() > 0 then
+//				m_inserimento.event clicked()
+//end if
+
+li_ret= w_gestione_partecipanti_sheet.event ue_ricerca_membri()
+
+if li_ret < 0 then
+	messageBox("Ricerca membri", "Errore in ricerca.", exclamation!)
+else
+	this.enabled= false
+	m_salva.enabled= false
+	m_reset.enabled= true
+	m_inserimento.enabled= false
+	m_ricerca.enabled= false
+end if
+end event
+
+on m_ricercamembri.create
+call super::create
+this.text = "Ricerca membri~tAlt+Q"
+this.enabled = false
+this.shortcut = 593
+this.microhelp = "Ricerca membri"
+this.toolbaritemname = "Custom062!"
+this.toolbaritemtext = "Ricerca membri"
+end on
+
+on m_ricercamembri.destroy
+call super::destroy
+end on
+

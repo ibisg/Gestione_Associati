@@ -1,0 +1,69 @@
+﻿$PBExportHeader$f_creaqueryofferte_new.srf
+global type f_creaqueryofferte_new from function_object
+end type
+
+forward prototypes
+global function string f_creaqueryofferte_new (long al_livello, long al_nodo)
+end prototypes
+
+global function string f_creaqueryofferte_new (long al_livello, long al_nodo);integer li_idx
+string ls_query
+
+ls_query= &
+			'select livelli_struttura.descrizione, membri_gerarchica.flag_dis status,'+&   
+        		'sum ( offerte_gerarchica.importo ) importo,'+&  
+			'offerte_gerarchica.importo*0 zero,'+&
+        		'count ( distinct membri_gerarchica.codice ) n_soci,' 
+
+				  
+
+			for li_idx= al_livello to MAX_LIVELLO
+				
+				ls_query+= 	' struttura'+string(al_livello)+'.descrizione descrizione_struttura+string(al_livello),'
+				
+			next
+
+
+
+ls_query= 	&
+				' membri_gerarchica.cod_div divisione'+&
+				' from membri_gerarchica, '+&
+				' offerte_gerarchica, '+&
+				' livelli_struttura, '
+									
+			for li_idx= al_livello to MAX_LIVELLO
+				
+				if li_idx= al_livello then
+					ls_query+= 'struttura struttura'+string(li_idx)
+				else
+					ls_query+= ',struttura struttura'+string(li_idx)
+				end if			
+			next
+			
+ls_query+= ' where livelli_struttura.livello='+string(al_livello)+' and'+&
+				' membri_gerarchica.codice *= offerte_gerarchica.codice and'+&
+				' datepart ( year, offerte_gerarchica.data ) = 2002 and'+&
+				" membri_gerarchica.flag_er = 'S' and"
+				
+ls_query+=	' membri_gerarchica.livello = struttura'+string(MAX_LIVELLO)+'.livello and'+&  
+        			' membri_gerarchica.id_nodo = struttura'+string(MAX_LIVELLO)+'.id_nodo and'
+					  
+			for li_idx= al_livello to MAX_LIVELLO
+				ls_query+= ' struttura'+string(li_idx)+'.livello='+string(li_idx)+' and'
+			next
+			
+			for li_idx= al_livello to MAX_LIVELLO - 1
+				ls_query+= ' struttura'+string(li_idx)+'.id_nodo= struttura'+string(li_idx+1)+'.id_parent and'
+			next
+ls_query+=  ' struttura'+string(al_livello)+'.id_nodo='+string(al_nodo)
+
+ls_query+=	' group by livelli_struttura.descrizione,'+&
+	               ' membri_gerarchica.flag_dis,'+& 
+				' struttura'+string(al_livello)+'.descrizione,'+&
+         			' membri_gerarchica.cod_div,'+&
+				' offerte_gerarchica.importo*0'
+
+				
+				return ls_query
+end function
+

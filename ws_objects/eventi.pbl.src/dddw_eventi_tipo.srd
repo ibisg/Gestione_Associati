@@ -1,0 +1,13 @@
+﻿$PBExportHeader$dddw_eventi_tipo.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912~tf_righealternate(getRow())" )
+table(column=(type=long updatewhereclause=yes name=tipo_evento dbname="eventi_tipo.tipo_evento" )
+ column=(type=char(60) updatewhereclause=yes name=tipo_descrizione dbname="eventi_tipo.descrizione" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"eventi_tipo~" ) COLUMN(NAME=~"eventi_tipo.tipo_evento~") COLUMN(NAME=~"eventi_tipo.descrizione~")) "  sort="tipo_evento A " )
+text(band=header alignment="0" text="Eventi Tipo Descrizione" border="0" color="0" x="9" y="4" height="76" width="846"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="846" format="[general]"  name=tipo_descrizione edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

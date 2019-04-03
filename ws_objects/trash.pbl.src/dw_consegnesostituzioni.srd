@@ -1,0 +1,42 @@
+﻿$PBExportHeader$dw_consegnesostituzioni.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=120 color="16777215" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=96 color="536870912~tf_righealternate(getRow() )" )
+table(column=(type=decimal(0) updatewhereclause=yes identity=yes name=id dbname="eventi.id" )
+ column=(type=datetime updatewhereclause=yes name=data_evento dbname="eventi.data_evento" )
+ column=(type=char(10) updatewhereclause=yes name=cod_luogo dbname="eventi.cod_luogo" )
+ column=(type=char(60) updatewhereclause=yes name=descrizione_evento dbname="eventi.descrizione_evento" )
+ column=(type=char(10) updatewhereclause=yes name=turno dbname="eventi.turno" )
+ column=(type=long updatewhereclause=yes name=tipo_evento dbname="eventi.tipo_evento" )
+ column=(type=long updatewhereclause=yes name=cpartecipanti dbname="compute_0007" )
+ retrieve="SELECT  eventi.id ,
+           eventi.data_evento ,
+           eventi.cod_luogo ,
+           eventi.descrizione_evento ,
+           eventi.turno ,
+           eventi.tipo_evento ,
+           count(distinct codice)    
+        FROM sostituzioni ,
+           eventi     
+        WHERE ( eventi.id *= sostituzioni.id) and          ( ( eventi.tipo_evento = :tipo_evento ) and          ( eventi.stato < 2 ) ) 
+        GROUP BY eventi.id ,
+           eventi.data_evento ,
+           eventi.cod_luogo ,
+           eventi.descrizione_evento ,
+           eventi.turno ,
+           eventi.tipo_evento   " arguments=(("tipo_evento", number)) )
+text(band=header alignment="1" text="Partecipanti inseriti" border="0" color="0" x="1824" y="4" height="112" width="334"  name=t_7  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="88" width="334" format="dd.mm.yy"  name=data_evento editmask.mask="dd.mm.yy" editmask.focusrectangle=no  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="352" y="4" height="88" width="165" format="[general]"  name=turno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="526" y="4" height="88" width="1289" format="[general]"  name=descrizione_evento edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1824" y="4" height="88" width="334" format="[general]"  name=cpartecipanti edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(  cpartecipanti  for all )"border="0" color="0" x="1824" y="4" height="88" width="334" format="[GENERAL]"  name=compute_2  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=foreground alignment="0" text="Totale: " border="0" color="0" x="1641" y="340" height="52" width="165"  name=t_6  resizeable=1  moveable=1  font.face="Tahoma" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Turno" border="0" color="0" x="352" y="64" height="52" width="165"  name=t_2  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Data evento" border="0" color="0" x="9" y="64" height="52" width="334"  name=t_4  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Descrizione" border="0" color="0" x="526" y="64" height="52" width="1289"  name=t_5  font.face="Tahoma" font.height="-8" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

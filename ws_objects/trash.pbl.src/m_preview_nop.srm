@@ -1,0 +1,736 @@
+﻿$PBExportHeader$m_preview_nop.srm
+forward
+global type m_preview_nop from m_preview
+end type
+type m_1 from menu within m_preview_nop
+end type
+type m_reinserisciinanagrafica from menu within m_preview_nop
+end type
+type m_2 from menu within m_preview_nop
+end type
+type m_inserisciindimissionari from menu within m_preview_nop
+end type
+type m_0 from menu within m_preview_nop
+end type
+type m_visualizzaschedaanagrafica from menu within m_preview_nop
+end type
+type m_visualizzastoricogohonzon from menu within m_preview_nop
+end type
+global type m_preview_nop from m_preview
+m_1 m_1
+m_reinserisciinanagrafica m_reinserisciinanagrafica
+m_2 m_2
+m_inserisciindimissionari m_inserisciindimissionari
+m_0 m_0
+m_visualizzaschedaanagrafica m_visualizzaschedaanagrafica
+m_visualizzastoricogohonzon m_visualizzastoricogohonzon
+end type
+end forward
+
+global type m_preview_nop from m_preview
+m_1 m_1
+m_reinserisciinanagrafica m_reinserisciinanagrafica
+m_2 m_2
+m_inserisciindimissionari m_inserisciindimissionari
+m_0 m_0
+m_visualizzaschedaanagrafica m_visualizzaschedaanagrafica
+m_visualizzastoricogohonzon m_visualizzastoricogohonzon
+end type
+global m_preview_nop m_preview_nop
+
+on m_preview_nop.create
+m_preview_nop=this
+call super::create
+this.text = "m_preview_dimissionari"
+this.m_1=create m_1
+this.m_reinserisciinanagrafica=create m_reinserisciinanagrafica
+this.m_2=create m_2
+this.m_inserisciindimissionari=create m_inserisciindimissionari
+this.m_0=create m_0
+this.m_visualizzaschedaanagrafica=create m_visualizzaschedaanagrafica
+this.m_visualizzastoricogohonzon=create m_visualizzastoricogohonzon
+this.Item[UpperBound(this.Item)+1]=this.m_1
+this.Item[UpperBound(this.Item)+1]=this.m_reinserisciinanagrafica
+this.Item[UpperBound(this.Item)+1]=this.m_2
+this.Item[UpperBound(this.Item)+1]=this.m_inserisciindimissionari
+this.Item[UpperBound(this.Item)+1]=this.m_0
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzaschedaanagrafica
+this.Item[UpperBound(this.Item)+1]=this.m_visualizzastoricogohonzon
+end on
+
+on m_preview_nop.destroy
+call super::destroy
+destroy(this.m_1)
+destroy(this.m_reinserisciinanagrafica)
+destroy(this.m_2)
+destroy(this.m_inserisciindimissionari)
+destroy(this.m_0)
+destroy(this.m_visualizzaschedaanagrafica)
+destroy(this.m_visualizzastoricogohonzon)
+end on
+
+type m_aggiungi from m_preview`m_aggiungi within m_preview_nop
+end type
+
+on m_aggiungi.create
+call super::create
+end on
+
+on m_aggiungi.destroy
+call super::destroy
+end on
+
+type m_inserisci from m_preview`m_inserisci within m_preview_nop
+end type
+
+on m_inserisci.create
+call super::create
+end on
+
+on m_inserisci.destroy
+call super::destroy
+end on
+
+type m_rimuovi from m_preview`m_rimuovi within m_preview_nop
+end type
+
+on m_rimuovi.create
+call super::create
+end on
+
+on m_rimuovi.destroy
+call super::destroy
+end on
+
+type m_salva from m_preview`m_salva within m_preview_nop
+end type
+
+on m_salva.create
+call super::create
+end on
+
+on m_salva.destroy
+call super::destroy
+end on
+
+type m_stampa from m_preview`m_stampa within m_preview_nop
+end type
+
+on m_stampa.create
+call super::create
+end on
+
+on m_stampa.destroy
+call super::destroy
+end on
+
+type m_ordina from m_preview`m_ordina within m_preview_nop
+end type
+
+on m_ordina.create
+call super::create
+end on
+
+on m_ordina.destroy
+call super::destroy
+end on
+
+type m_layoutdistampa from m_preview`m_layoutdistampa within m_preview_nop
+end type
+
+on m_layoutdistampa.create
+call super::create
+end on
+
+on m_layoutdistampa.destroy
+call super::destroy
+end on
+
+type m_impostapagina from m_preview`m_impostapagina within m_preview_nop
+end type
+
+on m_impostapagina.create
+call super::create
+end on
+
+on m_impostapagina.destroy
+call super::destroy
+end on
+
+type m_esporta from m_preview`m_esporta within m_preview_nop
+end type
+
+on m_esporta.create
+call super::create
+end on
+
+on m_esporta.destroy
+call super::destroy
+end on
+
+type m_zoom from m_preview`m_zoom within m_preview_nop
+end type
+
+on m_zoom.create
+call super::create
+end on
+
+on m_zoom.destroy
+call super::destroy
+end on
+
+type m_500% from m_preview`m_500% within m_zoom
+end type
+
+on m_500%.create
+call super::create
+end on
+
+on m_500%.destroy
+call super::destroy
+end on
+
+type m_200% from m_preview`m_200% within m_zoom
+end type
+
+on m_200%.create
+call super::create
+end on
+
+on m_200%.destroy
+call super::destroy
+end on
+
+type m_100% from m_preview`m_100% within m_zoom
+end type
+
+on m_100%.create
+call super::create
+end on
+
+on m_100%.destroy
+call super::destroy
+end on
+
+type m_75% from m_preview`m_75% within m_zoom
+end type
+
+on m_75%.create
+call super::create
+end on
+
+on m_75%.destroy
+call super::destroy
+end on
+
+type m_50% from m_preview`m_50% within m_zoom
+end type
+
+on m_50%.create
+call super::create
+end on
+
+on m_50%.destroy
+call super::destroy
+end on
+
+type m_25% from m_preview`m_25% within m_zoom
+end type
+
+on m_25%.create
+call super::create
+end on
+
+on m_25%.destroy
+call super::destroy
+end on
+
+type m_1 from menu within m_preview_nop
+end type
+
+on m_1.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_reinserisciinanagrafica from menu within m_preview_nop
+end type
+
+event clicked;integer li_count, li_ret
+string ls_codice, ls_id, ls_message
+s_session ls_session_s
+s_struttura s_struttura_s
+
+s_struttura_s.vc_nodo= w_gestione_nop.uodw_current.getItemString(w_gestione_nop.uodw_current.getRow(), "vc_parent")
+
+select count(*)
+into :li_count
+from struttura
+where
+vc_nodo= :s_struttura_s.vc_nodo;
+
+if trap_sql(sqlca, "VCNODO01") < 0 then return
+
+if li_count= 0 or isNull(li_count) then
+	
+	// non esiste il gruppo...
+	
+	messageBox( w_gestione_nop.title, s_struttura_s.vc_nodo+" è inesistente, deve essere ridefinita la struttura di appartenenza.", information!)
+
+	w_gestione_nop.is_assegnastruttura_s.as_struttura_s.livello= gi_maxlivello // is_assegnastruttura_s.ai_maxlivello
+	w_gestione_nop.is_assegnastruttura_s.ab_abilitaincolla= false
+	w_gestione_nop.is_assegnastruttura_s.ai_maxlivello= gi_maxlivello // is_assegnastruttura_s.ai_maxlivello
+	w_gestione_nop.is_assegnastruttura_s.ai_ultimolivelloparent= gi_maxlivello // is_assegnastruttura_s.ai_ultimolivelloparent
+	w_gestione_nop.is_assegnastruttura_s.as_ambito= gs_ambito // is_assegnastruttura_s.as_ambito
+
+	w_gestione_nop.is_assegnastruttura_s.ab_abilitaincolla= false
+	
+	s_struttura_s= w_gestione_nop.uodw_current.uof_struttura(w_gestione_nop.is_assegnastruttura_s)
+	
+	if s_struttura_s.livello= -1 then return
+	
+	// w_gestione_nop.uodw_current.setItem(w_gestione_dimissionari.uodw_current.getRow(), "vc_parent", s_struttura_s.vc_nodo) 
+	
+	//if w_gestione_nop.uodw_current.uof_aggiorna() < 0 then goto errore
+	
+end if
+
+	ls_id= w_gestione_nop.uodw_current.getItemString(w_gestione_nop.uodw_current.getRow(), "nome")+" " +w_gestione_nop.uodw_current.getItemString(w_gestione_nop.uodw_current.getRow(), "cognome")
+
+	if messageBox( w_gestione_nop.title, "I dati di "+ls_id+" verranno reinseriti nell'archivio degli associati.~nVuoi proseguire?", question!, yesNo!, 2)= 2 then return
+	
+	ls_codice= w_gestione_nop.uodw_current.getItemString(w_gestione_nop.uodw_current.getRow(), "codice")
+	
+	insert into membri_gerarchica
+	 SELECT membri_dim.codice,   
+         membri_dim.codice_fam,   
+         membri_dim.cognome,   
+         membri_dim.nome,   
+         membri_dim.citta_nas,   
+         membri_dim.prov_nas,   
+         membri_dim.data_nas,   
+         membri_dim.cod_nazione,   
+         membri_dim.cod_cittadinanza,   
+         membri_dim.cod_div,   
+         membri_dim.ind_dom,   
+         membri_dim.cap_dom,   
+         membri_dim.cod_com,   
+         membri_dim.cod_prof,   
+         membri_dim.pres_da,   
+         membri_dim.data_cer,   
+         membri_dim.luogo_cer,   
+         membri_dim.cod_att_ist_1,   
+         membri_dim.cod_att_ist_2,   
+         membri_dim.codice_staff,   
+         membri_dim.cod_studio,   
+         membri_dim.flag_goh,   
+         membri_dim.flag_tok,   
+         membri_dim.flag_oma,   
+         membri_dim.flag_er,   
+         membri_dim.flag_dis,   
+         'MEM',   
+         membri_dim.u_insert,   
+         membri_dim.d_insert,   
+         membri_dim.u_ult_mod,   
+         membri_dim.d_ult_mod,   
+         membri_dim.dt_attnrc,   
+         membri_dim.dt_tai,   
+         membri_dim.dt_dectfedim,   
+         :s_struttura_s.vc_nodo,   
+         membri_dim.vc_gruppoentrata,   			
+         membri_dim.flag_ldr,   
+         membri_dim.flag_npa,
+         0,
+         0,
+         0,
+         0,
+	    '0',
+	    '0',
+	    '00',
+	    '00',
+		0,
+		'0',
+		membri_dim.codice_fiscale
+	from membri_dim where codice= :ls_codice;		
+	
+	if trap_sql(sqlca, "REINSNOP01.1") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into esami_curr
+	SELECT
+			codice,   
+			cod_studio,   
+			data_esame,   
+			esito,   
+			voto,   
+			soglia,   
+			note,
+			id_esami_sessioni
+	FROM esami_curr_dim
+	where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.2") < 0 then 
+		li_ret= 1
+		goto errore 
+
+	end if
+	
+	insert into gohonzon_storico
+	select
+		codice,   
+		tipo_goh,   
+		data,   
+		luogo,   
+		cod_causale,   
+		note  
+	from gohonzon_storico_dim
+	where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.3") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into riferimenti
+	select
+		codice,
+		cod_rif,
+		riferimento_descr,
+		predefinito,
+		note,
+		flag_riservato
+	from riferimenti_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.4") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into storico_resp
+	select * from storico_resp_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.5") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into offerte
+	select * from offerte_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.6") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	insert into zaimu
+	select * from zaimu_dim where codice= :ls_codice;
+	
+	if trap_sql(sqlca, "INSNOP01.7") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	ls_message= "Revocato lo stato  NOP a: "+ls_codice+" - "+ls_id
+	ls_session_s.context= "Anagrafica - Status"
+	ls_session_s.causale= "STATUS"
+	ls_session_s.status_src= 'NOP'
+	ls_session_s.status_tgt= 'MEM'
+	ls_session_s.codice= ls_codice
+	
+	f_log(ls_session_s, ls_message, false)
+	
+	//w_gestione_nop.uodw_current.deleteRow(0)
+	
+	delete from membri_dim where codice=  :ls_codice;
+	
+	if trap_sql(sqlca, "DELNOP01") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	//if w_gestione_nop.uodw_current.uof_aggiorna() < 0 then goto errore
+	
+	commit;
+	
+	if trap_sql(sqlca, "INSNOP0187") < 0 then
+		li_ret= 1
+		goto errore
+	end if
+	
+	 w_gestione_nop.uodw_current.retrieve()
+	
+	return
+	
+	errore:
+	
+	if sqlca.sqlcode < 0 then
+		
+		rollback;
+		trap_sql(sqlca, "DELNOP03")
+		
+		return
+		
+	end if		
+
+
+
+end event
+
+on m_reinserisciinanagrafica.create
+call super::create
+this.text = "Reinserisci in anagrafica"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_reinserisciinanagrafica.destroy
+call super::destroy
+end on
+
+type m_2 from menu within m_preview_nop
+end type
+
+on m_2.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+type m_inserisciindimissionari from menu within m_preview_nop
+end type
+
+event clicked;integer li_ret
+string ls_codice
+
+li_ret= messageBox(parent.parentWindow.title, "Verrà modificato lo status da 'Non praticante (NOP) a 'Dimissionario' (DIM)~nVuoi proseguire?", exclamation!, yesno!, 2)
+
+if li_ret= 2 then return 
+
+ls_codice= w_gestione_nop.uodw_current.getItemString(w_gestione_nop.uodw_current.getRow(), "codice")
+	
+update membri_dim
+set cod_dis= "DIM"
+where codice= :ls_codice;
+
+if trap_sql(sqlca, "MODSTATUS01") = -1 then return
+
+commit;
+
+if trap_sql(sqlca, "MODSTATUS02") < 0 then
+	li_ret= 1
+	goto errore
+end if
+
+ w_gestione_nop.uodw_current.retrieve()
+
+return
+
+errore:
+
+if sqlca.sqlcode < 0 then
+	
+	rollback;
+	trap_sql(sqlca, "MODSTATUS03")
+	
+	return
+	
+end if		
+
+
+end event
+
+on m_inserisciindimissionari.create
+call super::create
+this.text = "Sposta nell~'archivio dimissionari"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inserisciindimissionari.destroy
+call super::destroy
+end on
+
+type m_0 from menu within m_preview_nop
+end type
+
+on m_0.create
+call super::create
+this.text = "-"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_0.destroy
+call super::destroy
+end on
+
+type m_visualizzaschedaanagrafica from menu within m_preview_nop
+end type
+
+on m_visualizzaschedaanagrafica.create
+call super::create
+this.text = "Visualizza scheda anagrafica"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzaschedaanagrafica.destroy
+call super::destroy
+end on
+
+event clicked;s_preview s_preview_s
+
+setpointer(hourGlass!)
+
+s_preview_s.criterio= w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_preview_s.dataObject= "dw_scheda_anagrafica_dim"
+s_preview_s.doretrieve= true
+s_preview_s.ib_anteprima= true
+
+openWithParm(w_preview, s_preview_s)		
+end event
+
+type m_visualizzastoricogohonzon from menu within m_preview_nop
+end type
+
+event clicked;s_preview s_preview_s
+
+s_riferimenti s_riferimenti_s
+
+s_riferimenti_s.codice=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "codice")
+s_riferimenti_s.status=  w_gestione_dimissionari.uodw_current.getItemString(w_gestione_dimissionari.uodw_current.getRow(), "cod_dis")
+
+setpointer(hourGlass!)
+
+openWithParm(w_storico_gohonzon, s_riferimenti_s)
+end event
+
+on m_visualizzastoricogohonzon.create
+call super::create
+this.text = "Visualizza storico Gohonzon"
+this.menustyle = contemporarymenu!
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbarstyle = contemporarytoolbar!
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_visualizzastoricogohonzon.destroy
+call super::destroy
+end on
+

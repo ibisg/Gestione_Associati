@@ -1,0 +1,46 @@
+﻿$PBExportHeader$dw_conteggio_per_sedi.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=12632256 processing=1 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=220 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="16777215" )
+table(column=(type=char(2) updatewhereclause=yes name=cod_area dbname="membri.cod_area" )
+ column=(type=char(30) updatewhereclause=yes name=aree_descrizione dbname="aree.descrizione" )
+ column=(type=char(60) updatewhereclause=yes name=sede dbname="esami.sede" )
+ column=(type=char(2) updatewhereclause=yes name=membri_cod_studio dbname="membri.cod_studio" values="Nessun esame	00/1° Livello	01/2° Livello	02/3° Livello	03/4° Livello	04/5° Livello	05/" )
+ column=(type=datetime updatewhereclause=yes name=data_esame dbname="esami.data_esame" )
+ column=(type=long updatewhereclause=yes name=conteggio dbname="compute_0006" )
+ retrieve="select  m.cod_area, a.descrizione,  s.sede, m.cod_studio, s.data_esame, count(*)
+from membri m, esami s, aree a
+where (a.cod_area= m.cod_area) and
+		 (m.codice_membro = s.codice_membro) and
+			(m.cod_dip = s.cod_dip)  and (esito= 'A' or esito= null)
+group by m.cod_area, a.descrizione,  s.sede, m.cod_studio, s.data_esame
+"  sort="membri_cod_studio A cod_area A aree_descrizione A sede A " )
+group(level=1 header.height=0 trailer.height=92 by=("membri_cod_studio" ) newpage=yes header.color="536870912" trailer.color="15780518" )
+group(level=2 header.height=0 trailer.height=100 by=("membri_cod_studio" , "cod_area" ) header.color="536870912" trailer.color="12632256" )
+text(band=header alignment="0" text="Cod. Area" border="0" color="8388608" x="9" y="144" height="64" width="334"  name=t_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Descrizione" border="0" color="8388608" x="352" y="144" height="64" width="1024"  name=t_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Sede" border="0" color="8388608" x="1385" y="144" height="64" width="1609"  name=t_3  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Livello attuale" border="0" color="8388608" x="3003" y="144" height="64" width="507"  name=t_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Data Esame" border="0" color="8388608" x="3520" y="144" height="64" width="503"  name=t_5  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Conteggio" border="0" color="8388608" x="4032" y="144" height="64" width="622"  name=t_6  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="8388608" x="9" y="4" height="84" width="334" format="[general]"  name=cod_area edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="8388608" x="352" y="4" height="84" width="1024" format="[general]"  name=aree_descrizione edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="8388608" x="1385" y="4" height="84" width="1609" format="[general]"  name=sede edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="8388608" x="3003" y="4" height="84" width="507" format="[general]"  name=membri_cod_studio ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="8388608" x="3520" y="4" height="84" width="503" format="dd.mm.yyyy"  name=data_esame edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="8388608" x="4032" y="4" height="84" width="622" format="[general]"  name=conteggio edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.2 alignment="1" expression="~"Totale ~"+ cod_area +~": ~"+string(sum(  conteggio  for group 2 ), ~"###,###,##0~")"border="0" color="8388608" x="4032" y="4" height="84" width="622" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="case(  membri_cod_studio  
+when '00' then ~"Totale Nessun esame: ~" 
+when '01' then ~"Totale 1° Livello: ~" 
+when '02' then ~"Totale 2° Livello: ~"
+when '03' then ~"Totale 3° Livello: ~"
+when '04' then ~"Totale 4° Livello: ~"
+when '05' then ~"Totale 5° Livello: ~")+string(sum(  conteggio  for group 1 ), ~"###,###,##0~")"border="0" color="8388608" x="4032" y="4" height="84" width="622" format="[GENERAL]"  name=compute_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=foreground alignment="0" text="Conteggio aventi diritto per sede" border="0" color="8388608" x="352" y="8" height="80" width="1125"  name=t_7  resizeable=1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+
+sparse(names="membri_cod_studio	cod_area	aree_descrizione	data_esame")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

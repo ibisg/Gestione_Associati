@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_bollettini.srs
+global type s_bollettini from structure
+	string		tipo_stampa
+	string		criterio
+end type
+

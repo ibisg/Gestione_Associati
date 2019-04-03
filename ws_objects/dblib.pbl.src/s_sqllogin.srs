@@ -1,0 +1,6 @@
+﻿$PBExportHeader$s_sqllogin.srs
+global type s_sqllogin from structure
+	string		sql_group
+	string		sql_fullname
+end type
+
