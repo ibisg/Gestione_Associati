@@ -113,7 +113,7 @@ string facename = "Tahoma"
 long textcolor = 65535
 long backcolor = 0
 boolean enabled = false
-string text = "Gestione associati 2.1.1 - 02.03.2019"
+string text = "Gestione associati 2.1.1 - 03.03.2019"
 alignment alignment = center!
 boolean focusrectangle = false
 end type
