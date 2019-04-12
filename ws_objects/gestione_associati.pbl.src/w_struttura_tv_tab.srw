@@ -2968,8 +2968,6 @@ choose case newindex
 		idw_dettaglio.setTransObject(sqlca)
 		
 		s_session_s.context= "Anagrafica - Esami"
-		
-		idw_dettaglio.ib_readonly= NOT f_has_p('O')
 
 	case 8 // Storico Gohonzon
 		
@@ -2979,8 +2977,6 @@ choose case newindex
 		
 		s_session_s.context= "Anagrafica - Gohonzon"
 		
-		//idw_dettaglio.ib_readonly= NOT f_has_p('O')
-		
 	case 9
 		
 		idw_dettaglio= tab_dettaglio.tabpage_resp.uodw_storico_resp
@@ -2989,21 +2985,17 @@ choose case newindex
 		
 		s_session_s.context= "Anagrafica - Responsabilità"
 		
-		idw_dettaglio.ib_readonly= NOT f_has_p('O')
-		
 	case 10
 		
 		idw_dettaglio= tab_dettaglio.tabpage_studenti.uodw_studenti
 		
 		idw_dettaglio.setTransObject(sqlca)				
 		
-	case 11
+	case 11 // storico variazioni...
 		
 		idw_dettaglio= tab_dettaglio.tabpage_log.uodw_vislog
 		
 		idw_dettaglio.setTransObject(sqlca)
-		
-		idw_dettaglio.ib_readonly= NOT f_has_p('O')
 		
 end choose
 
@@ -6144,6 +6136,8 @@ integer width = 2793
 integer height = 1484
 integer taborder = 50
 string dataobject = "ds_curr_studio"
+boolean ib_isgrid = true
+boolean ib_readonly = true
 boolean ib_allowrowselection = true
 boolean ib_stampatoda = true
 integer ii_userlevel = 0
@@ -6384,6 +6378,15 @@ for idx= 1 to rowCount()
 		end if
 
 next
+end event
+
+event doubleclicked;call super::doubleclicked;string ls_note
+
+openWithParm(w_note, this.getItemString(this.getRow(), "note") )
+
+ls_note= message.stringParm
+
+this.setItem(this.getRow(), "note", ls_note)
 end event
 
 type tabpage_goh from userobject within tab_dettaglio
@@ -7552,6 +7555,7 @@ integer width = 3625
 integer taborder = 70
 string dataobject = "dw_storico_resp"
 boolean ib_isgrid = true
+boolean ib_readonly = true
 boolean ib_allowrowselection = true
 boolean ib_stampatoda = true
 integer ii_userlevel = 0
@@ -7654,6 +7658,15 @@ choose case dwo.name
 end choose
 
 
+end event
+
+event doubleclicked;call super::doubleclicked;string ls_note
+
+openWithParm(w_note, this.getItemString(this.getRow(), "note") )
+
+ls_note= message.stringParm
+
+this.setItem(this.getRow(), "note", ls_note)
 end event
 
 type tabpage_studenti from userobject within tab_dettaglio
@@ -7810,6 +7823,7 @@ boolean maxbox = false
 boolean hscrollbar = false
 boolean ib_allowstop = true
 boolean ib_isgrid = true
+boolean ib_readonly = true
 boolean ib_allowrowselection = true
 boolean ib_stampatoda = true
 boolean ib_p = false
@@ -7844,7 +7858,13 @@ event rbuttondown;call super::rbuttondown;im_preview.iuodw_generica= uodw_vislog
 im_preview.PopMenu ( w_struttura_tv_tab.PointerX(), w_struttura_tv_tab.PointerY() )
 end event
 
-event clicked;call super::clicked;if ib_isgrid= true and ib_allowrowselection= true then f_select_current_row(this)
+event doubleclicked;call super::doubleclicked;string ls_note
+
+openWithParm(w_note, this.getItemString(this.getRow(), "note") )
+
+ls_note= message.stringParm
+
+this.setItem(this.getRow(), "note", ls_note)
 end event
 
 type cb_ricercaanomalie from commandbutton within w_struttura_tv_tab
