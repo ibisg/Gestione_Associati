@@ -31,9 +31,8 @@ datastore ids_scadenze_interne
 dataWindowChild idwc_dipendenze, idwc_tipo_eventi, idwc_luoghi, idwc_sale
 m_preview im_preview
 m_gestione_eventi im_gestione_eventi
-boolean ib_solodaoggi= false
+boolean ib_solodaoggi= true
 end variables
-
 event type integer ue_oggi();long ll_found
 string ls_search, ls_today
 
@@ -139,7 +138,8 @@ if trap_sql(sqlca, "DELOLDEVENTS01") < 0 then return -1
 commit;
 if trap_sql(sqlca, "DELOLDEVENTS02") < 0 then return -1
 
-uodw_eventi.setFilter(" date(data_evento) >= date(today()) ")
+uodw_eventi.object.b_eventipassati.text= "Visualizza solo gli eventi di oggi e futuri"
+uodw_eventi.setFilter("")
 
 event post ue_oggi()
 end event
@@ -350,12 +350,12 @@ choose case dwo.name
 		
 		if ib_solodaoggi= true then
 			ib_solodaoggi= false
-			this.object.b_eventipassati.text= "Visualizza anche gli eventi passati ancora da chiudere"
+			this.object.b_eventipassati.text= "Visualizza tutti gli eventi"
 			uodw_eventi.setFilter(" date(data_evento) >= date(today()) ")
 			uodw_eventi.filter()			
 		else
 			ib_solodaoggi= true
-			this.object.b_eventipassati.text= "Non visualizzare gli eventi passati"
+			this.object.b_eventipassati.text= "Visualizza solo gli eventi di oggi e futuri"
 			uodw_eventi.setFilter("")
 			uodw_eventi.filter()			
 		end if

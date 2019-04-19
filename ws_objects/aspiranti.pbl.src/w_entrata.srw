@@ -932,6 +932,10 @@ if row > 0 then
 
 	CHOOSE CASE dwo.name
 			
+		case "cod_nazione"
+			
+			if data <> 'IT' then this.setItem(row, "prov_nas", "--")  
+			
 		case "codice_fiscale"
 			
 			ls_ultimocarattere= mid(data, len(data), 1)

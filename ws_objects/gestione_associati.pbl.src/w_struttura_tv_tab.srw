@@ -3891,6 +3891,8 @@ CHOOSE CASE dwo.name
 			
 			search_string=  data
 			select descrizione into :ls_new from nazioni where cod_nazione= :search_string;
+			
+			if data <> 'IT' then this.setItem(row, "prov_nas", "--")  
 
 			
 		case "cod_cittadinanza"
@@ -6137,7 +6139,6 @@ integer height = 1484
 integer taborder = 50
 string dataobject = "ds_curr_studio"
 boolean ib_isgrid = true
-boolean ib_readonly = true
 boolean ib_allowrowselection = true
 boolean ib_stampatoda = true
 integer ii_userlevel = 0
@@ -7555,7 +7556,6 @@ integer width = 3625
 integer taborder = 70
 string dataobject = "dw_storico_resp"
 boolean ib_isgrid = true
-boolean ib_readonly = true
 boolean ib_allowrowselection = true
 boolean ib_stampatoda = true
 integer ii_userlevel = 0
