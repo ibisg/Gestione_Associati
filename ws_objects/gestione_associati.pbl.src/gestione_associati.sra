@@ -441,12 +441,19 @@ else
 	m_frame_gestione_associati.m_comunicazioni.m_storicoinvii.enabled= false
 end if
 
+if f_fs_privilege()= TRUE OR (f_has_p('S') = true) then
+	m_frame_gestione_associati.m_amministrazione.m_gestionedimissionari.enabled= true
+	m_frame_gestione_associati.m_amministrazione.m_gestionemembriisg.enabled= true
+else
+	m_frame_gestione_associati.m_amministrazione.m_gestionedimissionari.enabled= false
+	m_frame_gestione_associati.m_amministrazione.m_gestionemembriisg.enabled= false
+end if
+
 
 m_frame_gestione_associati.m_amministrazione.enabled= f_has_p('O')
 m_frame_gestione_associati.m_amministrazione.m_ambitooperativo.enabled= f_has_p('D')
 m_frame_gestione_associati.m_amministrazione.m_gestionedeceduti.enabled= f_has_p('O')
 m_frame_gestione_associati.m_amministrazione.m_gestionetrasferitidefinitivamenteallestero.enabled= FALSE //f_has_p('O')
-m_frame_gestione_associati.m_amministrazione.m_gestionedimissionari.enabled= f_has_p('S')
 m_frame_gestione_associati.m_amministrazione.m_gestionemembriisg.enabled= f_has_p('S')
 m_frame_gestione_associati.m_amministrazione.m_gestionedepositogohonzon.enabled= f_has_p('S')
 m_frame_gestione_associati.m_amministrazione.m_sessioniattive.enabled= f_has_p('S')
