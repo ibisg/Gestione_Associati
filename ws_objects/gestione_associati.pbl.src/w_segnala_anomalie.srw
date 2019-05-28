@@ -274,7 +274,7 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 long textcolor = 8388608
 long backcolor = 67108864
-string text = "Responsabilità da confermare dopo un trasferimento"
+string text = "Responsabilità dopo un trasferimento: confermata o no?"
 alignment alignment = right!
 boolean focusrectangle = false
 end type

@@ -339,7 +339,7 @@ integer y = 100
 integer width = 5312
 integer height = 1424
 long backcolor = 67108864
-string text = "Trasferimenti con responsabilità da confermare"
+string text = "Trasferimenti: la responsabilità è confermata?"
 long tabtextcolor = 33554432
 long picturemaskcolor = 536870912
 uodw_3 uodw_3
